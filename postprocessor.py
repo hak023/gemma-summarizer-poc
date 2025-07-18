@@ -52,6 +52,7 @@ class ResponsePostprocessor:
         - 한 문장으로 강제 변환 (마침표, 느낌표, 물음표로 끝나도록)
         - 30자 제한 엄격 적용
         - 예시 내용 필터링
+        - 여러 문장이 있을 경우 첫 번째 문장만 사용
         """
         if not value:
             return "통화 내용 요약 없음"
@@ -88,33 +89,52 @@ class ResponsePostprocessor:
         # 공백 정리
         cleaned = re.sub(r'\s+', ' ', value.strip())
         
-        # 여러 문장이 있는 경우 첫 번째 문장만 사용
-        sentences = re.split(r'[.!?]', cleaned)
-        if sentences:
-            first_sentence = sentences[0].strip()
-            if first_sentence:
-                # 문장이 마침표로 끝나지 않으면 마침표 추가
-                if not first_sentence.endswith(('.', '!', '?')):
-                    first_sentence += '.'
+        # 여러 문장이 있는 경우 첫 번째 문장만 사용 (개선된 로직)
+        # 마침표, 느낌표, 물음표로 문장을 분리
+        sentence_endings = ['.', '!', '?']
+        
+        # 첫 번째 문장 끝 위치 찾기
+        first_sentence_end = -1
+        for ending in sentence_endings:
+            pos = cleaned.find(ending)
+            if pos != -1:
+                if first_sentence_end == -1 or pos < first_sentence_end:
+                    first_sentence_end = pos
+        
+        if first_sentence_end != -1:
+            # 첫 번째 문장만 추출 (구두점 포함)
+            first_sentence = cleaned[:first_sentence_end + 1].strip()
+        else:
+            # 문장 끝 구두점이 없으면 전체를 첫 번째 문장으로 처리
+            first_sentence = cleaned
+        
+        if first_sentence:
+            # 30자 제한 엄격 적용
+            if len(first_sentence) > 30:
+                # 30자 이내로 자르기 (단어 단위로 자르기)
+                words = first_sentence.split()
+                truncated = ""
+                for word in words:
+                    if len(truncated + word) <= 28:  # 마침표 공간 확보
+                        truncated += (word + " ")
+                    else:
+                        break
                 
-                # 30자 제한 엄격 적용
-                if len(first_sentence) > 30:
-                    # 30자 이내로 자르기 (단어 단위로 자르기)
-                    words = first_sentence.split()
-                    truncated = ""
-                    for word in words:
-                        if len(truncated + word) <= 28:  # 마침표 공간 확보
-                            truncated += (word + " ")
-                        else:
-                            break
-                    
-                    truncated = truncated.strip()
-                    if truncated and not truncated.endswith(('.', '!', '?')):
-                        truncated += '.'
-                    
-                    return truncated
+                truncated = truncated.strip()
+                # 원본 문장에 구두점이 없었으면 마침표를 추가하지 않음
+                if truncated and not truncated.endswith(('.', '!', '?')) and first_sentence_end == -1:
+                    # 원본에 구두점이 없었던 경우 마침표 추가하지 않음
+                    pass
+                elif truncated and not truncated.endswith(('.', '!', '?')):
+                    truncated += '.'
                 
-                return first_sentence
+                return truncated
+            
+            return first_sentence
+        
+        # 빈 문자열이나 공백만 있는 경우
+        if not cleaned or cleaned.strip() == "":
+            return "통화 내용 요약 없음"
         
         return cleaned
     
