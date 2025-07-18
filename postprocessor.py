@@ -109,28 +109,32 @@ class ResponsePostprocessor:
             first_sentence = cleaned
         
         if first_sentence:
-            # 30자 제한 엄격 적용
-            if len(first_sentence) > 30:
-                # 30자 이내로 자르기 (단어 단위로 자르기)
-                words = first_sentence.split()
-                truncated = ""
-                for word in words:
-                    if len(truncated + word) <= 28:  # 마침표 공간 확보
-                        truncated += (word + " ")
-                    else:
-                        break
-                
-                truncated = truncated.strip()
-                # 원본 문장에 구두점이 없었으면 마침표를 추가하지 않음
-                if truncated and not truncated.endswith(('.', '!', '?')) and first_sentence_end == -1:
-                    # 원본에 구두점이 없었던 경우 마침표 추가하지 않음
-                    pass
-                elif truncated and not truncated.endswith(('.', '!', '?')):
-                    truncated += '.'
-                
-                return truncated
+            # 30자 이내인 경우 변경 없이 그대로 반환
+            if len(first_sentence) <= 30:
+                return first_sentence
             
-            return first_sentence
+            # 30자 초과인 경우에만 자르기
+            words = first_sentence.split()
+            truncated = ""
+            
+            for word in words:
+                # 현재 단어를 추가했을 때의 길이 계산
+                test_truncated = truncated + word
+                if len(test_truncated) <= 30:
+                    truncated = test_truncated + " "
+                else:
+                    break
+            
+            truncated = truncated.strip()
+            
+            # 원본 문장에 구두점이 없었으면 마침표를 추가하지 않음
+            if truncated and not truncated.endswith(('.', '!', '?')) and first_sentence_end == -1:
+                # 원본에 구두점이 없었던 경우 마침표 추가하지 않음
+                pass
+            elif truncated and not truncated.endswith(('.', '!', '?')):
+                truncated += '.'
+            
+            return truncated
         
         # 빈 문자열이나 공백만 있는 경우
         if not cleaned or cleaned.strip() == "":
