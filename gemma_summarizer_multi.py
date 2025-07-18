@@ -9,7 +9,8 @@ from datetime import datetime
 from config import get_config, validate_config
 from ipc_queue_manager import IPCMultiSlotManager, QueueManager, SlotStatus
 from gemma_summarizer import process_request
-# from logger import request_logger  # 로깅 비활성화
+from preprocessor import preprocess_request_data
+from logger import log_request_only, log_response_only, log_gemma_query, log_gemma_response
 
 
 
@@ -27,8 +28,21 @@ def worker_thread(queue_manager: QueueManager):
             slot_id, data = request_item
             print(f"워커: 슬롯 {slot_id}에서 요청 처리 시작")
             
-            # 요청 처리
-            response_data = process_request(data)
+            # 전처리 수행 (요약 전에 수행)
+            if 'sttResultList' in data:
+                print(f"워커: 슬롯 {slot_id} 전처리 수행 중...")
+                processed_data = preprocess_request_data(data)
+                print(f"워커: 슬롯 {slot_id} 전처리 완료: {len(processed_data.get('text', ''))} 문자")
+                
+                # 전처리된 데이터로 요약 수행
+                response_data = process_request(processed_data)
+            else:
+                # 이미 전처리된 데이터인 경우
+                print(f"워커: 슬롯 {slot_id} 이미 전처리된 데이터 사용")
+                response_data = process_request(data)
+            
+            # 응답 데이터 로깅
+            log_response_only(response_data, "gemma_summarizer")
             
             # 응답 큐에 추가
             queue_manager.put_response(slot_id, response_data)
@@ -175,7 +189,10 @@ def main():
                     slot_id, data = request_item
                     print(f"새 요청 감지: 슬롯 {slot_id}, ID: {data.get('request_id', 'unknown')}")
                     
-                    # 요청 큐에 추가
+                    # 원본 요청 데이터 로깅
+                    log_request_only(data, "gemma_summarizer")
+                    
+                    # 원본 데이터를 그대로 큐에 추가 (전처리는 worker에서 수행)
                     queue_manager.put_request(slot_id, data)
                     print(f"요청 큐에 추가 완료: 슬롯 {slot_id}")
                 

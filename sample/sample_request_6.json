@@ -1,0 +1,1827 @@
+{	"cmd":"SummaryReq",	"token":"token_1652641294743_bizreco-auth-686d5c875b-wdpxb",	"reqNo":"20250623090502B9611",	"svcKey":"INOT",	"custNb":"25022481033",	"svcNb":"",	"callId":"20250620135959487916_1117503955994878753",	"callbackURL":"http://10.221.143.127:8010/recoapi/summaryCallBack",	"sttResultList":[
+	{
+		"transcript" : "네 부산여성가족과 평생교육진흥원입니다",
+		"recType" : 4,
+		"startTime" : 0
+	},
+	{
+		"transcript" : "아 아 다름이 아니고 그 이걸를 그라믄 여 생생바우처 이그 그 기초",
+		"recType" : 2,
+		"startTime" : 3600
+	},
+	{
+		"transcript" : "아",
+		"recType" : 4,
+		"startTime" : 4000
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 5700
+	},
+	{
+		"transcript" : "수급자들 이런 사람들은",
+		"recType" : 2,
+		"startTime" : 9400
+	},
+	{
+		"transcript" : "예",
+		"recType" : 4,
+		"startTime" : 10200
+	},
+	{
+		"transcript" : "그 뭐이고 한 달에 얼마를 내고 이거 뭐 배우는 거 배운다매요",
+		"recType" : 2,
+		"startTime" : 11500
+	},
+	{
+		"transcript" : "네 네 네",
+		"recType" : 4,
+		"startTime" : 14700
+	},
+	{
+		"transcript" : "어 그 어떻게 어떻게 하라고 좀 설명 좀 해주이소",
+		"recType" : 2,
+		"startTime" : 17800
+	},
+	{
+		"transcript" : "아 선생님 그럼 저희 이번에 5 월 14 일에 했던 그 1 차는 아직 신청을 안 해 주신 거죠",
+		"recType" : 4,
+		"startTime" : 19100
+	},
+	{
+		"transcript" : "어 그래 나중에 하라 해서 또 오늘 했지",
+		"recType" : 2,
+		"startTime" : 27300
+	},
+	{
+		"transcript" : "아",
+		"recType" : 4,
+		"startTime" : 28000
+	},
+	{
+		"transcript" : "네 그러면 저희가 요게 평생교육용 거이",
+		"recType" : 4,
+		"startTime" : 30800
+	},
+	{
+		"transcript" : "어 뭔지 간략하게 설명을 드리자면",
+		"recType" : 4,
+		"startTime" : 34400
+	},
+	{
+		"transcript" : "네 이제 선생님께서 저희 쪽으로 이제 신청을 해 주시고 나서",
+		"recType" : 4,
+		"startTime" : 37300
+	},
+	{
+		"transcript" : "예 응",
+		"recType" : 2,
+		"startTime" : 37400
+	},
+	{
+		"transcript" : "네 만약에 이제 평생 교육 이용권 선정이 되시고 나면",
+		"recType" : 4,
+		"startTime" : 41100
+	},
+	{
+		"transcript" : "네 저희가 선생님 농협 체험 카드라고 카드를 만들어주신다고 한다면",
+		"recType" : 4,
+		"startTime" : 45500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 2,
+		"startTime" : 49300
+	},
+	{
+		"transcript" : "아 아들이지",
+		"recType" : 2,
+		"startTime" : 50200
+	},
+	{
+		"transcript" : "신청을 해 가지고 또 있어야 되네",
+		"recType" : 2,
+		"startTime" : 51800
+	},
+	{
+		"transcript" : "네 네 네 네 저희가 신청을 한다고 이제 다 되는 게 아니라",
+		"recType" : 4,
+		"startTime" : 52400
+	},
+	{
+		"transcript" : "아 이제 얼만큼 몇 명이 저희 쪽으로 신청을 주냐 따라에 따라서 무작위 추첨대로 이제 뽑는 거여 가지고",
+		"recType" : 4,
+		"startTime" : 58000
+	},
+	{
+		"transcript" : "네 선정이 되셔야지 네 네",
+		"recType" : 4,
+		"startTime" : 64800
+	},
+	{
+		"transcript" : "어 어 수급자 뭐 뭐 차상위 그런 사람 다 된다매예",
+		"recType" : 2,
+		"startTime" : 64900
+	},
+	{
+		"transcript" : "어 아니요 저희가 이번에도",
+		"recType" : 4,
+		"startTime" : 69300
+	},
+	{
+		"transcript" : "어 이제 1 차도 이제 차 상위 계층분들 이제 기초 생활 수급자분들 대사고로 이제",
+		"recType" : 4,
+		"startTime" : 71700
+	},
+	{
+		"transcript" : "네 진행을 했던 건데 네 네",
+		"recType" : 4,
+		"startTime" : 77900
+	},
+	{
+		"transcript" : "그렇게 나는 저번에 얘기하니까",
+		"recType" : 2,
+		"startTime" : 78200
+	},
+	{
+		"transcript" : "네 네",
+		"recType" : 4,
+		"startTime" : 80800
+	},
+	{
+		"transcript" : "어 1 차는 넘어갔다 2 차는 저 육 월 20일까지 전화하라 해서 그래 오늘 했는데",
+		"recType" : 2,
+		"startTime" : 81400
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 82100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 85900
+	},
+	{
+		"transcript" : "네 어 선생님 여기 저희가",
+		"recType" : 4,
+		"startTime" : 88100
+	},
+	{
+		"transcript" : "네 신청을 해 주신다고 다 되는 게 아니라 또 거기 안에서 선정을 하기 때문에 네 네",
+		"recType" : 4,
+		"startTime" : 90000
+	},
+	{
+		"transcript" : "아",
+		"recType" : 2,
+		"startTime" : 92700
+	},
+	{
+		"transcript" : "예",
+		"recType" : 2,
+		"startTime" : 94800
+	},
+	{
+		"transcript" : "그 선정을 하기 때문에 이제 무작위 추첨으로 이 몇 명을 뽑는 거예요 저희가",
+		"recType" : 4,
+		"startTime" : 95900
+	},
+	{
+		"transcript" : "네 다 하는 게 아니라 네 네 맞아요",
+		"recType" : 4,
+		"startTime" : 101200
+	},
+	{
+		"transcript" : "예 아 그중에서",
+		"recType" : 2,
+		"startTime" : 101200
+	},
+	{
+		"transcript" : "예 예",
+		"recType" : 2,
+		"startTime" : 103200
+	},
+	{
+		"transcript" : "네 그렇게 해서 만약에 선생님께서 선정이 되신다고 하시면 농협 체험 네 네",
+		"recType" : 4,
+		"startTime" : 104200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 2,
+		"startTime" : 104400
+	},
+	{
+		"transcript" : "그",
+		"recType" : 2,
+		"startTime" : 104900
+	},
+	{
+		"transcript" : "아 그 지금 뭐 이거 그거 저 저 저 뭐이고 이거 쭈물리는 거 그 뭐라 카노 그것도 할 수 있어요",
+		"recType" : 2,
+		"startTime" : 108600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 112300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 113900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 114700
+	},
+	{
+		"transcript" : "어 복주 무르는 거라고 말씀하시면 어떤 걸 말하는 걸까요",
+		"recType" : 4,
+		"startTime" : 115300
+	},
+	{
+		"transcript" : "아 이 이렇게 이게 몸 만지는가 만지는 거",
+		"recType" : 2,
+		"startTime" : 117600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 119600
+	},
+	{
+		"transcript" : "어 선생님 저희",
+		"recType" : 4,
+		"startTime" : 121900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 2,
+		"startTime" : 122500
+	},
+	{
+		"transcript" : "그 만지는 거라고 표현을 해 주시는지 제가 어떤 감자인를 말씀하시는 건지 확인이 안 돼서",
+		"recType" : 4,
+		"startTime" : 123000
+	},
+	{
+		"transcript" : "아니 아니 그거 와그 그 봉 봉 어 어 그 눈 안 보이는 봉사들은 그는 그 우리가 한다더만",
+		"recType" : 2,
+		"startTime" : 126200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 130000
+	},
+	{
+		"transcript" : "예",
+		"recType" : 4,
+		"startTime" : 131200
+	},
+	{
+		"transcript" : "아 그 안나온 말씀하시는 거세요",
+		"recType" : 4,
+		"startTime" : 134000
+	},
+	{
+		"transcript" : "네",
+		"recType" : 2,
+		"startTime" : 134500
+	},
+	{
+		"transcript" : "아 여기는 안마는 해 해당 안 됩니까",
+		"recType" : 2,
+		"startTime" : 137100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 137600
+	},
+	{
+		"transcript" : "네 네 그거는 해당이 안 돼요",
+		"recType" : 4,
+		"startTime" : 139800
+	},
+	{
+		"transcript" : "그럼 배우는 것만 하네",
+		"recType" : 2,
+		"startTime" : 142000
+	},
+	{
+		"transcript" : "네 네 네 네",
+		"recType" : 4,
+		"startTime" : 143700
+	},
+	{
+		"transcript" : "뭐 뭐 배옵니까",
+		"recType" : 2,
+		"startTime" : 144900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 145200
+	},
+	{
+		"transcript" : "어 저희가 워낙 강좌가 다양을 다양해서",
+		"recType" : 4,
+		"startTime" : 146700
+	},
+	{
+		"transcript" : "네 제가 어떤 강좌가 있는지 다 말씀드리기는 너무 어렵고 제가",
+		"recType" : 4,
+		"startTime" : 151600
+	},
+	{
+		"transcript" : "예 예",
+		"recType" : 2,
+		"startTime" : 151600
+	},
+	{
+		"transcript" : "그래도 그래도 인자 옛날는 나이 많으니까 팔십두 살이거든",
+		"recType" : 2,
+		"startTime" : 155200
+	},
+	{
+		"transcript" : "네 네 네",
+		"recType" : 4,
+		"startTime" : 158200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 159800
+	},
+	{
+		"transcript" : "그리고 그 거기고 그래서 소급자 같은 사람들을 해준다는데 그래",
+		"recType" : 2,
+		"startTime" : 160300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 160600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 163300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 164000
+	},
+	{
+		"transcript" : "예 왜 그 먼제 전화 오니까 오늘",
+		"recType" : 2,
+		"startTime" : 164700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 165000
+	},
+	{
+		"transcript" : "어 육 월 20일까지 또 하라 그래 전화를 그때 내가 어 육 월 초에 전화를 하니까",
+		"recType" : 2,
+		"startTime" : 167200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 167300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 169300
+	},
+	{
+		"transcript" : "어",
+		"recType" : 4,
+		"startTime" : 170000
+	},
+	{
+		"transcript" : "네 네 네",
+		"recType" : 4,
+		"startTime" : 173000
+	},
+	{
+		"transcript" : "그 5월달에 1 차 넘어갔다 그러더라고",
+		"recType" : 2,
+		"startTime" : 174100
+	},
+	{
+		"transcript" : "네어 근데 저희가 여게 신청이 6 월 26일이 아니라 6 월 26 일에는 이제 신청을 받아 줄 겁니다라고 공고가 나가는 거고",
+		"recType" : 4,
+		"startTime" : 175600
+	},
+	{
+		"transcript" : "네 이거를 신청을 하실려고 하시면은 7월달에 하셔야",
+		"recType" : 4,
+		"startTime" : 187500
+	},
+	{
+		"transcript" : "아",
+		"recType" : 2,
+		"startTime" : 187800
+	},
+	{
+		"transcript" : "네 저희 7월달에 2 차 모집이 있어서",
+		"recType" : 4,
+		"startTime" : 190700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 2,
+		"startTime" : 191000
+	},
+	{
+		"transcript" : "아 그래 이걸 모르니까 뭐 모르니까 내도 이거 유튜브 보다가 이런 걸 봤거든 근 이 모르니까네",
+		"recType" : 2,
+		"startTime" : 192300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 193700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 194400
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 195700
+	},
+	{
+		"transcript" : "어 네 네",
+		"recType" : 4,
+		"startTime" : 197200
+	},
+	{
+		"transcript" : "깡증인지 아무것도 모르지 누가 말 안 해주고 뭐",
+		"recType" : 2,
+		"startTime" : 198500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 199500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 200600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 201600
+	},
+	{
+		"transcript" : "우리는 날이 많았게 그런 걸 압니까 모르지",
+		"recType" : 2,
+		"startTime" : 202600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 203100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 205200
+	},
+	{
+		"transcript" : "어 어 어 선생님 혹시 저희가 아직은 접수를 받고 있지 않은 상태여 가지고",
+		"recType" : 4,
+		"startTime" : 205800
+	},
+	{
+		"transcript" : "네 아니시면은 제가 선생님",
+		"recType" : 4,
+		"startTime" : 211200
+	},
+	{
+		"transcript" : "네 저희가 7월달에 접수를 시작하게 되면은 그때 한번 지금 전화 주신 번호로 문자 드릴까요",
+		"recType" : 4,
+		"startTime" : 214200
+	},
+	{
+		"transcript" : "아 7월 언제쯤",
+		"recType" : 2,
+		"startTime" : 221500
+	},
+	{
+		"transcript" : "예",
+		"recType" : 4,
+		"startTime" : 222200
+	},
+	{
+		"transcript" : "어 저희가 그데 언제쯤 뽑을지는 아직 저희도 부산시랑 합의 중에 있어 가지고",
+		"recType" : 4,
+		"startTime" : 223700
+	},
+	{
+		"transcript" : "네 7월 며칠날에 뽑는다고 딱 나오지는 않았는데",
+		"recType" : 4,
+		"startTime" : 229500
+	},
+	{
+		"transcript" : "네 만약에 뽑게 된",
+		"recType" : 4,
+		"startTime" : 232600
+	},
+	{
+		"transcript" : "그 먼저 먼저 저 육 월 초인가 육 월 10일 개인가 전화하니까 5월달에 1 차 모입",
+		"recType" : 2,
+		"startTime" : 233000
+	},
+	{
+		"transcript" : "예",
+		"recType" : 4,
+		"startTime" : 235500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 237700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 238500
+	},
+	{
+		"transcript" : "예",
+		"recType" : 4,
+		"startTime" : 239800
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 240500
+	},
+	{
+		"transcript" : "넘어가고 인자 이 차에 6월 20일경에 전화를 하라 했대 그래 오늘 전화했지",
+		"recType" : 2,
+		"startTime" : 240600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 242500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 244600
+	},
+	{
+		"transcript" : "예 어 6 월 20일 경에 지금 뽑고 뽑을 예정인 거는 저희 일반 평생 교육 이용권이 아니라 장애인 평생 교육 이용권이어 가지고",
+		"recType" : 4,
+		"startTime" : 246400
+	},
+	{
+		"transcript" : "아 아",
+		"recType" : 4,
+		"startTime" : 254300
+	},
+	{
+		"transcript" : "장애인",
+		"recType" : 2,
+		"startTime" : 254500
+	},
+	{
+		"transcript" : "네 네 장애인 쪽에서도 평생 교육 이용권을 하고 있어서",
+		"recType" : 4,
+		"startTime" : 255500
+	},
+	{
+		"transcript" : "그라믄 우리는 안 됩니까 수급자 같은 사람은 안 되고",
+		"recType" : 2,
+		"startTime" : 257600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 259600
+	},
+	{
+		"transcript" : "네 네 네 수급자분들은 7월달에 신청을 주셔야",
+		"recType" : 4,
+		"startTime" : 260700
+	},
+	{
+		"transcript" : "네 6 월 달은 자기 네 네 네",
+		"recType" : 4,
+		"startTime" : 264600
+	},
+	{
+		"transcript" : "그 7월달에",
+		"recType" : 2,
+		"startTime" : 265000
+	},
+	{
+		"transcript" : "예 에",
+		"recType" : 2,
+		"startTime" : 266500
+	},
+	{
+		"transcript" : "아 아 7월 언제쯤인가 그것도 모릅니 잘",
+		"recType" : 2,
+		"startTime" : 267700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 270100
+	},
+	{
+		"transcript" : "네 네 아직 저희가 부산시랑 내부 합의 중이 있어 가지고 정확하게 나오지가 않았어",
+		"recType" : 4,
+		"startTime" : 270500
+	},
+	{
+		"transcript" : "아 아 그러면 인자",
+		"recType" : 2,
+		"startTime" : 275100
+	},
+	{
+		"transcript" : "어 바 에너비 바우처는 내가 그",
+		"recType" : 2,
+		"startTime" : 277700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 278000
+	},
+	{
+		"transcript" : "아 그 우리 대가 있다 하더라고 독에 모으니까 동 동사무소에서 물으니까 그 에너지바우처는",
+		"recType" : 2,
+		"startTime" : 281000
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 285100
+	},
+	{
+		"transcript" : "네 네 네",
+		"recType" : 4,
+		"startTime" : 285900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 286900
+	},
+	{
+		"transcript" : "인제 어머니가 그리 그거 돼가 있다고 그거는 안 해도 된다 이러더라고 그래서 이러지 바법자는 신청을 안 하고",
+		"recType" : 2,
+		"startTime" : 287900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 288100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 288700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 290100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 291900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 293500
+	},
+	{
+		"transcript" : "네 네",
+		"recType" : 4,
+		"startTime" : 294400
+	},
+	{
+		"transcript" : "아 그래 이 이 이거는 뭐 배우는 게 뭐 여러 가지 있대서 집이 있으면은 아파서서 내가 서리 수술해 놓으니까네",
+		"recType" : 2,
+		"startTime" : 296500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 297000
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 297400
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 298300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 300000
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 301800
+	},
+	{
+		"transcript" : "네 네 네",
+		"recType" : 4,
+		"startTime" : 304200
+	},
+	{
+		"transcript" : "어 너무 아프니까 어 좀 갈 지도 없고 해서 그 거기는 그럼 어디입니까",
+		"recType" : 2,
+		"startTime" : 304500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 305700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 306600
+	},
+	{
+		"transcript" : "어",
+		"recType" : 4,
+		"startTime" : 308100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 309800
+	},
+	{
+		"transcript" : "네 저희는 그 금곡동 양 양산 가까이에 있어요 저희 기관을",
+		"recType" : 4,
+		"startTime" : 310300
+	},
+	{
+		"transcript" : "아 그러면 여기 나는 4 부산시 사하구에 있는데 아 여기는 가까운 진 없어요",
+		"recType" : 2,
+		"startTime" : 314900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 316600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 317700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 319100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 320400
+	},
+	{
+		"transcript" : "네 네",
+		"recType" : 4,
+		"startTime" : 321300
+	},
+	{
+		"transcript" : "아 아 그러면 안 되겠네",
+		"recType" : 2,
+		"startTime" : 324200
+	},
+	{
+		"transcript" : "아",
+		"recType" : 4,
+		"startTime" : 324800
+	},
+	{
+		"transcript" : "네 그래서 저희가 이게 일단은 방문 접수 말고 인터넷으로 뭐 접수를 받고 있어서",
+		"recType" : 4,
+		"startTime" : 327100
+	},
+	{
+		"transcript" : "아 아니시면 제희가 선생님 7월 6월 26일 공고 나올 때 그때 한번 문자드릴까요",
+		"recType" : 4,
+		"startTime" : 333400
+	},
+	{
+		"transcript" : "아 그때 문자로 주이소 그러고 뭐 또 7월엔가 6월 언젠가 또 35만 원 현금 준다던데",
+		"recType" : 2,
+		"startTime" : 340600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 343800
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 344400
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 345900
+	},
+	{
+		"transcript" : "어 아니요 선생님 저희",
+		"recType" : 4,
+		"startTime" : 348500
+	},
+	{
+		"transcript" : "6 월 26 일에도 신청을 받을 거다라는 이제 공고가 나가는 거고 신청 접수는 7월달이어서 7월에 접수를 해주셔야 되는데",
+		"recType" : 4,
+		"startTime" : 351000
+	},
+	{
+		"transcript" : "아니 35만 원 준다는 그것도",
+		"recType" : 2,
+		"startTime" : 360000
+	},
+	{
+		"transcript" : "요게 선출",
+		"recType" : 4,
+		"startTime" : 360100
+	},
+	{
+		"transcript" : "네 35만 원을 저희가 포인트로 지급해 드린다는 게 지금 전화 주신 일반 평생 교육 이용권이세요",
+		"recType" : 4,
+		"startTime" : 362900
+	},
+	{
+		"transcript" : "아 잘 못 알아먹겠다",
+		"recType" : 2,
+		"startTime" : 369700
+	},
+	{
+		"transcript" : "잘 못알아",
+		"recType" : 4,
+		"startTime" : 370100
+	},
+	{
+		"transcript" : "어",
+		"recType" : 4,
+		"startTime" : 372400
+	},
+	{
+		"transcript" : "아 좀 크게 말해줘요",
+		"recType" : 2,
+		"startTime" : 373500
+	},
+	{
+		"transcript" : "네 그러시면",
+		"recType" : 4,
+		"startTime" : 373600
+	},
+	{
+		"transcript" : "네 저희가 이게 35만 원 포인트로 지급해 드린다는 게 저희 일반 평생 교육 이용권이고",
+		"recType" : 4,
+		"startTime" : 375800
+	},
+	{
+		"transcript" : "네 저희가 요 신청은 7월 중으로 받을 예정이어서",
+		"recType" : 4,
+		"startTime" : 381800
+	},
+	{
+		"transcript" : "어 6 월 26 일에 공고 올라갈 예정이거는 제가 지금 선생님",
+		"recType" : 4,
+		"startTime" : 385500
+	},
+	{
+		"transcript" : "네 전화번호로 문자드리기로 했잖아요",
+		"recType" : 4,
+		"startTime" : 389400
+	},
+	{
+		"transcript" : "예",
+		"recType" : 2,
+		"startTime" : 391800
+	},
+	{
+		"transcript" : "네 문자 보시고 7월달에 신청해 주시면 되세요",
+		"recType" : 4,
+		"startTime" : 392400
+	},
+	{
+		"transcript" : "아 그거 35만 원 그게",
+		"recType" : 2,
+		"startTime" : 397500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 398400
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 399200
+	},
+	{
+		"transcript" : "네 네 네 네",
+		"recType" : 4,
+		"startTime" : 399700
+	},
+	{
+		"transcript" : "그러면 그 현금 준다던데 그때는 내가 전화 통화할 때는 저번 달에",
+		"recType" : 2,
+		"startTime" : 401800
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 402800
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 405100
+	},
+	{
+		"transcript" : "고",
+		"recType" : 4,
+		"startTime" : 405700
+	},
+	{
+		"transcript" : "어 아니요 선생님 저희는 현금으로 지급해 드리고 있지 않아요",
+		"recType" : 4,
+		"startTime" : 406600
+	},
+	{
+		"transcript" : "아니 그러면 그 거 그 뭐 그 온누리 상품 같은 그런 거",
+		"recType" : 2,
+		"startTime" : 409700
+	},
+	{
+		"transcript" : "어 아니요 선생님 저희",
+		"recType" : 4,
+		"startTime" : 414100
+	},
+	{
+		"transcript" : "그 카드 포인트로 지급을 해 드리는 거여 가지고",
+		"recType" : 4,
+		"startTime" : 415500
+	},
+	{
+		"transcript" : "아 인자 그 그러면 그 갖고 그 갖고 인제 물건 같은 거 사러 사러 다닙니까",
+		"recType" : 2,
+		"startTime" : 417700
+	},
+	{
+		"transcript" : "네 현금 시불이나 네 네",
+		"recType" : 4,
+		"startTime" : 418200
+	},
+	{
+		"transcript" : "어 아니요 선생님 저희가 요게 물건 가는 물건을 사는 게 아니라",
+		"recType" : 4,
+		"startTime" : 423600
+	},
+	{
+		"transcript" : "어",
+		"recType" : 2,
+		"startTime" : 427700
+	},
+	{
+		"transcript" : "네 저희가 이제",
+		"recType" : 4,
+		"startTime" : 428400
+	},
+	{
+		"transcript" : "네 학원 같은 데 가셔서 저희 쪽으로 등록된 학원 같은 데 가셔서 이제 듣고 싶으신 강좌를 결제를 하는 거여 가지고",
+		"recType" : 4,
+		"startTime" : 430400
+	},
+	{
+		"transcript" : "네 2 35만",
+		"recType" : 4,
+		"startTime" : 438400
+	},
+	{
+		"transcript" : "여 그 카드 가지고",
+		"recType" : 2,
+		"startTime" : 438400
+	},
+	{
+		"transcript" : "네 네 네 이 35만 원 가지고 물건을 사시는 건 아니세요",
+		"recType" : 4,
+		"startTime" : 439500
+	},
+	{
+		"transcript" : "예 아",
+		"recType" : 2,
+		"startTime" : 441100
+	},
+	{
+		"transcript" : "예 예",
+		"recType" : 2,
+		"startTime" : 442100
+	},
+	{
+		"transcript" : "아 아니 근데 왜 그리 그 그 그쪽에만 있어요 1인는 뭐기 사람이 이쪽에 많이 사는데 왜 그 양산 쪽에만 그쪽에만 그래 못 가겠다 그러 그래서 그지요",
+		"recType" : 2,
+		"startTime" : 443800
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 444700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 446800
+	},
+	{
+		"transcript" : "사람이",
+		"recType" : 4,
+		"startTime" : 448600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 450600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 451400
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 453300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 454500
+	},
+	{
+		"transcript" : "어 음 선생님 저희가 어쨌든 방문 접수는 받고 있지 않아서 선생님께서도 신청을 원하신다면 7월달에 이제",
+		"recType" : 4,
+		"startTime" : 455000
+	},
+	{
+		"transcript" : "예 음",
+		"recType" : 4,
+		"startTime" : 462100
+	},
+	{
+		"transcript" : "네 이제 인터넷으로 접수를 해 주셔야 되는 거여 가지고",
+		"recType" : 4,
+		"startTime" : 463400
+	},
+	{
+		"transcript" : "아 그거 어렵다 그지요",
+		"recType" : 2,
+		"startTime" : 466900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 467400
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 468500
+	},
+	{
+		"transcript" : "음 아니요 선생님 요게",
+		"recType" : 4,
+		"startTime" : 469000
+	},
+	{
+		"transcript" : "예 막 어려운 내용이 아니고 저희 또 이제 신청하는 방법에 대해서도 안내가 나갈 예정이어 가지고",
+		"recType" : 4,
+		"startTime" : 470800
+	},
+	{
+		"transcript" : "네 그거 보시고 천천히 신청해 주시면은 충분히 하실 수 있으세요",
+		"recType" : 4,
+		"startTime" : 477400
+	},
+	{
+		"transcript" : "음",
+		"recType" : 2,
+		"startTime" : 477600
+	},
+	{
+		"transcript" : "어 근데 먼저번에 내가 저번에",
+		"recType" : 2,
+		"startTime" : 481600
+	},
+	{
+		"transcript" : "아 6월 10일경에 전화 6월 초에 전화했고 전화하니까네",
+		"recType" : 2,
+		"startTime" : 484600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 485200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 486600
+	},
+	{
+		"transcript" : "예 35만 원 현금이 7월달에 나간다 이라더라고",
+		"recType" : 2,
+		"startTime" : 489600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 490300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 491500
+	},
+	{
+		"transcript" : "음 음",
+		"recType" : 4,
+		"startTime" : 493200
+	},
+	{
+		"transcript" : "예 유",
+		"recType" : 4,
+		"startTime" : 493800
+	},
+	{
+		"transcript" : "아 35만 원 된 거면은 7월달에 나간다고 혹시 어느 기관에서 안내를 받으셨을까요",
+		"recType" : 4,
+		"startTime" : 494700
+	},
+	{
+		"transcript" : "얘는 그 아가씨 전화 이 전화에 받았는디 뭐 이 전화 내가 딱 올리 놨다가",
+		"recType" : 2,
+		"startTime" : 500900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 501200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 502500
+	},
+	{
+		"transcript" : "음",
+		"recType" : 4,
+		"startTime" : 503800
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 504600
+	},
+	{
+		"transcript" : "예 전화기 올려놨다 지금 또 하 하는데",
+		"recType" : 2,
+		"startTime" : 505500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 506200
+	},
+	{
+		"transcript" : "네 음 그러면",
+		"recType" : 4,
+		"startTime" : 508800
+	},
+	{
+		"transcript" : "네 일단은 그 부분은 저희 쪽에서 안내가 쪼끔 잘못 나갔던 거 같은데",
+		"recType" : 4,
+		"startTime" : 510000
+	},
+	{
+		"transcript" : "네 일단은 지금 선생님께서",
+		"recType" : 4,
+		"startTime" : 514300
+	},
+	{
+		"transcript" : "돈이 현금이 나간다 이라더라고 그래서 내가",
+		"recType" : 2,
+		"startTime" : 515400
+	},
+	{
+		"transcript" : "음",
+		"recType" : 4,
+		"startTime" : 518100
+	},
+	{
+		"transcript" : "그래 지금 날짜 다 기다려 가지고 오늘 가는데",
+		"recType" : 2,
+		"startTime" : 518100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 519500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 520100
+	},
+	{
+		"transcript" : "예",
+		"recType" : 4,
+		"startTime" : 521700
+	},
+	{
+		"transcript" : "아 저희가 5 월 14일에는 일단은 1 차는 1 차는 끝난 예정이어 가지고 선생님께서 이제 신청은 7월달에 해주셔야 돼서",
+		"recType" : 4,
+		"startTime" : 522200
+	},
+	{
+		"transcript" : "네 일단은 제가 6 월 26 일에 공고가 나오면 지금 선생님 전화 주신 번호로 문자 하나 넣어놓을게요",
+		"recType" : 4,
+		"startTime" : 531100
+	},
+	{
+		"transcript" : "그라믄 거기 인자",
+		"recType" : 2,
+		"startTime" : 538300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 538800
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 539700
+	},
+	{
+		"transcript" : "예 저",
+		"recType" : 2,
+		"startTime" : 540900
+	},
+	{
+		"transcript" : "어 그 우리가 만약에 거기 선적이 돼 가지고 내가 그 대으로 간다든가 뭐 가야 되기 되문 거리가 아주 머네요",
+		"recType" : 2,
+		"startTime" : 542900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 544400
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 547000
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 548200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 549500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 550800
+	},
+	{
+		"transcript" : "아 어 아니요 선생님 저희가 사용 기간 같은 경우에는",
+		"recType" : 4,
+		"startTime" : 552700
+	},
+	{
+		"transcript" : "네 저희 제가 말씀드린 금곡동에만 있는 게 아니어 가지고",
+		"recType" : 4,
+		"startTime" : 556100
+	},
+	{
+		"transcript" : "네 사용 기간 같 네 사용 기간 같은 경우에는 선생님께서 살고 계시는 사하구에도 있기 때문에",
+		"recType" : 4,
+		"startTime" : 560300
+	},
+	{
+		"transcript" : "그렇게 그래",
+		"recType" : 2,
+		"startTime" : 560300
+	},
+	{
+		"transcript" : "네 예 사하구에 어떤 학원이 등록되어 있는지 확인하시고 이제 가셔서 결제를 하면 되는 거여 가지고",
+		"recType" : 4,
+		"startTime" : 566300
+	},
+	{
+		"transcript" : "예 그렇지",
+		"recType" : 2,
+		"startTime" : 566800
+	},
+	{
+		"transcript" : "아",
+		"recType" : 2,
+		"startTime" : 572200
+	},
+	{
+		"transcript" : "네 저희 기관에 오셔서 아 이제",
+		"recType" : 4,
+		"startTime" : 572300
+	},
+	{
+		"transcript" : "어 강좌를 들으시는 게 아니에요",
+		"recType" : 4,
+		"startTime" : 575000
+	},
+	{
+		"transcript" : "아아 거기는 일단은 말로 오자 뭐 서류 모집하는 겁니까",
+		"recType" : 2,
+		"startTime" : 576900
+	},
+	{
+		"transcript" : "네 네",
+		"recType" : 4,
+		"startTime" : 577900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 580200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 581200
+	},
+	{
+		"transcript" : "네 네 저희는 모집하고 있는 지금 부산여성 가족과 평생교육 진흥원이라는 기관이 공급동에 있는 거지",
+		"recType" : 4,
+		"startTime" : 583000
+	},
+	{
+		"transcript" : "네 선생님께서 오셔서 강좌를 들으시는 건 아니어 가지고",
+		"recType" : 4,
+		"startTime" : 590300
+	},
+	{
+		"transcript" : "예 응",
+		"recType" : 2,
+		"startTime" : 590500
+	},
+	{
+		"transcript" : "어 어",
+		"recType" : 2,
+		"startTime" : 593400
+	},
+	{
+		"transcript" : "네 그 부분은 크게 걱정 안 해 주셔도 될 거 같애요",
+		"recType" : 4,
+		"startTime" : 593600
+	},
+	{
+		"transcript" : "어 그러니까 가까운데 이 부산시내 천이느인데 그까지 간다고 하 아무도 못 가지 그죠",
+		"recType" : 2,
+		"startTime" : 596300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 597100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 598500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 600600
+	},
+	{
+		"transcript" : "네 네",
+		"recType" : 4,
+		"startTime" : 602800
+	},
+	{
+		"transcript" : "어 어 그라믄 그 35만 원 그게 그러 뭐 카드로",
+		"recType" : 2,
+		"startTime" : 604900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 606300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 606900
+	},
+	{
+		"transcript" : "어 인자 뭐",
+		"recType" : 2,
+		"startTime" : 608700
+	},
+	{
+		"transcript" : "필요한 거 배우고 인자 나 내가 나갈야 그 카드를",
+		"recType" : 2,
+		"startTime" : 610600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 611200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 612100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 613700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 614200
+	},
+	{
+		"transcript" : "어 어 그 카드로 이용을 할 수 있다 그 말이지요",
+		"recType" : 2,
+		"startTime" : 614400
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 615400
+	},
+	{
+		"transcript" : "네 네 맞아요",
+		"recType" : 4,
+		"startTime" : 617400
+	},
+	{
+		"transcript" : "어 음 그럼 문자를 좀 넣어줄랍니까",
+		"recType" : 2,
+		"startTime" : 618900
+	},
+	{
+		"transcript" : "네 그럼 제가 6 월 26 일에 공고 나오면 지금 선생님 전화 주신 번호로 문자 하나 넣어놓을게",
+		"recType" : 4,
+		"startTime" : 620900
+	},
+	{
+		"transcript" : "예 그 이거 말고 다른 건 없어요 있다던데 많이",
+		"recType" : 2,
+		"startTime" : 628200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 628900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 630800
+	},
+	{
+		"transcript" : "네 음 저희 쪽에서는 일단은 평생 교육 이용권만 주관하는 기관이다 보니까",
+		"recType" : 4,
+		"startTime" : 631900
+	},
+	{
+		"transcript" : "네 그 다른 거를 한 번 더 알아보시고 싶으시다면은 시청이라던가 이제 동사무소에 연락해 보시는 게 더 정확할 거 같애요",
+		"recType" : 4,
+		"startTime" : 637400
+	},
+	{
+		"transcript" : "아",
+		"recType" : 2,
+		"startTime" : 637400
+	},
+	{
+		"transcript" : "동사무소도 동사무소도 모르더라고",
+		"recType" : 2,
+		"startTime" : 644500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 645100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 646500
+	},
+	{
+		"transcript" : "음 음",
+		"recType" : 4,
+		"startTime" : 647300
+	},
+	{
+		"transcript" : "아 일단은 저희 쪽",
+		"recType" : 4,
+		"startTime" : 648900
+	},
+	{
+		"transcript" : "동사무소도 우리 동네는 모르더라고",
+		"recType" : 2,
+		"startTime" : 649100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 650600
+	},
+	{
+		"transcript" : "음",
+		"recType" : 4,
+		"startTime" : 652000
+	},
+	{
+		"transcript" : "어 아니 우리는 그런 거",
+		"recType" : 2,
+		"startTime" : 652700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 652900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 653700
+	},
+	{
+		"transcript" : "그런 거 어 저 내일 온 적이 없는디요 이라더라고",
+		"recType" : 2,
+		"startTime" : 654900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 655300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 656200
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 657400
+	},
+	{
+		"transcript" : "어",
+		"recType" : 4,
+		"startTime" : 658500
+	},
+	{
+		"transcript" : "예 저희 쪽에서는 일단은 평생 교육 이용권만 지금 주관하고 있기 때문에 뭐 다른 뭐 복지 사업에 대해서는 좀 안내드리기가 조금 어려워",
+		"recType" : 4,
+		"startTime" : 659200
+	},
+	{
+		"transcript" : "그",
+		"recType" : 2,
+		"startTime" : 669100
+	},
+	{
+		"transcript" : "예 그 자들은 나한테는 별일 그렇게",
+		"recType" : 2,
+		"startTime" : 671600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 672100
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 672500
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 672800
+	},
+	{
+		"transcript" : "그 뭐 효과적인 거는 없네 우리 나이 먹은 사람들은",
+		"recType" : 2,
+		"startTime" : 674000
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 674700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 675600
+	},
+	{
+		"transcript" : "어 어",
+		"recType" : 4,
+		"startTime" : 677000
+	},
+	{
+		"transcript" : "네 어 그거는 이제 뭐",
+		"recType" : 4,
+		"startTime" : 679600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 682100
+	},
+	{
+		"transcript" : "아 다른 분들이랑 조금 약간 차이가 나는 부분이어 가지고 아무래도 그건 주관적인 부분이다 보니까",
+		"recType" : 4,
+		"startTime" : 682800
+	},
+	{
+		"transcript" : "네 제가 이 이용권이 선생님께 도움이 될지 안 될지는 대답해 드리기가 조금 어려워",
+		"recType" : 4,
+		"startTime" : 689500
+	},
+	{
+		"transcript" : "아 그렇지요 그래 나 나도 썼 썼 그렇게",
+		"recType" : 2,
+		"startTime" : 694100
+	},
+	{
+		"transcript" : "네 네",
+		"recType" : 4,
+		"startTime" : 694900
+	},
+	{
+		"transcript" : "해야 되겠다 그 마음이 안 됐기래 그래줘",
+		"recType" : 2,
+		"startTime" : 697700
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 698200
+	},
+	{
+		"transcript" : "어",
+		"recType" : 4,
+		"startTime" : 701300
+	},
+	{
+		"transcript" : "우리 집이 있으니까 내가 너무 허리가 아파 갖고 허리 수술 해 갖고 집이 있는데",
+		"recType" : 2,
+		"startTime" : 701300
+	},
+	{
+		"transcript" : "아니 집에 인제 완전히 이거 다리도 너무 아프고",
+		"recType" : 2,
+		"startTime" : 706100
+	},
+	{
+		"transcript" : "허도 너무 아프니까 이리 다니라 그더라고 그래 다닐 데가 어디에 있나 우리 동네 그 그 저 저 저 저 뭐 복지관이 있거든요",
+		"recType" : 2,
+		"startTime" : 710200
+	},
+	{
+		"transcript" : "네 네 네",
+		"recType" : 4,
+		"startTime" : 718400
+	},
+	{
+		"transcript" : "그 복지관 거기는 한 달에 2만 원만 내면",
+		"recType" : 2,
+		"startTime" : 719300
+	},
+	{
+		"transcript" : "어 뭐 한 가지 할 수 있는데",
+		"recType" : 2,
+		"startTime" : 722600
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 723400
+	},
+	{
+		"transcript" : "사람이 처어나간다",
+		"recType" : 2,
+		"startTime" : 724900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 725300
+	},
+	{
+		"transcript" : "어 어",
+		"recType" : 4,
+		"startTime" : 726700
+	},
+	{
+		"transcript" : "아니 내가 쓴 사람 가 바쳐주겠어",
+		"recType" : 2,
+		"startTime" : 727300
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 728700
+	},
+	{
+		"transcript" : "편 사람 바람에",
+		"recType" : 2,
+		"startTime" : 730200
+	},
+	{
+		"transcript" : "아 그러면",
+		"recType" : 4,
+		"startTime" : 730300
+	},
+	{
+		"transcript" : "아 음 그럼 일단은 1 6 월 26 일에 제가 문자 한번 드릴게요 요거",
+		"recType" : 4,
+		"startTime" : 731700
+	},
+	{
+		"transcript" : "예 공고 나왔다고",
+		"recType" : 4,
+		"startTime" : 736600
+	},
+	{
+		"transcript" : "아 그거 말고 다른 거라도 있으면 좀 해주세요잉",
+		"recType" : 2,
+		"startTime" : 736700
+	},
+	{
+		"transcript" : "네 알겠습니다 감사합니다",
+		"recType" : 4,
+		"startTime" : 739700
+	},
+	{
+		"transcript" : "예",
+		"recType" : 2,
+		"startTime" : 741900
+	},
+	{
+		"transcript" : "네",
+		"recType" : 4,
+		"startTime" : 742300
+	}
+]}

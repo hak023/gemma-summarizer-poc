@@ -3,15 +3,19 @@ import time
 import uuid
 import sys
 import subprocess
+import os
 from ipc_queue_manager import IPCMultiSlotManager, SlotStatus
 from typing import Optional
 
 # IPC 설정 (서버와 동일)
-SHM_NAME = "gemma_ipc_shm"
-SLOT_COUNT = 5
-SLOT_SIZE = 8192
-POLLING_INTERVAL = 0.5
-REQUEST_TIMEOUT = 30.0
+import config
+config_dict = config.get_config()
+
+SHM_NAME = config_dict['IPC_SHM_NAME']
+SLOT_COUNT = config_dict['IPC_SLOT_COUNT']
+SLOT_SIZE = config_dict['IPC_SLOT_SIZE']
+POLLING_INTERVAL = config_dict['IPC_POLLING_INTERVAL']
+REQUEST_TIMEOUT = config_dict['IPC_REQUEST_TIMEOUT']
 
 def kill_previous_processes():
     """이전에 실행 중인 프로세스들을 종료"""
@@ -46,21 +50,38 @@ def kill_previous_processes():
     except Exception as e:
         print(f"프로세스 종료 중 오류: {e}")
 
-def send_request(text: str, ipc_manager: IPCMultiSlotManager) -> Optional[int]:
+def load_sample_request(file_path: str = "sample/sample_request_6.json") -> dict:
+    """샘플 요청 JSON 파일 로드"""
+    try:
+        if not os.path.exists(file_path):
+            print(f"파일을 찾을 수 없습니다: {file_path}")
+            return None
+        
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        print(f"샘플 요청 파일 로드 완료: {file_path}")
+        return data
+        
+    except Exception as e:
+        print(f"파일 로드 중 오류: {e}")
+        return None
+
+def send_request(data: dict, ipc_manager: IPCMultiSlotManager) -> Optional[int]:
     """요청 전송"""
-    request_id = str(uuid.uuid4())[:8]  # 짧은 ID
+    # 원본 데이터에 timestamp 추가
+    data["timestamp"] = time.time()
     
-    request = {
-        "type": "request",
-        "text": text,
-        "request_id": request_id,
-        "processed": False,
-        "timestamp": time.time()
-    }
+    # request_id가 없으면 생성
+    if "request_id" not in data:
+        data["request_id"] = str(uuid.uuid4())[:8]
+    
+    request_id = data.get("request_id", str(uuid.uuid4())[:8])
     
     print(f"요청 전송 중... (ID: {request_id})")
+    print(f"원본 데이터 크기: {len(str(data))} 문자")
     
-    slot_id = ipc_manager.write_request(request)
+    slot_id = ipc_manager.write_request(data)
     if slot_id is None:
         print("요청 전송 실패 - 빈 슬롯이 없습니다")
         return None
@@ -104,43 +125,14 @@ def test_single_summarization():
         return
     
     try:
-        # 테스트 텍스트
-        test_text = """
-        김민준 팀장: 여보세요, 이서연 대리님. 김민준 팀장입니다.
-
-이서연 대리: 네, 팀장님! 안녕하세요. 전화 주셨네요.
-
-김민준 팀장: 네, 다름이 아니라 다음 주 수요일로 예정된 '알파 프로젝트' 신제품 런칭 캠페인 관련해서 최종 진행 상황 좀 체크하려고 전화했어요. 준비는 잘 되어가고 있죠?
-
-이서연 대리: 아, 네. 마침 저도 중간 보고 드리려고 했습니다. 먼저, SNS 광고 소재는 어제 디자인팀에서 시안 2개를 받았고, 오늘 오후까지 제가 최종 1개 선택해서 전달드리겠습니다.
-
-김민준 팀장: 좋습니다. 시안 퀄리티는 괜찮았나요?
-
-이서연 대리: 네, 둘 다 괜찮아서 오히려 고르기가 어렵네요. 타겟 연령층 반응이 더 좋을 것 같은 B안으로 생각 중입니다.
-
-김민준 팀장: 알겠습니다. 그건 이 대리님 판단에 맡길게요. 그리고 제가 맡은 보도자료는 초안 작성이 완료됐습니다. 이따가 메일로 보내드릴 테니, 오탈자나 어색한 부분 없는지 최종 검토 한번 부탁해요. 괜찮으면 내일 오전에 바로 홍보팀으로 넘기려고 합니다.
-
-이서연 대리: 네, 알겠습니다! 메일 확인하고 바로 피드백 드리겠습니다. 그리고 인플루언서 협업 건은 리스트업했던 5명 중 3명에게서 긍정적인 회신을 받았습니다. 현재 계약 조건 최종 조율 중이에요.
-
-김민준 팀장: 오, 다행이네요. 그런데 혹시 예산 문제는 없나요? 인플루언서 비용이 생각보다 높다고 들었던 것 같은데.
-
-이서연 대리: 사실 그게 조금 문제입니다. 3명 모두와 진행할 경우, 저희가 처음 책정한 예산을 15% 정도 초과하게 됩니다. 어떻게 할까요?
-
-김민준 팀장: 흠... 고민되네요. 일단 가장 반응이 좋고 우리 제품과 이미지가 잘 맞는 2명을 먼저 확정해서 진행합시다. 나머지 1명은 예비로 두고, 초과되는 예산은 제가 다른 항목에서 좀 조절해서 처리해 볼게요. 15% 정도는 팀장 재량으로 충분히 가능합니다.
-
-이서연 대리: 정말요? 알겠습니다, 팀장님! 그럼 바로 두 분과 계약 마무리하고 진행 상황 공유드리겠습니다.
-
-김민준 팀장: 네, 그렇게 합시다. 그럼 정리하자면, 이 대리님은 오늘 중으로 SNS 광고 시안 확정하고, 저는 보도자료 최종본을 내일 홍보팀에 전달하고. 인플루언서는 2명으로 확정해서 진행하는 걸로. 맞죠?
-
-이서연 대리: 네, 맞습니다. 완벽하게 정리해주셨네요.
-
-김민준 팀장: 좋습니다. 그럼 내일 오전에 오늘 정리된 내용 바탕으로 전체 진행 상황 다시 한번 공유하는 짧은 미팅 갖죠. 수고해요.
-
-이서연 대리: 네, 팀장님. 내일 뵙겠습니다!
-        """
+        # 샘플 요청 파일 로드
+        sample_data = load_sample_request()
+        if sample_data is None:
+            print("샘플 데이터 로드 실패")
+            return
         
         # 요청 전송
-        slot_id = send_request(test_text, ipc_manager)
+        slot_id = send_request(sample_data, ipc_manager)
         if slot_id is None:
             print("요청 전송 실패")
             return
@@ -153,10 +145,21 @@ def test_single_summarization():
         
         if response:
             print("\n=== 응답 수신 ===")
-            print(f"요청 ID: {response.get('request_id')}")
-            print(f"상태: {response.get('status')}")
-            print(f"처리 시간: {response.get('processing_time', 'N/A')}초")
-            print(f"요약 결과: {response.get('summary')}")
+            print(f"Transaction ID: {response.get('transactionid')}")
+            print(f"Sequence No: {response.get('sequenceno')}")
+            print(f"Return Code: {response.get('returncode')}")
+            print(f"Return Description: {response.get('returndescription')}")
+            
+            response_data = response.get('response', {})
+            result = response_data.get('result', '')
+            fail_reason = response_data.get('failReason', '')
+            summary = response_data.get('summary', '')
+            
+            print(f"Result: {result}")
+            if fail_reason:
+                print(f"Fail Reason: {fail_reason}")
+            if summary:
+                print(f"Summary: {summary}")
         else:
             print("응답을 받지 못했습니다.")
     

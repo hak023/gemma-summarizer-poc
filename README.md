@@ -99,7 +99,7 @@ python ipc_client_test.py
 | THREADS | 4 | 사용할 스레드 수 |
 | ENABLE_GPU | false | GPU 사용 여부 |
 | IPC_SLOT_COUNT | 5 | IPC 슬롯 개수 |
-| IPC_SLOT_SIZE | 8192 | 슬롯당 크기 (bytes) |
+| IPC_SLOT_SIZE | 32768 | 슬롯당 크기 (bytes) |
 
 ## IPC (Inter-Process Communication) 기능
 
@@ -114,23 +114,32 @@ python ipc_client_test.py
 #### 요청 형식 (JSON)
 ```json
 {
-    "type": "request",
-    "text": "요약할 텍스트 내용",
-    "request_id": "고유ID",
-    "processed": false,
-    "timestamp": 1234567890.123
+    "transactionid": "20250623085851B6100",
+    "sequenceno": "0",
+    "text": "요약할 텍스트 내용"
 }
 ```
 
 #### 응답 형식 (JSON)
 ```json
 {
-    "type": "response",
-    "summary": "요약된 텍스트",
-    "request_id": "고유ID",
-    "status": "success",
-    "processing_time": 3.45,
-    "processed": true
+    "transactionid": "20250623085851B6100",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "요약된 텍스트"
+    }
+}
+```
+
+#### Gemma 모델 응답 형식 (JSON)
+Gemma 모델은 JSON 형식으로 응답하며, 요약 결과는 "summary" 키에 포함됩니다:
+```json
+{
+    "summary": "요약된 텍스트"
 }
 ```
 
@@ -195,6 +204,12 @@ gemma_summarizer_new/
 버그 리포트나 기능 제안은 GitHub Issues를 통해 제출해주세요.
 
 ## 변경 이력
+
+### v1.1.0 (2025-07-15)
+- ✅ Gemma 모델 JSON 응답 형식 적용
+- ✅ 요약 결과를 "summary" 키로 표준화
+- ✅ 연동규격 업데이트 (transactionid, sequenceno 기반)
+- ✅ JSON 파싱 오류 처리 강화
 
 ### v1.0.0 (2025-07-15)
 - ✅ 멀티슬롯 IPC 서버 구현

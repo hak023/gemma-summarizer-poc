@@ -1,0 +1,262 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1745866958053_bizreco-auth-5dcd5f8c6f-6k584",
+    "reqNo": "20250623125641C9387",
+    "svcKey": "INOT",
+    "custNb": "11813804651",
+    "svcNb": "",
+    "callId": "20250623120314964492_1117506477949644601",
+    "callbackURL": "http://10.221.143.202:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "예 48 4000창원입니다",
+            "recType": 4,
+            "startTime": 0
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 200
+        },
+        {
+            "transcript": "아 네 안녕하세요 경기북부 범죄 피해자 지원 센터인데요",
+            "recType": 2,
+            "startTime": 1500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 2300
+        },
+        {
+            "transcript": "네 아 네 안녕하세요",
+            "recType": 4,
+            "startTime": 5100
+        },
+        {
+            "transcript": "어 부재중 전화 있어서 전화드렸어요 방금 전화 주신 분이요",
+            "recType": 2,
+            "startTime": 6100
+        },
+        {
+            "transcript": "아 네",
+            "recType": 4,
+            "startTime": 8400
+        },
+        {
+            "transcript": "네 아 네 네 선생님 안녕하세요 여기 한림대학교 동탄성신병원 사회사업 팀인데요",
+            "recType": 4,
+            "startTime": 10400
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 14800
+        },
+        {
+            "transcript": "네 저희",
+            "recType": 4,
+            "startTime": 15300
+        },
+        {
+            "transcript": "네 어 확인 좀 할려고 연락드렸고요",
+            "recType": 4,
+            "startTime": 16000
+        },
+        {
+            "transcript": "아 저희 환자분께서 여기 외래환자분이신데",
+            "recType": 4,
+            "startTime": 18800
+        },
+        {
+            "transcript": "네 그 데이트 폭력을",
+            "recType": 4,
+            "startTime": 22800
+        },
+        {
+            "transcript": "예 당하",
+            "recType": 4,
+            "startTime": 24800
+        },
+        {
+            "transcript": "예 없고 지금 이제",
+            "recType": 4,
+            "startTime": 25800
+        },
+        {
+            "transcript": "한림대학교",
+            "recType": 2,
+            "startTime": 26600
+        },
+        {
+            "transcript": "예 동탄성신병원이요",
+            "recType": 4,
+            "startTime": 28300
+        },
+        {
+            "transcript": "동탄성신병원이요",
+            "recType": 2,
+            "startTime": 30300
+        },
+        {
+            "transcript": "그때 화성시에 있어요",
+            "recType": 4,
+            "startTime": 33600
+        },
+        {
+            "transcript": "예 여기는 의정부인데 의정부로 전화하신 건 맞나요",
+            "recType": 2,
+            "startTime": 35600
+        },
+        {
+            "transcript": "어 어",
+            "recType": 4,
+            "startTime": 39500
+        },
+        {
+            "transcript": "예 환자분이 경기 폭부분이시긴 하시거든요 근데 제가",
+            "recType": 4,
+            "startTime": 42000
+        },
+        {
+            "transcript": "아 지역이 어디신데요 주소지",
+            "recType": 2,
+            "startTime": 44700
+        },
+        {
+            "transcript": "네 일산이요",
+            "recType": 4,
+            "startTime": 47300
+        },
+        {
+            "transcript": "네 일산이면 일산에 있는 범주 피해자 지원 센터에 전화를 하셔야 될 거 같애요",
+            "recType": 2,
+            "startTime": 48600
+        },
+        {
+            "transcript": "아 그래요 저 이 번호로 안내받았는데",
+            "recType": 4,
+            "startTime": 52900
+        },
+        {
+            "transcript": "피씨",
+            "recType": 4,
+            "startTime": 56300
+        },
+        {
+            "transcript": "그 번호를 알 수 있나요 그러면",
+            "recType": 4,
+            "startTime": 57400
+        },
+        {
+            "transcript": "네 아마 식사 시간이라 전화가 넘어갔을 수도 있고요",
+            "recType": 2,
+            "startTime": 58700
+        },
+        {
+            "transcript": "아 네",
+            "recType": 4,
+            "startTime": 61100
+        },
+        {
+            "transcript": "예 일산에 있는 범죄 피해자 지원 센터 검색하신 번호 나오",
+            "recType": 2,
+            "startTime": 62800
+        },
+        {
+            "transcript": "아 네 네",
+            "recType": 4,
+            "startTime": 67400
+        },
+        {
+            "transcript": "네 제가 찾아봐 드릴까요",
+            "recType": 2,
+            "startTime": 67800
+        },
+        {
+            "transcript": "어 어 아니요 제가 그럼 검색해 볼게요",
+            "recType": 4,
+            "startTime": 69300
+        },
+        {
+            "transcript": "네 제가 한번 집 찾아볼게요",
+            "recType": 2,
+            "startTime": 71400
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 75200
+        },
+        {
+            "transcript": "은 시간이면은",
+            "recType": 2,
+            "startTime": 85000
+        },
+        {
+            "transcript": "예 고양 파주 범피 알려드리면 돼요",
+            "recType": 2,
+            "startTime": 86900
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 87800
+        },
+        {
+            "transcript": "요양",
+            "recType": 2,
+            "startTime": 89900
+        },
+        {
+            "transcript": "아 아",
+            "recType": 4,
+            "startTime": 90200
+        },
+        {
+            "transcript": "위치가 저기 지역이 어디예요",
+            "recType": 2,
+            "startTime": 91900
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 93800
+        },
+        {
+            "transcript": "예 일산이요 고양시 맞으세요 아 여기 그 031 932에 1",
+            "recType": 4,
+            "startTime": 94800
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 96600
+        },
+        {
+            "transcript": "129 여기로 연락하면 되나",
+            "recType": 4,
+            "startTime": 98600
+        },
+        {
+            "transcript": "네 맞아요 932119",
+            "recType": 2,
+            "startTime": 100500
+        },
+        {
+            "transcript": "아 아 네 네 알겠습니다",
+            "recType": 4,
+            "startTime": 101300
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 103800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 106700
+        }
+    ]
+}

@@ -1,0 +1,1177 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1750189980375_bizreco-auth-5dcd5f8c6f-6k584",
+    "reqNo": "20250623122654D2993",
+    "svcKey": "INOT",
+    "custNb": "11185848561",
+    "svcNb": "",
+    "callId": "20250623100259107804_2217506405791077578",
+    "callbackURL": "http://10.221.143.203:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 200
+        },
+        {
+            "transcript": "네 여보세요",
+            "recType": 2,
+            "startTime": 3200
+        },
+        {
+            "transcript": "네 말씀하십시오",
+            "recType": 4,
+            "startTime": 4900
+        },
+        {
+            "transcript": "알 서리머니에서 그 네",
+            "recType": 2,
+            "startTime": 7200
+        },
+        {
+            "transcript": "예 예 예 맞습니다 말씀하십시오",
+            "recType": 4,
+            "startTime": 9200
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 11400
+        },
+        {
+            "transcript": "예 통화 상사 봤는데요",
+            "recType": 2,
+            "startTime": 11900
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 13900
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 15400
+        },
+        {
+            "transcript": "아 그 홍화상사 좀 큰 거 살려 그래요",
+            "recType": 2,
+            "startTime": 16000
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 17000
+        },
+        {
+            "transcript": "아 홈화산서 큰 거요 네",
+            "recType": 4,
+            "startTime": 18800
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 20400
+        },
+        {
+            "transcript": "예 근데 뭐 예약을 하고 가야 돼요",
+            "recType": 2,
+            "startTime": 21200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 21300
+        },
+        {
+            "transcript": "네 어 호아산 4 큰 사이즈 지금 보신 게 몇 얼마나 큰 걸 보셨을까요",
+            "recType": 4,
+            "startTime": 23700
+        },
+        {
+            "transcript": "6쩜이 있더라고요",
+            "recType": 2,
+            "startTime": 29000
+        },
+        {
+            "transcript": "예 예 잠시 몇 주 필요하실까요",
+            "recType": 4,
+            "startTime": 31000
+        },
+        {
+            "transcript": "한 주요",
+            "recType": 2,
+            "startTime": 32900
+        },
+        {
+            "transcript": "예 한지요 잠시만요",
+            "recType": 4,
+            "startTime": 33300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 36200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 47800
+        },
+        {
+            "transcript": "예 아 선생님 선생님 저희가 지금 6 쩜짜리는 다 빠졌고 고거보다 쪼끔 작은 사이즈는 매장이 있다고 하시거든요",
+            "recType": 4,
+            "startTime": 48500
+        },
+        {
+            "transcript": "네 한 4 점에서 5 점 요 정도 나올 거 같습니다",
+            "recType": 4,
+            "startTime": 56000
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 56100
+        },
+        {
+            "transcript": "아 아",
+            "recType": 2,
+            "startTime": 56600
+        },
+        {
+            "transcript": "아 그건 좀 작은데",
+            "recType": 2,
+            "startTime": 57700
+        },
+        {
+            "transcript": "네 네 저 작은 사이즈만 있다고",
+            "recType": 4,
+            "startTime": 59500
+        },
+        {
+            "transcript": "어 6 견짜리는 좀 구해 줄 수 없어요",
+            "recType": 2,
+            "startTime": 60300
+        },
+        {
+            "transcript": "네 어",
+            "recType": 4,
+            "startTime": 62700
+        },
+        {
+            "transcript": "아 6 쩜짜리 지금은 시기가 인제 여름이다 보니까 따로 인제 캐는 작업을 안 해서",
+            "recType": 4,
+            "startTime": 63700
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 67100
+        },
+        {
+            "transcript": "예 예 이제 고사 확률이 있어서",
+            "recType": 4,
+            "startTime": 69600
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 69800
+        },
+        {
+            "transcript": "어 보험에 미리 캐놓은 거 갖다놓은 거는 있는데",
+            "recType": 4,
+            "startTime": 71800
+        },
+        {
+            "transcript": "아 아",
+            "recType": 2,
+            "startTime": 72200
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 74600
+        },
+        {
+            "transcript": "네 그거를 인제 새로 캐기에는 나무가 죽을 확률이 좀 있어 가지고",
+            "recType": 4,
+            "startTime": 74900
+        },
+        {
+            "transcript": "아 지금은요",
+            "recType": 2,
+            "startTime": 79600
+        },
+        {
+            "transcript": "예 여름에는 캐는 예 연음매는 캔은 작업은 잘 안 하시거든요",
+            "recType": 4,
+            "startTime": 79700
+        },
+        {
+            "transcript": "사전이는 좀 작은 거 같애서",
+            "recType": 2,
+            "startTime": 84900
+        },
+        {
+            "transcript": "아 그",
+            "recType": 4,
+            "startTime": 85200
+        },
+        {
+            "transcript": "네 4 점에서 5 점 정도 될 거 같은데 좀 작은 사이즈밖에 안 남아 있어서 지금 저희 매장에는",
+            "recType": 4,
+            "startTime": 86700
+        },
+        {
+            "transcript": "음",
+            "recType": 2,
+            "startTime": 92000
+        },
+        {
+            "transcript": "네 그러면은",
+            "recType": 2,
+            "startTime": 94900
+        },
+        {
+            "transcript": "올해는 6.6000 되는 그 분이 얼만큼 커요",
+            "recType": 2,
+            "startTime": 96100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 99200
+        },
+        {
+            "transcript": "그 분도 6 점도 그렇게 많이 불 커지는 않았었거든요",
+            "recType": 4,
+            "startTime": 100400
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 105200
+        },
+        {
+            "transcript": "네 밑에 분이",
+            "recType": 4,
+            "startTime": 105400
+        },
+        {
+            "transcript": "6.2 뭐 2.5 미터 정도 나온다 그러는데",
+            "recType": 2,
+            "startTime": 106100
+        },
+        {
+            "transcript": "네 네 키는 크죠 예",
+            "recType": 4,
+            "startTime": 108600
+        },
+        {
+            "transcript": "어 4호점은 뭐 보니까",
+            "recType": 2,
+            "startTime": 111400
+        },
+        {
+            "transcript": "그 택배로 발송할 정도로 작던데",
+            "recType": 2,
+            "startTime": 114300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 114800
+        },
+        {
+            "transcript": "예 45.2 택배로 아니요 아니요",
+            "recType": 4,
+            "startTime": 117000
+        },
+        {
+            "transcript": "예 차량 발송입니다 사전부터는",
+            "recType": 4,
+            "startTime": 119400
+        },
+        {
+            "transcript": "아 그래요",
+            "recType": 2,
+            "startTime": 122200
+        },
+        {
+            "transcript": "네 네 네 네",
+            "recType": 4,
+            "startTime": 123000
+        },
+        {
+            "transcript": "어 어",
+            "recType": 2,
+            "startTime": 123100
+        },
+        {
+            "transcript": "예 예 요것도 키는 다 2 메다 넘으니까요",
+            "recType": 4,
+            "startTime": 124500
+        },
+        {
+            "transcript": "예 그러면 걔는",
+            "recType": 2,
+            "startTime": 124700
+        },
+        {
+            "transcript": "네 통화",
+            "recType": 4,
+            "startTime": 127600
+        },
+        {
+            "transcript": "그 가지가 꽤 있어요",
+            "recType": 2,
+            "startTime": 127600
+        },
+        {
+            "transcript": "아 그생 잠시만요 저희",
+            "recType": 4,
+            "startTime": 130100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 136700
+        },
+        {
+            "transcript": "아 아 진는 않아요 가지가",
+            "recType": 4,
+            "startTime": 137400
+        },
+        {
+            "transcript": "아 아",
+            "recType": 4,
+            "startTime": 139700
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 140300
+        },
+        {
+            "transcript": "아 예 예 가지가 많지는 않다고 하시거든요",
+            "recType": 4,
+            "startTime": 140600
+        },
+        {
+            "transcript": "아 아 그래서 좀 심원은 볼품이 없",
+            "recType": 2,
+            "startTime": 143600
+        },
+        {
+            "transcript": "네 네 근데 요거는 좀 보셔야 될 거 같애요 예 보셔야지 되는 거라서",
+            "recType": 4,
+            "startTime": 144500
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 147500
+        },
+        {
+            "transcript": "아 음",
+            "recType": 2,
+            "startTime": 149800
+        },
+        {
+            "transcript": "아 근데 이거는 택배 발송은 안 되시는 거예요 다 뭐 점수 있는 것들 3 전부터는",
+            "recType": 4,
+            "startTime": 150300
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 154600
+        },
+        {
+            "transcript": "어 전부 다 그 차량 발송을 나가야 돼요 다 임 메다가 넘기 때문에 네",
+            "recType": 4,
+            "startTime": 155100
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 156500
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 158300
+        },
+        {
+            "transcript": "58",
+            "recType": 2,
+            "startTime": 160200
+        },
+        {
+            "transcript": "예 근데 인제",
+            "recType": 2,
+            "startTime": 160800
+        },
+        {
+            "transcript": "그 현장에 가서 사진을 할 건데",
+            "recType": 2,
+            "startTime": 162300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 163200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 163700
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 164800
+        },
+        {
+            "transcript": "아 가지가 너무 없어 갖고 초라해 보이니까",
+            "recType": 2,
+            "startTime": 165500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 165800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 167400
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 167900
+        },
+        {
+            "transcript": "아 아 그거는 저희가 뭐라고 답변해 드리기가 좀 어려워 직접 보지 않는 이상은",
+            "recType": 4,
+            "startTime": 168800
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 172200
+        },
+        {
+            "transcript": "어 원래 전지 안 한 상태인데 가지가 지금은 그래요",
+            "recType": 2,
+            "startTime": 174000
+        },
+        {
+            "transcript": "예 우리가",
+            "recType": 4,
+            "startTime": 174200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 176500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 177400
+        },
+        {
+            "transcript": "예 아니죠 처음에 보험이 나올 때",
+            "recType": 4,
+            "startTime": 178000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 180600
+        },
+        {
+            "transcript": "네 그 올릴 때 스트레스 받으니까",
+            "recType": 4,
+            "startTime": 180800
+        },
+        {
+            "transcript": "그 장가지",
+            "recType": 4,
+            "startTime": 184400
+        },
+        {
+            "transcript": "네 잘라서",
+            "recType": 2,
+            "startTime": 184900
+        },
+        {
+            "transcript": "예 이 자르고 올라오거든요 네",
+            "recType": 4,
+            "startTime": 185300
+        },
+        {
+            "transcript": "아 아",
+            "recType": 2,
+            "startTime": 186700
+        },
+        {
+            "transcript": "예 지금은 그러면은 굵은 가지에 뭐 꼽히고 난 후에 열매 같은 것도 없죠",
+            "recType": 2,
+            "startTime": 188600
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 192400
+        },
+        {
+            "transcript": "아 열매까진 모르겠고 입은 다 있는데 열매는 달려있는 것도 있고 안 달려있는 것도 있을 거예요 만약",
+            "recType": 4,
+            "startTime": 193800
+        },
+        {
+            "transcript": "어 올해 들어와서 새로 들어온 것들은 다",
+            "recType": 4,
+            "startTime": 200100
+        },
+        {
+            "transcript": "어 오래 전지하고 밑에를 잘라버린 거기 때문에 뿌리를 자른 거잖아요",
+            "recType": 4,
+            "startTime": 203800
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 208500
+        },
+        {
+            "transcript": "예 예 그래서 보늘",
+            "recType": 4,
+            "startTime": 209200
+        },
+        {
+            "transcript": "예 어",
+            "recType": 2,
+            "startTime": 211500
+        },
+        {
+            "transcript": "네 떠야 되니까 네",
+            "recType": 4,
+            "startTime": 211800
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 216300
+        },
+        {
+            "transcript": "아 제가 코친 내기는 맞아요",
+            "recType": 2,
+            "startTime": 217600
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 218100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 219100
+        },
+        {
+            "transcript": "예",
+            "recType": 4,
+            "startTime": 220700
+        },
+        {
+            "transcript": "그 올해 꽃을 킨 애는 맞냐고",
+            "recType": 2,
+            "startTime": 221700
+        },
+        {
+            "transcript": "네 그",
+            "recType": 4,
+            "startTime": 222200
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 223000
+        },
+        {
+            "transcript": "예 저희가 매장에 들어올 때",
+            "recType": 4,
+            "startTime": 224900
+        },
+        {
+            "transcript": "예 꽃이 펴 있는 것도 있었고 꽃이 안 온 것도 있지만 저희 보통은 대부분 올해는 꽃이 다 나왔던 애들이죠",
+            "recType": 4,
+            "startTime": 227400
+        },
+        {
+            "transcript": "예 근데 얘가 어렸을 때도 꽃이",
+            "recType": 2,
+            "startTime": 235100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 237000
+        },
+        {
+            "transcript": "예 피죠",
+            "recType": 2,
+            "startTime": 238000
+        },
+        {
+            "transcript": "예 그렇죠 저 접목1년생이어도요",
+            "recType": 4,
+            "startTime": 239200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 242000
+        },
+        {
+            "transcript": "그 가",
+            "recType": 4,
+            "startTime": 242200
+        },
+        {
+            "transcript": "예 잘르고서는 세순 나오면은 꽃은 보이기는 해요",
+            "recType": 4,
+            "startTime": 243900
+        },
+        {
+            "transcript": "음",
+            "recType": 2,
+            "startTime": 247600
+        },
+        {
+            "transcript": "아 네 이게 완벽하게 나오는 것은 아니지만 네",
+            "recType": 4,
+            "startTime": 247800
+        },
+        {
+            "transcript": "어",
+            "recType": 2,
+            "startTime": 250300
+        },
+        {
+            "transcript": "네 끝이 달리기는 하죠",
+            "recType": 4,
+            "startTime": 251100
+        },
+        {
+            "transcript": "예 사장님네가 9 점짜리를 올려 아니 6 점짜리를 올리셔 가지고",
+            "recType": 2,
+            "startTime": 251100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 252900
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 253500
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 256300
+        },
+        {
+            "transcript": "그 다른 데는 보면 큰 건 없이 대부분 택배 거래 위주해서 그런지 작은 거 많이 올려놨더라고요",
+            "recType": 2,
+            "startTime": 256900
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 257200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 259800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 260900
+        },
+        {
+            "transcript": "예 접목 1년생으로 아마 올리셨을 거예요",
+            "recType": 4,
+            "startTime": 264100
+        },
+        {
+            "transcript": "아 아 아니 뭐 3 점도 있고 그렇다 그러는데",
+            "recType": 2,
+            "startTime": 267300
+        },
+        {
+            "transcript": "예 예 3 점은 잘 모르겠습니다",
+            "recType": 4,
+            "startTime": 270300
+        },
+        {
+            "transcript": "그래서",
+            "recType": 2,
+            "startTime": 272300
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 273000
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 273900
+        },
+        {
+            "transcript": "아 관심이 있어 가지고 아니 저번에부터 심을려 그랬는데 너무 멀리 있거나 그래서 여기 양평이거든요",
+            "recType": 2,
+            "startTime": 274200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 274500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 275300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 276100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 278200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 278700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 279300
+        },
+        {
+            "transcript": "예 예 너무 늦 늦으셨",
+            "recType": 4,
+            "startTime": 280100
+        },
+        {
+            "transcript": "네 너무 늦으신 거 같애요 저희가 이거는 봄부터 계속 들어온 품종이라",
+            "recType": 4,
+            "startTime": 282100
+        },
+        {
+            "transcript": "아",
+            "recType": 2,
+            "startTime": 286100
+        },
+        {
+            "transcript": "예 예 열어놨었는데 네",
+            "recType": 4,
+            "startTime": 287000
+        },
+        {
+            "transcript": "아 아",
+            "recType": 2,
+            "startTime": 289000
+        },
+        {
+            "transcript": "예 근데 제가 인터넷에서는 안 보고 지인 통해 가지고",
+            "recType": 2,
+            "startTime": 290100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 291100
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 292000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 293000
+        },
+        {
+            "transcript": "아",
+            "recType": 4,
+            "startTime": 294700
+        },
+        {
+            "transcript": "죠 뭐 게 그 원예 종묘사가 아니고 길르는 사람들",
+            "recType": 2,
+            "startTime": 295200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 297000
+        },
+        {
+            "transcript": "예 예 네 네 네 네",
+            "recType": 4,
+            "startTime": 300000
+        },
+        {
+            "transcript": "예 그 사람들하고",
+            "recType": 2,
+            "startTime": 301400
+        },
+        {
+            "transcript": "네 직접 뭐 구매하실 수도 있죠 네 네 네 네",
+            "recType": 4,
+            "startTime": 301500
+        },
+        {
+            "transcript": "예 그래서 그렇게 연락을 취했었는데",
+            "recType": 2,
+            "startTime": 303800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 306700
+        },
+        {
+            "transcript": "네 고",
+            "recType": 2,
+            "startTime": 307500
+        },
+        {
+            "transcript": "예 그 사람들은 파하라 그러니까",
+            "recType": 2,
+            "startTime": 308600
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 309800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 311000
+        },
+        {
+            "transcript": "그 좀 하는 거는 쉽지가 않아서",
+            "recType": 2,
+            "startTime": 311200
+        },
+        {
+            "transcript": "아 네 네 네",
+            "recType": 4,
+            "startTime": 313700
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 313900
+        },
+        {
+            "transcript": "예 근데",
+            "recType": 2,
+            "startTime": 314900
+        },
+        {
+            "transcript": "아 그 한 5전 정도 되면은 걔네들은",
+            "recType": 2,
+            "startTime": 315600
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 316600
+        },
+        {
+            "transcript": "네 그 저희 넥선앱 들어가나요 에스유비 차량",
+            "recType": 2,
+            "startTime": 319000
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 321100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 322000
+        },
+        {
+            "transcript": "어 어떤 거",
+            "recType": 4,
+            "startTime": 323000
+        },
+        {
+            "transcript": "예 어떤",
+            "recType": 4,
+            "startTime": 324100
+        },
+        {
+            "transcript": "예 차량 그 홍화상사가",
+            "recType": 2,
+            "startTime": 324900
+        },
+        {
+            "transcript": "어 어떤 차량 차량 뭐",
+            "recType": 4,
+            "startTime": 325100
+        },
+        {
+            "transcript": "어 어 무슨 차",
+            "recType": 4,
+            "startTime": 327100
+        },
+        {
+            "transcript": "넥스턴",
+            "recType": 2,
+            "startTime": 327100
+        },
+        {
+            "transcript": "아 렉스턴이요",
+            "recType": 4,
+            "startTime": 328500
+        },
+        {
+            "transcript": "네 서브",
+            "recType": 2,
+            "startTime": 329700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 330200
+        },
+        {
+            "transcript": "예 뒤 뒤에 열고 가실 건가요 예",
+            "recType": 4,
+            "startTime": 331100
+        },
+        {
+            "transcript": "네 진칸 뭐",
+            "recType": 2,
+            "startTime": 332900
+        },
+        {
+            "transcript": "아 진칸 열고 가실 건가요 뒤에",
+            "recType": 4,
+            "startTime": 334700
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 334900
+        },
+        {
+            "transcript": "어 멀어서 열고 오기는 그렇지 않나 안 열어도 의자",
+            "recType": 2,
+            "startTime": 336600
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 337800
+        },
+        {
+            "transcript": "아 그러면은",
+            "recType": 4,
+            "startTime": 339500
+        },
+        {
+            "transcript": "네 아",
+            "recType": 4,
+            "startTime": 341700
+        },
+        {
+            "transcript": "네 안 들어와요",
+            "recType": 2,
+            "startTime": 341700
+        },
+        {
+            "transcript": "아 의사 다 지키고 안전 그 보조석에서 대각선으로는 들어가긴 하거든요 승용차에",
+            "recType": 4,
+            "startTime": 343300
+        },
+        {
+            "transcript": "예 그쵸 어",
+            "recType": 2,
+            "startTime": 349200
+        },
+        {
+            "transcript": "예 예 예",
+            "recType": 4,
+            "startTime": 350200
+        },
+        {
+            "transcript": "예 보조석부터 하면은 문을 굳이 안 열어도 되죠",
+            "recType": 2,
+            "startTime": 351400
+        },
+        {
+            "transcript": "네 네 네 네",
+            "recType": 4,
+            "startTime": 352400
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 354900
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 356200
+        },
+        {
+            "transcript": "아 근 그러면 지금 갖고 계신 거 사진 한번 찍어",
+            "recType": 2,
+            "startTime": 358200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 359000
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 359700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 360300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 361700
+        },
+        {
+            "transcript": "네 보여주실 수 있나요",
+            "recType": 2,
+            "startTime": 362200
+        },
+        {
+            "transcript": "아 아 제가 저희 매장 담당분한테 여기로 사진 좀 보내달라고 얘기를 할게요 저희가 갖고 있는 사이즈 몇 점 정도 있다 하고서는 제가 사진 보내달라고 얘기를 할게",
+            "recType": 4,
+            "startTime": 362500
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 366800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 372300
+        },
+        {
+            "transcript": "예 수것으로 좀만 부탁 좀 드릴게요",
+            "recType": 2,
+            "startTime": 374300
+        },
+        {
+            "transcript": "네 아 네 원래 저희가 이거는 해드리진 않는데",
+            "recType": 4,
+            "startTime": 375700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 378900
+        },
+        {
+            "transcript": "예 이제 여름철이고 하니까 제가 부탁 한번 해서 요것 좀 해달라고 말씀",
+            "recType": 4,
+            "startTime": 379100
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 381200
+        },
+        {
+            "transcript": "네 네 감사합니다",
+            "recType": 2,
+            "startTime": 383800
+        },
+        {
+            "transcript": "예 사진으로 보시는 거랑 또 틀려 가지고 저희가",
+            "recType": 4,
+            "startTime": 384300
+        },
+        {
+            "transcript": "예 그쵸 근데 인제 가지가 어떻게 예 가지가 어떻게 낫나 보고 싶어서",
+            "recType": 2,
+            "startTime": 387100
+        },
+        {
+            "transcript": "예 사진은 원래 잘 안 보내드리거든요 예",
+            "recType": 4,
+            "startTime": 387500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 390800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 391200
+        },
+        {
+            "transcript": "아 아 네 알겠습니다",
+            "recType": 4,
+            "startTime": 392600
+        },
+        {
+            "transcript": "네 감사합니다",
+            "recType": 2,
+            "startTime": 394400
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 394500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 395700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 398200
+        }
+    ]
+}

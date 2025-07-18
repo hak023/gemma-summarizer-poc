@@ -1,0 +1,392 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1652641294743_bizreco-auth-686d5c875b-wdpxb",
+    "reqNo": "20250623090259B3444",
+    "svcKey": "INOT",
+    "custNb": "25022481033",
+    "svcNb": "",
+    "callId": "20250620134601220655_2217503947612205915",
+    "callbackURL": "http://10.221.143.127:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "네 보성여산 가족과 평생교육진흥원입니다",
+            "recType": 4,
+            "startTime": 0
+        },
+        {
+            "transcript": "네 여보세요",
+            "recType": 2,
+            "startTime": 3100
+        },
+        {
+            "transcript": "아 네 네",
+            "recType": 4,
+            "startTime": 4100
+        },
+        {
+            "transcript": "네 여기는 사하구에 있는 신동경유리커피학원이고요",
+            "recType": 2,
+            "startTime": 4800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 8500
+        },
+        {
+            "transcript": "네 네 어제 저희 원장님께서 평생 교육 이원권 관련해서 교육받고 오셔 가지고",
+            "recType": 2,
+            "startTime": 9000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 14100
+        },
+        {
+            "transcript": "네 택자 주시면서 저희가 기관을 처음에 직원",
+            "recType": 2,
+            "startTime": 14400
+        },
+        {
+            "transcript": "훈련 무슨 이걸로",
+            "recType": 2,
+            "startTime": 17700
+        },
+        {
+            "transcript": "예 등록을 했었거든요",
+            "recType": 2,
+            "startTime": 20000
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 21600
+        },
+        {
+            "transcript": "예 근데 저희 카테고리가 평생교육",
+            "recType": 2,
+            "startTime": 22400
+        },
+        {
+            "transcript": "어",
+            "recType": 4,
+            "startTime": 28100
+        },
+        {
+            "transcript": "아 잠시만 그",
+            "recType": 2,
+            "startTime": 28700
+        },
+        {
+            "transcript": "그 평생 직업 교육학원으로 돼 있으신가요",
+            "recType": 4,
+            "startTime": 29000
+        },
+        {
+            "transcript": "네 네 네 네 그걸 예 예 평생 직업 교육 학원 요걸로 등록이 돼야 된다고 하시더라고요",
+            "recType": 2,
+            "startTime": 31200
+        },
+        {
+            "transcript": "아",
+            "recType": 4,
+            "startTime": 36900
+        },
+        {
+            "transcript": "네 저희가 그",
+            "recType": 4,
+            "startTime": 37500
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 38400
+        },
+        {
+            "transcript": "아 지금 사이트가 고평원 청산 이전 때문에 아마 접속이 안 되실 건데",
+            "recType": 4,
+            "startTime": 39800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 44200
+        },
+        {
+            "transcript": "어 접속이 안 돼서 굉장히 지금",
+            "recType": 2,
+            "startTime": 45100
+        },
+        {
+            "transcript": "네 지금",
+            "recType": 4,
+            "startTime": 45400
+        },
+        {
+            "transcript": "네 그래서",
+            "recType": 4,
+            "startTime": 47500
+        },
+        {
+            "transcript": "예 당황스러운",
+            "recType": 2,
+            "startTime": 48400
+        },
+        {
+            "transcript": "그래 저희 쪽에서도 지금",
+            "recType": 4,
+            "startTime": 49400
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 49800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 51900
+        },
+        {
+            "transcript": "아 어 선생님 상황처럼 저희도 확인이 안 되는 상황이어 가지고",
+            "recType": 4,
+            "startTime": 53000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 55300
+        },
+        {
+            "transcript": "네 아 네 네",
+            "recType": 2,
+            "startTime": 56200
+        },
+        {
+            "transcript": "네 저희가 6 월 25일 때 5 일쯤부터 이제 확인이 가능하실 텐데",
+            "recType": 4,
+            "startTime": 57300
+        },
+        {
+            "transcript": "네 네 네 네 네",
+            "recType": 2,
+            "startTime": 61000
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 62000
+        },
+        {
+            "transcript": "아 아직 신청 단계로 남아 계시다면은",
+            "recType": 4,
+            "startTime": 63100
+        },
+        {
+            "transcript": "네 직접 이제 기관 유형을 변경 가능하셔서",
+            "recType": 4,
+            "startTime": 67200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 70300
+        },
+        {
+            "transcript": "네 이제 6 월 25 일에",
+            "recType": 4,
+            "startTime": 70500
+        },
+        {
+            "transcript": "네 들어가셔서 평생 직업 교육 학원으로 변경해 주시면 될 거",
+            "recType": 4,
+            "startTime": 72200
+        },
+        {
+            "transcript": "네 어 신청은 저번 주에 해서",
+            "recType": 2,
+            "startTime": 75800
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 79100
+        },
+        {
+            "transcript": "어 어 월요일인가 화요일인가 들어가 보니까",
+            "recType": 2,
+            "startTime": 79900
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 82900
+        },
+        {
+            "transcript": "네 저희가 등록했던 교육",
+            "recType": 2,
+            "startTime": 83300
+        },
+        {
+            "transcript": "네 뭐 과정이랑 다 뜨더라고요",
+            "recType": 2,
+            "startTime": 85500
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 88000
+        },
+        {
+            "transcript": "예 예 그렇게 되면은 다 등록이 완료가 된 상황이 아닌가요",
+            "recType": 2,
+            "startTime": 88500
+        },
+        {
+            "transcript": "아 저희가 요게",
+            "recType": 4,
+            "startTime": 93400
+        },
+        {
+            "transcript": "네 신청을 해주시면은",
+            "recType": 4,
+            "startTime": 95000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 95000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 96700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 97000
+        },
+        {
+            "transcript": "그 등록해 주신 서류라던가 이제",
+            "recType": 4,
+            "startTime": 97500
+        },
+        {
+            "transcript": "네 네 네 네",
+            "recType": 2,
+            "startTime": 99300
+        },
+        {
+            "transcript": "네 선생 교육 과정을 보고 검토를 한 다음에",
+            "recType": 4,
+            "startTime": 99900
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 101900
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 103300
+        },
+        {
+            "transcript": "네 이제 국가평생 교육 진흥원 쪽으로 이제 넘겨서 그쪽에서 한 번 더 서류 검토를 하고",
+            "recType": 4,
+            "startTime": 103800
+        },
+        {
+            "transcript": "음 음",
+            "recType": 2,
+            "startTime": 108200
+        },
+        {
+            "transcript": "네 이제 승인을 요청드리는 거여 가지고",
+            "recType": 4,
+            "startTime": 108900
+        },
+        {
+            "transcript": "아 네 네 네 아",
+            "recType": 2,
+            "startTime": 111000
+        },
+        {
+            "transcript": "아 네 그렇게까지 최종을 적으로 해야지 승인이 나는 그런 과정이셔서",
+            "recType": 4,
+            "startTime": 112000
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 2,
+            "startTime": 115800
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 2,
+            "startTime": 117100
+        },
+        {
+            "transcript": "네 그 들어가 보셨을 때 아 신청 단계로 뜨신다면은",
+            "recType": 4,
+            "startTime": 117700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 121100
+        },
+        {
+            "transcript": "네 아직은 선생님께서 수정이 가능하신 단계셔서",
+            "recType": 4,
+            "startTime": 121200
+        },
+        {
+            "transcript": "네 네 네 네",
+            "recType": 2,
+            "startTime": 123900
+        },
+        {
+            "transcript": "네 네 요거 확인해 보시고 그 기관 유형 맞춰서 이렇게 변경해 주시면",
+            "recType": 4,
+            "startTime": 124400
+        },
+        {
+            "transcript": "네 아 네 그러면 일단 25일",
+            "recType": 2,
+            "startTime": 129300
+        },
+        {
+            "transcript": "아 엘 할 수 있는 거네요 지금은 접속이 안 되는 거",
+            "recType": 2,
+            "startTime": 132500
+        },
+        {
+            "transcript": "네 네 네 맞아요",
+            "recType": 4,
+            "startTime": 134300
+        },
+        {
+            "transcript": "아 아 알겠습니다 25일날 저희 다시 확인해 보겠습니다",
+            "recType": 2,
+            "startTime": 135700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 135900
+        },
+        {
+            "transcript": "아 네 감사합니다",
+            "recType": 4,
+            "startTime": 139100
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 140100
+        }
+    ]
+}

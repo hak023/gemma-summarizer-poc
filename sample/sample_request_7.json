@@ -1,0 +1,172 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1652641294743_bizreco-auth-686d5c875b-wdpxb",
+    "reqNo": "20250623165216B1398",
+    "svcKey": "INOT",
+    "custNb": "25023692433",
+    "svcNb": "",
+    "callId": "20250610091826803176_1117495147068031332",
+    "callbackURL": "http://10.221.143.127:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "관리 사무소 방지연 주임입니다",
+            "recType": 4,
+            "startTime": 0
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 600
+        },
+        {
+            "transcript": "아 안녕하세요 저희 본산데요",
+            "recType": 2,
+            "startTime": 2700
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 5100
+        },
+        {
+            "transcript": "네 그 혹시 근로 계약서 담당자님 계실까요",
+            "recType": 2,
+            "startTime": 6100
+        },
+        {
+            "transcript": "아 잠깐만요",
+            "recType": 4,
+            "startTime": 9100
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 10100
+        },
+        {
+            "transcript": "퍼클",
+            "recType": 4,
+            "startTime": 10300
+        },
+        {
+            "transcript": "본 사람",
+            "recType": 4,
+            "startTime": 10900
+        },
+        {
+            "transcript": "아 저 누굴 받은 가요",
+            "recType": 4,
+            "startTime": 15500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 17400
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 18000
+        },
+        {
+            "transcript": "어 네 여보세요",
+            "recType": 4,
+            "startTime": 19100
+        },
+        {
+            "transcript": "아 안녕하세요 저희 본산데요",
+            "recType": 2,
+            "startTime": 21400
+        },
+        {
+            "transcript": "아",
+            "recType": 4,
+            "startTime": 21600
+        },
+        {
+            "transcript": "네 안녕",
+            "recType": 4,
+            "startTime": 22400
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 23700
+        },
+        {
+            "transcript": "네 그 급여 인상돼서 근로 계약서 갱신해 주셨잖아요",
+            "recType": 2,
+            "startTime": 24000
+        },
+        {
+            "transcript": "아 네 네",
+            "recType": 4,
+            "startTime": 27700
+        },
+        {
+            "transcript": "네 그 혹시 회의로",
+            "recType": 2,
+            "startTime": 28600
+        },
+        {
+            "transcript": "네 있으실까요",
+            "recType": 2,
+            "startTime": 30200
+        },
+        {
+            "transcript": "회의로",
+            "recType": 4,
+            "startTime": 31900
+        },
+        {
+            "transcript": "예 대표 웨이 회의 이렇 그게 확인돼야 저희가 승인해 드릴 수 있거든요",
+            "recType": 2,
+            "startTime": 32600
+        },
+        {
+            "transcript": "아 그러면 선생님께 제가 전해드리고 다시 올리겠습니다",
+            "recType": 4,
+            "startTime": 37200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 39600
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 42100
+        },
+        {
+            "transcript": "아 네 알겠습니다 메일로 전달해 주시면 되세요",
+            "recType": 2,
+            "startTime": 43200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 44400
+        },
+        {
+            "transcript": "네 아 네 알겠습니다",
+            "recType": 4,
+            "startTime": 46200
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 47000
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 47700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 48200
+        }
+    ]
+}

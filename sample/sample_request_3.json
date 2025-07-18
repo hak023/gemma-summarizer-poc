@@ -1,0 +1,347 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1652641294743_bizreco-auth-686d5c875b-wdpxb",
+    "reqNo": "20250623090215B3994",
+    "svcKey": "INOT",
+    "custNb": "25022481033",
+    "svcNb": "",
+    "callId": "20250620133914816291_2217503943548162444",
+    "callbackURL": "http://10.221.143.127:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "아 네 부산여성가족과 평생교육진흥원입니다",
+            "recType": 4,
+            "startTime": 0
+        },
+        {
+            "transcript": "네 근데 방금 전화드렸던 사람인데요",
+            "recType": 2,
+            "startTime": 3500
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 5800
+        },
+        {
+            "transcript": "네 이 링크 들어가서 어떻게 확인해야 되나요",
+            "recType": 2,
+            "startTime": 6000
+        },
+        {
+            "transcript": "네 그 혹시 제가 보내드린",
+            "recType": 4,
+            "startTime": 8800
+        },
+        {
+            "transcript": "예 문자에 링크가 2 개가 있는데 혹시 어떤 링크 들어가셨 셨을까요",
+            "recType": 4,
+            "startTime": 11600
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 12100
+        },
+        {
+            "transcript": "어 첫 번째 거 들어",
+            "recType": 2,
+            "startTime": 16600
+        },
+        {
+            "transcript": "아 여기 들어가 주시면은 지금 모바일로 접속을 해 주신 거죠",
+            "recType": 4,
+            "startTime": 18200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 22200
+        },
+        {
+            "transcript": "네 네 요거 보시면 그 공지 사항이라고",
+            "recType": 4,
+            "startTime": 22800
+        },
+        {
+            "transcript": "어 혹시 확인이 되실까요",
+            "recType": 4,
+            "startTime": 26700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 27000
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 28500
+        },
+        {
+            "transcript": "네 네 그거 공지사항 들어가 주시면은",
+            "recType": 4,
+            "startTime": 29300
+        },
+        {
+            "transcript": "네 저희가 잠시만요 선생님",
+            "recType": 4,
+            "startTime": 32300
+        },
+        {
+            "transcript": "네 저도 같이",
+            "recType": 4,
+            "startTime": 38100
+        },
+        {
+            "transcript": "그 봐볼려고 들어가고 있는 중이어서 사이트를",
+            "recType": 4,
+            "startTime": 39500
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 2,
+            "startTime": 43100
+        },
+        {
+            "transcript": "아 저희 그 공지 사항 들어가 주시면은",
+            "recType": 4,
+            "startTime": 51000
+        },
+        {
+            "transcript": "어 공고 번호가 1213 번 2025 년 6 월 부산광역시 평생 교육 이렇게 써져 있는 거 들어가 주시면",
+            "recType": 4,
+            "startTime": 53900
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 59800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 62000
+        },
+        {
+            "transcript": "네 저희 사용 기간 등록 현황 카드 뉴스 첨부 파일에 붙여져 있는데",
+            "recType": 4,
+            "startTime": 62200
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 63500
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 66800
+        },
+        {
+            "transcript": "네 요거 보시고",
+            "recType": 4,
+            "startTime": 66900
+        },
+        {
+            "transcript": "네 여기 들어가 주시면은 학원명이랑 대표 강좌 뭔지 확인이 가능해서",
+            "recType": 4,
+            "startTime": 68600
+        },
+        {
+            "transcript": "네 한번 보신 다음에 원하시는 강좌 확인하셔 가지고 그 학원 쪽으로 가셔서 결제해 주시면 될 거 같",
+            "recType": 4,
+            "startTime": 74400
+        },
+        {
+            "transcript": "이거 모바일로 못 보나요",
+            "recType": 2,
+            "startTime": 82800
+        },
+        {
+            "transcript": "네 어 아니요 저는 지금",
+            "recType": 4,
+            "startTime": 85300
+        },
+        {
+            "transcript": "아 지 제 폰으로 해보고 있는데 모바일로 확인이 되는 걸로 확인이 되는데",
+            "recType": 4,
+            "startTime": 87600
+        },
+        {
+            "transcript": "네 혹시 지금 모바일 확인이 조금 어려우신 상황이실까요",
+            "recType": 4,
+            "startTime": 91900
+        },
+        {
+            "transcript": "아",
+            "recType": 2,
+            "startTime": 96700
+        },
+        {
+            "transcript": "네 잠깐만요",
+            "recType": 2,
+            "startTime": 102500
+        },
+        {
+            "transcript": "네 안 들어가시는데",
+            "recType": 2,
+            "startTime": 108900
+        },
+        {
+            "transcript": "어 아니시면 선생님 혹시 그 실례지만 에스엔에스 이용하시는 게 있으실까요",
+            "recType": 4,
+            "startTime": 111300
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 118400
+        },
+        {
+            "transcript": "네 뭐 그 저희 인스타에서도 확인이 가능해서",
+            "recType": 4,
+            "startTime": 119100
+        },
+        {
+            "transcript": "네 혹시 인스타 확인",
+            "recType": 4,
+            "startTime": 122700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 122900
+        },
+        {
+            "transcript": "네 가능하시다면은",
+            "recType": 4,
+            "startTime": 124400
+        },
+        {
+            "transcript": "네 저희 검색창에 부산여성 가족과 평생교육진흥원 검색해 주시면은 똑같은 카드 뉴스 한 번 더 올려놓은 상태여서",
+            "recType": 4,
+            "startTime": 126000
+        },
+        {
+            "transcript": "4 시 그쪽으로 확인해 주시면은 모바일로도 확인이 가능하실 거",
+            "recType": 4,
+            "startTime": 134400
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 134600
+        },
+        {
+            "transcript": "여기에 들어 지금 에스엔에스에도 들어갔는데",
+            "recType": 2,
+            "startTime": 141600
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 144800
+        },
+        {
+            "transcript": "어 어떻게 확인하나요 사용 기간",
+            "recType": 2,
+            "startTime": 145800
+        },
+        {
+            "transcript": "네 그",
+            "recType": 4,
+            "startTime": 148800
+        },
+        {
+            "transcript": "인가요",
+            "recType": 2,
+            "startTime": 148800
+        },
+        {
+            "transcript": "네 지금 그러면 저희",
+            "recType": 4,
+            "startTime": 149600
+        },
+        {
+            "transcript": "네 부산여성 가족과 평생용육 진우고 프로필 확인되시잖아요",
+            "recType": 4,
+            "startTime": 150900
+        },
+        {
+            "transcript": "네 네 네 네",
+            "recType": 2,
+            "startTime": 154600
+        },
+        {
+            "transcript": "어 여기 밑으로 내려이시면은 우리 동네 평생 교육 이용권 사용 기간 해 가지고 제일 첫 줄에 가운데 올라져 있는 거",
+            "recType": 4,
+            "startTime": 155000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 159000
+        },
+        {
+            "transcript": "네 클릭해 주시면",
+            "recType": 4,
+            "startTime": 162800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 163000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 164700
+        },
+        {
+            "transcript": "네 저희 사용 기관명이랑 대표 강자",
+            "recType": 4,
+            "startTime": 164800
+        },
+        {
+            "transcript": "네 요거 옆으로 넘기시다 보니 확인이 가능하셔서",
+            "recType": 4,
+            "startTime": 167600
+        },
+        {
+            "transcript": "예 음",
+            "recType": 2,
+            "startTime": 168200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 170800
+        },
+        {
+            "transcript": "네 요거 한번 확인해 주시고 이제 선생님 원하시는 강좌가 있는 곳에 가셔서 결제해 주시면 될 거",
+            "recType": 4,
+            "startTime": 171200
+        },
+        {
+            "transcript": "아 아 이거 그러면은 아 예 알겠습니다",
+            "recType": 2,
+            "startTime": 178100
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 180000
+        },
+        {
+            "transcript": "네 감사합니다",
+            "recType": 4,
+            "startTime": 182000
+        },
+        {
+            "transcript": "네 감사합니다",
+            "recType": 2,
+            "startTime": 183300
+        }
+    ]
+}

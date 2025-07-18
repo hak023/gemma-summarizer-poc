@@ -84,9 +84,19 @@ class IPCMultiSlotManager:
             print(f"기존 공유 메모리 발견: {self.shm_name} - 정리 후 재생성")
             self._cleanup_existing_shm()
             
-            # 강제로 공유 메모리 생성 시도
-            self.shm = shared_memory.SharedMemory(name=self.shm_name, create=True, size=self.total_size)
-            print(f"공유 메모리 재생성됨: {self.shm_name} ({self.total_size} bytes, {self.slot_count} slots)")
+            # 강제로 공유 메모리 생성 시도 (여러 번 시도)
+            for attempt in range(3):
+                try:
+                    self.shm = shared_memory.SharedMemory(name=self.shm_name, create=True, size=self.total_size)
+                    print(f"공유 메모리 재생성됨: {self.shm_name} ({self.total_size} bytes, {self.slot_count} slots)")
+                    break
+                except FileExistsError:
+                    print(f"공유 메모리 재생성 시도 {attempt + 1} 실패, 다시 정리 후 시도")
+                    if attempt < 2:
+                        self._cleanup_existing_shm()
+                        time.sleep(2.0)
+                    else:
+                        raise Exception(f"공유 메모리 재생성 실패: {self.shm_name}")
             
             # 재생성된 메모리도 완전히 0으로 초기화
             print("재생성된 공유 메모리 완전 초기화 중...")
@@ -110,13 +120,13 @@ class IPCMultiSlotManager:
         """기존 공유 메모리 정리"""
         try:
             # Windows에서 공유 메모리 정리를 위한 더 강력한 방법
-            for attempt in range(5):  # 더 많은 시도
+            for attempt in range(10):  # 더 많은 시도
                 try:
                     temp_shm = shared_memory.SharedMemory(name=self.shm_name)
                     temp_shm.close()
                     temp_shm.unlink()
                     print(f"기존 공유 메모리 정리 완료: {self.shm_name} (시도 {attempt + 1})")
-                    time.sleep(0.5)  # 더 긴 대기 시간
+                    time.sleep(1.0)  # 더 긴 대기 시간
                     
                     # 정리 후 확인
                     try:
@@ -133,11 +143,21 @@ class IPCMultiSlotManager:
                     break
                 except Exception as e:
                     print(f"공유 메모리 정리 시도 {attempt + 1} 실패: {e}")
-                    if attempt < 4:
-                        time.sleep(1.0)  # 더 긴 대기 시간
+                    if attempt < 9:
+                        time.sleep(2.0)  # 더 긴 대기 시간
                     else:
                         print(f"공유 메모리 정리 실패, 강제로 계속 진행")
                         break
+            
+            # 최종 확인 및 강제 정리
+            try:
+                final_test = shared_memory.SharedMemory(name=self.shm_name)
+                final_test.close()
+                print(f"경고: 공유 메모리가 여전히 존재함: {self.shm_name}")
+                print("강제로 계속 진행합니다...")
+            except FileNotFoundError:
+                print(f"공유 메모리 정리 최종 확인됨: {self.shm_name}")
+                
         except Exception as e:
             print(f"기존 공유 메모리 정리 중 오류: {e}")
     
@@ -191,7 +211,17 @@ class IPCMultiSlotManager:
             json_bytes = json_str.encode('utf-8')
             
             if len(json_bytes) > slot.max_data_size:
-                print(f"데이터가 너무 큽니다: {len(json_bytes)} > {slot.max_data_size}")
+                print(f"데이터가 너무 큽니다: {len(json_bytes)} bytes > {slot.max_data_size} bytes (슬롯 {slot.slot_id})")
+                print(f"초과 크기: {len(json_bytes) - slot.max_data_size} bytes")
+                print(f"현재 슬롯 크기: {slot.data_size} bytes, 헤더 크기: {slot.header_size} bytes")
+                print(f"사용 가능한 데이터 크기: {slot.max_data_size} bytes")
+                
+                # 데이터 크기 정보 출력
+                if 'text' in data:
+                    text_size = len(data['text'].encode('utf-8'))
+                    print(f"텍스트 크기: {text_size} bytes")
+                    print(f"텍스트 길이: {len(data['text'])} 문자")
+                
                 return False
             
             # 헤더 정보 쓰기

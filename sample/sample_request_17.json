@@ -1,0 +1,1117 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1651342082317_bizreco-auth-686d5c875b-wdpxb",
+    "reqNo": "20250624104300A4064",
+    "svcKey": "INOT",
+    "custNb": "25029771553",
+    "svcNb": "",
+    "callId": "20250623140521795557_2217506551217955265",
+    "callbackURL": "http://10.221.143.128:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "예 예 여보세요",
+            "recType": 4,
+            "startTime": 800
+        },
+        {
+            "transcript": "아 네 과장님 여기 회장님 연결하라고 하셔서요 잠시만요",
+            "recType": 2,
+            "startTime": 1700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 3000
+        },
+        {
+            "transcript": "예 아 예",
+            "recType": 4,
+            "startTime": 5500
+        },
+        {
+            "transcript": "여보세요",
+            "recType": 2,
+            "startTime": 6500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 7300
+        },
+        {
+            "transcript": "네 그요",
+            "recType": 4,
+            "startTime": 8200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 11700
+        },
+        {
+            "transcript": "예 여보세요",
+            "recType": 4,
+            "startTime": 14000
+        },
+        {
+            "transcript": "아 직원장님 어딨어",
+            "recType": 2,
+            "startTime": 15000
+        },
+        {
+            "transcript": "예 저 지금",
+            "recType": 4,
+            "startTime": 17300
+        },
+        {
+            "transcript": "예 지하 1 층에 있습니다",
+            "recType": 4,
+            "startTime": 19300
+        },
+        {
+            "transcript": "어 지하 1 층",
+            "recType": 2,
+            "startTime": 20800
+        },
+        {
+            "transcript": "예 저기 공사 계속 보고 있어 가지고",
+            "recType": 4,
+            "startTime": 22900
+        },
+        {
+            "transcript": "어 어 어 공사 현 현장 보고 있다 이거지",
+            "recType": 2,
+            "startTime": 24500
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 25900
+        },
+        {
+            "transcript": "예 예 예",
+            "recType": 4,
+            "startTime": 28700
+        },
+        {
+            "transcript": "어 그 어느 정도 진척이 됐어",
+            "recType": 2,
+            "startTime": 29500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 31800
+        },
+        {
+            "transcript": "예 어 지금 현재 엘이디등 저 입구 쪽에",
+            "recType": 4,
+            "startTime": 33300
+        },
+        {
+            "transcript": "응",
+            "recType": 2,
+            "startTime": 36300
+        },
+        {
+            "transcript": "예 조절 돼 가지고 지금 팩스로 켜 봤는데 엄청 밝습니다",
+            "recType": 4,
+            "startTime": 36900
+        },
+        {
+            "transcript": "아 아 그래",
+            "recType": 2,
+            "startTime": 39900
+        },
+        {
+            "transcript": "예 예 예",
+            "recType": 4,
+            "startTime": 41300
+        },
+        {
+            "transcript": "예 1 층에 그 엘이 다 됐어 지금",
+            "recType": 2,
+            "startTime": 41300
+        },
+        {
+            "transcript": "아 아니 아니요 1 층 입구 쪽만 됐습니다",
+            "recType": 4,
+            "startTime": 44000
+        },
+        {
+            "transcript": "아 아 있구만 어",
+            "recType": 2,
+            "startTime": 45800
+        },
+        {
+            "transcript": "예 예 예 지금 테스트 중이어 가지고",
+            "recType": 4,
+            "startTime": 47300
+        },
+        {
+            "transcript": "어",
+            "recType": 2,
+            "startTime": 49100
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 50400
+        },
+        {
+            "transcript": "아 그리고 아까",
+            "recType": 2,
+            "startTime": 51300
+        },
+        {
+            "transcript": "그 차량은 다행히도 조금 협조를 많이 해줘 가지고",
+            "recType": 4,
+            "startTime": 51700
+        },
+        {
+            "transcript": "누가",
+            "recType": 2,
+            "startTime": 54900
+        },
+        {
+            "transcript": "아 지금 아니 저희가 차량 때문에 저번 주에",
+            "recType": 4,
+            "startTime": 55400
+        },
+        {
+            "transcript": "어",
+            "recType": 2,
+            "startTime": 58200
+        },
+        {
+            "transcript": "어 세대마다 다 돌아다녔거든요 하루 종일",
+            "recType": 4,
+            "startTime": 59200
+        },
+        {
+            "transcript": "어 어 어 어 어 어 어",
+            "recType": 2,
+            "startTime": 60700
+        },
+        {
+            "transcript": "예 일단 좀 차량 협정가 좀 잘 돼 가지고 지금 공사가 좀 수월하게 되고 있습 예 예",
+            "recType": 4,
+            "startTime": 61700
+        },
+        {
+            "transcript": "아 그 다행이다",
+            "recType": 2,
+            "startTime": 63700
+        },
+        {
+            "transcript": "어 어 잘했어",
+            "recType": 2,
+            "startTime": 66000
+        },
+        {
+            "transcript": "예 저희는 되게 걱정했었는데",
+            "recType": 4,
+            "startTime": 66500
+        },
+        {
+            "transcript": "어 어 어",
+            "recType": 2,
+            "startTime": 67800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 69100
+        },
+        {
+            "transcript": "예 그 저기",
+            "recType": 2,
+            "startTime": 70400
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 72100
+        },
+        {
+            "transcript": "1 층 그 주차장 말이야 아까 이야기했던 거",
+            "recType": 2,
+            "startTime": 72600
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 77400
+        },
+        {
+            "transcript": "예 지하 1 층이요",
+            "recType": 4,
+            "startTime": 77500
+        },
+        {
+            "transcript": "예 어 제일 1 층에 그 시검은 것들 있잖아라",
+            "recType": 2,
+            "startTime": 78000
+        },
+        {
+            "transcript": "네 아 네 네",
+            "recType": 4,
+            "startTime": 80700
+        },
+        {
+            "transcript": "예 그거 한",
+            "recType": 2,
+            "startTime": 82700
+        },
+        {
+            "transcript": "그 할 수 있다 그랬잖아",
+            "recType": 2,
+            "startTime": 84500
+        },
+        {
+            "transcript": "예 그렇죠",
+            "recType": 4,
+            "startTime": 86800
+        },
+        {
+            "transcript": "예 그거를",
+            "recType": 2,
+            "startTime": 88600
+        },
+        {
+            "transcript": "예",
+            "recType": 4,
+            "startTime": 90000
+        },
+        {
+            "transcript": "아",
+            "recType": 2,
+            "startTime": 91500
+        },
+        {
+            "transcript": "그 빨리 할 수게고 만나는",
+            "recType": 2,
+            "startTime": 94300
+        },
+        {
+            "transcript": "아 예 그래서 일단은 제가 요거 조금 알아보다가 한번 내일이나 모레 좀 한번 연락드리겠습니다 가격 때문에",
+            "recType": 4,
+            "startTime": 96600
+        },
+        {
+            "transcript": "응",
+            "recType": 2,
+            "startTime": 98600
+        },
+        {
+            "transcript": "응",
+            "recType": 2,
+            "startTime": 100300
+        },
+        {
+            "transcript": "음",
+            "recType": 2,
+            "startTime": 103800
+        },
+        {
+            "transcript": "어 가게가 어느 정",
+            "recType": 2,
+            "startTime": 105000
+        },
+        {
+            "transcript": "네 한번 회장님도 알고 계셔야 될 거 같아서",
+            "recType": 4,
+            "startTime": 105500
+        },
+        {
+            "transcript": "어느 정도",
+            "recType": 2,
+            "startTime": 106800
+        },
+        {
+            "transcript": "예상이 돼",
+            "recType": 2,
+            "startTime": 108500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 110400
+        },
+        {
+            "transcript": "어 어 저도 잘 지금 예상이 안 돼서 근데 보통 입주 청소하면은",
+            "recType": 4,
+            "startTime": 110800
+        },
+        {
+            "transcript": "아",
+            "recType": 2,
+            "startTime": 113400
+        },
+        {
+            "transcript": "어 어",
+            "recType": 2,
+            "startTime": 115200
+        },
+        {
+            "transcript": "예 아파트 같은 데가 서른평이 한 50만 원 봤거든요",
+            "recType": 4,
+            "startTime": 115700
+        },
+        {
+            "transcript": "어 어",
+            "recType": 2,
+            "startTime": 119000
+        },
+        {
+            "transcript": "아 그러면 이렇게 되면은 평수만 해도 그렇게만 단순 계산해도 거의 몇 대는 나오긴 하는데",
+            "recType": 4,
+            "startTime": 120200
+        },
+        {
+            "transcript": "우리가 뭐 그게 뭐",
+            "recType": 2,
+            "startTime": 125100
+        },
+        {
+            "transcript": "그 청소 얼마라고 1 층에",
+            "recType": 2,
+            "startTime": 126400
+        },
+        {
+            "transcript": "아 지하 1 층만 해도 그래도 한",
+            "recType": 4,
+            "startTime": 129000
+        },
+        {
+            "transcript": "어 전체 층이니까 꽤 크지 않나요",
+            "recType": 4,
+            "startTime": 131400
+        },
+        {
+            "transcript": "아 이거 받았면제 그거밖에 안 되는데 뭘 그래",
+            "recType": 2,
+            "startTime": 134600
+        },
+        {
+            "transcript": "예 예 아니 근데 아파트도 인제 바닥 면적 기준으로 한 고 정도 받아 가지고",
+            "recType": 4,
+            "startTime": 138200
+        },
+        {
+            "transcript": "음",
+            "recType": 2,
+            "startTime": 142400
+        },
+        {
+            "transcript": "예 일단은 여기는 조금 더 타르 같은 게 많아서",
+            "recType": 4,
+            "startTime": 142900
+        },
+        {
+            "transcript": "저희가",
+            "recType": 2,
+            "startTime": 143000
+        },
+        {
+            "transcript": "어",
+            "recType": 2,
+            "startTime": 146100
+        },
+        {
+            "transcript": "예 예 일단 업체를 한번 수소문은 해 봐야 될 거 같긴 합니다 근데 한 군데만 알아볼 순 없고",
+            "recType": 4,
+            "startTime": 146900
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 150200
+        },
+        {
+            "transcript": "어 어 어 어",
+            "recType": 2,
+            "startTime": 151400
+        },
+        {
+            "transcript": "한 두 군 두세 군데를 알아봐야 되기 때문에",
+            "recType": 4,
+            "startTime": 152300
+        },
+        {
+            "transcript": "어 어 어 어 그래",
+            "recType": 2,
+            "startTime": 154700
+        },
+        {
+            "transcript": "예 예 비요 근데 일단은 한 뭐 아 100 단위는 넘어갑니다",
+            "recType": 4,
+            "startTime": 155700
+        },
+        {
+            "transcript": "어 호수 없어",
+            "recType": 2,
+            "startTime": 160300
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 160600
+        },
+        {
+            "transcript": "일단은",
+            "recType": 2,
+            "startTime": 161700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 162100
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 162900
+        },
+        {
+            "transcript": "어 우리가 이 작업을 하면서",
+            "recType": 2,
+            "startTime": 163600
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 166900
+        },
+        {
+            "transcript": "1 층이 아 들었잖아",
+            "recType": 2,
+            "startTime": 167200
+        },
+        {
+            "transcript": "예 예 많이 들었습니다 지금 불까지 밝아지니까 더 더럽습니다",
+            "recType": 4,
+            "startTime": 169500
+        },
+        {
+            "transcript": "예 다른",
+            "recType": 2,
+            "startTime": 171300
+        },
+        {
+            "transcript": "아",
+            "recType": 2,
+            "startTime": 172600
+        },
+        {
+            "transcript": "아 그럼",
+            "recType": 2,
+            "startTime": 173700
+        },
+        {
+            "transcript": "그래서 난 이게 그거 하면은",
+            "recType": 2,
+            "startTime": 174700
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 174900
+        },
+        {
+            "transcript": "예 엘리딩까이들 그냥 꼭 하나잖아",
+            "recType": 2,
+            "startTime": 176800
+        },
+        {
+            "transcript": "아 그렇죠",
+            "recType": 4,
+            "startTime": 179800
+        },
+        {
+            "transcript": "예 그러니까 바닥을",
+            "recType": 2,
+            "startTime": 180700
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 182500
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 182700
+        },
+        {
+            "transcript": "아 그 저 베드칠 안 하고도 다 그렇게",
+            "recType": 2,
+            "startTime": 183900
+        },
+        {
+            "transcript": "이 닦아진다면서",
+            "recType": 2,
+            "startTime": 186500
+        },
+        {
+            "transcript": "예 예 예 맞습니다",
+            "recType": 4,
+            "startTime": 188200
+        },
+        {
+            "transcript": "어 그래 그렇게 해서",
+            "recType": 2,
+            "startTime": 188900
+        },
+        {
+            "transcript": "예 없어요",
+            "recType": 4,
+            "startTime": 191300
+        },
+        {
+            "transcript": "어 최단도로",
+            "recType": 2,
+            "startTime": 191500
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 193900
+        },
+        {
+            "transcript": "어",
+            "recType": 2,
+            "startTime": 194200
+        },
+        {
+            "transcript": "그 견적을 해서 결정을 해 가지고",
+            "recType": 2,
+            "startTime": 195200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 195500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 198600
+        },
+        {
+            "transcript": "어 결정 가지고 진행을 해",
+            "recType": 2,
+            "startTime": 198900
+        },
+        {
+            "transcript": "예 예 예",
+            "recType": 4,
+            "startTime": 201600
+        },
+        {
+            "transcript": "예",
+            "recType": 2,
+            "startTime": 201600
+        },
+        {
+            "transcript": "그리고 지나면서 나한테 먼저",
+            "recType": 2,
+            "startTime": 202400
+        },
+        {
+            "transcript": "거기 전",
+            "recType": 2,
+            "startTime": 204900
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 205000
+        },
+        {
+            "transcript": "나한테 구두로 결",
+            "recType": 2,
+            "startTime": 205700
+        },
+        {
+            "transcript": "예 그쵸 보 보고 드리고 예",
+            "recType": 4,
+            "startTime": 206300
+        },
+        {
+            "transcript": "어 허고 그다음에 진행할라고",
+            "recType": 2,
+            "startTime": 207600
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 209400
+        },
+        {
+            "transcript": "아 아니 허른불로 하자고잉",
+            "recType": 2,
+            "startTime": 209800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 210100
+        },
+        {
+            "transcript": "예",
+            "recType": 4,
+            "startTime": 212000
+        },
+        {
+            "transcript": "예",
+            "recType": 2,
+            "startTime": 212500
+        },
+        {
+            "transcript": "어 어 알겠습니다",
+            "recType": 4,
+            "startTime": 212800
+        },
+        {
+            "transcript": "어 그래서 아니 이게",
+            "recType": 2,
+            "startTime": 213900
+        },
+        {
+            "transcript": "아니 제 거기에",
+            "recType": 2,
+            "startTime": 215800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 216000
+        },
+        {
+            "transcript": "예 팩스어요 그",
+            "recType": 2,
+            "startTime": 217400
+        },
+        {
+            "transcript": "그 다 된대면서 깨끗하게",
+            "recType": 2,
+            "startTime": 218700
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 219200
+        },
+        {
+            "transcript": "예 예 예",
+            "recType": 4,
+            "startTime": 221100
+        },
+        {
+            "transcript": "아 그 얼마 좋아 그 벽",
+            "recType": 2,
+            "startTime": 221600
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 223400
+        },
+        {
+            "transcript": "예 차 나가는",
+            "recType": 2,
+            "startTime": 223700
+        },
+        {
+            "transcript": "그 구간 있잖아 도는 그",
+            "recType": 2,
+            "startTime": 224700
+        },
+        {
+            "transcript": "그 저 내일 라이 라인이 나오나 그 레인이라고 나",
+            "recType": 2,
+            "startTime": 227000
+        },
+        {
+            "transcript": "교쵸",
+            "recType": 4,
+            "startTime": 227700
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 229800
+        },
+        {
+            "transcript": "램프 구간이라고 합니다",
+            "recType": 4,
+            "startTime": 230500
+        },
+        {
+            "transcript": "아 램크구 가냐 그래",
+            "recType": 2,
+            "startTime": 231800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 233000
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 233500
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 233900
+        },
+        {
+            "transcript": "어 그거까지 다 이냥 작업해서 계끗하게 해서",
+            "recType": 2,
+            "startTime": 234000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 236400
+        },
+        {
+            "transcript": "예 진행대으로",
+            "recType": 2,
+            "startTime": 237100
+        },
+        {
+            "transcript": "아",
+            "recType": 4,
+            "startTime": 237600
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 238700
+        },
+        {
+            "transcript": "아 햇벌이라고 이번에",
+            "recType": 2,
+            "startTime": 238900
+        },
+        {
+            "transcript": "예 예 그래서 업체 한번 알아보겠습니다",
+            "recType": 4,
+            "startTime": 240600
+        },
+        {
+            "transcript": "어 어",
+            "recType": 2,
+            "startTime": 241200
+        },
+        {
+            "transcript": "어 빨리 알아 가지고 이번",
+            "recType": 2,
+            "startTime": 242300
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 243400
+        },
+        {
+            "transcript": "예 그거 하면서",
+            "recType": 2,
+            "startTime": 244700
+        },
+        {
+            "transcript": "바로 작업을 해",
+            "recType": 2,
+            "startTime": 246100
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 246300
+        },
+        {
+            "transcript": "아 예 예",
+            "recType": 4,
+            "startTime": 247900
+        },
+        {
+            "transcript": "예 그렇다고요 그 어",
+            "recType": 2,
+            "startTime": 248400
+        },
+        {
+            "transcript": "네 알겠습니다",
+            "recType": 4,
+            "startTime": 249900
+        },
+        {
+            "transcript": "어 뭐 그거야",
+            "recType": 2,
+            "startTime": 250700
+        },
+        {
+            "transcript": "예 제가 한번 중간에 보고 드리겠습니다",
+            "recType": 4,
+            "startTime": 251400
+        },
+        {
+            "transcript": "어 그래 그래 가지고 하여튼 진행을 빨리 하도록 하자고",
+            "recType": 2,
+            "startTime": 253200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 254400
+        },
+        {
+            "transcript": "아 네 알겠습니다",
+            "recType": 4,
+            "startTime": 257000
+        },
+        {
+            "transcript": "어 그다음에 다른 거는",
+            "recType": 2,
+            "startTime": 257800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 259700
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 260900
+        },
+        {
+            "transcript": "다른 건 없지",
+            "recType": 2,
+            "startTime": 261600
+        },
+        {
+            "transcript": "예 예 예",
+            "recType": 4,
+            "startTime": 263200
+        },
+        {
+            "transcript": "뭐 어떻게",
+            "recType": 2,
+            "startTime": 263800
+        },
+        {
+            "transcript": "아 저희가 지금 가장 큰 게 이거라서 지금",
+            "recType": 4,
+            "startTime": 264400
+        },
+        {
+            "transcript": "예 그거",
+            "recType": 2,
+            "startTime": 266700
+        },
+        {
+            "transcript": "예 예 네",
+            "recType": 4,
+            "startTime": 267300
+        },
+        {
+            "transcript": "어 어",
+            "recType": 2,
+            "startTime": 267700
+        },
+        {
+            "transcript": "예 그래서 그거",
+            "recType": 2,
+            "startTime": 270400
+        },
+        {
+            "transcript": "예 저희 뭐",
+            "recType": 4,
+            "startTime": 270900
+        },
+        {
+            "transcript": "예 장마가 뭐 또 내일부터 시작이라고 하는데",
+            "recType": 4,
+            "startTime": 272300
+        },
+        {
+            "transcript": "어",
+            "recType": 2,
+            "startTime": 274500
+        },
+        {
+            "transcript": "아 저희가 저번에 한번 그 저희 남자 세 명이",
+            "recType": 4,
+            "startTime": 275100
+        },
+        {
+            "transcript": "예 다 또 돌아봐 가지고",
+            "recType": 4,
+            "startTime": 278000
+        },
+        {
+            "transcript": "어",
+            "recType": 2,
+            "startTime": 279500
+        },
+        {
+            "transcript": "예 예 아직 염려 없을 거 같습니다",
+            "recType": 4,
+            "startTime": 280500
+        },
+        {
+            "transcript": "어 어",
+            "recType": 2,
+            "startTime": 282100
+        },
+        {
+            "transcript": "아 그래",
+            "recType": 2,
+            "startTime": 282900
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 283100
+        },
+        {
+            "transcript": "하여튼 뭐",
+            "recType": 2,
+            "startTime": 284200
+        },
+        {
+            "transcript": "그 사전 대입이하는 게 중요한 거니까",
+            "recType": 2,
+            "startTime": 286800
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 289500
+        },
+        {
+            "transcript": "예 정부야 대비도고 안전에",
+            "recType": 2,
+            "startTime": 290100
+        },
+        {
+            "transcript": "안전에 꼭",
+            "recType": 2,
+            "startTime": 292400
+        },
+        {
+            "transcript": "예 그렇죠 예",
+            "recType": 4,
+            "startTime": 293700
+        },
+        {
+            "transcript": "신경을 쓰라고",
+            "recType": 2,
+            "startTime": 293800
+        },
+        {
+            "transcript": "매사의 안전",
+            "recType": 2,
+            "startTime": 295300
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 295500
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 297400
+        },
+        {
+            "transcript": "아 싶어가지고 뭐",
+            "recType": 2,
+            "startTime": 297900
+        },
+        {
+            "transcript": "예",
+            "recType": 2,
+            "startTime": 300500
+        },
+        {
+            "transcript": "예 그거 있잖아",
+            "recType": 2,
+            "startTime": 301200
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 302700
+        },
+        {
+            "transcript": "1 층",
+            "recType": 2,
+            "startTime": 303000
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 304300
+        },
+        {
+            "transcript": "예 바닥 그 정하는 거",
+            "recType": 2,
+            "startTime": 304300
+        },
+        {
+            "transcript": "예 진행하자고",
+            "recType": 2,
+            "startTime": 305700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 306500
+        },
+        {
+            "transcript": "예 예 알겠습니다",
+            "recType": 4,
+            "startTime": 307400
+        },
+        {
+            "transcript": "어 어",
+            "recType": 2,
+            "startTime": 307600
+        },
+        {
+            "transcript": "어 오케이 케이 어",
+            "recType": 2,
+            "startTime": 308500
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 308800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 310300
+        },
+        {
+            "transcript": "음",
+            "recType": 2,
+            "startTime": 311100
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 312600
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 314900
+        }
+    ]
+}

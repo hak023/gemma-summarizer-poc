@@ -8,11 +8,14 @@ from ipc_queue_manager import IPCMultiSlotManager, SlotStatus
 from typing import Optional
 
 # IPC 설정 (서버와 동일)
-SHM_NAME = "gemma_ipc_shm"
-SLOT_COUNT = 5
-SLOT_SIZE = 8192
-POLLING_INTERVAL = 0.5
-REQUEST_TIMEOUT = 30.0
+import config
+config_dict = config.get_config()
+
+SHM_NAME = config_dict['IPC_SHM_NAME']
+SLOT_COUNT = config_dict['IPC_SLOT_COUNT']
+SLOT_SIZE = config_dict['IPC_SLOT_SIZE']
+POLLING_INTERVAL = config_dict['IPC_POLLING_INTERVAL']
+REQUEST_TIMEOUT = config_dict['IPC_REQUEST_TIMEOUT']
 
 def kill_previous_processes():
     """이전에 실행 중인 프로세스들을 종료"""

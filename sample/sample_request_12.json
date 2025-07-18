@@ -1,0 +1,382 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1652641294743_bizreco-auth-686d5c875b-wdpxb",
+    "reqNo": "20250623090730B2953",
+    "svcKey": "INOT",
+    "custNb": "25022481033",
+    "svcNb": "",
+    "callId": "20250620161132194358_1117504034921943174",
+    "callbackURL": "http://10.221.143.127:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "중앙 상담 콜센터를 이용해 주셔서 감사합니다 2025년 6월 17일부터 6월 24일까지",
+            "recType": 4,
+            "startTime": 0
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 5800
+        },
+        {
+            "transcript": "국가평생교육진흥원 청사이전에 따라",
+            "recType": 4,
+            "startTime": 7300
+        },
+        {
+            "transcript": "전화 상담이 일부 제한됩니다",
+            "recType": 4,
+            "startTime": 10500
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 10800
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 11800
+        },
+        {
+            "transcript": "상담 센터 이용 시 별도의 통화료가 부과되니",
+            "recType": 4,
+            "startTime": 13200
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 14000
+        },
+        {
+            "transcript": "참고하시기 바랍니다 원하시는 서비스 번호를 눌러주십시오",
+            "recType": 4,
+            "startTime": 16600
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 18100
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 19300
+        },
+        {
+            "transcript": "광역지자체별 상담 센터 연결을 원하시면 1 번 이용 관련 문의는 2 번",
+            "recType": 4,
+            "startTime": 20800
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 25300
+        },
+        {
+            "transcript": "사용 기관 관련 문의는 3 번 건의 및 신고는 4 번",
+            "recType": 4,
+            "startTime": 26800
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 30300
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 31000
+        },
+        {
+            "transcript": "카드 관련 농협 콜센터로",
+            "recType": 4,
+            "startTime": 31300
+        },
+        {
+            "transcript": "연결을 이망하시면 5 번",
+            "recType": 4,
+            "startTime": 33600
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 33900
+        },
+        {
+            "transcript": "다시 들으시려면 표를 눌러주십시오",
+            "recType": 4,
+            "startTime": 35700
+        },
+        {
+            "transcript": "네 주십시오",
+            "recType": 2,
+            "startTime": 37300
+        },
+        {
+            "transcript": "2018년 10월 18일부터",
+            "recType": 4,
+            "startTime": 39200
+        },
+        {
+            "transcript": "산업안전보건법에",
+            "recType": 4,
+            "startTime": 41900
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 42500
+        },
+        {
+            "transcript": "고객 응대 근로자 보호 조치가 시행되었습니다",
+            "recType": 4,
+            "startTime": 43600
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 44700
+        },
+        {
+            "transcript": "소중한 우리 가족이 고객님과 상담하고자 준비 중이니",
+            "recType": 4,
+            "startTime": 47300
+        },
+        {
+            "transcript": "잠시만 기다려 주시면 감사하겠습니다",
+            "recType": 4,
+            "startTime": 51300
+        },
+        {
+            "transcript": "고객 응대 근로자에게 보관",
+            "recType": 4,
+            "startTime": 54400
+        },
+        {
+            "transcript": "폭행 등을 하지 말아 주세요 상담 내용 보호를 위하여 문의하신 내용은 자동으로 녹취되며 문의하신 내용에 따라 일부 답변이 지연될 수 있습니다",
+            "recType": 4,
+            "startTime": 56700
+        },
+        {
+            "transcript": "상담원을 연결해 드리겠습니다",
+            "recType": 4,
+            "startTime": 67500
+        },
+        {
+            "transcript": "잠시만 기다려 주십시오",
+            "recType": 4,
+            "startTime": 70000
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 72200
+        },
+        {
+            "transcript": "평생 교육 이원권 상담 센터 박교신입니다",
+            "recType": 4,
+            "startTime": 75400
+        },
+        {
+            "transcript": "네 요거 다름이 아니라",
+            "recType": 2,
+            "startTime": 79100
+        },
+        {
+            "transcript": "네 그 저희",
+            "recType": 2,
+            "startTime": 81100
+        },
+        {
+            "transcript": "예 신청 링크에 들어가서",
+            "recType": 2,
+            "startTime": 83200
+        },
+        {
+            "transcript": "네 이제 신청을 하게 되면은 이제 신청 내역을 확인할 수 있는 걸로 알고 있는데",
+            "recType": 2,
+            "startTime": 86500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 88700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 92500
+        },
+        {
+            "transcript": "네 이제 신청 내역이",
+            "recType": 2,
+            "startTime": 92600
+        },
+        {
+            "transcript": "아 저희 1 차 신청 때는 그 제대로 신청 내역 확인이 안 됐던 걸로 아는데 이번에는 정상적으로 신청 내역 확인이 가능한가요",
+            "recType": 2,
+            "startTime": 94200
+        },
+        {
+            "transcript": "어 이용자 말씀하신 걸까요 아니면",
+            "recType": 4,
+            "startTime": 104500
+        },
+        {
+            "transcript": "어 교육 기관 신청 말씀하신 걸까요",
+            "recType": 4,
+            "startTime": 107000
+        },
+        {
+            "transcript": "어 저희 이용자 관련해서",
+            "recType": 2,
+            "startTime": 109500
+        },
+        {
+            "transcript": "네 로 문의드리",
+            "recType": 2,
+            "startTime": 111800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 113000
+        },
+        {
+            "transcript": "네 네 신청 내역 관련해서는",
+            "recType": 4,
+            "startTime": 115000
+        },
+        {
+            "transcript": "어 홈페이지에서 이제 본인 인증",
+            "recType": 4,
+            "startTime": 117400
+        },
+        {
+            "transcript": "네 확인을 해 주시면 되시고요",
+            "recType": 4,
+            "startTime": 120200
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 2,
+            "startTime": 122100
+        },
+        {
+            "transcript": "네 근데",
+            "recType": 4,
+            "startTime": 122600
+        },
+        {
+            "transcript": "네 현재 저희 청사 이전으로 인해서",
+            "recType": 4,
+            "startTime": 123400
+        },
+        {
+            "transcript": "아 같이 써버도 이전을 해야다 보니 홈페이지가 확인이 안 되세요",
+            "recType": 4,
+            "startTime": 126400
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 2,
+            "startTime": 130100
+        },
+        {
+            "transcript": "아 6 월 25 일 이후부터 정상적으로 이용 가능한지만 청구해 주시면 될 거 같습니다",
+            "recType": 4,
+            "startTime": 130200
+        },
+        {
+            "transcript": "아 아",
+            "recType": 2,
+            "startTime": 136100
+        },
+        {
+            "transcript": "네 저희가 그 부산평생교육진흥원인데 1 차 때는 신청 내역 확인이 조금 어렵다고",
+            "recType": 2,
+            "startTime": 136900
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 138100
+        },
+        {
+            "transcript": "어 문의를 주신 이용자분들이 많으셔서",
+            "recType": 2,
+            "startTime": 143700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 145600
+        },
+        {
+            "transcript": "아 그럼 지금은",
+            "recType": 2,
+            "startTime": 147200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 147400
+        },
+        {
+            "transcript": "네 신청 내역이 정상적으로 확인이 가능하신 거죠 이용자분들이",
+            "recType": 2,
+            "startTime": 148600
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 152000
+        },
+        {
+            "transcript": "네 네 네 본인 인증하시면 확인이 가능하신데 현재는 이제",
+            "recType": 4,
+            "startTime": 152800
+        },
+        {
+            "transcript": "어 서버 이전 뭐 확인이 안 되시고 6 월 25일부터",
+            "recType": 4,
+            "startTime": 156400
+        },
+        {
+            "transcript": "음 음 네 네",
+            "recType": 2,
+            "startTime": 157700
+        },
+        {
+            "transcript": "네 가능하신 거세요",
+            "recType": 4,
+            "startTime": 159500
+        },
+        {
+            "transcript": "네 아 네 감사합니다",
+            "recType": 2,
+            "startTime": 160700
+        },
+        {
+            "transcript": "네 감사합니다 평생교육이용권 상담사 귀신이었습니다",
+            "recType": 4,
+            "startTime": 162500
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 166400
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 167000
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 167500
+        }
+    ]
+}

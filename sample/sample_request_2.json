@@ -1,0 +1,182 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1652641294743_bizreco-auth-686d5c875b-wdpxb",
+    "reqNo": "20250623090117B5912",
+    "svcKey": "INOT",
+    "custNb": "25022481033",
+    "svcNb": "",
+    "callId": "20250620131206872013_1117503927268719701",
+    "callbackURL": "http://10.221.143.127:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "네 부산유성가족과 평생교육진흥원입니다",
+            "recType": 4,
+            "startTime": 0
+        },
+        {
+            "transcript": "아 네 그",
+            "recType": 2,
+            "startTime": 3600
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 3800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 4400
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 4900
+        },
+        {
+            "transcript": "농협 카드를 발급 받았는데 아직까지 충전이 안 돼서요",
+            "recType": 2,
+            "startTime": 5300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 5700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 6500
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 7500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 8100
+        },
+        {
+            "transcript": "어 저희가 포인트 충전 같은 경우에는",
+            "recType": 4,
+            "startTime": 9300
+        },
+        {
+            "transcript": "네 저희 전국적으로 순차 지급 중이어서",
+            "recType": 4,
+            "startTime": 12300
+        },
+        {
+            "transcript": "네 저희 부상 같은 경우에는 이제 포인트 충전받게 되시면 6월 말이나 7월 초쯤 되실 거예요",
+            "recType": 4,
+            "startTime": 15400
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 15700
+        },
+        {
+            "transcript": "어 그럼 7월",
+            "recType": 2,
+            "startTime": 22400
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 23100
+        },
+        {
+            "transcript": "그 초쯤에 받을 수 있다는 것이 말씀이신 거죠",
+            "recType": 2,
+            "startTime": 24100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 24700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 26700
+        },
+        {
+            "transcript": "아 안내받을 때 이번 주 아 이번 달 첫 주에 입 아마 순년이 더 있거든 이렇게 안내를 받아 가지고",
+            "recType": 2,
+            "startTime": 27900
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 28200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 30900
+        },
+        {
+            "transcript": "어 어 저희가 그",
+            "recType": 4,
+            "startTime": 34900
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 35600
+        },
+        {
+            "transcript": "그 포인트 충전 같은 경우에는 국가 평생 교육 진흥원 쪽 해서 한번 취업을 해서 농협 쪽으로 넘겨서 이제",
+            "recType": 4,
+            "startTime": 37300
+        },
+        {
+            "transcript": "네 포인트 충전을 해 드리는데",
+            "recType": 4,
+            "startTime": 44000
+        },
+        {
+            "transcript": "네 그 저희 국가평생 교육 진흥원 쪽에서 청사 이전 때문에 지금 모든 시스템이 중단이 돼서 네 네",
+            "recType": 4,
+            "startTime": 46400
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 46500
+        },
+        {
+            "transcript": "아",
+            "recType": 2,
+            "startTime": 50400
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 52500
+        },
+        {
+            "transcript": "아 예 알겠습니다",
+            "recType": 2,
+            "startTime": 53100
+        },
+        {
+            "transcript": "아 그",
+            "recType": 4,
+            "startTime": 53400
+        },
+        {
+            "transcript": "아 네 감사합니다",
+            "recType": 4,
+            "startTime": 54600
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 55900
+        }
+    ]
+}

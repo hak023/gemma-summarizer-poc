@@ -277,6 +277,153 @@ def log_request_response(request_data: dict, response_data: dict, processing_tim
         print(f"로그 기록 중 오류 발생: {e}")
         return ""
 
+def log_request_only(request_data: dict, process_name: str = "gemma_summarizer") -> str:
+    """
+    요청 데이터만 별도로 로그 파일에 기록
+    
+    Args:
+        request_data (dict): 원본 요청 데이터
+        process_name (str): 프로세스명
+        
+    Returns:
+        str: 생성된 로그 파일 경로
+    """
+    try:
+        log_filename = request_logger._generate_log_filename(process_name)
+        log_path = request_logger.log_dir / log_filename
+        
+        is_new_file = not os.path.exists(log_path)
+        mode = 'a' if not is_new_file else 'w'
+        
+        content = ""
+        if is_new_file:
+            content += (
+                "=" * 80 + "\n"
+                + f"요청 데이터 로그\n"
+                + "=" * 80 + "\n"
+                + f"생성 시간: {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]}\n"
+                + f"프로세스명: {process_name}\n"
+                + f"로그 파일: {log_filename}\n"
+                + "-" * 80 + "\n"
+            )
+        
+        content += (
+            "\n" + "=" * 80 + "\n"
+            + f"요청 수신 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]}\n"
+            + "-" * 80 + "\n"
+            + "원본 요청 데이터:\n"
+            + "-" * 80 + "\n"
+            + f"{json.dumps(request_data, ensure_ascii=False, indent=2)}\n"
+            + "-" * 80 + "\n"
+        )
+        
+        request_logger._sync_write_log(str(log_path), content, mode)
+        print(f"요청 로그 생성: {log_path}")
+        return str(log_path)
+        
+    except Exception as e:
+        print(f"요청 로그 생성 오류: {e}")
+        return ""
+
+def log_response_only(response_data: dict, process_name: str = "gemma_summarizer") -> str:
+    """
+    응답 데이터만 별도로 로그 파일에 기록
+    
+    Args:
+        response_data (dict): 응답 데이터
+        process_name (str): 프로세스명
+        
+    Returns:
+        str: 생성된 로그 파일 경로
+    """
+    try:
+        log_filename = request_logger._generate_log_filename(process_name)
+        log_path = request_logger.log_dir / log_filename
+        
+        content = (
+            "\n" + "=" * 80 + "\n"
+            + f"응답 전송 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]}\n"
+            + "-" * 80 + "\n"
+            + "응답 데이터:\n"
+            + "-" * 80 + "\n"
+            + f"{json.dumps(response_data, ensure_ascii=False, indent=2)}\n"
+            + "-" * 80 + "\n"
+        )
+        
+        request_logger._sync_write_log(str(log_path), content, 'a')
+        print(f"응답 로그 추가: {log_path}")
+        return str(log_path)
+        
+    except Exception as e:
+        print(f"응답 로그 추가 오류: {e}")
+        return ""
+
+def log_gemma_query(query_text: str, process_name: str = "gemma_summarizer") -> str:
+    """
+    Gemma 모델에 전송하는 질의 텍스트를 로그 파일에 기록
+    
+    Args:
+        query_text (str): Gemma 모델에 전송하는 질의 텍스트
+        process_name (str): 프로세스명
+        
+    Returns:
+        str: 생성된 로그 파일 경로
+    """
+    try:
+        log_filename = request_logger._generate_log_filename(process_name)
+        log_path = request_logger.log_dir / log_filename
+        
+        content = (
+            "\n" + "=" * 80 + "\n"
+            + f"Gemma 질의 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]}\n"
+            + "-" * 80 + "\n"
+            + "Gemma 모델 질의 텍스트:\n"
+            + "-" * 80 + "\n"
+            + f"{query_text}\n"
+            + "-" * 80 + "\n"
+        )
+        
+        request_logger._sync_write_log(str(log_path), content, 'a')
+        print(f"Gemma 질의 로그 추가: {log_path}")
+        return str(log_path)
+        
+    except Exception as e:
+        print(f"Gemma 질의 로그 추가 오류: {e}")
+        return ""
+
+def log_gemma_response(gemma_response: str, process_name: str = "gemma_summarizer") -> str:
+    """
+    Gemma 모델로부터 받은 응답을 로그 파일에 기록
+    
+    Args:
+        gemma_response (str): Gemma 모델로부터 받은 응답
+        process_name (str): 프로세스명
+        
+    Returns:
+        str: 생성된 로그 파일 경로
+    """
+    try:
+        log_filename = request_logger._generate_log_filename(process_name)
+        log_path = request_logger.log_dir / log_filename
+        
+        content = (
+            "\n" + "=" * 80 + "\n"
+            + f"Gemma 응답 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]}\n"
+            + "-" * 80 + "\n"
+            + "Gemma 모델 응답:\n"
+            + "-" * 80 + "\n"
+            + f"{gemma_response}\n"
+            + "-" * 80 + "\n"
+        )
+        
+        request_logger._sync_write_log(str(log_path), content, 'a')
+        print(f"Gemma 응답 로그 추가: {log_path}")
+        return str(log_path)
+        
+    except Exception as e:
+        print(f"Gemma 응답 로그 추가 오류: {e}")
+        return ""
+
 def log_error_only(error_message: str, error_traceback: str = None, 
                    process_name: str = "gemma_summarizer") -> str:
     """
@@ -315,7 +462,7 @@ def log_error_only(error_message: str, error_traceback: str = None,
             )
         
         content += (
-            f"오류 메시지: {error_message}\n"
+            + f"오류 메시지: {error_message}\n"
         )
         
         if error_traceback:

@@ -1,0 +1,362 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1652641294743_bizreco-auth-686d5c875b-wdpxb",
+    "reqNo": "20250623085936B7017",
+    "svcKey": "INOT",
+    "custNb": "25022481033",
+    "svcNb": "",
+    "callId": "20250620113853415431_2217503871334153899",
+    "callbackURL": "http://10.221.143.127:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "네 네 부산여성가주가 평생교육진흥원입니다",
+            "recType": 4,
+            "startTime": 200
+        },
+        {
+            "transcript": "아 네 안녕하세요 여기 관양켓평생교육원인데요",
+            "recType": 2,
+            "startTime": 3600
+        },
+        {
+            "transcript": "네 바 죄송한데 한 번만 더 말씀해",
+            "recType": 4,
+            "startTime": 7000
+        },
+        {
+            "transcript": "바램비티 평생교육원이요",
+            "recType": 2,
+            "startTime": 9400
+        },
+        {
+            "transcript": "네 아 네 안녕하세요",
+            "recType": 4,
+            "startTime": 11000
+        },
+        {
+            "transcript": "네 다름이 아니고",
+            "recType": 2,
+            "startTime": 13600
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 15000
+        },
+        {
+            "transcript": "예 예 예",
+            "recType": 2,
+            "startTime": 15600
+        },
+        {
+            "transcript": "네 그 11월 7일날 팩 백스코에서 하는",
+            "recType": 2,
+            "startTime": 18000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 21600
+        },
+        {
+            "transcript": "어 그 행사에 저희 참여하고 싶어서 전화드렸거든요",
+            "recType": 2,
+            "startTime": 22900
+        },
+        {
+            "transcript": "아 잠시만요 선생님",
+            "recType": 4,
+            "startTime": 26300
+        },
+        {
+            "transcript": "네 그때 제가 기억하기로 바른뷰티 선생님 신청해 주신 걸로 아는데",
+            "recType": 4,
+            "startTime": 30000
+        },
+        {
+            "transcript": "어 신청해 주셨죠 신청품으로 안 해주셨을까요",
+            "recType": 4,
+            "startTime": 36100
+        },
+        {
+            "transcript": "뭐요",
+            "recType": 2,
+            "startTime": 41300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 41600
+        },
+        {
+            "transcript": "아 아 신청 설명회 말씀하시는 거죠",
+            "recType": 4,
+            "startTime": 42300
+        },
+        {
+            "transcript": "아 아 아니면은 11월에 하는 그거 저희 이제 아 체험부스",
+            "recType": 4,
+            "startTime": 46000
+        },
+        {
+            "transcript": "예 예 체험 부스요",
+            "recType": 2,
+            "startTime": 48500
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 51000
+        },
+        {
+            "transcript": "예 잠시만요 선생님 바음 티시고",
+            "recType": 4,
+            "startTime": 51200
+        },
+        {
+            "transcript": "예 체험",
+            "recType": 4,
+            "startTime": 54800
+        },
+        {
+            "transcript": "어 아 혹시 그러면은 아 저희가 지금 시스템이 안 열려서 그러는데",
+            "recType": 4,
+            "startTime": 56700
+        },
+        {
+            "transcript": "네 퇴원부스에 혹시 어떤 프로그램을 원하실까요",
+            "recType": 4,
+            "startTime": 60500
+        },
+        {
+            "transcript": "어 저희 미용 업계여 가지고",
+            "recType": 2,
+            "startTime": 64900
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 68100
+        },
+        {
+            "transcript": "뭐 네일아트나 요런 거를 해 볼까 생각 중이거든요",
+            "recType": 2,
+            "startTime": 68400
+        },
+        {
+            "transcript": "네 내일",
+            "recType": 4,
+            "startTime": 71300
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 73100
+        },
+        {
+            "transcript": "아 그러면은 내이라트 시",
+            "recType": 4,
+            "startTime": 74300
+        },
+        {
+            "transcript": "고",
+            "recType": 4,
+            "startTime": 77000
+        },
+        {
+            "transcript": "아 혹시 그러면은 그",
+            "recType": 4,
+            "startTime": 79000
+        },
+        {
+            "transcript": "네 아 한 몇 분 정도 오실 예정이실까요 만약에 가능하다면 네",
+            "recType": 4,
+            "startTime": 82100
+        },
+        {
+            "transcript": "저희는 갈 만 사람들 많거든요 아무래도 수강생들도 많고 해서",
+            "recType": 2,
+            "startTime": 87900
+        },
+        {
+            "transcript": "아",
+            "recType": 4,
+            "startTime": 91200
+        },
+        {
+            "transcript": "네 네 네 네",
+            "recType": 4,
+            "startTime": 93100
+        },
+        {
+            "transcript": "어 혹시 거기서 명 최대 인원이 몇 명까지 되는지만 좀 이야기를 해 주시면 저희가 거기에 맞춰서 가야 될 거 같애서",
+            "recType": 2,
+            "startTime": 94000
+        },
+        {
+            "transcript": "네 다 맞춰서 가능하시",
+            "recType": 4,
+            "startTime": 100700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 103100
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 103200
+        },
+        {
+            "transcript": "예 아 그러면 선생님",
+            "recType": 4,
+            "startTime": 104000
+        },
+        {
+            "transcript": "네 저희가 이 부분 해 가지고 선생님 바른 담당자님 성함이 어떻게 되실까요",
+            "recType": 4,
+            "startTime": 106200
+        },
+        {
+            "transcript": "유지원이요",
+            "recType": 2,
+            "startTime": 112800
+        },
+        {
+            "transcript": "예 유지원 선생님",
+            "recType": 4,
+            "startTime": 114300
+        },
+        {
+            "transcript": "아 저희 시스템 열 안 열려서 네",
+            "recType": 4,
+            "startTime": 116800
+        },
+        {
+            "transcript": "네 저 오늘 그",
+            "recType": 2,
+            "startTime": 116800
+        },
+        {
+            "transcript": "어 어 물품을 놔두고 와 가지고",
+            "recType": 2,
+            "startTime": 119300
+        },
+        {
+            "transcript": "네 네 네 번호가 다르죠",
+            "recType": 4,
+            "startTime": 121300
+        },
+        {
+            "transcript": "네 이 폰으로 연결 네",
+            "recType": 2,
+            "startTime": 121900
+        },
+        {
+            "transcript": "아 아 네 알겠습니다 그러면은 그 뒤에는 번호 이 번호로 연락드리면 괜찮 아 이 번호 말고 다른 그 저장된 번호로 연락드리면 되",
+            "recType": 4,
+            "startTime": 123500
+        },
+        {
+            "transcript": "네 네 네 네 네 그 내일부터는 그렇게 하셔도 돼요 아 내일 주말이고 그",
+            "recType": 2,
+            "startTime": 132400
+        },
+        {
+            "transcript": "예 예 평일 날",
+            "recType": 2,
+            "startTime": 136100
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 137800
+        },
+        {
+            "transcript": "아 그 번호 아시",
+            "recType": 2,
+            "startTime": 138100
+        },
+        {
+            "transcript": "예 아 근데 그때 제가 세 제가 기억하기로 그 대표님 번호로 담당자님이 되었던 걸로 기억하는데",
+            "recType": 4,
+            "startTime": 139700
+        },
+        {
+            "transcript": "네 맞죠",
+            "recType": 4,
+            "startTime": 147300
+        },
+        {
+            "transcript": "아 그래서 제가 항상 전화를 드렸으면 선생님이 대 대표님께서 연락을 주셔 가지고 선생님께 다시 연락 주는 그런 코드였던 거",
+            "recType": 4,
+            "startTime": 149400
+        },
+        {
+            "transcript": "아",
+            "recType": 2,
+            "startTime": 158100
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 158900
+        },
+        {
+            "transcript": "네 그 담당자 변경이 가능한데 지금 시스템이 닫혀서 안 되고 선생님 제가 선생님 번호 함",
+            "recType": 4,
+            "startTime": 159700
+        },
+        {
+            "transcript": "아 맞아요 26 일부터",
+            "recType": 2,
+            "startTime": 163900
+        },
+        {
+            "transcript": "예 예",
+            "recType": 2,
+            "startTime": 165700
+        },
+        {
+            "transcript": "네 네 번호 한번 저장해 둘게요 선생님 번호가 010",
+            "recType": 4,
+            "startTime": 165800
+        },
+        {
+            "transcript": "8022",
+            "recType": 2,
+            "startTime": 170200
+        },
+        {
+            "transcript": "58022",
+            "recType": 4,
+            "startTime": 171600
+        },
+        {
+            "transcript": "393",
+            "recType": 2,
+            "startTime": 173200
+        },
+        {
+            "transcript": "393",
+            "recType": 4,
+            "startTime": 174700
+        },
+        {
+            "transcript": "아 네 알겠습니다 제가 일단 전달하고 이 부분 관련해서 연락드릴 거 있으면 연락드리겠습니",
+            "recType": 4,
+            "startTime": 176300
+        },
+        {
+            "transcript": "네 감사합니다",
+            "recType": 2,
+            "startTime": 181500
+        },
+        {
+            "transcript": "네 감사합니다",
+            "recType": 4,
+            "startTime": 182800
+        }
+    ]
+}

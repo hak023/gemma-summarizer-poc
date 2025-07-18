@@ -3,10 +3,10 @@ echo Gemma Summarizer 환경 변수 설정
 
 REM 모델 설정
 set MODEL_PATH=models/gemma-3-1b-it-Q8_0.gguf
-set MODEL_CONTEXT_SIZE=2048
+set MODEL_CONTEXT_SIZE=8192
 
 REM 요약 설정
-set DEFAULT_MAX_TOKENS=100
+set DEFAULT_MAX_TOKENS=500
 set DEFAULT_TEMPERATURE=0.7
 
 REM 출력 설정

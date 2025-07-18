@@ -4,10 +4,10 @@ Write-Host "Gemma Summarizer 환경 변수 설정" -ForegroundColor Green
 
 # 모델 설정
 $env:MODEL_PATH = "models/gemma-3-1b-it-Q8_0.gguf"
-$env:MODEL_CONTEXT_SIZE = "2048"
+$env:MODEL_CONTEXT_SIZE = "8192"
 
 # 요약 설정
-$env:DEFAULT_MAX_TOKENS = "100"
+$env:DEFAULT_MAX_TOKENS = "500"
 $env:DEFAULT_TEMPERATURE = "0.7"
 
 # 출력 설정

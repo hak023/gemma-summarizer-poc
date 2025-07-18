@@ -1,0 +1,192 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1746989946339_bizreco-auth-5dcd5f8c6f-6k584",
+    "reqNo": "20250623110041F7246",
+    "svcKey": "INOT",
+    "custNb": "11641560341",
+    "svcNb": "",
+    "callId": "20250623095923631816_1117506403636317778",
+    "callbackURL": "http://10.221.143.205:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "네 조연입니다",
+            "recType": 4,
+            "startTime": 900
+        },
+        {
+            "transcript": "네 안녕하세요 전문건설협회입니다",
+            "recType": 2,
+            "startTime": 2200
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 4900
+        },
+        {
+            "transcript": "네 저희 실적 신고 담당하시는 분 계실까요",
+            "recType": 2,
+            "startTime": 5700
+        },
+        {
+            "transcript": "잠시만요",
+            "recType": 4,
+            "startTime": 8600
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 10500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 11700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 13700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 15800
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 16800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 17300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 18500
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 20100
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 22500
+        },
+        {
+            "transcript": "여보세요",
+            "recType": 4,
+            "startTime": 23500
+        },
+        {
+            "transcript": "네 안녕하세요 전문건설협회입니다",
+            "recType": 2,
+            "startTime": 24700
+        },
+        {
+            "transcript": "예 예",
+            "recType": 4,
+            "startTime": 27000
+        },
+        {
+            "transcript": "아 저번에 저랑 통화하셨나요",
+            "recType": 2,
+            "startTime": 27700
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 29600
+        },
+        {
+            "transcript": "예 그때 서성옥",
+            "recType": 2,
+            "startTime": 30200
+        },
+        {
+            "transcript": "네 자격증 사본",
+            "recType": 2,
+            "startTime": 31800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 32100
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 33600
+        },
+        {
+            "transcript": "네 저희 요청드렸었는데",
+            "recType": 2,
+            "startTime": 34000
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 36000
+        },
+        {
+            "transcript": "네 혹시 보내셨을까요",
+            "recType": 2,
+            "startTime": 36500
+        },
+        {
+            "transcript": "아 지금 깜빡했네예",
+            "recType": 4,
+            "startTime": 38200
+        },
+        {
+            "transcript": "네 아 네 네 그 자격증 사본이랑 4대 보험 가입자 명부랑 같이 보내주셔야 됩니다",
+            "recType": 2,
+            "startTime": 39700
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 41400
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 41800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 43200
+        },
+        {
+            "transcript": "딸기쩜4번",
+            "recType": 4,
+            "startTime": 44800
+        },
+        {
+            "transcript": "네 4대보험 사업장 가입자 명구요",
+            "recType": 2,
+            "startTime": 47100
+        },
+        {
+            "transcript": "네 알겠습니다",
+            "recType": 4,
+            "startTime": 48400
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 50300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 52200
+        }
+    ]
+}

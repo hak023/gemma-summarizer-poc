@@ -1,0 +1,417 @@
+{
+    "cmd": "SummaryReq",
+    "token": "token_1652641294743_bizreco-auth-686d5c875b-wdpxb",
+    "reqNo": "20250623090533B8795",
+    "svcKey": "INOT",
+    "custNb": "25022481033",
+    "svcNb": "",
+    "callId": "20250620140254885118_1117503957748850698",
+    "callbackURL": "http://10.221.143.127:8010/recoapi/summaryCallBack",
+    "sttResultList": [
+        {
+            "transcript": "네 여병원신다은입니다",
+            "recType": 4,
+            "startTime": 0
+        },
+        {
+            "transcript": "네 여보세요",
+            "recType": 2,
+            "startTime": 2000
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 2300
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 3000
+        },
+        {
+            "transcript": "네 그 평생 이용권 인제 선정돼서 카드를 이제 만들었거든요",
+            "recType": 2,
+            "startTime": 4100
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 5800
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 8300
+        },
+        {
+            "transcript": "아 그 어떻게 이거를 예 사용을 하는 건지 네",
+            "recType": 2,
+            "startTime": 9800
+        },
+        {
+            "transcript": "아 아 저희가 지금 카 카드 발급받으시면 저희가 일정 기간 이내 문 일정 뭐",
+            "recType": 4,
+            "startTime": 12600
+        },
+        {
+            "transcript": "네 주기 동안 요렇게 해 가지고 저희가 카드 포인트 발급을",
+            "recType": 4,
+            "startTime": 18400
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 20100
+        },
+        {
+            "transcript": "네 농협에다가 요청을 하는 편이기는 한데",
+            "recType": 4,
+            "startTime": 22500
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 22800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 24900
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 25600
+        },
+        {
+            "transcript": "네 저희가 국가성생교육 진흥원에다가 이걸 요청을 하고 국가 방생교육 진흥원에서 농협에다 요청하는 상태예요",
+            "recType": 4,
+            "startTime": 26000
+        },
+        {
+            "transcript": "아 네 네",
+            "recType": 2,
+            "startTime": 32600
+        },
+        {
+            "transcript": "예 그래서 요게 이제 전국이 이제 동시에 진행이 되다 보니까 일정이 조금",
+            "recType": 4,
+            "startTime": 32800
+        },
+        {
+            "transcript": "예 어 뭐 전국이 이렇게 되다 보니까 조끔 늘어질 수 있긴 한데 저희가 일이 주에 한 번 정도는 요청을 드리는 편이거든요",
+            "recType": 4,
+            "startTime": 37600
+        },
+        {
+            "transcript": "네 아 네",
+            "recType": 2,
+            "startTime": 40800
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 44700
+        },
+        {
+            "transcript": "예 근데 이제 어 요번 주랑 다음 주가 국가 방행 교육 진흥원이 청사 이전 때문에",
+            "recType": 4,
+            "startTime": 44800
+        },
+        {
+            "transcript": "네 업무가 지금 종료가 되셔 가지고",
+            "recType": 4,
+            "startTime": 50500
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 50500
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 2,
+            "startTime": 53300
+        },
+        {
+            "transcript": "네 지금 조금 기다려 주실 6월 말이나",
+            "recType": 4,
+            "startTime": 53500
+        },
+        {
+            "transcript": "네 7월 초쯤이 되셔야 아마 받아보실 수 있으실 거같",
+            "recType": 4,
+            "startTime": 56700
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 57100
+        },
+        {
+            "transcript": "아 어 그러면은 그거 받고 나서 이제 제가 교육받고 싶은 곳을 별도로 개인적으로 이렇게 하는 건가요",
+            "recType": 2,
+            "startTime": 60100
+        },
+        {
+            "transcript": "네 네 네 네 맞습니다 저 일단은",
+            "recType": 4,
+            "startTime": 66600
+        },
+        {
+            "transcript": "네 음 네",
+            "recType": 2,
+            "startTime": 68000
+        },
+        {
+            "transcript": "네 그 저희가 카드 발 어 포인트 지급이 되시면",
+            "recType": 4,
+            "startTime": 68600
+        },
+        {
+            "transcript": "네 포인트 충전이 완료되셨 아 되었다라는",
+            "recType": 4,
+            "startTime": 72700
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 2,
+            "startTime": 72700
+        },
+        {
+            "transcript": "네 농협에서 문자가 발송이 되실 거예요",
+            "recType": 4,
+            "startTime": 75400
+        },
+        {
+            "transcript": "네 아 네",
+            "recType": 2,
+            "startTime": 77100
+        },
+        {
+            "transcript": "네 그거 받으시고",
+            "recType": 4,
+            "startTime": 78200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 78200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 79800
+        },
+        {
+            "transcript": "네 저희 신청하셨던 홈페이지 혹시 기억하시죠",
+            "recType": 4,
+            "startTime": 80000
+        },
+        {
+            "transcript": "네 네 네 네",
+            "recType": 2,
+            "startTime": 82400
+        },
+        {
+            "transcript": "네 거기 보시면 사용 기간 리스트가 있으실 거거든요",
+            "recType": 4,
+            "startTime": 83400
+        },
+        {
+            "transcript": "네 음 네 네",
+            "recType": 2,
+            "startTime": 86300
+        },
+        {
+            "transcript": "예 고 거기서 이제",
+            "recType": 4,
+            "startTime": 86700
+        },
+        {
+            "transcript": "네 듣고 싶으신 교육 과정 프로그램이 있는 기관에서만 이 카드를 사용하실 수 있으시니까",
+            "recType": 4,
+            "startTime": 88400
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 90600
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 93000
+        },
+        {
+            "transcript": "음 네",
+            "recType": 2,
+            "startTime": 94400
+        },
+        {
+            "transcript": "네 고거 참고해 주시면 될 거 같애요",
+            "recType": 4,
+            "startTime": 94800
+        },
+        {
+            "transcript": "음 그럼 이 카드 가지고 올해 올해 12월까지 사용을 하는 거예요 아니면 정해져 있나요",
+            "recType": 2,
+            "startTime": 96600
+        },
+        {
+            "transcript": "네 맞습니다",
+            "recType": 4,
+            "startTime": 101500
+        },
+        {
+            "transcript": "예 일단 12월까지인데 저희가 10월 31일까지 할지 고거보다 조금 더 땡겨서 운영을 할지는 저희가 조금 고민을 해 봐야 될 거 같고",
+            "recType": 4,
+            "startTime": 103000
+        },
+        {
+            "transcript": "아 아",
+            "recType": 2,
+            "startTime": 103000
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 105400
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 108900
+        },
+        {
+            "transcript": "네 고거 사용 종료 시기가 조금 당겨질 거면은 저희가 음",
+            "recType": 4,
+            "startTime": 111300
+        },
+        {
+            "transcript": "네 음 네",
+            "recType": 2,
+            "startTime": 111400
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 114900
+        },
+        {
+            "transcript": "네 미리 안내를 조금 드리도록 하겠습니다",
+            "recType": 4,
+            "startTime": 116000
+        },
+        {
+            "transcript": "아 음 네 아니 근데 혹 저 어 이전에 사용했던 분들이 글을 올린 걸 보니까 1 년에 두 번도 가능하다고 얘기 들었는데 그런 것도 있어요",
+            "recType": 2,
+            "startTime": 118200
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 4,
+            "startTime": 123800
+        },
+        {
+            "transcript": "아 저희가 작년까지는 일단은 국가평생 교육 진도에서 요거로 운영을 하면서 고렇게 운영을 하기는 했는데 우수 용자라고 해서 고렇게 운영을 하기는 했거든요",
+            "recType": 4,
+            "startTime": 127400
+        },
+        {
+            "transcript": "네 네 네",
+            "recType": 2,
+            "startTime": 132000
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 134800
+        },
+        {
+            "transcript": "아 네 이게 올해부터 부산으로 이제 광 부산광역시 업무로 이렇게 내려오면서",
+            "recType": 4,
+            "startTime": 136800
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 136900
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 141600
+        },
+        {
+            "transcript": "네 이게 요 어떻게 운영할지 여부 아직 정책적으로 결정이 되진 않았어요",
+            "recType": 4,
+            "startTime": 142000
+        },
+        {
+            "transcript": "음 네 네",
+            "recType": 2,
+            "startTime": 146600
+        },
+        {
+            "transcript": "네 그래서 요 부분은 조금 더 저희가",
+            "recType": 4,
+            "startTime": 147000
+        },
+        {
+            "transcript": "네 결정 4으로 일단은 남겨둬야 될 거 같고 결정되면은 그때 안 저희가 공지 사항 전체적으",
+            "recType": 4,
+            "startTime": 149500
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 153200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 154200
+        },
+        {
+            "transcript": "네 안내드리도록 하겠습니",
+            "recType": 4,
+            "startTime": 156900
+        },
+        {
+            "transcript": "예 예 알겠습니다 감사합니다",
+            "recType": 2,
+            "startTime": 158500
+        },
+        {
+            "transcript": "네 네",
+            "recType": 4,
+            "startTime": 160000
+        },
+        {
+            "transcript": "네 감사합니다",
+            "recType": 4,
+            "startTime": 160600
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 161200
+        },
+        {
+            "transcript": "네 네",
+            "recType": 2,
+            "startTime": 162000
+        },
+        {
+            "transcript": "네",
+            "recType": 2,
+            "startTime": 163600
+        },
+        {
+            "transcript": "네",
+            "recType": 4,
+            "startTime": 163800
+        }
+    ]
+}
