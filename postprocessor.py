@@ -10,7 +10,6 @@ class ResponsePostprocessor:
         """
         call_purpose 필드 후처리
         - 불필요한 공백 제거
-        - 20자 제한 적용
         """
         if not value:
             return "통화 목적 미상"
@@ -28,20 +27,6 @@ class ResponsePostprocessor:
         # 불필요한 공백 제거
         cleaned = re.sub(r'\s+', ' ', value.strip())
         
-        # 20자 제한 적용
-        if len(cleaned) > 20:
-            # 20자 이내로 자르기 (단어 단위로 자르기)
-            words = cleaned.split()
-            truncated = ""
-            for word in words:
-                if len(truncated + word) <= 20:
-                    truncated += (word + " ")
-                else:
-                    break
-            
-            truncated = truncated.strip()
-            return truncated
-        
         return cleaned
     
     @staticmethod
@@ -49,8 +34,6 @@ class ResponsePostprocessor:
         """
         summary 필드 후처리
         - 불필요한 공백 제거
-        - 한 문장으로 강제 변환 (마침표, 느낌표, 물음표로 끝나도록)
-        - 30자 제한 엄격 적용
         - 예시 내용 필터링
         - 여러 문장이 있을 경우 첫 번째 문장만 사용
         """
@@ -89,7 +72,7 @@ class ResponsePostprocessor:
         # 공백 정리
         cleaned = re.sub(r'\s+', ' ', value.strip())
         
-        # 여러 문장이 있는 경우 첫 번째 문장만 사용 (개선된 로직)
+        # 여러 문장이 있는 경우 첫 번째 문장만 사용
         # 마침표, 느낌표, 물음표로 문장을 분리
         sentence_endings = ['.', '!', '?']
         
@@ -109,32 +92,7 @@ class ResponsePostprocessor:
             first_sentence = cleaned
         
         if first_sentence:
-            # 30자 이내인 경우 변경 없이 그대로 반환
-            if len(first_sentence) <= 30:
-                return first_sentence
-            
-            # 30자 초과인 경우에만 자르기
-            words = first_sentence.split()
-            truncated = ""
-            
-            for word in words:
-                # 현재 단어를 추가했을 때의 길이 계산
-                test_truncated = truncated + word
-                if len(test_truncated) <= 30:
-                    truncated = test_truncated + " "
-                else:
-                    break
-            
-            truncated = truncated.strip()
-            
-            # 원본 문장에 구두점이 없었으면 마침표를 추가하지 않음
-            if truncated and not truncated.endswith(('.', '!', '?')) and first_sentence_end == -1:
-                # 원본에 구두점이 없었던 경우 마침표 추가하지 않음
-                pass
-            elif truncated and not truncated.endswith(('.', '!', '?')):
-                truncated += '.'
-            
-            return truncated
+            return first_sentence
         
         # 빈 문자열이나 공백만 있는 경우
         if not cleaned or cleaned.strip() == "":
