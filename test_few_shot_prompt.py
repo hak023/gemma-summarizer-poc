@@ -49,7 +49,7 @@ def test_few_shot_prompt():
         summary_length = len(parsed_result.get('summary', ''))
         call_purpose_length = len(parsed_result.get('call_purpose', ''))
         
-        print(f"summary: {summary_length}자 (제한: 30자) - {'✅ 통과' if summary_length <= 30 else '❌ 초과'}")
+        print(f"summary: {summary_length}자 (제한: 20자) - {'✅ 통과' if summary_length <= 20 else '❌ 초과'}")
         print(f"call_purpose: {call_purpose_length}자 (제한: 20자) - {'✅ 통과' if call_purpose_length <= 20 else '❌ 초과'}")
         
         # 예시 값 복사 여부 확인

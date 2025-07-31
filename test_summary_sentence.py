@@ -40,7 +40,7 @@ def test_summary_sentence_processing():
 def test_summary_length_limit():
     """summary 필드의 길이 제한을 테스트합니다."""
     
-    long_sentence = "이것은 매우 긴 문장으로 30자를 초과하는 내용을 포함하고 있어서 자동으로 잘려야 합니다."
+    long_sentence = "이것은 매우 긴 문장으로 20자를 초과하는 내용을 포함하고 있어서 자동으로 잘려야 합니다."
     
     print("=== Summary 필드 길이 제한 테스트 ===\n")
     
@@ -49,7 +49,7 @@ def test_summary_length_limit():
     print(f"길이: {len(long_sentence)}자")
     print(f"결과: '{result}'")
     print(f"길이: {len(result)}자")
-    print(f"30자 제한 준수: {'✅' if len(result) <= 30 else '❌'}")
+    print(f"20자 제한 준수: {'✅' if len(result) <= 20 else '❌'}")
 
 if __name__ == "__main__":
     test_summary_sentence_processing()

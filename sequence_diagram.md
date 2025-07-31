@@ -43,7 +43,7 @@ sequenceDiagram
     
     Note over Postprocessor: 5. 후처리 단계
     IPC->>Postprocessor: 후처리 요청
-    Postprocessor->>Postprocessor: summary 필드 처리 (30자 제한)
+    Postprocessor->>Postprocessor: summary 필드 처리 (20자 제한)
     Postprocessor->>Postprocessor: summary_no_limit 필드 처리
     Postprocessor->>Postprocessor: keywords 필드 처리 (5개 제한)
     Postprocessor->>Postprocessor: call_purpose 필드 처리 (20자 제한)
@@ -214,7 +214,7 @@ sequenceDiagram
 
     Note over Postprocessor: 필드별 순차 처리
     Postprocessor->>Fields: summary 필드 처리
-    Fields->>Fields: 30자 제한 적용
+    Fields->>Fields: 20자 제한 적용
     Fields->>Fields: 예시 내용 필터링
     Fields->>Fields: 문장 정리
     Fields->>Postprocessor: 처리된 summary

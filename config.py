@@ -1,10 +1,42 @@
 import os
+import multiprocessing
 from pathlib import Path
+
+# CPU 코어 수 자동 감지
+def get_optimal_threads():
+    """가용 CPU 코어 수를 감지하여 최적의 스레드 수를 반환"""
+    try:
+        # 물리적 CPU 코어 수 감지
+        cpu_count = multiprocessing.cpu_count()
+        print(f"감지된 CPU 코어 수: {cpu_count}")
+        
+        # 모든 코어 사용 (일부는 시스템용으로 남겨둘 수 있지만, 성능 최적화를 위해 모두 사용)
+        optimal_threads = cpu_count
+        
+        # 최소값과 최대값 설정
+        min_threads = 2
+        max_threads = cpu_count
+        
+        if optimal_threads < min_threads:
+            optimal_threads = min_threads
+        elif optimal_threads > max_threads:
+            optimal_threads = max_threads
+            
+        print(f"설정된 스레드 수: {optimal_threads}")
+        return optimal_threads
+        
+    except Exception as e:
+        print(f"CPU 코어 수 감지 실패: {e}, 기본값 4 사용")
+        return 4
 
 # 기본 설정값들
 DEFAULT_CONFIG = {
     # 모델 설정
+    #Gemma3-1b 설정일경우
     'MODEL_PATH': 'models/gemma-3-1b-it-Q8_0.gguf',
+    #Gemma3-4b 설정일경우
+    #'MODEL_PATH': 'models/gemma-3-4b-it-q4_0.gguf',
+    #Gemma3-8b 설정일경우
     'MODEL_CONTEXT_SIZE': 8192,
     
     # 요약 설정
@@ -19,9 +51,9 @@ DEFAULT_CONFIG = {
     'LOG_LEVEL': 'INFO',
     'ENABLE_DEBUG': False,
     
-    # 성능 설정
+    # 성능 설정 - CPU 코어 수 자동 감지
     'ENABLE_GPU': False,
-    'THREADS': 4,
+    'THREADS': get_optimal_threads(),
     
     # 파일 경로 설정
     'WORKSPACE_DIR': str(Path.cwd()),

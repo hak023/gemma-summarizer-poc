@@ -125,14 +125,14 @@ sequenceDiagram
 ### 3. 후처리기 (postprocessor.py)
 - **필드별 처리**: 각 필드에 맞는 전용 처리 로직
 - **예시 내용 필터링**: 프롬프트의 예시 내용이 실제 응답으로 처리되는 것 방지
-- **길이 제한**: summary(30자), call_purpose(20자) 등 제한 적용
+- **길이 제한**: summary(20자), call_purpose(20자) 등 제한 적용
 - **기본값 설정**: 누락된 필드에 대한 기본값 제공
 
 ## 출력 JSON 구조
 
 ```json
 {
-  "summary": "30자 이내 핵심 요약",
+  "summary": "20자 이내 핵심 요약",
   "summary_no_limit": "상세한 통화 내용 요약",
   "keywords": "키워드1, 키워드2, 키워드3, 키워드4, 키워드5",
   "call_purpose": "20자 이내 통화 목적",

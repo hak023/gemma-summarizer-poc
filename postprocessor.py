@@ -6,30 +6,6 @@ class ResponsePostprocessor:
     """Gemma 응답 데이터 후처리 클래스"""
     
     @staticmethod
-    def process_call_purpose(value: str) -> str:
-        """
-        call_purpose 필드 후처리
-        - 불필요한 공백 제거
-        """
-        if not value:
-            return "통화 목적 미상"
-        
-        # 리스트인 경우 첫 번째 요소 사용
-        if isinstance(value, list):
-            if value:
-                value = str(value[0])
-            else:
-                return "통화 목적 미상"
-        
-        # 문자열이 아니면 문자열로 변환
-        value = str(value)
-        
-        # 불필요한 공백 제거
-        cleaned = re.sub(r'\s+', ' ', value.strip())
-        
-        return cleaned
-    
-    @staticmethod
     def process_summary(value: str) -> str:
         """
         summary 필드 후처리
@@ -52,17 +28,20 @@ class ResponsePostprocessor:
         
         # 예시 내용 필터링
         example_patterns = [
-            r'알파 프로젝트.*광고 시안.*최종 선택',
-            r'김민준 팀장.*이서연 대리',
-            r'신제품 런칭.*캠페인',
-            r'통화 핵심 요약.*30자',
-            r'키워드1.*키워드5',
-            r'통화 목적.*20자',
-            r'나의 주요 발언 내용',
-            r'상대방 주요 발언 내용',
-            r'보통/만족/불만/화남/신남/우려',
-            r'상대방 신상 정보.*빈 문자열',
-            r'통화 후 할 일.*없음'
+            # 일반적인 예시 패턴
+            r'예시.*내용',
+            r'샘플.*내용',
+            r'테스트.*내용',
+            r'출력.*예시',
+            r'분석.*규칙',
+            r'출력.*형식',
+            r'50 byte 이내',
+            r'주어를 제외한',
+            r'매우 짧은 한 문장',
+            r'3-5개 추출',
+            r'논리적 단위',
+            r'하나의 주제',
+            r'하나의 논점'
         ]
         
         for pattern in example_patterns:
@@ -101,68 +80,6 @@ class ResponsePostprocessor:
         return cleaned
     
     @staticmethod
-    def process_summary_no_limit(value: str) -> str:
-        """
-        summary_no_limit 필드 후처리
-        - 불필요한 공백 제거
-        - 여러 문장 허용 (글자 제한 없음)
-        - 예시 내용 필터링 강화
-        """
-        if not value:
-            return "통화 내용 상세 요약 없음"
-        
-        # 리스트인 경우 첫 번째 요소 사용
-        if isinstance(value, list):
-            if value:
-                value = str(value[0])
-            else:
-                return "통화 내용 상세 요약 없음"
-        
-        # 문자열이 아니면 문자열로 변환
-        value = str(value)
-        
-        # 예시 내용 필터링 강화
-        example_patterns = [
-            r'알파 프로젝트.*광고 시안.*최종 선택',
-            r'김민준 팀장.*이서연 대리',
-            r'신제품 런칭.*캠페인',
-            r'전체 통화 상세 요약',
-            r'상세 요약',
-            r'예시.*내용',
-            r'샘플.*내용',
-            r'핵심 요약',
-            r'통화 목적',
-            r'나의 발언',
-            r'상대방 발언',
-            r'신상 정보',
-            r'할 일',
-            r'키워드1.*키워드5',
-            r'보통.*만족.*불만.*화남.*신남.*우려',
-            r'핵심 요약',
-            r'상세 요약',
-            r'키워드',
-            r'목적',
-            r'내 발언',
-            r'상대방 발언',
-            r'감정',
-            r'정보',
-            r'할 일',
-            r'통화 핵심 요약',
-            r'전체 통화 상세 요약',
-            r'내 주요 발언 내용',
-            r'상대방 주요 발언 내용'
-        ]
-        
-        for pattern in example_patterns:
-            if re.search(pattern, value, re.IGNORECASE):
-                return "통화 내용 상세 요약 없음"
-        
-        # 공백 정리
-        cleaned = re.sub(r'\s+', ' ', value.strip())
-        
-        return cleaned
-    
-    @staticmethod
     def process_keywords(value: str) -> str:
         """
         keywords 필드 후처리
@@ -177,8 +94,10 @@ class ResponsePostprocessor:
         if isinstance(value, list):
             keywords = [str(kw).strip() for kw in value if kw and str(kw).strip()]
         else:
+            # 문자열이 아니면 문자열로 변환
+            value = str(value)
             # 문자열인 경우 쉼표로 분리
-            keywords = [kw.strip() for kw in str(value).split(',') if kw.strip()]
+            keywords = [kw.strip() for kw in value.split(',') if kw.strip()]
         
         # 중복 제거
         unique_keywords = list(dict.fromkeys(keywords))
@@ -190,128 +109,117 @@ class ResponsePostprocessor:
         return ', '.join(unique_keywords)
     
     @staticmethod
-    def process_main_content(value: str) -> str:
+    def process_paragraphs(paragraphs: list) -> list:
         """
-        my_main_content, caller_main_content 필드 후처리
-        - 불필요한 공백 제거
+        paragraphs 필드 후처리
+        - 각 paragraph의 예시 내용 필터링
+        - sentiment 값 정규화
         """
-        if not value:
-            return "내용 없음"
+        if not paragraphs or not isinstance(paragraphs, list):
+            return []
         
-        # 공백 정리
-        cleaned = re.sub(r'\s+', ' ', value.strip())
+        processed_paragraphs = []
         
-        return cleaned
-    
-    @staticmethod
-    def process_emotion(value: str) -> str:
-        """
-        emotion 필드 후처리
-        - 허용된 감정 상태로 정규화
-        """
-        allowed_emotions = ['보통', '만족', '불만', '화남', '신남', '우려']
-        
-        if not value:
-            return "보통"
-        
-        # 정확히 일치하는 경우
-        if value in allowed_emotions:
-            return value
-        
-        # 유사한 감정 매핑
-        emotion_mapping = {
-            '평온': '보통',
-            '기쁨': '만족',
-            '행복': '만족',
-            '즐거움': '만족',
-            '불만족': '불만',
-            '답답함': '불만',
-            '우울': '우려',
-            '슬픔': '우려',
-            '걱정': '우려',
-            '분노': '화남',
-            '화가남': '화남',
-            '흥미': '신남',
-            '호기심': '신남',
-            '신기함': '신남'
-        }
-        
-        return emotion_mapping.get(value, '보통')
-    
-    @staticmethod
-    def process_caller_info(value: str) -> str:
-        """
-        caller_info 필드 후처리
-        - 빈 값 처리
-        - 특수문자 정리
-        - 예시 값이나 부적절한 값 필터링
-        """
-        if not value:
-            return ""
-        
-        # 리스트인 경우 첫 번째 요소 사용
-        if isinstance(value, list):
-            if value:
-                value = str(value[0])
+        for paragraph in paragraphs:
+            if not isinstance(paragraph, dict):
+                continue
+                
+            processed_para = {}
+            
+            # summary 처리
+            summary = paragraph.get('summary', '')
+            if summary:
+                # 문자열이 아니면 문자열로 변환
+                if not isinstance(summary, str):
+                    summary = str(summary)
+                
+                # 예시 내용 필터링
+                example_patterns = [
+                    r'예시.*내용',
+                    r'샘플.*내용',
+                    r'테스트.*내용',
+                    r'출력.*예시',
+                    r'분석.*규칙',
+                    r'출력.*형식'
+                ]
+                
+                is_example = False
+                for pattern in example_patterns:
+                    if re.search(pattern, summary, re.IGNORECASE):
+                        is_example = True
+                        break
+                
+                if is_example:
+                    summary = "문단 요약 없음"
+                
+                processed_para['summary'] = re.sub(r'\s+', ' ', summary.strip())
             else:
-                return ""
-        
-        # 문자열이 아니면 문자열로 변환
-        value = str(value)
-        
-        if value.strip() == "":
-            return ""
-        
-        # 예시 값이나 부적절한 값 필터링
-        inappropriate_values = [
-            "박영수", "김민수", "이철수", "홍길동", "김철수", "이영희", "박영희",
-            "예시", "샘플", "테스트", "test", "example", "sample",
-            "이름", "name", "고객", "customer", "사용자", "user"
-        ]
-        
-        cleaned_value = value.strip()
-        
-        # 부적절한 값인지 확인
-        for inappropriate in inappropriate_values:
-            if inappropriate.lower() in cleaned_value.lower():
-                return ""
-        
-        # 특수문자 정리 (이름에 적합하지 않은 문자 제거)
-        cleaned = re.sub(r'[^\w\s가-힣]', '', cleaned_value)
-        
-        # 너무 짧거나 긴 이름 필터링 (1-10자)
-        if len(cleaned) < 1 or len(cleaned) > 10:
-            return ""
-        
-        return cleaned
-    
-    @staticmethod
-    def process_action_after_call(value: str) -> str:
-        """
-        my_action_after_call 필드 후처리
-        - 빈 값 처리
-        - 불필요한 공백 제거
-        """
-        if not value:
-            return "없음"
-        
-        # 리스트인 경우 첫 번째 요소 사용
-        if isinstance(value, list):
-            if value:
-                value = str(value[0])
+                processed_para['summary'] = "문단 요약 없음"
+            
+            # keyword 처리
+            keyword = paragraph.get('keyword', '')
+            if keyword:
+                # 리스트인 경우 쉼표로 구분된 문자열로 변환
+                if isinstance(keyword, list):
+                    keyword = ', '.join([str(kw).strip() for kw in keyword if kw and str(kw).strip()])
+                elif not isinstance(keyword, str):
+                    keyword = str(keyword)
+                
+                # 예시 내용 필터링
+                example_patterns = [
+                    r'예시.*키워드',
+                    r'샘플.*키워드',
+                    r'테스트.*키워드',
+                    r'출력.*예시',
+                    r'분석.*규칙',
+                    r'출력.*형식'
+                ]
+                
+                is_example = False
+                for pattern in example_patterns:
+                    if re.search(pattern, keyword, re.IGNORECASE):
+                        is_example = True
+                        break
+                
+                if is_example:
+                    keyword = "키워드 없음"
+                
+                processed_para['keyword'] = re.sub(r'\s+', ' ', keyword.strip())
             else:
-                return "없음"
+                processed_para['keyword'] = "키워드 없음"
+            
+            # sentiment 처리
+            sentiment = paragraph.get('sentiment', '')
+            if sentiment:
+                # 문자열이 아니면 문자열로 변환
+                if not isinstance(sentiment, str):
+                    sentiment = str(sentiment)
+                
+                # 새로운 감정 값으로 정규화
+                sentiment_mapping = {
+                    '강한긍정': '강한긍정',
+                    '약한긍정': '약한긍정',
+                    '보통': '보통',
+                    '약한부정': '약한부정',
+                    '강한부정': '강한부정',
+                    # 기존 감정 값 매핑
+                    '긍정': '약한긍정',
+                    '부정': '약한부정',
+                    '중립': '보통',
+                    '만족': '약한긍정',
+                    '불만': '약한부정',
+                    '화남': '강한부정',
+                    '신남': '약한긍정',
+                    '우려': '약한부정'
+                }
+                
+                processed_para['sentiment'] = sentiment_mapping.get(sentiment, '보통')
+            else:
+                processed_para['sentiment'] = '보통'
+            
+            processed_paragraphs.append(processed_para)
         
-        # 문자열이 아니면 문자열로 변환
-        value = str(value)
-        
-        if value.strip() == "":
-            return "없음"
-        
-        # 공백 정리
-        cleaned = re.sub(r'\s+', ' ', value.strip())
-        
-        return cleaned
+        return processed_paragraphs
     
     @classmethod
     def process_response(cls, response_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -329,20 +237,47 @@ class ResponsePostprocessor:
             if isinstance(response_data, str):
                 response_data = json.loads(response_data)
             
+            # response_data가 딕셔너리가 아니면 기본값 반환
+            if not isinstance(response_data, dict):
+                print(f"응답 데이터가 딕셔너리가 아닙니다: {type(response_data)}")
+                return {
+                    'summary': '통화 내용 요약 없음',
+                    'keyword': '키워드 없음',
+                    'paragraphs': []
+                }
+            
             processed_data = {}
             
-            # 각 필드별 후처리 적용
+            # 현재 JSON 구조 처리 (summary, keyword, paragraphs)
+            if 'summary' in response_data and 'keyword' in response_data and 'paragraphs' in response_data:
+                # 현재 구조에 맞는 후처리
+                processed_data['summary'] = cls.process_summary(response_data.get('summary', ''))
+                processed_data['keyword'] = cls.process_keywords(response_data.get('keyword', ''))
+                paragraphs = response_data.get('paragraphs', [])
+                
+                # paragraphs가 비어있거나 유효하지 않으면 기본값 설정 (2-3개)
+                if not paragraphs or not isinstance(paragraphs, list) or len(paragraphs) == 0:
+                    paragraphs = [
+                        {
+                            'summary': '통화 내용 분석',
+                            'keyword': '통화, 분석',
+                            'sentiment': '보통'
+                        },
+                        {
+                            'summary': '상세 내용 검토',
+                            'keyword': '검토, 상세',
+                            'sentiment': '보통'
+                        }
+                    ]
+                
+                processed_data['paragraphs'] = cls.process_paragraphs(paragraphs)
+                
+                return processed_data
+            
+            # 기존 구조 처리 (하위 호환성)
             field_processors = {
                 'summary': cls.process_summary,
-                'summary_no_limit': cls.process_summary_no_limit,
                 'keywords': cls.process_keywords,
-                'call_purpose': cls.process_call_purpose,
-                'my_main_content': cls.process_main_content,
-                'caller_main_content': cls.process_main_content,
-                'my_emotion': cls.process_emotion,
-                'caller_emotion': cls.process_emotion,
-                'caller_info': cls.process_caller_info,
-                'my_action_after_call': cls.process_action_after_call
             }
             
             for field, processor in field_processors.items():
@@ -353,8 +288,12 @@ class ResponsePostprocessor:
             
         except Exception as e:
             print(f"후처리 중 오류 발생: {e}")
-            # 오류 발생 시 원본 데이터 반환
-            return response_data
+            # 오류 발생 시 기본값 반환
+            return {
+                'summary': '통화 내용 요약 없음',
+                'keyword': '키워드 없음',
+                'paragraphs': []
+            }
     
     @classmethod
     def process_response_to_json(cls, response_data: Dict[str, Any]) -> str:
@@ -375,17 +314,22 @@ class ResponsePostprocessor:
 if __name__ == "__main__":
     print("=== 응답 후처리 테스트 ===")
     
-    # 테스트용 응답 데이터
+    # 테스트용 응답 데이터 (현재 구조)
     test_response = {
         "summary": "고객이 바우처 카드 사용 문의를 하고 상담원이 상세히 답변했습니다.",
-        "keywords": "바우처, 카드, 사용, 문의, 상담",
-        "call_purpose": "바우처 카드 사용 가능 여부 확인",
-        "my_main_content": "바우처 카드 사용 방법과 제한사항을 상세히 안내했습니다.",
-        "caller_main_content": "바우처 카드 사용 가능 여부와 방법을 문의했습니다.",
-        "my_emotion": "평온",
-        "caller_emotion": "호기심",
-        "caller_info": "김철수",
-        "my_action_after_call": "문자로 상세 안내서 발송"
+        "keyword": "바우처, 카드, 사용, 문의, 상담",
+        "paragraphs": [
+            {
+                "summary": "바우처 카드 사용 문의",
+                "keyword": "바우처, 카드, 문의",
+                "sentiment": "보통"
+            },
+            {
+                "summary": "상담원 상세 답변",
+                "keyword": "상담, 답변, 안내",
+                "sentiment": "약한긍정"
+            }
+        ]
     }
     
     print("원본 데이터:")
@@ -396,6 +340,5 @@ if __name__ == "__main__":
     print(json.dumps(processed, ensure_ascii=False, indent=2))
     
     print("\n=== 개별 필드 테스트 ===")
-    print(f"call_purpose: '{test_response['call_purpose']}' -> '{ResponsePostprocessor.process_call_purpose(test_response['call_purpose'])}'")
     print(f"summary: '{test_response['summary']}' -> '{ResponsePostprocessor.process_summary(test_response['summary'])}'")
-    print(f"emotion: '{test_response['my_emotion']}' -> '{ResponsePostprocessor.process_emotion(test_response['my_emotion'])}'") 
+    print(f"keyword: '{test_response['keyword']}' -> '{ResponsePostprocessor.process_keywords(test_response['keyword'])}'") 

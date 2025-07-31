@@ -71,7 +71,7 @@ def test_improved_prompt():
         
         # 요약 길이 확인
         summary = parsed_result.get('summary', '')
-        if len(summary) <= 30:
+        if len(summary) <= 20:
             print(f"✅ summary 길이 적절: {len(summary)}자")
         else:
             print(f"⚠️  summary 길이 초과: {len(summary)}자")
