@@ -1,18 +1,19 @@
 # Gemma Summarizer
 
-Gemma 3-1B 모델을 사용하여 통화 내용을 요약하는 프로그램입니다. IPC(Inter-Process Communication)를 통해 멀티슬롯 요청 처리를 지원하며, STT(Speech-to-Text) 결과를 전처리하고 구조화된 JSON 응답을 생성합니다.
+Gemma 3-1B 8Q 모델을 사용하여 통화 내용을 요약하는 프로그램입니다. IPC(Inter-Process Communication)를 통해 멀티슬롯 요청 처리를 지원하며, STT(Speech-to-Text) 결과를 전처리하고 구조화된 JSON 응답을 생성합니다. 1B 8Q 모델에 최적화된 프롬프트와 파라미터를 사용하여 안정적인 성능을 제공합니다.
 
 ## 주요 기능
 
-- ✅ **AI 기반 텍스트 요약**: Gemma 3-1B 모델 사용
+- ✅ **AI 기반 텍스트 요약**: Gemma 3-1B 8Q 모델 사용
+- ✅ **1B 8Q 모델 최적화**: 간단한 프롬프트와 최적화된 파라미터
 - ✅ **멀티슬롯 IPC**: 동시 다중 요청 처리
 - ✅ **싱글톤 모델 로딩**: 성능 최적화
 - ✅ **UTF-8 디코딩 오류 방지**: 안정적인 데이터 처리
 - ✅ **비동기 로깅**: 요청/응답 로그 기록
 - ✅ **Windows 지원**: PowerShell 및 Command Prompt
 - ✅ **STT 결과 전처리**: 화자 구분, 중복 제거, 텍스트 정리
-- ✅ **구조화된 JSON 응답**: 10개 필드로 구성된 상세 요약
-- ✅ **예시 내용 필터링**: 프롬프트 예시가 실제 응답으로 처리되는 것 방지
+- ✅ **구조화된 JSON 응답**: summary, keyword, paragraphs 구조
+- ✅ **타입 안전성 강화**: 다양한 데이터 타입에 대한 안전한 처리
 - ✅ **강화된 에러 처리**: 다양한 에러 상황에 대한 Fallback 메커니즘
 
 ## 시스템 아키텍처
@@ -41,12 +42,12 @@ pip install -r requirements.txt
 ```
 
 ### 3. 모델 다운로드
-Gemma 3-1B 모델을 `models/` 디렉토리에 다운로드:
+Gemma 3-1B 8Q 모델을 `models/` 디렉토리에 다운로드:
 ```bash
 # models 디렉토리 생성
 mkdir models
 
-# Gemma 3-1B 모델 다운로드 (Hugging Face에서)
+# Gemma 3-1B 8Q 모델 다운로드 (Hugging Face에서)
 # gemma-3-1b-it-Q8_0.gguf 파일을 models/ 디렉토리에 저장
 ```
 
@@ -152,19 +153,23 @@ python ipc_client_test.py
 ```
 
 #### Gemma 모델 응답 형식 (JSON)
-Gemma 모델은 10개 필드로 구성된 구조화된 JSON 형식으로 응답합니다:
+Gemma 모델은 1B 8Q 모델에 최적화된 구조화된 JSON 형식으로 응답합니다:
 ```json
 {
-    "summary": "20자 이내 핵심 요약",
-    "summary_no_limit": "상세한 통화 내용 요약",
-    "keywords": "키워드1, 키워드2, 키워드3, 키워드4, 키워드5",
-    "call_purpose": "20자 이내 통화 목적",
-    "my_main_content": "나의 주요 발언 내용",
-    "caller_main_content": "상대방 주요 발언 내용",
-    "my_emotion": "보통/만족/불만/화남/신남/우려",
-    "caller_emotion": "보통/만족/불만/화남/신남/우려",
-    "caller_info": "상대방 신상 정보",
-    "my_action_after_call": "통화 후 할 일"
+    "summary": "통화 핵심 요약",
+    "keyword": "키워드1, 키워드2, 키워드3",
+    "paragraphs": [
+        {
+            "summary": "첫 번째 문단 요약",
+            "keyword": "키워드1, 키워드2",
+            "sentiment": "보통"
+        },
+        {
+            "summary": "두 번째 문단 요약",
+            "keyword": "키워드3, 키워드4",
+            "sentiment": "보통"
+        }
+    ]
 }
 ```
 
@@ -233,7 +238,7 @@ gemma_summarizer_new/
 
 ### gemma_summarizer.py
 - **싱글톤 모델 관리**: 전역 모델 인스턴스 관리
-- **프롬프트 생성**: Few-shot 기법을 이용한 구조화된 프롬프트
+- **1B 8Q 최적화**: 간단하고 명확한 프롬프트 생성
 - **JSON 파싱**: 다양한 형태의 JSON 응답을 안정적으로 파싱
 - **필드 검증**: 필수 필드 확인 및 기본값 설정
 
@@ -245,8 +250,8 @@ gemma_summarizer_new/
 
 ### postprocessor.py
 - **필드별 처리**: 각 필드에 맞는 전용 처리 로직
-- **예시 내용 필터링**: 프롬프트의 예시 내용이 실제 응답으로 처리되는 것 방지
-- **길이 제한**: summary(20자), call_purpose(20자) 등 제한 적용
+- **타입 안전성**: 리스트, 문자열 등 다양한 데이터 타입 안전 처리
+- **형식 통일**: paragraphs 내 keyword 필드 형식 통일
 - **기본값 설정**: 누락된 필드에 대한 기본값 제공
 
 ### llm_utils.py
@@ -286,12 +291,20 @@ gemma_summarizer_new/
 
 ## 변경 이력
 
+### v1.3.0 (2025-01-27)
+- ✅ **1B 8Q 모델 최적화**: 간단한 프롬프트와 최적화된 파라미터 적용
+- ✅ **모델 파라미터 조정**: temperature, max_tokens 등 1B 8Q 모델에 맞게 최적화
+- ✅ **postprocessor.py 개선**: 불필요한 필드 제거 및 타입 안전성 강화
+- ✅ **형식 통일**: paragraphs 내 keyword 필드 형식 통일 (리스트 → 쉼표 구분 문자열)
+- ✅ **오류 처리 개선**: 더 안전한 예외 처리 및 기본값 제공
+- ✅ **타입 안전성 강화**: 다양한 데이터 타입에 대한 안전한 처리
+
 ### v1.2.0 (2025-07-18)
 - ✅ **전처리 모듈 추가**: STT 결과 전처리 기능 (preprocessor.py)
 - ✅ **후처리 모듈 추가**: 응답 후처리 및 필터링 기능 (postprocessor.py)
 - ✅ **LLM 유틸리티 추가**: 공통 LLM 기능 모듈화 (llm_utils.py)
-- ✅ **구조화된 JSON 응답**: 10개 필드로 구성된 상세 요약
-- ✅ **예시 내용 필터링**: 프롬프트 예시가 실제 응답으로 처리되는 것 방지
+- ✅ **구조화된 JSON 응답**: summary, keyword, paragraphs 구조
+- ✅ **타입 안전성 강화**: 다양한 데이터 타입에 대한 안전한 처리
 - ✅ **강화된 에러 처리**: 다양한 에러 상황에 대한 Fallback 메커니즘
 - ✅ **워크플로우 문서화**: 시스템 아키텍처 및 데이터 흐름 다이어그램
 - ✅ **시퀀스 다이어그램 추가**: 상세한 데이터 흐름 및 컴포넌트 간 상호작용 문서화
