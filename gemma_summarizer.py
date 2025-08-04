@@ -183,18 +183,24 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
         log_gemma_response(result, "gemma_summarizer")
 
         # 마크다운 코드 블록에서 JSON만 파싱
-        # ```json 형식을 명시적으로 찾기
-        json_blocks = re.findall(r'```json\s*(\{.*?\})\s*```', result, re.DOTALL)
+        # ```json 형식을 명시적으로 찾기 (줄바꿈이나 공백 허용)
+        json_blocks = re.findall(r'```json\s*\n?\s*(\{.*?\})\s*```', result, re.DOTALL)
         if json_blocks:
             json_str = json_blocks[0]  # 첫 번째 JSON 블록 사용
             print("```json 마크다운 코드 블록에서 JSON 발견")
         else:
             # ```json이 없으면 일반 ``` 블록에서 JSON 찾기
-            json_blocks = re.findall(r'```\s*(\{.*?\})\s*```', result, re.DOTALL)
+            json_blocks = re.findall(r'```\s*\n?\s*(\{.*?\})\s*```', result, re.DOTALL)
             if json_blocks:
                 json_str = json_blocks[0]  # 첫 번째 JSON 블록 사용
                 print("일반 마크다운 코드 블록에서 JSON 발견")
             else:
+                # 디버깅을 위해 원본 응답 출력
+                print(f"원본 응답에서 ```json 패턴 검색 실패")
+                print(f"원본 응답 길이: {len(result)}")
+                print(f"원본 응답 시작 부분: {result[:200]}")
+                print(f"원본 응답 끝 부분: {result[-200:]}")
+                
                 # 마크다운 블록이 없으면 fallback
                 print("```json으로 시작하는 마크다운 코드 블록을 찾을 수 없습니다.")
                 return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
