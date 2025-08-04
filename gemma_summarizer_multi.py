@@ -18,6 +18,22 @@ def worker_thread(queue_manager: QueueManager):
     """AI 요약 처리 워커 스레드"""
     print("워커 스레드 시작")
     
+    # CPU 제한 확인
+    import multiprocessing
+    import os
+    cpu_count = multiprocessing.cpu_count()
+    cpu_limit_percent = int(os.getenv('CPU_LIMIT_PERCENT', 25))
+    max_threads = max(1, int(cpu_count * cpu_limit_percent / 100))
+    force_threads = os.getenv('MAX_CPU_THREADS')
+    if force_threads:
+        max_threads = int(force_threads)
+    
+    print(f"워커 스레드 CPU 제한 설정:")
+    print(f"  - 총 CPU 코어 수: {cpu_count}")
+    print(f"  - CPU 제한 퍼센트: {cpu_limit_percent}%")
+    print(f"  - 사용할 스레드 수: {max_threads}")
+    print(f"  - 강제 스레드 설정: {force_threads if force_threads else '없음'}")
+    
     while queue_manager.running:
         try:
             # 요청 큐에서 작업 가져오기

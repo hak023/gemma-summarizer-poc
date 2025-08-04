@@ -10,11 +10,21 @@ def get_optimal_threads():
         cpu_count = multiprocessing.cpu_count()
         print(f"감지된 CPU 코어 수: {cpu_count}")
         
-        # 모든 코어 사용 (일부는 시스템용으로 남겨둘 수 있지만, 성능 최적화를 위해 모두 사용)
-        optimal_threads = cpu_count
+        # 환경 변수에서 CPU 제한 설정 확인 (기본값 50%)
+        cpu_limit_percent = int(os.getenv('CPU_LIMIT_PERCENT', 50))
+        max_cpu_threads = os.getenv('MAX_CPU_THREADS')
+        
+        if max_cpu_threads:
+            # 강제 스레드 수 설정
+            optimal_threads = int(max_cpu_threads)
+            print(f"강제 스레드 수 설정: {optimal_threads}")
+        else:
+            # CPU 사용량 제한: 설정된 퍼센트만 사용
+            optimal_threads = max(1, int(cpu_count * cpu_limit_percent / 100))
+            print(f"CPU 제한 적용: {cpu_count}개 코어의 {cpu_limit_percent}% = {optimal_threads}개 스레드")
         
         # 최소값과 최대값 설정
-        min_threads = 2
+        min_threads = 1
         max_threads = cpu_count
         
         if optimal_threads < min_threads:
@@ -22,12 +32,12 @@ def get_optimal_threads():
         elif optimal_threads > max_threads:
             optimal_threads = max_threads
             
-        print(f"설정된 스레드 수: {optimal_threads}")
+        print(f"최종 설정된 스레드 수: {optimal_threads} (CPU 사용량 제한: {cpu_limit_percent}%)")
         return optimal_threads
         
     except Exception as e:
-        print(f"CPU 코어 수 감지 실패: {e}, 기본값 4 사용")
-        return 4
+        print(f"CPU 코어 수 감지 실패: {e}, 기본값 2 사용")
+        return 2
 
 # 기본 설정값들
 DEFAULT_CONFIG = {
@@ -54,6 +64,8 @@ DEFAULT_CONFIG = {
     # 성능 설정 - CPU 코어 수 자동 감지
     'ENABLE_GPU': False,
     'THREADS': get_optimal_threads(),
+    'CPU_LIMIT_PERCENT': 50,  # CPU 사용량 제한 (50%)
+    'MAX_CPU_THREADS': None,  # 최대 스레드 수 강제 제한 (None이면 자동)
     
     # 파일 경로 설정
     'WORKSPACE_DIR': str(Path.cwd()),

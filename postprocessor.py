@@ -6,76 +6,104 @@ class ResponsePostprocessor:
     """Gemma 응답 데이터 후처리 클래스"""
     
     @staticmethod
+    def select_best_sentence(sentences: list) -> str:
+        """
+        여러 문장 중에서 가장 적합한 문장을 선택
+        가중치 기준: 길이, 핵심 키워드 포함 여부, 명확성
+        """
+        if not sentences:
+            return ""
+        
+        if len(sentences) == 1:
+            return sentences[0]
+        
+        # 각 문장의 점수 계산
+        sentence_scores = []
+        for sentence in sentences:
+            score = 0
+            
+            # 1. 길이 점수 (너무 짧거나 긴 것 제외)
+            length = len(sentence.strip())
+            if 10 <= length <= 50:
+                score += 3
+            elif 5 <= length <= 80:
+                score += 2
+            else:
+                score += 1
+            
+            # 2. 핵심 키워드 포함 점수
+            keywords = ['문의', '답변', '안내', '설명', '처리', '해결', '확인', '검토', '분석']
+            for keyword in keywords:
+                if keyword in sentence:
+                    score += 2
+                    break
+            
+            # 3. 명확성 점수 (구체적인 동사 포함)
+            action_words = ['문의', '답변', '안내', '설명', '처리', '해결', '확인', '검토', '분석', '제공', '발급', '이용']
+            for word in action_words:
+                if word in sentence:
+                    score += 1
+            
+            # 4. 부정적 표현 제외
+            negative_words = ['불가능', '불가', '오류', '오류', '실패', '실패', '문제', '문제']
+            for word in negative_words:
+                if word in sentence:
+                    score -= 1
+            
+            sentence_scores.append((sentence, score))
+        
+        # 가장 높은 점수의 문장 선택
+        best_sentence = max(sentence_scores, key=lambda x: x[1])
+        return best_sentence[0]
+    
+    @staticmethod
     def process_summary(value: str) -> str:
         """
         summary 필드 후처리
-        - 불필요한 공백 제거
         - 예시 내용 필터링
-        - 여러 문장이 있을 경우 첫 번째 문장만 사용
+        - 60 byte 초과 시 재질의 필요 표시
+        - 불필요한 공백 제거
         """
         if not value:
-            return "통화 내용 요약 없음"
-        
-        # 리스트인 경우 첫 번째 요소 사용
-        if isinstance(value, list):
-            if value:
-                value = str(value[0])
-            else:
-                return "통화 내용 요약 없음"
+            return "요약 없음"
         
         # 문자열이 아니면 문자열로 변환
-        value = str(value)
+        if not isinstance(value, str):
+            value = str(value)
+        
+        # 이미 [재질의 필요] 표시가 있으면 그대로 반환
+        if value.startswith('[재질의 필요]'):
+            return value
         
         # 예시 내용 필터링
         example_patterns = [
-            # 일반적인 예시 패턴
             r'예시.*내용',
             r'샘플.*내용',
             r'테스트.*내용',
             r'출력.*예시',
             r'분석.*규칙',
             r'출력.*형식',
-            r'50 byte 이내',
-            r'주어를 제외한',
-            r'매우 짧은 한 문장',
-            r'3-5개 추출',
-            r'논리적 단위',
-            r'하나의 주제',
-            r'하나의 논점'
+            r'```json',
+            r'```',
+            r'JSON.*형식',
+            r'다음.*형식'
         ]
         
+        is_example = False
         for pattern in example_patterns:
             if re.search(pattern, value, re.IGNORECASE):
-                return "통화 내용 요약 없음"
+                is_example = True
+                break
         
-        # 공백 정리
+        if is_example:
+            return "요약 없음"
+        
+        # 불필요한 공백 제거
         cleaned = re.sub(r'\s+', ' ', value.strip())
         
-        # 여러 문장이 있는 경우 첫 번째 문장만 사용
-        # 마침표, 느낌표, 물음표로 문장을 분리
-        sentence_endings = ['.', '!', '?']
-        
-        # 첫 번째 문장 끝 위치 찾기
-        first_sentence_end = -1
-        for ending in sentence_endings:
-            pos = cleaned.find(ending)
-            if pos != -1:
-                if first_sentence_end == -1 or pos < first_sentence_end:
-                    first_sentence_end = pos
-        
-        if first_sentence_end != -1:
-            # 첫 번째 문장만 추출 (구두점 포함)
-            first_sentence = cleaned[:first_sentence_end + 1].strip()
-        else:
-            # 문장 끝 구두점이 없으면 전체를 첫 번째 문장으로 처리
-            first_sentence = cleaned
-        
-        if first_sentence:
-            return first_sentence
-        
-        # 빈 문자열이나 공백만 있는 경우
-        if not cleaned or cleaned.strip() == "":
-            return "통화 내용 요약 없음"
+        # 60 byte 초과 시 재질의 필요 표시
+        if len(cleaned.encode('utf-8')) > 60:
+            return f"[재질의 필요] {cleaned}"
         
         return cleaned
     
@@ -114,6 +142,7 @@ class ResponsePostprocessor:
         paragraphs 필드 후처리
         - 각 paragraph의 예시 내용 필터링
         - sentiment 값 정규화
+        - paragraphs의 summary는 재질의 로직 제외
         """
         if not paragraphs or not isinstance(paragraphs, list):
             return []
@@ -126,7 +155,7 @@ class ResponsePostprocessor:
                 
             processed_para = {}
             
-            # summary 처리
+            # summary 처리 (paragraphs의 summary는 재질의 로직 제외)
             summary = paragraph.get('summary', '')
             if summary:
                 # 문자열이 아니면 문자열로 변환
@@ -277,7 +306,8 @@ class ResponsePostprocessor:
             # 기존 구조 처리 (하위 호환성)
             field_processors = {
                 'summary': cls.process_summary,
-                'keywords': cls.process_keywords,
+                'keyword': cls.process_keywords,  # 단수형으로 수정
+                'keywords': cls.process_keywords,  # 복수형도 유지 (하위 호환성)
             }
             
             for field, processor in field_processors.items():
@@ -341,4 +371,25 @@ if __name__ == "__main__":
     
     print("\n=== 개별 필드 테스트 ===")
     print(f"summary: '{test_response['summary']}' -> '{ResponsePostprocessor.process_summary(test_response['summary'])}'")
-    print(f"keyword: '{test_response['keyword']}' -> '{ResponsePostprocessor.process_keywords(test_response['keyword'])}'") 
+    print(f"keyword: '{test_response['keyword']}' -> '{ResponsePostprocessor.process_keywords(test_response['keyword'])}'")
+    
+    print("\n=== 60 byte 초과 테스트 ===")
+    long_summary = "고객이 바우처 카드 사용법에 대해 매우 상세하게 문의를 했고, 상담원이 모든 절차를 자세히 설명해드렸으며, 고객이 완전히 만족스러워했습니다."
+    print(f"긴 요약: '{long_summary}'")
+    print(f"처리 결과: '{ResponsePostprocessor.process_summary(long_summary)}'")
+    print(f"바이트 길이: {len(long_summary.encode('utf-8'))}")
+    
+    print("\n=== 다중 문장 가중치 비교 테스트 ===")
+    multi_sentence_tests = [
+        "고객이 바우처 카드 사용법을 문의했습니다. 상담원이 상세히 답변했습니다. 고객이 만족했습니다.",
+        "시스템 점검 중입니다. 서비스가 일시 중단되었습니다. 빠른 복구를 위해 노력하고 있습니다.",
+        "바우처 카드 발급 절차를 안내했습니다. 고객이 이해했습니다. 추가 문의사항이 없었습니다.",
+        "고객이 불만을 제기했습니다. 상담원이 사과했습니다. 문제를 해결했습니다."
+    ]
+    
+    print("\n=== 다중 문장 처리 테스트 ===")
+    for text in multi_sentence_tests:
+        result = ResponsePostprocessor.process_summary(text)
+        print(f"원본: '{text}'")
+        print(f"선택된 문장: '{result}'")
+        print("---") 

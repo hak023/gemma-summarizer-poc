@@ -69,8 +69,11 @@ def load_sample_request(file_path: str = "sample/sample_request_2.json") -> dict
 
 def send_request(data: dict, ipc_manager: IPCMultiSlotManager) -> Optional[int]:
     """요청 전송"""
+    # 요청 시작 시간 기록
+    request_start_time = time.time()
+    
     # 원본 데이터에 timestamp 추가
-    data["timestamp"] = time.time()
+    data["timestamp"] = request_start_time
     
     # request_id가 없으면 생성
     if "request_id" not in data:
@@ -87,7 +90,7 @@ def send_request(data: dict, ipc_manager: IPCMultiSlotManager) -> Optional[int]:
         return None
     
     print(f"요청 전송 완료: 슬롯 {slot_id}")
-    return slot_id
+    return slot_id, request_start_time
 
 def wait_for_response(slot_id: int, ipc_manager: IPCMultiSlotManager, timeout=REQUEST_TIMEOUT):
     """응답 대기"""
@@ -97,12 +100,14 @@ def wait_for_response(slot_id: int, ipc_manager: IPCMultiSlotManager, timeout=RE
         response = ipc_manager.read_response(slot_id)
         
         if response:
-            return response
+            # 응답 수신 시간 기록
+            response_time = time.time()
+            return response, response_time
         
         time.sleep(POLLING_INTERVAL)
     
     print(f"응답 타임아웃 (슬롯: {slot_id})")
-    return None
+    return None, None
 
 def parse_summary_response(summary_str: str) -> dict:
     """요약 응답 JSON 파싱 - 실제 응답 구조에 맞게 수정"""
@@ -282,18 +287,25 @@ def test_single_summarization():
             return
         
         # 요청 전송
-        slot_id = send_request(sample_data, ipc_manager)
-        if slot_id is None:
+        result = send_request(sample_data, ipc_manager)
+        if result is None:
             print("요청 전송 실패")
             return
         
+        slot_id, request_start_time = result
         print(f"요청 전송 완료 (슬롯: {slot_id})")
         print("응답 대기 중...")
         
         # 응답 대기
-        response = wait_for_response(slot_id, ipc_manager)
+        response_result = wait_for_response(slot_id, ipc_manager)
         
-        if response:
+        if response_result[0]:
+            response, response_time = response_result
+            
+            # 요청-응답 시간 계산
+            total_time = response_time - request_start_time
+            print(f"\n⏱️ 요청-응답 시간: {total_time:.3f}초")
+            
             print("\n=== 응답 수신 ===")
             print(f"Transaction ID: {response.get('transactionid')}")
             print(f"Sequence No: {response.get('sequenceno')}")
@@ -322,6 +334,8 @@ def test_single_summarization():
                     print(f"원본 요약: {summary}")
         else:
             print("응답을 받지 못했습니다.")
+            if response_result[1] is None:
+                print("⏱️ 요청-응답 시간: 타임아웃 (응답 없음)")
     
     except Exception as e:
         print(f"테스트 중 오류 발생: {e}")
@@ -376,14 +390,22 @@ def test_multiple_requests():
                 continue
             
             # 요청 전송
-            slot_id = send_request(sample_data, ipc_manager)
-            if slot_id is None:
+            result = send_request(sample_data, ipc_manager)
+            if result is None:
                 continue
             
-            # 응답 대기
-            response = wait_for_response(slot_id, ipc_manager)
+            slot_id, request_start_time = result
             
-            if response:
+            # 응답 대기
+            response_result = wait_for_response(slot_id, ipc_manager)
+            
+            if response_result[0]:
+                response, response_time = response_result
+                
+                # 요청-응답 시간 계산
+                total_time = response_time - request_start_time
+                print(f"⏱️ 요청-응답 시간: {total_time:.3f}초")
+                
                 response_data = response.get('response', {})
                 result = response_data.get('result', '')
                 summary = response_data.get('summary', '')
@@ -394,7 +416,8 @@ def test_multiple_requests():
                         results.append({
                             'file': sample_file,
                             'summary': summary_data.get('summary', ''),
-                            'paragraphs_count': len(summary_data.get('paragraphs', []))
+                            'paragraphs_count': len(summary_data.get('paragraphs', [])),
+                            'response_time': total_time
                         })
                         print(f"✅ 성공: {summary_data.get('summary', '')}")
                     except Exception as e:
@@ -403,6 +426,8 @@ def test_multiple_requests():
                     print(f"❌ 실패: {response_data.get('failReason', 'Unknown error')}")
             else:
                 print("❌ 응답 없음")
+                if response_result[1] is None:
+                    print("⏱️ 요청-응답 시간: 타임아웃 (응답 없음)")
         
         # 결과 요약
         print(f"\n=== 테스트 결과 요약 ===")
@@ -412,8 +437,15 @@ def test_multiple_requests():
         
         if results:
             print("\n성공한 요약들:")
+            total_response_time = 0
             for result in results:
-                print(f"  - {result['file']}: {result['summary']} ({result['paragraphs_count']}개 단락)")
+                response_time = result.get('response_time', 0)
+                total_response_time += response_time
+                print(f"  - {result['file']}: {result['summary']} ({result['paragraphs_count']}개 단락, {response_time:.3f}초)")
+            
+            if results:
+                avg_response_time = total_response_time / len(results)
+                print(f"\n📊 평균 응답 시간: {avg_response_time:.3f}초")
     
     except Exception as e:
         print(f"다중 테스트 중 오류: {e}")

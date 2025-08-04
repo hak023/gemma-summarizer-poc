@@ -1,4 +1,6 @@
 import traceback
+import os
+import multiprocessing
 from logger import log_gemma_query, log_gemma_response
 from config import get_config
 
@@ -21,10 +23,22 @@ def get_llm_instance():
                 config = get_config()
                 from config import get_model_path
                 MODEL_PATH = get_model_path()
+                # CPU 제한 강제 적용
+                cpu_count = multiprocessing.cpu_count()
+                cpu_limit_percent = int(os.getenv('CPU_LIMIT_PERCENT', 25))  # 기본값 25%로 더 엄격하게
+                max_threads = max(1, int(cpu_count * cpu_limit_percent / 100))
+                
+                # 환경 변수로 강제 스레드 수 설정 가능
+                force_threads = os.getenv('MAX_CPU_THREADS')
+                if force_threads:
+                    max_threads = int(force_threads)
+                
+                print(f"CPU 제한 적용: {cpu_count}개 코어의 {cpu_limit_percent}% = {max_threads}개 스레드 사용")
+                
                 _llm_instance = Llama(
                     model_path=MODEL_PATH,
                     n_ctx=config['MODEL_CONTEXT_SIZE'],
-                    n_threads=config['THREADS']
+                    n_threads=max_threads  # 강제 제한된 스레드 수 사용
                 )
     return _llm_instance
 
