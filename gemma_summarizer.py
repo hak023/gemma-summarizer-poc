@@ -189,8 +189,8 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
         print(f"원본 응답 전체:\n{result}")
         print(f"=== 원본 응답 끝 ===")
         
-        # ```json 형식을 명시적으로 찾기 (줄바꿈이나 공백 허용)
-        json_blocks = re.findall(r'```json\s*\n?\s*(\{.*?\})\s*```', result, re.DOTALL)
+        # ```json 형식을 유연하게 찾기 (성공한 패턴 우선 사용)
+        json_blocks = re.findall(r'```json.*?(\{.*?\}).*?```', result, re.DOTALL)
         print(f"```json 패턴 매칭 결과: {json_blocks}")
         
         if json_blocks:
@@ -205,19 +205,9 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
                 json_str = json_blocks[0]  # 첫 번째 JSON 블록 사용
                 print("일반 마크다운 코드 블록에서 JSON 발견")
             else:
-                # 더 유연한 패턴 시도
-                print("더 유연한 패턴으로 시도...")
-                # ```json 다음에 어떤 문자가 와도 허용
-                json_blocks = re.findall(r'```json.*?(\{.*?\}).*?```', result, re.DOTALL)
-                print(f"유연한 패턴 매칭 결과: {json_blocks}")
-                
-                if json_blocks:
-                    json_str = json_blocks[0]  # 첫 번째 JSON 블록 사용
-                    print("유연한 패턴으로 JSON 발견")
-                else:
-                    # 마크다운 블록이 없으면 fallback
-                    print("모든 패턴으로 ```json 블록을 찾을 수 없습니다.")
-                    return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
+                # 마크다운 블록이 없으면 fallback
+                print("모든 패턴으로 ```json 블록을 찾을 수 없습니다.")
+                return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
 
         # 2. JSON 파싱 (마크다운 블록에서 추출한 JSON만 처리)
         try:
