@@ -61,7 +61,7 @@ class ResponsePostprocessor:
         """
         summary 필드 후처리
         - 예시 내용 필터링
-        - 60 byte 초과 시 재질의 필요 표시
+        - 80 byte 초과 시 재질의 필요 표시
         - 불필요한 공백 제거
         """
         if not value:
@@ -102,7 +102,7 @@ class ResponsePostprocessor:
         cleaned = re.sub(r'\s+', ' ', value.strip())
         
         # 60 byte 초과 시 재질의 필요 표시
-        if len(cleaned.encode('utf-8')) > 60:
+        if len(cleaned.encode('utf-8')) > 80:
             return f"[재질의 필요] {cleaned}"
         
         return cleaned
@@ -110,7 +110,7 @@ class ResponsePostprocessor:
     @staticmethod
     def process_keywords(value: str) -> str:
         """
-        keywords 필드 후처리
+        keyword 필드 후처리
         - 쉼표로 구분된 키워드 정리
         - 중복 제거
         - 5개로 제한
@@ -303,18 +303,13 @@ class ResponsePostprocessor:
                 
                 return processed_data
             
-            # 기존 구조 처리 (하위 호환성)
-            field_processors = {
-                'summary': cls.process_summary,
-                'keyword': cls.process_keywords,  # 단수형으로 수정
-                'keywords': cls.process_keywords,  # 복수형도 유지 (하위 호환성)
+            # 기존 구조가 아닌 경우 기본값 반환
+            print(f"현재 구조가 아닌 응답 데이터: {list(response_data.keys())}")
+            return {
+                'summary': '통화 내용 요약 없음',
+                'keyword': '키워드 없음',
+                'paragraphs': []
             }
-            
-            for field, processor in field_processors.items():
-                value = response_data.get(field, '')
-                processed_data[field] = processor(value)
-            
-            return processed_data
             
         except Exception as e:
             print(f"후처리 중 오류 발생: {e}")

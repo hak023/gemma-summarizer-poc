@@ -58,7 +58,7 @@ flowchart TD
     
     PostProcess --> ProcessSummary[summary 필드 처리]
     ProcessSummary --> ProcessSummaryNoLimit[summary_no_limit 필드 처리]
-    ProcessSummaryNoLimit --> ProcessKeywords[keywords 필드 처리]
+    ProcessSummaryNoLimit --> ProcessKeywords[keyword 필드 처리]
     ProcessKeywords --> ProcessPurpose[call_purpose 필드 처리]
     ProcessPurpose --> ProcessMyContent[my_main_content 필드 처리]
     ProcessMyContent --> ProcessCallerContent[caller_main_content 필드 처리]
@@ -134,7 +134,7 @@ sequenceDiagram
 {
   "summary": "20자 이내 핵심 요약",
   "summary_no_limit": "상세한 통화 내용 요약",
-  "keywords": "키워드1, 키워드2, 키워드3, 키워드4, 키워드5",
+  "keyword": "키워드1, 키워드2, 키워드3, 키워드4, 키워드5",
   "call_purpose": "20자 이내 통화 목적",
   "my_main_content": "나의 주요 발언 내용",
   "caller_main_content": "상대방 주요 발언 내용",

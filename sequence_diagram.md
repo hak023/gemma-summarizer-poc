@@ -45,7 +45,7 @@ sequenceDiagram
     IPC->>Postprocessor: 후처리 요청
     Postprocessor->>Postprocessor: summary 필드 처리 (20자 제한)
     Postprocessor->>Postprocessor: summary_no_limit 필드 처리
-    Postprocessor->>Postprocessor: keywords 필드 처리 (5개 제한)
+    Postprocessor->>Postprocessor: keyword 필드 처리 (5개 제한)
     Postprocessor->>Postprocessor: call_purpose 필드 처리 (20자 제한)
     Postprocessor->>Postprocessor: my_main_content 필드 처리
     Postprocessor->>Postprocessor: caller_main_content 필드 처리
@@ -210,7 +210,7 @@ sequenceDiagram
 
     Note over IPC,Fields: 응답 후처리 과정
     IPC->>Postprocessor: 원본 JSON 응답 후처리 요청
-    Note right of IPC: {summary, summary_no_limit, keywords, ...}
+    Note right of IPC: {summary, summary_no_limit, keyword, ...}
 
     Note over Postprocessor: 필드별 순차 처리
     Postprocessor->>Fields: summary 필드 처리
@@ -224,11 +224,11 @@ sequenceDiagram
     Fields->>Fields: 공백 정리
     Fields->>Postprocessor: 처리된 summary_no_limit
 
-    Postprocessor->>Fields: keywords 필드 처리
+    Postprocessor->>Fields: keyword 필드 처리
     Fields->>Fields: 쉼표로 분리
     Fields->>Fields: 중복 제거
     Fields->>Fields: 5개로 제한
-    Fields->>Postprocessor: 처리된 keywords
+    Fields->>Postprocessor: 처리된 keyword
 
     Postprocessor->>Fields: call_purpose 필드 처리
     Fields->>Fields: 20자 제한 적용

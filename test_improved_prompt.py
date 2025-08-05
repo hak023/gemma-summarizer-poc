@@ -39,7 +39,7 @@ def test_improved_prompt():
         print("=== 결과 ===")
         print(f"summary: {parsed_result.get('summary', 'N/A')}")
         print(f"summary_no_limit: {parsed_result.get('summary_no_limit', 'N/A')}")
-        print(f"keywords: {parsed_result.get('keywords', 'N/A')}")
+        print(f"keyword: {parsed_result.get('keyword', 'N/A')}")
         print(f"call_purpose: {parsed_result.get('call_purpose', 'N/A')}")
         print(f"my_main_content: {parsed_result.get('my_main_content', 'N/A')}")
         print(f"caller_main_content: {parsed_result.get('caller_main_content', 'N/A')}")

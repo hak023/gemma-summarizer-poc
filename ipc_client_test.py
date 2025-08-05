@@ -50,7 +50,7 @@ def kill_previous_processes():
     except Exception as e:
         print(f"프로세스 종료 중 오류: {e}")
 
-def load_sample_request(file_path: str = "sample/sample_request_2.json") -> dict:
+def load_sample_request(file_path: str = "sample/sample_request_1.json") -> dict:
     """샘플 요청 JSON 파일 로드"""
     try:
         if not os.path.exists(file_path):
@@ -110,7 +110,7 @@ def wait_for_response(slot_id: int, ipc_manager: IPCMultiSlotManager, timeout=RE
     return None, None
 
 def parse_summary_response(summary_str: str) -> dict:
-    """요약 응답 JSON 파싱 - 실제 응답 구조에 맞게 수정"""
+    """요약 응답 JSON 파싱 - 새로운 응답 구조에 맞게 수정"""
     try:
         if isinstance(summary_str, str):
             response_data = json.loads(summary_str)
@@ -119,32 +119,13 @@ def parse_summary_response(summary_str: str) -> dict:
         else:
             return {"summary": str(summary_str), "keyword": "", "paragraphs": []}
         
-        # 실제 응답 구조에 맞게 필드 매핑
-        # 기존 응답: summary, summary_no_limit, keywords, call_purpose, my_main_content, caller_main_content, my_emotion, caller_emotion, caller_info, my_action_after_call
-        # 새로운 응답: summary, keyword, paragraphs
-        
-        # 새로운 구조로 변환
+        # 새로운 응답 구조에 맞게 필드 매핑
+        # 새로운 구조: summary, keyword, paragraphs
         new_response = {
             "summary": response_data.get('summary', ''),
             "keyword": response_data.get('keyword', ''),
             "paragraphs": response_data.get('paragraphs', [])
         }
-        
-        # 기존 구조의 필드들도 보존
-        legacy_fields = {
-            "summary_no_limit": response_data.get('summary_no_limit', ''),
-            "keywords": response_data.get('keywords', ''),
-            "call_purpose": response_data.get('call_purpose', ''),
-            "my_main_content": response_data.get('my_main_content', ''),
-            "caller_main_content": response_data.get('caller_main_content', ''),
-            "my_emotion": response_data.get('my_emotion', ''),
-            "caller_emotion": response_data.get('caller_emotion', ''),
-            "caller_info": response_data.get('caller_info', ''),
-            "my_action_after_call": response_data.get('my_action_after_call', '')
-        }
-        
-        # 모든 필드 병합
-        new_response.update(legacy_fields)
             
         return new_response
     except json.JSONDecodeError as e:
@@ -185,37 +166,9 @@ def display_summary_analysis(summary_data: dict):
     # 기본 정보
     summary = summary_data.get('summary', '')
     keyword = summary_data.get('keyword', '')
-    keywords = summary_data.get('keywords', '')  # 기존 필드도 확인
     
     print(f"📝 전체 요약: {summary}")
-    print(f"🔑 주요 키워드: {keyword if keyword else keywords if keywords else '(없음)'}")
-    
-    # 기존 구조의 추가 정보도 표시
-    summary_no_limit = summary_data.get('summary_no_limit', '')
-    call_purpose = summary_data.get('call_purpose', '')
-    my_main_content = summary_data.get('my_main_content', '')
-    caller_main_content = summary_data.get('caller_main_content', '')
-    my_emotion = summary_data.get('my_emotion', '')
-    caller_emotion = summary_data.get('caller_emotion', '')
-    caller_info = summary_data.get('caller_info', '')
-    my_action_after_call = summary_data.get('my_action_after_call', '')
-    
-    if summary_no_limit and summary_no_limit != '통화 내용 상세 요약 없음':
-        print(f"📄 상세 요약: {summary_no_limit}")
-    if call_purpose and call_purpose != '통화 목적 미상':
-        print(f"🎯 통화 목적: {call_purpose}")
-    if my_main_content and my_main_content != '내용 없음':
-        print(f"💬 내 주요 내용: {my_main_content}")
-    if caller_main_content and caller_main_content != '내용 없음':
-        print(f"📞 상대방 주요 내용: {caller_main_content}")
-    if my_emotion and my_emotion != '보통':
-        print(f"😊 내 감정: {my_emotion}")
-    if caller_emotion and caller_emotion != '보통':
-        print(f"😊 상대방 감정: {caller_emotion}")
-    if caller_info:
-        print(f"👤 상대방 정보: {caller_info}")
-    if my_action_after_call and my_action_after_call != '없음':
-        print(f"✅ 통화 후 행동: {my_action_after_call}")
+    print(f"🔑 주요 키워드: {keyword if keyword else '(없음)'}")
     
     # paragraphs 분석
     paragraphs = summary_data.get('paragraphs', [])
@@ -416,10 +369,11 @@ def test_multiple_requests():
                         results.append({
                             'file': sample_file,
                             'summary': summary_data.get('summary', ''),
+                            'keyword': summary_data.get('keyword', ''),
                             'paragraphs_count': len(summary_data.get('paragraphs', [])),
                             'response_time': total_time
                         })
-                        print(f"✅ 성공: {summary_data.get('summary', '')}")
+                        print(f"✅ 성공: {summary_data.get('summary', '')} (키워드: {summary_data.get('keyword', '')})")
                     except Exception as e:
                         print(f"❌ 파싱 실패: {e}")
                 else:
@@ -441,7 +395,8 @@ def test_multiple_requests():
             for result in results:
                 response_time = result.get('response_time', 0)
                 total_response_time += response_time
-                print(f"  - {result['file']}: {result['summary']} ({result['paragraphs_count']}개 단락, {response_time:.3f}초)")
+                keyword = result.get('keyword', '')
+                print(f"  - {result['file']}: {result['summary']} (키워드: {keyword}, {result['paragraphs_count']}개 단락, {response_time:.3f}초)")
             
             if results:
                 avg_response_time = total_response_time / len(results)

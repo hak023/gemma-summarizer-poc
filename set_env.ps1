@@ -21,6 +21,17 @@ $env:ENABLE_DEBUG = "false"
 # 성능 설정
 $env:ENABLE_GPU = "false"
 $env:THREADS = "4"
+$env:CPU_LIMIT_PERCENT = "50"
+$env:MAX_CPU_THREADS = "4"
+
+# 타임아웃 설정
+$env:IPC_REQUEST_TIMEOUT = "300.0"
+$env:IPC_LOCK_TIMEOUT = "10.0"
+$env:MODEL_TIMEOUT = "180.0"
+
+# 성능 최적화 설정
+$env:ENABLE_FAST_MODE = "false"  # true로 변경하면 빠른 모드 활성화
+$env:FAST_MODE_MAX_TOKENS = "300"
 
 # 파일 경로 설정
 $env:WORKSPACE_DIR = Get-Location

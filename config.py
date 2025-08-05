@@ -43,10 +43,11 @@ def get_optimal_threads():
 DEFAULT_CONFIG = {
     # 모델 설정
     #Gemma3-1b 설정일경우
-    'MODEL_PATH': 'models/gemma-3-1b-it-Q8_0.gguf',
+    #'MODEL_PATH': 'models/gemma-3-1b-it-Q8_0.gguf',
     #Gemma3-4b 설정일경우
     #'MODEL_PATH': 'models/gemma-3-4b-it-q4_0.gguf',
-    #Gemma3-8b 설정일경우
+    #믿음2.0 Q4_K_M 설정일경우
+    'MODEL_PATH': 'models/Midm-2.0-Mini-Instruct-Q4_K_M.gguf',
     'MODEL_CONTEXT_SIZE': 8192,
     
     # 요약 설정
@@ -75,15 +76,20 @@ DEFAULT_CONFIG = {
     'IPC_SHM_NAME': 'gemma_ipc_shm',
     'IPC_SHM_SIZE': 65536,  # 64KB
     'IPC_POLLING_INTERVAL': 0.5,  # 초
-    'IPC_REQUEST_TIMEOUT': 60.0,  # 초
-    'IPC_LOCK_TIMEOUT': 5.0,  # 초
+    'IPC_REQUEST_TIMEOUT': 300.0,  # 초 (5분으로 증가)
+    'IPC_LOCK_TIMEOUT': 10.0,  # 초 (증가)
     'IPC_MAX_RETRY_COUNT': 3,
     
     # 멀티슬롯 IPC 설정
     'IPC_SLOT_COUNT': 5,  # 슬롯 개수
     'IPC_SLOT_SIZE': 262144,  # 슬롯당 크기 (bytes) - 256KB로 증가
     'IPC_WORKER_THREADS': 1,  # 워커 스레드 개수
-    'IPC_RESPONSE_WRITER_THREADS': 1  # 응답 쓰기 스레드 개수
+    'IPC_RESPONSE_WRITER_THREADS': 1,  # 응답 쓰기 스레드 개수
+    
+    # 성능 최적화 설정
+    'MODEL_TIMEOUT': 180.0,  # 모델 추론 타임아웃 (3분)
+    'ENABLE_FAST_MODE': False,  # 빠른 모드 (토큰 수 줄임)
+    'FAST_MODE_MAX_TOKENS': 300,  # 빠른 모드 토큰 수
 }
 
 def get_config():

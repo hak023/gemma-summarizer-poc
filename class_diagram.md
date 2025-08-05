@@ -212,7 +212,7 @@ classDiagram
     class SummaryResponse {
         +summary: str
         +summary_no_limit: str
-        +keywords: str
+        +keyword: str
         +call_purpose: str
         +my_main_content: str
         +caller_main_content: str

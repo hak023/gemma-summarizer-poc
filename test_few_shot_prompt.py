@@ -33,7 +33,7 @@ def test_few_shot_prompt():
         print("=== 분석 결과 ===")
         print(f"summary: {parsed_result.get('summary', 'N/A')} ({len(parsed_result.get('summary', ''))}자)")
         print(f"call_purpose: {parsed_result.get('call_purpose', 'N/A')} ({len(parsed_result.get('call_purpose', ''))}자)")
-        print(f"keywords: {parsed_result.get('keywords', 'N/A')}")
+        print(f"keyword: {parsed_result.get('keyword', 'N/A')}")
         print(f"my_emotion: {parsed_result.get('my_emotion', 'N/A')}")
         print(f"caller_emotion: {parsed_result.get('caller_emotion', 'N/A')}")
         print(f"caller_info: {parsed_result.get('caller_info', 'N/A')}")

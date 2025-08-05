@@ -106,43 +106,40 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
 
         llm = get_llm_instance()
 
-        # 프롬프트를 전문가 역할 기반으로 변경 (paragraphs 강화)
+        # 프롬프트를 요점 중심으로 변경 (간결한 요약) - 강제성 강화
         prompt = (
             f"당신은 대화 내용을 분석하고 지정된 JSON 형식으로 요약하는 전문가입니다.\n"
-            f"아래 [분석 규칙]을 참고하여, [원본 통화 내용]을 분석하고 완벽한 JSON을 생성하세요.\n\n"
-            f"--- [분석 규칙] ---\n\n"
-            f"summary: 통화의 핵심 내용을 20자 이내의 주어를 제외한 매우 짧은 한 문장으로 요약하세요.\n"
-            f"keyword: 가장 중요한 키워드를 3개 추출하여 쉼표로 구분하세요.\n"
-            f"paragraphs: 통화 내용을 반드시 2-3개의 논리적 단위로 나누어 각각 분석하세요.\n"
-            f"  - 첫 번째 paragraph: 통화의 시작 부분이나 첫 번째 주요 주제\n"
-            f"  - 두 번째 paragraph: 통화의 중간 부분이나 두 번째 주요 주제\n"
-            f"  - 세 번째 paragraph: 통화의 마무리 부분이나 세 번째 주요 주제 (있는 경우)\n"
+            f"반드시 아래 형식에 맞춰 JSON으로 응답하세요.\n\n"
+            f"--- [분석 규칙] ---\n"
+            f"1. summary: 통화의 핵심 내용을 25자 이내의 주어를 제외한 짧은 한 문장으로 요약하세요.\n"
+            f"2. keyword: 가장 중요한 키워드 3개를 쉼표로 구분\n"
+            f"3. paragraphs: 통화 내용을 2-3개 단위로 분석 (반드시 포함)\n"
             f"  - 각 paragraph는 반드시 다음 필드를 포함해야 합니다:\n"
-            f"    * summary: 해당 부분의 핵심 내용을 20자 이내로 요약\n"
-            f"    * keyword: 해당 부분의 주요 키워드 2개를 쉼표로 구분\n"
+            f"    * summary: 해당 부분의 핵심 내용을 25자 이내로 요약\n"
+            f"    * keyword: 해당 부분의 주요 키워드 3개를 쉼표로 구분\n"
             f"    * sentiment: 감정을 '강한긍정', '약한긍정', '보통', '약한부정', '강한부정' 중에서 선택\n\n"
-            f"--- [출력 형식] ---\n"
-            f"반드시 다음 JSON 형식으로 응답하세요. paragraphs는 반드시 포함되어야 합니다:\n"
+            f"--- [응답 형식] ---\n"
+            f"반드시 이 형식으로만 응답하세요:\n"
             f"```json\n"
             f'{{\n'
-            f'"summary": "통화 핵심 요약",\n'
-            f'"keyword": "키워드1, 키워드2, 키워드3",\n'
+            f'"summary": "",\n'
+            f'"keyword": "",\n'
             f'"paragraphs": [\n'
             f'{{\n'
-            f'"summary": "첫 번째 주제 요약",\n'
-            f'"keyword": "키워드1, 키워드2",\n'
-            f'"sentiment": "보통"\n'
+            f'"summary": "",\n'
+            f'"keyword": "",\n'
+            f'"sentiment": ""\n'
             f'}},\n'
             f'{{\n'
-            f'"summary": "두 번째 주제 요약",\n'
-            f'"keyword": "키워드3, 키워드4",\n'
-            f'"sentiment": "약한긍정"\n'
+            f'"summary": "",\n'
+            f'"keyword": "",\n'
+            f'"sentiment": ""\n'
             f'}}\n'
             f']\n'
             f'}}\n'
             f"```\n\n"
             f"대화 내용:\n{text}\n\n"
-            f"위 내용을 분석하여 반드시 paragraphs를 포함한 완전한 JSON으로 응답하세요."
+            f"위 내용을 분석하여 반드시 JSON 형식으로 응답하세요."
         )
 
         print("요약 생성 중...")
@@ -151,15 +148,29 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
         # Gemma Query 시간 측정 시작
         gemma_query_start = time.time()
         
-        # 1B 8Q 모델에 맞는 파라미터 조정 (paragraphs 생성을 위해 토큰 수 증가)
+        # 성능 최적화 설정 적용
+        config = get_config()
+        model_timeout = config.get('MODEL_TIMEOUT', 180.0)
+        enable_fast_mode = config.get('ENABLE_FAST_MODE', False)
+        
+        # 빠른 모드 설정
+        if enable_fast_mode:
+            max_tokens = config.get('FAST_MODE_MAX_TOKENS', 300)
+            print(f"빠른 모드 활성화: 최대 토큰 수 {max_tokens}")
+        else:
+            max_tokens = 600  # paragraphs 생성을 위해 토큰 수 증가
+        
+        print(f"모델 추론 시작 (타임아웃: {model_timeout}초)")
+        
+        # 1B 8Q 모델에 맞는 파라미터 조정 (일관성 강화)
         output = llm(
             prompt,
-            max_tokens=600,  # paragraphs 생성을 위해 토큰 수 증가
-            temperature=0.3,  # 더 일관된 응답을 위해 낮춤
-            min_p=0.1,  # 최소 확률 조정
-            top_p=0.8,  # 다양성 줄임
-            top_k=20,  # 토큰 선택 범위 축소
-            repeat_penalty=1.05,  # 반복 방지 (더 낮춤)
+            max_tokens=max_tokens,
+            temperature=0.3,  # 매우 낮은 temperature로 일관성 극대화
+            min_p=0.1,  # 더 엄격한 최소 확률
+            top_p=0.8,  # 더 낮은 top_p로 일관성 향상
+            top_k=20,  # 더 좁은 토큰 선택 범위
+            repeat_penalty=1.05,  # 반복 방지 강화
             echo=False
         )
         
@@ -183,27 +194,63 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
         log_gemma_response(result, "gemma_summarizer")
 
         # 마크다운 코드 블록에서 JSON만 파싱
-        # 디버깅을 위해 원본 응답 상세 출력
-        print(f"=== 원본 응답 디버깅 ===")
-        print(f"원본 응답 길이: {len(result)}")
-        print(f"원본 응답 전체:\n{result}")
-        print(f"=== 원본 응답 끝 ===")
+        # 디버깅 출력 최적화 (빠른 모드에서는 간소화)
+        if not enable_fast_mode:
+            print(f"=== 원본 응답 디버깅 ===")
+            print(f"원본 응답 길이: {len(result)}")
+            print(f"원본 응답 전체:\n{result}")
+            print(f"=== 원본 응답 끝 ===")
+        else:
+            print(f"빠른 모드: 원본 응답 길이 {len(result)}자")
         
-        # ```json 형식을 유연하게 찾기 (성공한 패턴 우선 사용)
-        json_blocks = re.findall(r'```json.*?(\{.*?\}).*?```', result, re.DOTALL)
-        print(f"```json 패턴 매칭 결과: {json_blocks}")
-        
-        if json_blocks:
-            json_str = json_blocks[0]  # 첫 번째 JSON 블록 사용
-            print("```json 마크다운 코드 블록에서 JSON 발견")
+        # ```json 형식을 유연하게 찾기 (중첩된 중괄호 처리 개선)
+        # 첫 번째 {와 마지막 } 사이의 모든 내용을 추출하는 방식으로 변경
+        json_start = result.find('```json')
+        if json_start != -1:
+            # ```json 이후의 첫 번째 { 찾기
+            brace_start = result.find('{', json_start)
+            if brace_start != -1:
+                # 중괄호 카운팅으로 완전한 JSON 추출
+                brace_count = 0
+                json_end = brace_start
+                for i in range(brace_start, len(result)):
+                    if result[i] == '{':
+                        brace_count += 1
+                    elif result[i] == '}':
+                        brace_count -= 1
+                        if brace_count == 0:
+                            json_end = i + 1
+                            break
+                
+                json_str = result[brace_start:json_end]
+                print("```json 마크다운 코드 블록에서 JSON 발견 (중괄호 카운팅)")
+            else:
+                print("```json 블록에서 { 를 찾을 수 없습니다.")
+                return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
         else:
             # ```json이 없으면 일반 ``` 블록에서 JSON 찾기
-            json_blocks = re.findall(r'```\s*\n?\s*(\{.*?\})\s*```', result, re.DOTALL)
-            print(f"일반 ``` 패턴 매칭 결과: {json_blocks}")
-            
-            if json_blocks:
-                json_str = json_blocks[0]  # 첫 번째 JSON 블록 사용
-                print("일반 마크다운 코드 블록에서 JSON 발견")
+            json_start = result.find('```')
+            if json_start != -1:
+                # ``` 이후의 첫 번째 { 찾기
+                brace_start = result.find('{', json_start)
+                if brace_start != -1:
+                    # 중괄호 카운팅으로 완전한 JSON 추출
+                    brace_count = 0
+                    json_end = brace_start
+                    for i in range(brace_start, len(result)):
+                        if result[i] == '{':
+                            brace_count += 1
+                        elif result[i] == '}':
+                            brace_count -= 1
+                            if brace_count == 0:
+                                json_end = i + 1
+                                break
+                    
+                    json_str = result[brace_start:json_end]
+                    print("일반 마크다운 코드 블록에서 JSON 발견 (중괄호 카운팅)")
+                else:
+                    print("일반 ``` 블록에서 { 를 찾을 수 없습니다.")
+                    return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
             else:
                 # 마크다운 블록이 없으면 fallback
                 print("모든 패턴으로 ```json 블록을 찾을 수 없습니다.")
@@ -211,10 +258,38 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
 
         # 2. JSON 파싱 (마크다운 블록에서 추출한 JSON만 처리)
         try:
-            # 기본적인 JSON 정리만 수행
+            # JSON 정리 및 garbage data 제거
             cleaned_json = json_str.strip()
             
-            # trailing comma 제거
+            # 1단계: trailing comma 제거
+            cleaned_json = re.sub(r',\s*([}\]])', r'\1', cleaned_json)
+            
+            # 2단계: JSON 객체의 끝을 찾아서 이후 내용 제거
+            # 가장 마지막의 } 또는 }] 패턴을 찾아서 그 이후 내용 제거
+            json_end_patterns = [
+                r'(\{[^{}]*\}(?:\s*,\s*\{[^{}]*\})*\s*\})\s*$',  # 단일 객체
+                r'(\{[^{}]*"paragraphs"\s*:\s*\[[^\]]*\]\s*[^{}]*\})\s*$',  # paragraphs 포함
+                r'(\{[^{}]*\})\s*$',  # 기본 객체
+            ]
+            
+            json_extracted = None
+            for pattern in json_end_patterns:
+                match = re.search(pattern, cleaned_json, re.DOTALL)
+                if match:
+                    json_extracted = match.group(1)
+                    print(f"JSON 패턴 매칭 성공: {pattern[:50]}...")
+                    break
+            
+            if json_extracted:
+                cleaned_json = json_extracted
+                print(f"Garbage data 제거 후 JSON 길이: {len(cleaned_json)}")
+            else:
+                print("JSON 패턴 매칭 실패, 원본 사용")
+            
+            # 3단계: 추가 정리
+            # 불필요한 공백 제거
+            cleaned_json = re.sub(r'\s+', ' ', cleaned_json)
+            # 마지막 쉼표 제거
             cleaned_json = re.sub(r',\s*([}\]])', r'\1', cleaned_json)
             
             parsed_result = json.loads(cleaned_json)
@@ -224,8 +299,21 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
             print(f"JSON 파싱 실패: {e}")
             print(f"문제 JSON: {cleaned_json[:200]}...")
             
-            # 마크다운 블록에서 추출한 JSON이 유효하지 않으면 오류 반환
-            return json.dumps({"summary": "올바른 JSON 형식이 아닙니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
+            # 추가 복구 시도: 중괄호 밖의 내용 제거
+            try:
+                # 첫 번째 {와 마지막 } 사이만 추출
+                brace_match = re.search(r'(\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\})', cleaned_json, re.DOTALL)
+                if brace_match:
+                    cleaned_json = brace_match.group(1)
+                    print(f"중괄호 기반 복구 시도: {len(cleaned_json)}자")
+                    parsed_result = json.loads(cleaned_json)
+                    print("JSON 파싱 복구 성공")
+                else:
+                    raise Exception("중괄호 패턴을 찾을 수 없습니다")
+            except Exception as recovery_error:
+                print(f"복구 시도 실패: {recovery_error}")
+                # 마크다운 블록에서 추출한 JSON이 유효하지 않으면 오류 반환
+                return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
 
         # 마크다운 블록에서 추출한 JSON을 후처리하여 반환
         processed_result = ResponsePostprocessor.process_response(parsed_result)
@@ -278,13 +366,17 @@ def process_request(data: dict) -> dict:
             # summarize_with_gemma 함수에서 이미 1차 후처리를 완료했으므로,
             # 여기서는 json 파싱만 수행하여 재질의 필요 여부를 확인합니다.
             processed_response = json.loads(summary)
+            
+            # ResponsePostprocessor로 최종 후처리 수행
+            processed_response = ResponsePostprocessor.process_response(processed_response)
+            
             processed_summary = processed_response.get('summary', '')
             
             # 재질의 필요 여부 확인
             if processed_summary.startswith('[재질의 필요]'):
                 print(f"재질의 필요 감지: {processed_summary}")
                 print(f"재질의 전 processed_response: {json.dumps(processed_response, ensure_ascii=False, indent=2)}")
-                print(f"재질의 전 keywords: {processed_response.get('keywords', '없음')}")
+                print(f"재질의 전 keyword: {processed_response.get('keyword', '없음')}")
                 print(f"재질의 전 sentiment: {processed_response.get('sentiment', '없음')}")
                 
                 # 재질의용 프롬프트 생성 (이미 처리된 summary를 재질의)
@@ -322,7 +414,7 @@ def process_request(data: dict) -> dict:
                 processed_response['summary'] = requery_summary
                 
                 print(f"재질의 후 processed_response: {json.dumps(processed_response, ensure_ascii=False, indent=2)}")
-                print(f"재질의 후 keywords: {processed_response.get('keywords', '없음')}")
+                print(f"재질의 후 keyword: {processed_response.get('keyword', '없음')}")
                 print(f"재질의 후 sentiment: {processed_response.get('sentiment', '없음')}")
                 print(f"재질의 후 processed_response 타입: {type(processed_response)}")
                 print(f"재질의 후 processed_response 키: {list(processed_response.keys())}")
