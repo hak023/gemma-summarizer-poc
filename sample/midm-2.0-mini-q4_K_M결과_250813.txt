@@ -1,0 +1,271 @@
+1. 
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"부산지판 가족과 평생교육진흥원에서 포인트 지급 확인 및 사용처 안내\", \"keyword\": \"포인트, 지급, 사용\", \"paragraphs\": [{\"summary\": \"신규 카드 발급 없이 기존 카드로 포인트 지급 확인\", \"keyword\": \"카드, 지급, 확인\", \"sentiment\": \"강한긍정\"}, {\"summary\": \"기장 지역 평생 교육 기관 세 곳에 대한 사용처 안내\", \"keyword\": \"교육, 기관, 사용처\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+
+
+
+2. 
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"농협 카드 포인트 충전 지연 안내\", \"keyword\": \"농협, 포인트, 충전\", \"paragraphs\": [{\"summary\": \"농협 카드 포인트 충전은 6월 말이나 7월 초에 완료될 예정입니다.\", \"keyword\": \"농협, 포인트, 충전\", \"sentiment\": \"보통\"}, {\"summary\": \"시스템 이전으로 인해 포인트 충전이 지연되고 있습니다.\", \"keyword\": \"시스템, 이전, 지연\", \"sentiment\": \"약한부정\"}]}"
+  }
+}
+
+
+
+
+
+3. 
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"부산여성가족과 평생교육진흥원의 카드 사용 기간 확인 방법 안내\", \"keyword\": \"사용기간, 모바일, 인스타\", \"paragraphs\": [{\"summary\": \"사용 기간 확인을 위해 링크를 통한 접속 방법 설명\", \"keyword\": \"링크, 접속, 공지사항\", \"sentiment\": \"강한긍정\"}, {\"summary\": \"모바일 및 SNS를 통한 추가 확인 방법 안내\", \"keyword\": \"모바일, 인스타, 카드뉴스\", \"sentiment\": \"강한긍정\"}]}"
+  }
+}
+
+
+
+
+
+
+
+
+5. 
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"통화에서 평생 직업 교육학원 등록 변경에 대해 논의했습니다.\", \"keyword\": \"평생직업교육, 변경, 승인\", \"paragraphs\": [{\"summary\": \"기관 유형 변경이 필요하다는 안내가 있었습니다.\", \"keyword\": \"유형변경, 평생교육, 학원\", \"sentiment\": \"보통\"}, {\"summary\": \"6월 25일부터 기관 등록 변경이 가능하다고 안내했습니다.\", \"keyword\": \"6월25일, 변경가능, 승인요청\", \"sentiment\": \"강한긍정\"}]}"
+  }
+}
+
+
+
+
+
+
+6.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"장애인 평생 교육 이용권 신청 상담 진행\", \"keyword\": \"장애인, 평생 교육, 이용권\", \"paragraphs\": [{\"summary\": \"부산여성가족과 평생교육진흥원에서 장애인 평생 교육 이용권 신청에 대해 안내함.\", \"keyword\": \"장애인, 평생 교육, 이용권\", \"sentiment\": \"보통\"}, {\"summary\": \"6월 20일까지 신청을 받고 있으며, 7월에는 2차 모집이 예정되어 있음.\", \"keyword\": \"신청, 6월, 7월\", \"sentiment\": \"약한부정\"}, {\"summary\": \"에너지바우처와 평생 교육 이용권의 차이점 설명 및 인터넷 접수 방법 안내.\", \"keyword\": \"에너지바우처, 평생 교육, 인터넷\", \"sentiment\": \"강한긍정\"}, {\"summary\": \"6월 26일에 공고가 나오면 문자로 신청 안내 예정임.\", \"keyword\": \"공고, 6월, 7월\", \"sentiment\": \"약한부정\"}, {\"summary\": \"복지관에서 제공하는 월 2만 원의 복지 서비스에 대한 정보 제공.\", \"keyword\": \"복지관, 월 2만 원, 서비스\", \"sentiment\": \"강한긍정\"}]}"
+  }
+}
+
+
+
+
+
+7.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"근로 계약서 갱신 및 회의 승인 관련 논의\", \"keyword\": \"근로계약서, 회의, 승인\", \"paragraphs\": [{\"summary\": \"근로 계약서 갱신 관련 정보 전달\", \"keyword\": \"근로계약서, 인상, 확인\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"회의 승인 절차에 대한 설명\", \"keyword\": \"회의, 대표, 확인\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+
+
+
+
+8. 
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"평생교육원 체험부스 참여 문의 전화\", \"keyword\": \"체험부스, 미용, 네일아트\", \"paragraphs\": [{\"summary\": \"체험부스 참여 의사 확인\", \"keyword\": \"체험부스, 미용, 네일아트\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"시스템 문제로 인한 연락 방법 논의\", \"keyword\": \"시스템, 연락처, 담당자\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+
+
+
+
+9.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"재발급 카드 포인트 지급 방식 및 일정 안내\", \"keyword\": \"재발급, 포인트, 지급\", \"paragraphs\": [{\"summary\": \"재발급된 체험 카드의 포인트 지급 방식 설명\", \"keyword\": \"체험카드, 포인트충전, 6월\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"포인트 지급 일정 및 문자 안내 방법 설명\", \"keyword\": \"키워드 없음\", \"sentiment\": \"강한긍정\"}]}"
+  }
+}
+
+
+
+
+
+10.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"평생 이용권 카드 발급 및 사용 기간에 대한 안내\", \"keyword\": \"카드, 포인트, 국가성생교육\", \"paragraphs\": [{\"summary\": \"카드 발급과 포인트 지급 절차 설명\", \"keyword\": \"카드, 포인트, 발급\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"국가평생교육원의 운영 정책 변경에 대한 논의\", \"keyword\": \"정책, 결정, 부산\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+
+
+
+
+11.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"농협 체험 카드 발급으로 포인트 지급 지연 해결 안내\", \"keyword\": \"농협, 체험카드, 포인트\", \"paragraphs\": [{\"summary\": \"기존 카드로는 농협 체험 카드 발급 필요\", \"keyword\": \"기존카드, 농협체험카드, 발급필요\", \"sentiment\": \"보통\"}, {\"summary\": \"농협 체험 카드 발급 후 별도 신청 불필요\", \"keyword\": \"농협카드, 발급신청, 신청불필요\", \"sentiment\": \"강한긍정\"}]}"
+  }
+}
+
+
+
+
+
+
+12.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"상담 제한 안내\", \"keyword\": \"국가평생교육진흥원, 청사이전, 상담제한\", \"paragraphs\": [{\"summary\": \"청사 이전으로 인해 6월 17일부터 24일까지 전화 상담이 일부 제한됩니다.\", \"keyword\": \"청사이전, 상담제한, 6월\", \"sentiment\": \"강한부정\"}, {\"summary\": \"상담 센터 이용 시 별도의 통화료가 부과되며, 광역지자체별 상담 센터 연결은 1번으로 안내됩니다.\", \"keyword\": \"상담센터, 통화료, 1번\", \"sentiment\": \"보통\"}, {\"summary\": \"산업안전보건법에 따른 고객 응대 근로자 보호 조치가 시행 중입니다.\", \"keyword\": \"산업안전보건법, 보호조치, 10월\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+
+
+
+
+
+13.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"통화매니저에서 시간대별 통화량 확인 불가, 파일 제공 불가\", \"keyword\": \"통화매니저, 시간대별, 통화량, 파일제공\", \"paragraphs\": [{\"summary\": \"통화매니저에서 시간대별 통화량 확인 기능 없음\", \"keyword\": \"통화매니저, 시간대별, 확인기능\", \"sentiment\": \"약한부정\"}, {\"summary\": \"파일 제공 서비스는 현재 제공되지 않음\", \"keyword\": \"파일제공, 서비스, 제공불가\", \"sentiment\": \"약한부정\"}]}"
+  }
+}
+
+
+
+
+
+
+14.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"전문건설협회와 실적 신고 관련 대화\", \"keyword\": \"실적신고, 자격증사본, 4대보험\", \"paragraphs\": [{\"summary\": \"실적 신고 담당 여부 확인\", \"keyword\": \"담당, 실적신고\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"자격증 사본 및 4대 보험 명부 요청\", \"keyword\": \"사본, 명부, 4대보험\", \"sentiment\": \"보통\"}, {\"summary\": \"사본 및 명부 발송 확인\", \"keyword\": \"사본, 명부, 발송\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+
+
+
+15.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"홍화상사의 큰 사이즈 홍화 씨앗 구매 논의\", \"keyword\": \"홍화상사, 큰사이즈, 여름\", \"paragraphs\": [{\"summary\": \"홍화상사의 큰 사이즈 홍화 씨앗을 구매하려는 대화\", \"keyword\": \"홍화상사, 큰사이즈, 여름\", \"sentiment\": \"보통\"}, {\"summary\": \"홍화상사의 큰 사이즈 홍화 씨앗의 현재 재고 상황과 배송 방법 논의\", \"keyword\": \"홍화상사, 큰사이즈, 배송\", \"sentiment\": \"강한긍정\"}]}"
+  }
+}
+
+
+
+
+
+16.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"통화에서 한림대학교 동탄성신병원 사회사업팀과 범죄 피해자 지원 센터 간의 연결 문제 논의\", \"keyword\": \"한림대학교, 동탄성신병원, 범죄피해자지원\", \"paragraphs\": [{\"summary\": \"상대방은 경기북부 범죄 피해자 지원 센터를 소개하며 전화 연결을 시도했습니다.\", \"keyword\": \"경기북부, 범죄피해자지원, 연락처\", \"sentiment\": \"보통\"}, {\"summary\": \"통화자는 자신의 위치가 일산임을 밝히며 잘못된 전화번호 안내에 대해 문의했습니다.\", \"keyword\": \"일산, 전화번호, 피해자지원\", \"sentiment\": \"약한부정\"}]}"
+  }
+}
+
+
+
+
+17.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"지하 1층 공사와 엘리베이터 설치에 대해 논의했습니다.\", \"keyword\": \"지하 1층, 엘리베이터, 공사\", \"paragraphs\": [{\"summary\": \"지하 1층의 공사 진행 상황을 확인했습니다.\", \"keyword\": \"지하 1층, 공사, 진척\", \"sentiment\": \"강한긍정\"}, {\"summary\": \"엘리베이터 설치에 대한 견적과 가격을 논의했습니다.\", \"keyword\": \"엘리베이터, 견적, 가격\", \"sentiment\": \"보통\"}]}"
+  }
+}

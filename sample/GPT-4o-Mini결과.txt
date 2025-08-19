@@ -1,0 +1,529 @@
+1. 
+{
+    "transactionid": "storeapi-a47dcf20-0ab1-4fa1-b03d-1fa4dff99dd2",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "포인트 지급 및 사용처 안내"
+    }
+}
+
+
+
+2. 
+{
+    "transactionid": "storeapi-86146146-f89a-4cf9-ac74-3712e152ed21",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "포인트 충전 일정 안내",
+        "keyword": "포인트, 충전, 일정",
+        "paragraphs": [
+            {
+                "summary": "포인트 충전은 6월 말이나 7월 초에 가능할 예정",
+                "keyword": "포인트, 6월, 7월",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "국가 평생 교육 진흥원 시스템 중단으로 충전 지연 안내",
+                "keyword": "시스템, 중단, 충전",
+                "sentiment": "약한부정"
+            }
+        ]
+    }
+}
+
+
+
+
+
+3.
+{
+    "transactionid": "storeapi-5c6690c3-475a-4afb-b5dd-b558b17e2ee3",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "부산여성가족과 평생교육 정보 안내",
+        "keyword": "부산여성가족, 평생교육, 강좌",
+        "paragraphs": [
+            {
+                "summary": "부산여성가족과 평생교육진흥원에서 공지사항 확인 방법 안내",
+                "keyword": "공지사항, 확인 방법",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "모바일 및 SNS를 통한 정보확인 가능성 설명",
+                "keyword": "모바일, SNS",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "강좌 확인 후 결제 방법 안내",
+                "keyword": "강좌, 결제",
+                "sentiment": "약한긍정"
+            }
+        ]
+    }
+}
+
+
+5. 
+{
+    "transactionid": "storeapi-33cef9e0-84d8-4ee9-a593-5781a8d06500",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "평생교육 기관 등록 및 변경안내",
+        "keyword": "평생교육, 등록, 변경",
+        "paragraphs": [
+            {
+                "summary": "기관 유형을 평생 직업 교육 학원으로 변경해야 함",
+                "keyword": "기관 유형, 평생 직업 교육",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "6월 25일부터 등록 확인 가능하며, 신청단계에서 수정 가능",
+                "keyword": "등록 확인, 신청 단계",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "서류 검토 후 승인을 요청하는 과정 설명",
+                "keyword": "서류 검토, 승인 요청",
+                "sentiment": "보통"
+            }
+        ]
+    }
+}
+
+
+
+
+6. 
+{
+    "transactionid": "storeapi-3c3895d5-8824-43e8-bc8d-2e204b59a04c",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "평생교육 이용권 신청 및 안내",
+        "keyword": "평생교육, 신청, 이용권",
+        "paragraphs": [
+            {
+                "summary": "평생교육 이용권 신청은 7월에 가능하며, 6월 26일에 공고가 나간다.",
+                "keyword": "신청, 공고",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "이용권 선정은 무작위 추첨으로 진행되며, 수급자도 신청 가능하다.",
+                "keyword": "선정, 추첨",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "35만 원 포인트는 학원 등록 시 사용 가능하며, 현금 지급은 없다.",
+                "keyword": "포인트, 학원",
+                "sentiment": "약한부정"
+            },
+            {
+                "summary": "신청 방법은 인터넷으로 가능하며, 자세한 안내는 문자로 제공된다.",
+                "keyword": "신청, 안내",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "부산여성가족과 평생교육진흥원에서 제공하는 프로그램에 대한 문의가 있었다.",
+                "keyword": "프로그램, 문의",
+                "sentiment": "보통"
+            }
+        ]
+    }
+}
+
+
+
+
+
+7. 
+{
+    "transactionid": "storeapi-a365e393-cc9d-40d9-89d8-aa4437316e17",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "근로 계약서 갱신 및 회의 확인",
+        "keyword": "근로 계약서, 급여 인상, 회의",
+        "paragraphs": [
+            {
+                "summary": "급여 인상으로 근로 계약서 갱신 요청이 있었음.",
+                "keyword": "근로 계약서, 급여 인상",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "회의 확인 후 승인이 필요하다는 안내가있었음.",
+                "keyword": "회의, 승인",
+                "sentiment": "보통"
+            }
+        ]
+    }
+}
+
+
+
+
+
+
+8. 
+{
+    "transactionid": "storeapi-6bc4ad5f-c883-431c-9538-8806d9fdbce2",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "행사 참여 및 프로그램 관련논의",
+        "keyword": "행사, 프로그램, 연락처",
+        "paragraphs": [
+            {
+                "summary": "11월 7일 행사 참여를 위해 전화한 내용",
+                "keyword": "행사, 참여",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "체험 부스 프로그램으로 네일아트 제안",
+                "keyword": "체험 부스, 네일아트",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "담당자 성함과 연락처 확인 및 저장",
+                "keyword": "담당자, 연락처",
+                "sentiment": "약한긍정"
+            }
+        ]
+    }
+}
+
+
+
+
+9. 
+{
+    "transactionid": "storeapi-479b7da2-8878-4972-9f78-35d845f9f957",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "재발급 카드 포인트 지급 안내",
+        "keyword": "재발급, 포인트, 카드",
+        "paragraphs": [
+            {
+                "summary": "재발급된 카드의 적립금이 들어오지 않아 문의",
+                "keyword": "재발급, 적립금",
+                "sentiment": "약한부정"
+            },
+            {
+                "summary": "포인트 충전은 6월 말이나 7월 초에 진행 예정",
+                "keyword": "포인트, 충전",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "충전 완료 후 문자 발송, 사용 시작 안내",
+                "keyword": "문자, 사용",
+                "sentiment": "약한긍정"
+            }
+        ]
+    }
+}
+
+
+
+
+
+10. 
+{
+    "transactionid": "storeapi-ebd28133-1d9e-4d48-ab86-0b71ebddc0ac",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "카드 발급 및 사용 안내",
+        "keyword": "카드, 포인트, 교육",
+        "paragraphs": [
+            {
+                "summary": "평생 이용권 카드 발급 후 사용 방법 안내",
+                "keyword": "카드, 사용 방법",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "포인트 지급 및 사용 기간에 대한 정보 제공",
+                "keyword": "포인트, 사용 기간",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "정확한 사용 종료 시기 및 정책 결정 예정",
+                "keyword": "정책, 종료 시기",
+                "sentiment": "보통"
+            }
+        ]
+    }
+}
+
+
+
+
+
+11. 
+{
+    "transactionid": "storeapi-b634bc43-5afb-4ee2-b786-9197d975bec5",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "농협 체험 카드 발급 및 포인트 지급 안내",
+        "keyword": "농협 카드, 포인트 지급, 평생 교육",
+        "paragraphs": [
+            {
+                "summary": "기존 평생 교육 희망 카드는 작년까지만 사용 가능",
+                "keyword": "평생 교육 카드, 사용 종료",
+                "sentiment": "약한부정"
+            },
+            {
+                "summary": "농협 체험 카드를발급받아야 포인트 지급 가능",
+                "keyword": "농협 카드, 포인트 지급",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "포인트는 6월 말이나 7월 초에 지급 예정",
+                "keyword": "포인트 지급, 일정",
+                "sentiment": "약한긍정"
+            }
+        ]
+    }
+}
+
+
+
+
+
+12.
+{
+    "transactionid": "storeapi-8e98f6b2-7802-405e-9767-e9b961ec2e2f",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "상담 서비스 이용 안내 및 신청 내역 확인",
+        "keyword": "상담 서비스, 신청 내역, 청사 이전",
+        "paragraphs": [
+            {
+                "summary": "상담 센터 이용 시 통화료가 부과되며, 청사 이전으로 전화 상담이 제한됨",
+                "keyword": "상담 센터, 통화료, 청사 이전",
+                "sentiment": "보통"
+            },
+            {
+                "summary": "신청 내역 확인은 홈페이지 본인 인증 후 가능하나, 청사 이전으로 인해 6월 25일 이후부터 정상 이용 가능",
+                "keyword": "신청 내역, 본인 인증, 서버 이전",
+                "sentiment": "약한긍정"
+            }
+        ]
+    }
+}
+
+
+
+
+
+
+
+
+13. 
+{
+    "transactionid": "storeapi-6cea9827-3eac-43d9-ae0d-952ad46311ee",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "KT 통화매니저 기능 문의",
+        "keyword": "통화매니저, 기능, 통화량",
+        "paragraphs": [
+            {
+                "summary": "KT 통화매니저 사용 중 통화량 확인 서비스 문의",
+                "keyword": "통화량, 서비스, 문의",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "통화량 확인은 가능하나 날짜별 정렬 기능은 없음",
+                "keyword": "정렬, 기능, 통화량",
+                "sentiment": "약한부정"
+            },
+            {
+                "summary": "통화 내역 정리 요청은 불가능하다는 안내",
+                "keyword": "통화 내역, 요청, 불가능",
+                "sentiment": "약한부정"
+            }
+        ]
+    }
+}
+
+
+
+
+
+
+
+14. 
+{
+    "transactionid": "storeapi-75da297a-b361-4e99-8d0a-bddde196666c",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "자격증 사본 및 보험 가입자명부 요청",
+        "keyword": "자격증, 보험, 요청",
+        "paragraphs": [
+            {
+                "summary": "자격증 사본과 4대 보험 가입자 명부 요청",
+                "keyword": "자격증, 보험 가입자",
+                "sentiment": "약한부정"
+            },
+            {
+                "summary": "자격증 사본 발송을 깜빡했음을 인정",
+                "keyword": "발송, 깜빡",
+                "sentiment": "약한부정"
+            }
+        ]
+    }
+}
+
+
+
+
+
+
+
+15. 
+{
+    "transactionid": "storeapi-6cc9e79f-2fb6-43bf-9d9e-26d7368dda26",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "홍화상사 제품 문의 및 사진요청",
+        "keyword": "홍화상사, 제품 문의, 사진 요청",
+        "paragraphs": [
+            {
+                "summary": "홍화상사에서 큰 사이즈 제품을 문의하며 예약 필요성 언급",
+                "keyword": "홍화상사, 큰 사이즈, 예약",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "현재 6.0cm 사이즈는품절이며, 작은 사이즈만 남아있음",
+                "keyword": "품절, 작은 사이즈, 재고",
+                "sentiment": "약한부정"
+            },
+            {
+                "summary": "택배 발송은 불가능하며 차량 발송만 가능하다고 안내",
+                "keyword": "택배 발송, 차량 발송, 안내",
+                "sentiment": "보통"
+            },
+            {
+                "summary": "사진 요청에 대해 매장 담당자에게 부탁하겠다고 전달",
+                "keyword": "사진 요청, 매장 담당자, 전달",
+                "sentiment": "약한긍정"
+            }
+        ]
+    }
+}
+
+
+
+
+16. 
+{
+    "transactionid": "storeapi-6eed8af9-61f3-40d6-b230-cef9a43785eb",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "범죄 피해자 지원 센터 안내",
+        "keyword": "범죄 피해자, 지원 센터, 전화 안내",
+        "paragraphs": [
+            {
+                "summary": "범죄 피해자 지원 센터에 전화하여 환자 확인",
+                "keyword": "범죄 피해자, 환자 확인",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "일산 지역의 범죄 피해자 지원 센터 전화번호 안내",
+                "keyword": "일산, 전화번호",
+                "sentiment": "약한긍정"
+            }
+        ]
+    }
+}
+
+
+
+
+17.
+{
+    "transactionid": "storeapi-8f5d469c-bf20-4a60-a359-c9f572cc5e16",
+    "sequenceno": "0",
+    "returncode": "1",
+    "returndescription": "Success",
+    "response": {
+        "result": "0",
+        "failReason": "",
+        "summary": "공사 진행 상황과 청소 계획논의",
+        "keyword": "공사, 청소, 안전",
+        "paragraphs": [
+            {
+                "summary": "지하 1층 공사 진행 상황과 조명 테스트 결과 공유",
+                "keyword": "공사, 조명, 진행",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "청소 업체 선정과 비용 예상에 대한 논의",
+                "keyword": "청소, 업체, 비용",
+                "sentiment": "보통"
+            },
+            {
+                "summary": "안전과 장마 대비에 대한 중요성 강조",
+                "keyword": "안전, 장마, 대비",
+                "sentiment": "강한긍정"
+            }
+        ]
+    }
+}
+
+
+

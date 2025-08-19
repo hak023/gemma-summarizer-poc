@@ -57,6 +57,21 @@ class ResponsePostprocessor:
         return best_sentence[0]
     
     @staticmethod
+    def extract_first_sentence(text: str) -> str:
+        """
+        입력 텍스트에서 첫 번째 문장만 추출하여 반환
+        - 한국어/영문 공통 문장 종결부호(. ! ?) 및 유사 기호(。 ！ ？) 기준
+        - 종결부호가 없으면 전체를 반환
+        """
+        if not text:
+            return ""
+        text = text.strip()
+        match = re.search(r'^(.+?[\.!?。！？])', text)
+        if match:
+            return match.group(1).strip()
+        return text
+    
+    @staticmethod
     def process_summary(value: str) -> str:
         """
         summary 필드 후처리
@@ -65,7 +80,7 @@ class ResponsePostprocessor:
         - 불필요한 공백 제거
         """
         if not value:
-            return "요약 없음"
+            return "요약이 불가능한 내용입니다."
         
         # 문자열이 아니면 문자열로 변환
         if not isinstance(value, str):
@@ -143,6 +158,7 @@ class ResponsePostprocessor:
         - 각 paragraph의 예시 내용 필터링
         - sentiment 값 정규화
         - paragraphs의 summary는 재질의 로직 제외
+        - paragraphs의 summary는 최고 문장(select_best_sentence)만 사용
         """
         if not paragraphs or not isinstance(paragraphs, list):
             return []
@@ -181,7 +197,13 @@ class ResponsePostprocessor:
                 if is_example:
                     summary = "문단 요약 없음"
                 
-                processed_para['summary'] = re.sub(r'\s+', ' ', summary.strip())
+                cleaned_summary = re.sub(r'\s+', ' ', summary.strip())
+                # 문장 분리 후 최고 문장 선택
+                sentences = [s.strip() for s in re.split(r'(?<=[\.!?。！？])\s+', cleaned_summary) if s.strip()]
+                if not sentences:
+                    sentences = [cleaned_summary]
+                best_sentence = ResponsePostprocessor.select_best_sentence(sentences)
+                processed_para['summary'] = best_sentence
             else:
                 processed_para['summary'] = "문단 요약 없음"
             
@@ -288,14 +310,7 @@ class ResponsePostprocessor:
                 if not paragraphs or not isinstance(paragraphs, list) or len(paragraphs) == 0:
                     paragraphs = [
                         {
-                            'summary': '통화 내용 분석',
-                            'keyword': '통화, 분석',
-                            'sentiment': '보통'
-                        },
-                        {
-                            'summary': '상세 내용 검토',
-                            'keyword': '검토, 상세',
-                            'sentiment': '보통'
+                            'summary': '요약이 불가능한 내용입니다.'
                         }
                     ]
                 

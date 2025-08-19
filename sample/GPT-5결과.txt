@@ -1,0 +1,209 @@
+1.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"기장 사용처 문자 안내\", \"keyword\": \"포인트, 사용처, 기장\", \"paragraphs\": [{\"summary\": \"기존 카드로 포인트 확인\", \"keyword\": \"카드, 포인트, 확인\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"기장 3개 기관 문자 발송\", \"keyword\": \"기장, 기관, 문자\", \"sentiment\": \"강한긍정\"}]}"
+  }
+}
+
+2.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"포인트 충전 지연 안내\", \"keyword\": \"농협, 충전, 지연\", \"paragraphs\": [{\"summary\": \"전국 순차 지급으로 지연\", \"keyword\": \"전국, 순차, 지급\", \"sentiment\": \"약한부정\"}, {\"summary\": \"청사 이전으로 일시 중단\", \"keyword\": \"청사, 이전, 중단\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+3.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"사용 기간 확인 경로 안내\", \"keyword\": \"공지, 카드뉴스, 모바일\", \"paragraphs\": [{\"summary\": \"공지·카드뉴스로 기관 확인\", \"keyword\": \"공지, 카드뉴스, 기관\", \"sentiment\": \"강한긍정\"}, {\"summary\": \"모바일·인스타에서도 확인\", \"keyword\": \"모바일, 인스타, 확인\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+
+
+5.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"기관 유형 변경 필요 안내\", \"keyword\": \"기관유형, 변경, 승인\", \"paragraphs\": [{\"summary\": \"청사 이전으로 접속 불가\", \"keyword\": \"청사, 이전, 불가\", \"sentiment\": \"약한부정\"}, {\"summary\": \"6/25 이후 직접 유형 변경\", \"keyword\": \"6/25, 유형, 변경\", \"sentiment\": \"보통\"}, {\"summary\": \"서류 검토 후 최종 승인\", \"keyword\": \"서류, 검토, 승인\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+6.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"이용권 신청·선정·사용 안내\", \"keyword\": \"이용권, 신청, 선정\", \"paragraphs\": [{\"summary\": \"신청 후 추첨·카드 발급\", \"keyword\": \"신청, 추첨, 발급\", \"sentiment\": \"보통\"}, {\"summary\": \"교육 결제만 가능·안마 제외\", \"keyword\": \"교육, 결제, 제외\", \"sentiment\": \"약한부정\"}, {\"summary\": \"6/26 공고·7월 접수 예정\", \"keyword\": \"공고, 7월, 접수\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+7.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"근로계약 갱신 승인 확인\", \"keyword\": \"근로계약, 회의, 승인\", \"paragraphs\": [{\"summary\": \"회의 승인 절차 확인 요청\", \"keyword\": \"회의, 승인, 절차\", \"sentiment\": \"보통\"}, {\"summary\": \"관련 자료 이메일 제출\", \"keyword\": \"자료, 이메일, 제출\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+8.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"체험부스 참여·운영 협의\", \"keyword\": \"체험부스, 프로그램, 인원\", \"paragraphs\": [{\"summary\": \"미용·네일 등 프로그램 논의\", \"keyword\": \"미용, 네일, 프로그램\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"인원·수용·담당 연락 정리\", \"keyword\": \"인원, 수용, 연락\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+9.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"재발급 카드 충전 일정\", \"keyword\": \"재발급, 충전, 일정\", \"paragraphs\": [{\"summary\": \"6월말~7월초 일괄 충전\", \"keyword\": \"6월말, 7월초, 일괄\", \"sentiment\": \"보통\"}, {\"summary\": \"문자 수신 후 사용 시작\", \"keyword\": \"문자, 수신, 사용\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+10.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"충전 후 사용 절차 안내\", \"keyword\": \"충전, 사용, 기간\", \"paragraphs\": [{\"summary\": \"충전 문자 후 등록기관 사용\", \"keyword\": \"문자, 등록, 사용\", \"sentiment\": \"보통\"}, {\"summary\": \"종료 시기 사전 공지 예정\", \"keyword\": \"종료, 시기, 공지\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+11.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"체험카드 발급·충전 안내\", \"keyword\": \"체험카드, 발급, 충전\", \"paragraphs\": [{\"summary\": \"희망카드→체험카드 전환\", \"keyword\": \"희망, 체험, 전환\", \"sentiment\": \"보통\"}, {\"summary\": \"발급 후 대기·일괄 충전\", \"keyword\": \"발급, 대기, 충전\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+12.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"청사 이전 상담 제한 안내\", \"keyword\": \"상담제한, IVR, 공지\", \"paragraphs\": [{\"summary\": \"6/17~24 상담 일부 제한\", \"keyword\": \"6/17, 6/24, 제한\", \"sentiment\": \"약한부정\"}, {\"summary\": \"서비스 선택·보호 고지\", \"keyword\": \"서비스, 보호, 고지\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+13.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"시간대별 통계·파일 불가\", \"keyword\": \"KT, 통화량, 파일\", \"paragraphs\": [{\"summary\": \"시간·날짜별 통계 미제공\", \"keyword\": \"시간, 날짜, 통계\", \"sentiment\": \"약한부정\"}, {\"summary\": \"통화내역 파일 제공 불가\", \"keyword\": \"통화, 내역, 파일\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+14.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"실적신고 서류 제출 요청\", \"keyword\": \"실적신고, 사본, 4대보험\", \"paragraphs\": [{\"summary\": \"담당자 연결·요청 재안내\", \"keyword\": \"담당, 요청, 안내\", \"sentiment\": \"보통\"}, {\"summary\": \"자격증 사본·명부 송부\", \"keyword\": \"자격증, 명부, 송부\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+15.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"대형 규격 구매·배송 협의\", \"keyword\": \"대형, 재고, 배송\", \"paragraphs\": [{\"summary\": \"여름철 대형 재고·굴취 제한\", \"keyword\": \"여름, 재고, 제한\", \"sentiment\": \"약한부정\"}, {\"summary\": \"차량 배송·사진 검토 논의\", \"keyword\": \"차량, 배송, 사진\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+16.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"관할 센터 연락처 재안내\", \"keyword\": \"관할, 센터, 연락처\", \"paragraphs\": [{\"summary\": \"의정부 연결→일산 관할 안내\", \"keyword\": \"의정부, 일산, 관할\", \"sentiment\": \"보통\"}, {\"summary\": \"고양·파주 번호 확인 안내\", \"keyword\": \"고양, 파주, 번호\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+17.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"지하1층 공정·청소 견적\", \"keyword\": \"공사, 청소, 견적\", \"paragraphs\": [{\"summary\": \"LED 점등·차량 협조 진행\", \"keyword\": \"LED, 차량, 협조\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"청소·라인 작업 견적 추진\", \"keyword\": \"청소, 라인, 견적\", \"sentiment\": \"보통\"}]}"
+  }
+}

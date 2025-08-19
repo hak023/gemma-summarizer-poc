@@ -1,0 +1,217 @@
+On-device gemma3-1b-q8 을 이용한 요약 결과
+
+1.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"옥수강 신사권 지급 확인 및 사용처 안내\", \"keyword\": \"평생교육진흥원, 옥수강 신사권, 지급, 포인트\", \"paragraphs\": [{\"summary\": \"부산지판 가족과 평생교육진흥원과의 협력으로 지급된 옥수강 신사권 관련 지급 확인 및 사용처 안내.\", \"keyword\": \"협력, 옥수강 신사권, 지급\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"부산 뮤집 정관 실료음악 학원이랑 부산 기장 일광 음식 나라 조리하고 요렇게 세고 가요 선생.\", \"keyword\": \"뮤집, 기장, 음식 나라, 조리\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"저희 쪽에서 확인을 해 보니까 그 포인트 지급됐다고 확인이 되는데 잠시만 요 확인 한번 확인해 볼게요.\", \"keyword\": \"포인트 지급, 확인\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"그 부산 뮤집 정관 실료음악 학원이랑 부산 기장 일광 음식 나라 조리하고 요렇게 세고 가요 선생.\", \"keyword\": \"뮤집, 기장, 음식 나라, 조리\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"저희 쪽으로 신청 준 기간이 3 개 정도밖에 없어서 그 거 제가 기관명만 보내드리면 될까요 아니면 대표 강좌까지 포함해서 보내드리면 될까요.\", \"keyword\": \"신청, 기관명, 강좌\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"그 아 그러면 당장 사용할 수 있네예 예 예 예 네 네.\", \"keyword\": \"사용, 즉시\", \"sentiment\": \"강한긍정\"}, {\"summary\": \"아 알겠습니다 그럼 문자 보내주세요 감사합니다.\", \"keyword\": \"문자, 감사\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+2.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"포인트 충전 문제\", \"keyword\": \"포인트 충전, 국가평생 교육 진흥원, 시스템 중단\", \"paragraphs\": [{\"summary\": \"부산유성가족과 평생교육진흥원, 포인트 충전 문제로 어려움을 겪고 있습니다. 포인트 충전을 위해 국가평생 교육 진흥원 이전으로 인해 시스템 중단이 발생하여, 현재 충전이 어렵습니다.\", \"keyword\": \"포인트 충전\", \"sentiment\": \"약한부정\"}, {\"summary\": \"포인트 충전을 위해 국가평생 교육 진흥원 이전으로 인해 시스템 중단이 발생하여, 현재 충전이 어렵습니다.\", \"keyword\": \"시스템 중단\", \"sentiment\": \"약한부정\"}]}"
+  }
+}
+
+3.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"부산 평생 교육 강좌 정보 확인 및 결제\", \"keyword\": \"부산여성가족, 평생교육진흥원, 카드 뉴스, 사용 기간, 강좌\", \"paragraphs\": [{\"summary\": \"부산여성가족과 평생교육진흥원으로부터 링크를 통해 확인 방법을 안내받았습니다. 사용 기간 등록 현황 카드 뉴스에 붙어 있는 공지 사항을 확인하고, 부산광역시 평생 교육 관련 강좌 정보를 확인하여 결제할 수 있습니다.\", \"keyword\": \"부산여성가족\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"사용 기간 등록 현황 카드 뉴스에 붙어 있는 공지 사항을 확인하고, 부산광역시 평생 교육 관련 강좌 정보를 확인하여 결제할 수 있습니다.\", \"keyword\": \"부산광역시\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"부산여성가족과 평생교육진흥원으로부터 링크를 통해 확인 방법을 안내받았습니다. 사용 기간 등록 현황 카드 뉴스에 붙어 있는 공지 사항을 확인하고, 부산광역시 평생 교육 관련 강좌 정보를 확인하여 결제할 수 있습니다.\", \"keyword\": \"사용 기간\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+
+
+5.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"평생 교육 기관 변경 신청 안내\", \"keyword\": \"평생 교육, 기관 유형 변경, 국가평생 교육 진흥원, 접속 문제\", \"paragraphs\": [{\"summary\": \"평생 교육 기관의 접속 문제로 인해, 상담자는 기관 유형 변경을 요청하고, 국가평생 교육 진흥원으로 이전해야 한다고 합니다.\", \"keyword\": \"평생 교육\", \"sentiment\": \"보통\"}, {\"summary\": \"설명 과정에서 6월 25일 신청 시, 기관 유형 변경이 가능하며, 이후 서류 검토를 거쳐 승인을 받아야 합니다.\", \"keyword\": \"기관 유형 변경\", \"sentiment\": \"강한긍정\"}, {\"summary\": \"그 등록해 주신 서류라던가 이제 신청을 해주시면은\", \"keyword\": \"서류 검토\", \"sentiment\": \"약한부정\"}, {\"summary\": \"그 등록해 주신 서류라던가 이제 신청을 해주시면은\", \"keyword\": \"신청\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+6.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"부산 평생 교육 이용권 신청 안내\", \"keyword\": \"평생 교육, 부산 여성, 교육 이용권, 부산시\", \"paragraphs\": [{\"summary\": \"부산여성가족과 평생교육진흥원은 부산시민에게 평생 교육 이용권을 제공합니다. 이 프로그램은 5월 14일에 신청을 받았으며, 7월 26일 공고를 통해 신청 접수가 이루어질 예정입니다.\", \"keyword\": \"평생 교육\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"5월 14일에 신청을 받았으며, 7월 26일 공고를 통해 신청 접수가 이루어질 예정입니다.\", \"keyword\": \"평생 교육\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"이 프로그램은 부산시민에게 평생 교육 이용권을 제공합니다.\", \"keyword\": \"평생 교육\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"부산여성가족과 평생교육진흥원은 부산시민에게 평생 교육 이용권을 제공합니다.\", \"keyword\": \"평생 교육\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"이 프로그램은 7월 26일 공고를 통해 신청 접수가 이루어질 예정입니다.\", \"keyword\": \"평생 교육\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+7.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"관리 사무소 주임의 문의\", \"keyword\": \"근로 계약서\", \"paragraphs\": [{\"summary\": \"관리 사무소 방지연 주임은 본산에 근무하며, 근로 계약서 담당자님을 만나 급여 인상과 관련된 근로 계약서 갱신 절차에 대한 문의를 했습니다.\", \"keyword\": \"근로 계약서\", \"sentiment\": \"보통\"}, {\"summary\": \"그는 메일로 전달될 예정이며, 선생님께 전해드리고 다시 전달할 예정입니다.\", \"keyword\": \"메일\", \"sentiment\": \"보통\"}, {\"summary\": \"근로 계약서 담당자님을 만나 급여 인상과 관련된 근로 계약서 갱신 절차에 대한 문의를 했습니다.\", \"keyword\": \"근로 계약서\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+8.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"부산여성가주 평생교육 참여 안내\", \"keyword\": \"평생교육진흥원, 바른뷰티, 팩 백스코, 선택, 시스템 오류\", \"paragraphs\": [{\"summary\": \"부산여성가주가 평생교육진흥원인 바른뷰티 선생님을 통해 참여를 신청했습니다.\", \"keyword\": \"평생교육진흥원\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"선생님은 시스템 오류로 인해 연락이 닿지 못하고, 이후 선생님의 번호를 통해 담당자 변경이 가능하다고 안내받았습니다.\", \"keyword\": \"시스템 오류\", \"sentiment\": \"약한부정\"}, {\"summary\": \"11월 7일 팩 백스코에서 하는 행사입니다.\", \"keyword\": \"팩 백스코\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+9.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"농협 채용 카드 포인트 충전 지원\", \"keyword\": \"평생 교육, 농협, 채용 카드, 포인트, 재발급\", \"paragraphs\": [{\"summary\": \"저는 평생 교육 진흥원으로서 농협 체크 카드 채용 카드를 재발급하여 포인트 충전을 지원할 예정입니다.\", \"keyword\": \"평생 교육, 농협, 채용 카드, 포인트\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+10.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"카드 사용 기간 변경 가능성\", \"keyword\": \"카드, 국가방행 교육 진흥원, 카드 포인트, 정책\", \"paragraphs\": [{\"summary\": \"병원신다은은 평생 이용권으로 카드 발급을 받고, 국가방행 교육 진흥원과 협력하여 전국적으로 카드 발급이 진행되면서 일정 기간 동안 카드 사용이 제한됩니다.\", \"keyword\": \"카드\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"현재 카드 사용 기간은 12월까지이지만, 정책 결정에 따라 변경될 수 있습니다.\", \"keyword\": \"정책\", \"sentiment\": \"약한부정\"}, {\"summary\": \"카드 발급을 받으면 포인트 충전이 완료됩니다.\", \"keyword\": \"포인트\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+11.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"평생 교육 관련 바우처 지원 카드 사용 지연 및 포인트 지급 절차 안내\", \"keyword\": \"평생 교육, 희망 카드, 카드, 포인트, 발급\", \"paragraphs\": [{\"summary\": \"부산지성가조는 평생 교육 희망 카드 발급에 대한 미발급 문제를 해결하고, 농협 체험 카드를 발급받아 포인트 지급을 기다립니다.\", \"keyword\": \"평생 교육\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"현재 평생 교육 관련 바우처 지원을 위한 카드 사용이 지연되고 있으며, 발급된 카드와 연동하여 포인트 지급 절차를 진행할 예정입니다.\", \"keyword\": \"카드\", \"sentiment\": \"약한부정\"}, {\"summary\": \"발급된 카드와 연동하여 포인트 지급을 기다리는 것이 가능하며, 6월 말 또는 7월 초에 포인트 충전 완료 시 사용이 가능합니다.\", \"keyword\": \"포인트\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+12.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"중앙 상담 콜센터 문의 및 카드 이용 관련 문의 처리\", \"keyword\": \"평생 교육, 상담, 콜센터, 통화료, 카드\", \"paragraphs\": [{\"summary\": \"중앙 상담 콜센터를 통해 주신 평생 교육 이용권 상담을 진행했습니다. 국가평생교육진흥원 청사이전에 따라 전화 상담이 제한되었으며, 상담 센터 이용 시 통화료가 부과되었습니다.\", \"keyword\": \"콜센터, 상담, 통화료\", \"sentiment\": \"보통\"}, {\"summary\": \"카드 관련 문의는 5번, 그리고 평생 교육 신청 내역 확인에 어려움을 겪었습니다.\", \"keyword\": \"카드, 신청, 오류\", \"sentiment\": \"약한부정\"}, {\"summary\": \"6월 25일 이후부터 정상적으로 이용 가능하도록 서버 이전 작업을 진행할 예정입니다.\", \"keyword\": \"서버 이전, 청사 이전\", \"sentiment\": \"강한긍정\"}]}"
+  }
+}
+
+13.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"KT 통화매니저 시간대/날짜 통화량 확인 서비스 제공\", \"keyword\": \"KT, 통화매니저, 시간대, 통화량, 날짜\", \"paragraphs\": [{\"summary\": \"KT 통화매니저 사용 시 시간대별 통화량, 날짜별 통화량 확인 서비스는 아직 제공되지 않습니다.\", \"keyword\": \"KT, 통화매니저, 시간대, 통화량, 날짜\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+14.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"조연이 전문건설협회에 전화하여 자격증 사본과 보험 가입 정보를 요청했습니다.\", \"keyword\": \"전문건설협회, 자격증 사본, 4대 보험\", \"paragraphs\": [{\"summary\": \"조연은 전문건설협회에 자격증 사본과 4대 보험 가입자 명부를 요청했습니다.\", \"keyword\": \"자격증 사본, 4대 보험\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+15.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"요약 없음\", \"keyword\": \"키워드 없음\", \"paragraphs\": [{\"summary\": \"통화 내용 분석\", \"keyword\": \"통화, 분석\", \"sentiment\": \"보통\"}, {\"summary\": \"상세 내용 검토\", \"keyword\": \"검토, 상세\", \"sentiment\": \"보통\"}]}"
+  }
+}
+
+16.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"일산 범죄 피해자 지원 센터 안내\", \"keyword\": \"범죄, 피해자, 지원 센터, 일산, 폭력\", \"paragraphs\": [{\"summary\": \"환자는 일산에 있는 범죄 피해자 지원 센터를 안내받았습니다.\", \"keyword\": \"범죄\", \"sentiment\": \"보통\"}, {\"summary\": \"환자는 일산에 있는 범죄 피해자 지원 센터에 전화했습니다.\", \"keyword\": \"지원 센터\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"환자는 일산에 있는 범죄 피해자 지원 센터에서 상담을 받았습니다.\", \"keyword\": \"폭력\", \"sentiment\": \"강한부정\"}, {\"summary\": \"환자는 일산에 있는 범죄 피해자 지원 센터를 안내받았습니다.\", \"keyword\": \"일산\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+17.
+{
+  "transactionid": "",
+  "sequenceno": "0",
+  "returncode": "1",
+  "returndescription": "Success",
+  "response": {
+    "result": "0",
+    "failReason": "",
+    "summary": "{\"summary\": \"회장님 1층 엘이디등 설치 작업 진행 상황 확인 및 업체 협의\", \"keyword\": \"엘이디등, 공사, 협조, 팩스\", \"paragraphs\": [{\"summary\": \"회장님과 직원장님 연결을 요청받아, 회장님의 1층에 엘이디등을 설치하는 작업이 진행 중입니다. 차량 협조가 필요하며, 현재 1층에 엘이디등이 설치되어 있습니다. 공사 진행 상황을 확인하고, 팩스 통화를 통해 업체와 협의하여 진행 속도를 높여야 합니다.\", \"keyword\": \"엘이디등\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"회장님의 1층에 엘이디등을 설치하는 작업이 진행 중입니다. 차량 협조가 필요하며, 현재 1층에 엘이디등이 설치되어 있습니다. 공사 진행 상황을 확인하고, 팩스 통화를 통해 업체와 협의하여 진행 속도를 높여야 합니다.\", \"keyword\": \"공사\", \"sentiment\": \"약한긍정\"}, {\"summary\": \"현재 1층에 엘이디등이 설치되어 있습니다. 공사 진행 상황을 확인하고, 팩스 통화를 통해 업체와 협의하여 진행 속도를 높여야 합니다.\", \"keyword\": \"엘이디등\", \"sentiment\": \"약한긍정\"}]}"
+  }
+}
+
+
+
+
+
+

@@ -24,21 +24,69 @@ def get_llm_instance():
                 from config import get_model_path
                 MODEL_PATH = get_model_path()
                 # CPU 제한 강제 적용
-                cpu_count = multiprocessing.cpu_count()
-                cpu_limit_percent = int(os.getenv('CPU_LIMIT_PERCENT', 25))  # 기본값 25%로 더 엄격하게
-                max_threads = max(1, int(cpu_count * cpu_limit_percent / 100))
+                force_threads = config.get('MAX_CPU_THREADS')
+                if force_threads is not None:
+                    # 강제 스레드 수 설정
+                    max_threads = force_threads
+                    print(f"강제 스레드 수 설정: {max_threads}")
+                else:
+                    # get_optimal_threads() 결과 사용
+                    from config import get_optimal_threads
+                    max_threads = get_optimal_threads()
                 
-                # 환경 변수로 강제 스레드 수 설정 가능
-                force_threads = os.getenv('MAX_CPU_THREADS')
-                if force_threads:
-                    max_threads = int(force_threads)
+                print(f"최종 사용 스레드 수: {max_threads}")
                 
-                print(f"CPU 제한 적용: {cpu_count}개 코어의 {cpu_limit_percent}% = {max_threads}개 스레드 사용")
+                # GPU 사용 설정 적용
+                enable_gpu = bool(config.get('ENABLE_GPU', False))
+                n_gpu_layers = 0
+                env_n_gpu_layers = os.getenv('N_GPU_LAYERS')
+                if enable_gpu:
+                    try:
+                        n_gpu_layers = int(env_n_gpu_layers) if env_n_gpu_layers is not None else -1
+                    except ValueError:
+                        n_gpu_layers = -1
+                # CUDA/오프로딩 지원 및 환경 정보 출력
+                try:
+                    import llama_cpp as _llama_cpp
+                    from llama_cpp import llama_supports_gpu_offload as _llama_supports_gpu_offload
+                    print(f"llama_cpp 버전: {getattr(_llama_cpp, '__version__', 'n/a')}")
+                    print(f"GPU 오프로딩 지원: {_llama_supports_gpu_offload()}")
+                except Exception as _gpu_info_err:
+                    print(f"GPU 지원 정보 확인 실패: {_gpu_info_err}")
+                print(f"CUDA_VISIBLE_DEVICES={os.getenv('CUDA_VISIBLE_DEVICES')}")
+                print(f"GPU 사용 설정: {'활성화' if enable_gpu else '비활성화'} (n_gpu_layers={n_gpu_layers})")
+
+                # OS 레벨에서 CPU 사용량 제한 설정
+                if hasattr(os, 'sched_setaffinity'):
+                    # Linux에서 CPU 코어 제한
+                    available_cpus = list(range(max_threads))
+                    os.sched_setaffinity(0, available_cpus)
+                    print(f"CPU 친화성 설정: {available_cpus}")
+                elif os.name == 'nt':
+                    # Windows에서 프로세스 우선순위 조정
+                    try:
+                        import psutil
+                        current_process = psutil.Process()
+                        current_process.nice(psutil.BELOW_NORMAL_PRIORITY_CLASS)
+                        print(f"프로세스 우선순위 조정 완료")
+                    except ImportError:
+                        print("psutil 패키지가 없어 우선순위 조정을 건너뜁니다")
                 
+                # 환경변수로 OpenMP 스레드 수 제한
+                os.environ['OMP_NUM_THREADS'] = str(max_threads)
+                os.environ['MKL_NUM_THREADS'] = str(max_threads)
+                os.environ['OPENBLAS_NUM_THREADS'] = str(max_threads)
+                os.environ['VECLIB_MAXIMUM_THREADS'] = str(max_threads)
+                os.environ['NUMEXPR_NUM_THREADS'] = str(max_threads)
+                print(f"환경변수 스레드 제한 설정: {max_threads}")
+
                 _llm_instance = Llama(
                     model_path=MODEL_PATH,
                     n_ctx=config['MODEL_CONTEXT_SIZE'],
-                    n_threads=max_threads  # 강제 제한된 스레드 수 사용
+                    n_threads=max_threads,
+                    n_threads_batch=max_threads,  # 배치 처리 스레드도 제한
+                    n_gpu_layers=n_gpu_layers,
+                    verbose=False  # 불필요한 출력 줄이기
                 )
     return _llm_instance
 

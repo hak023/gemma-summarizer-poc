@@ -20,9 +20,6 @@ $env:ENABLE_DEBUG = "false"
 
 # 성능 설정
 $env:ENABLE_GPU = "false"
-$env:THREADS = "4"
-$env:CPU_LIMIT_PERCENT = "50"
-$env:MAX_CPU_THREADS = "4"
 
 # 타임아웃 설정
 $env:IPC_REQUEST_TIMEOUT = "300.0"
@@ -44,7 +41,7 @@ Write-Host "MODEL_PATH: $env:MODEL_PATH"
 Write-Host "MODEL_CONTEXT_SIZE: $env:MODEL_CONTEXT_SIZE"
 Write-Host "DEFAULT_MAX_TOKENS: $env:DEFAULT_MAX_TOKENS"
 Write-Host "OUTPUT_FILE: $env:OUTPUT_FILE"
-Write-Host "THREADS: $env:THREADS"
+Write-Host "ENABLE_GPU: $env:ENABLE_GPU"
 Write-Host "WORKSPACE_DIR: $env:WORKSPACE_DIR"
 Write-Host ""
 Write-Host "이제 gemma_summarizer_fixed.py를 실행할 수 있습니다." -ForegroundColor Cyan

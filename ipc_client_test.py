@@ -7,6 +7,30 @@ import os
 from ipc_queue_manager import IPCMultiSlotManager, SlotStatus
 from typing import Optional
 
+# 로그 디렉토리 생성
+LOG_DIR = "logs"
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+def write_response_log(log_number: int, response_json: str):
+    """
+    응답 JSON을 로그 파일에 저장
+    
+    Args:
+        log_number (int): 로그 파일 번호 (1부터 시작)
+        response_json (str): 응답 JSON 문자열
+    """
+    try:
+        log_filename = f"{log_number}.txt"
+        log_path = os.path.join(LOG_DIR, log_filename)
+        
+        with open(log_path, 'w', encoding='utf-8') as f:
+            f.write(response_json)
+        
+        print(f"📝 로그 저장: {log_path}")
+    except Exception as e:
+        print(f"❌ 로그 저장 실패: {e}")
+
 # IPC 설정 (서버와 동일)
 import config
 config_dict = config.get_config()
@@ -50,7 +74,7 @@ def kill_previous_processes():
     except Exception as e:
         print(f"프로세스 종료 중 오류: {e}")
 
-def load_sample_request(file_path: str = "sample/sample_request_1.json") -> dict:
+def load_sample_request(file_path: str = "sample/sample_request_15.json") -> dict:
     """샘플 요청 JSON 파일 로드"""
     try:
         if not os.path.exists(file_path):
@@ -321,11 +345,25 @@ def test_multiple_requests():
         return
     
     try:
-        # 여러 샘플 파일 테스트
+        # 여러 샘플 파일 테스트 (1-17까지)
         sample_files = [
             "sample/sample_request_1.json",
             "sample/sample_request_2.json",
-            "sample/sample_request_3.json"
+            "sample/sample_request_3.json",
+            "sample/sample_request_4.json",
+            "sample/sample_request_5.json",
+            "sample/sample_request_6.json",
+            "sample/sample_request_7.json",
+            "sample/sample_request_8.json",
+            "sample/sample_request_9.json",
+            "sample/sample_request_10.json",
+            "sample/sample_request_11.json",
+            "sample/sample_request_12.json",
+            "sample/sample_request_13.json",
+            "sample/sample_request_14.json",
+            "sample/sample_request_15.json",
+            "sample/sample_request_16.json",
+            "sample/sample_request_17.json"
         ]
         
         results = []
@@ -336,7 +374,7 @@ def test_multiple_requests():
                 continue
                 
             print(f"\n--- 테스트 {i}: {sample_file} ---")
-            
+
             # 샘플 데이터 로드
             sample_data = load_sample_request(sample_file)
             if sample_data is None:
@@ -358,6 +396,10 @@ def test_multiple_requests():
                 # 요청-응답 시간 계산
                 total_time = response_time - request_start_time
                 print(f"⏱️ 요청-응답 시간: {total_time:.3f}초")
+                
+                # 응답 JSON을 로그 파일에 저장
+                response_json = json.dumps(response, ensure_ascii=False, indent=2)
+                write_response_log(i, response_json)
                 
                 response_data = response.get('response', {})
                 result = response_data.get('result', '')

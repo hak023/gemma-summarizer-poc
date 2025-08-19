@@ -19,7 +19,6 @@ set ENABLE_DEBUG=false
 
 REM 성능 설정
 set ENABLE_GPU=false
-set THREADS=4
 
 REM 파일 경로 설정
 set WORKSPACE_DIR=%CD%
@@ -32,7 +31,7 @@ echo MODEL_PATH=%MODEL_PATH%
 echo MODEL_CONTEXT_SIZE=%MODEL_CONTEXT_SIZE%
 echo DEFAULT_MAX_TOKENS=%DEFAULT_MAX_TOKENS%
 echo OUTPUT_FILE=%OUTPUT_FILE%
-echo THREADS=%THREADS%
+echo ENABLE_GPU=%ENABLE_GPU%
 echo WORKSPACE_DIR=%WORKSPACE_DIR%
 echo.
 echo 이제 gemma_summarizer_fixed.py를 실행할 수 있습니다.
