@@ -57,6 +57,83 @@ class ResponsePostprocessor:
         return best_sentence[0]
     
     @staticmethod
+    def convert_to_noun_form(text: str) -> str:
+        """
+        동사형 종결어를 명사형으로 변환
+        예: "안내했습니다" → "안내", "처리됩니다" → "처리"
+        """
+        if not text:
+            return text
+        
+        text = text.strip()
+        
+        # 동사형 종결어 패턴과 대응하는 명사형 매핑
+        verb_to_noun_patterns = [
+            # 특정 동사 → 명사 변환
+            (r'(.+?)안내했습니다\.?$', r'\1안내'),
+            (r'(.+?)확인했습니다\.?$', r'\1확인'),
+            (r'(.+?)처리했습니다\.?$', r'\1처리'),
+            (r'(.+?)진행했습니다\.?$', r'\1진행'),
+            (r'(.+?)완료했습니다\.?$', r'\1완료'),
+            (r'(.+?)제공했습니다\.?$', r'\1제공'),
+            (r'(.+?)발급했습니다\.?$', r'\1발급'),
+            (r'(.+?)설명했습니다\.?$', r'\1설명'),
+            (r'(.+?)요청했습니다\.?$', r'\1요청'),
+            (r'(.+?)접수했습니다\.?$', r'\1접수'),
+            (r'(.+?)검토했습니다\.?$', r'\1검토'),
+            (r'(.+?)승인했습니다\.?$', r'\1승인'),
+            (r'(.+?)신청했습니다\.?$', r'\1신청'),
+            
+            # 수동형 → 명사 변환
+            (r'(.+?)안내됩니다\.?$', r'\1안내'),
+            (r'(.+?)확인됩니다\.?$', r'\1확인'),
+            (r'(.+?)처리됩니다\.?$', r'\1처리'),
+            (r'(.+?)진행됩니다\.?$', r'\1진행'),
+            (r'(.+?)완료됩니다\.?$', r'\1완료'),
+            (r'(.+?)제공됩니다\.?$', r'\1제공'),
+            (r'(.+?)발급됩니다\.?$', r'\1발급'),
+            (r'(.+?)발생됩니다\.?$', r'\1발생'),
+            (r'(.+?)지급됩니다\.?$', r'\1지급'),
+            (r'(.+?)사용됩니다\.?$', r'\1사용'),
+            (r'(.+?)결제됩니다\.?$', r'\1결제'),
+            (r'(.+?)취소됩니다\.?$', r'\1취소'),
+            (r'(.+?)연결됩니다\.?$', r'\1연결'),
+            (r'(.+?)등록됩니다\.?$', r'\1등록'),
+            (r'(.+?)이루어집니다\.?$', r'\1 진행'),
+            
+            # 단순 종결어 제거
+            (r'(.+?)했습니다\.?$', r'\1'),
+            (r'(.+?)됩니다\.?$', r'\1'),
+            (r'(.+?)받았습니다\.?$', r'\1'),
+            (r'(.+?)드렸습니다\.?$', r'\1'),
+            (r'(.+?)보였습니다\.?$', r'\1'),
+            (r'(.+?)나타났습니다\.?$', r'\1'),
+            (r'(.+?)포함됩니다\.?$', r'\1'),
+            (r'(.+?)입니다\.?$', r'\1'),
+            (r'(.+?)없었습니다\.?$', r'\1 없음'),
+            (r'(.+?)있었습니다\.?$', r'\1 있음'),
+            (r'(.+?)되었습니다\.?$', r'\1'),
+            (r'(.+?)되어있습니다\.?$', r'\1'),
+            (r'(.+?)되어 있습니다\.?$', r'\1'),
+            
+            # 기타 패턴
+            (r'(.+?)에 대한 (.+?)$', r'\1 \2'),  # "~에 대한" 간소화
+            (r'(.+?)에 관한 (.+?)$', r'\1 \2'),  # "~에 관한" 간소화
+        ]
+        
+        # 패턴 매칭으로 변환
+        for pattern, replacement in verb_to_noun_patterns:
+            new_text = re.sub(pattern, replacement, text)
+            if new_text != text:
+                text = new_text.strip()
+                break
+        
+        # 연속된 공백 정리
+        text = re.sub(r'\s+', ' ', text).strip()
+        
+        return text
+    
+    @staticmethod
     def extract_first_sentence(text: str) -> str:
         """
         입력 텍스트에서 첫 번째 문장만 추출하여 반환
@@ -115,6 +192,9 @@ class ResponsePostprocessor:
         
         # 불필요한 공백 제거
         cleaned = re.sub(r'\s+', ' ', value.strip())
+        
+        # 동사형을 명사형으로 변환
+        cleaned = ResponsePostprocessor.convert_to_noun_form(cleaned)
         
         # 60 byte 초과 시 재질의 필요 표시
         if len(cleaned.encode('utf-8')) > 80:
@@ -203,6 +283,8 @@ class ResponsePostprocessor:
                 if not sentences:
                     sentences = [cleaned_summary]
                 best_sentence = ResponsePostprocessor.select_best_sentence(sentences)
+                # 동사형을 명사형으로 변환
+                best_sentence = ResponsePostprocessor.convert_to_noun_form(best_sentence)
                 processed_para['summary'] = best_sentence
             else:
                 processed_para['summary'] = "문단 요약 없음"
@@ -402,4 +484,63 @@ if __name__ == "__main__":
         result = ResponsePostprocessor.process_summary(text)
         print(f"원본: '{text}'")
         print(f"선택된 문장: '{result}'")
-        print("---") 
+        print("---")
+    
+    print("\n=== 명사형 변환 테스트 ===")
+    verb_form_tests = [
+        "포인트 지급 및 사용처 안내했습니다",
+        "시스템 중단으로 인한 처리 지연됩니다", 
+        "고객 문의에 대한 상세한 설명을 제공했습니다",
+        "카드 발급 절차가 완료됩니다",
+        "상담원이 친절하게 안내했습니다",
+        "문제가 해결되었으며 고객이 만족했습니다",
+        "신청서 검토 후 승인 처리됩니다",
+        "포인트 충전이 진행됩니다",
+        "관련 서류를 접수받았습니다",
+        "시스템 점검이 이루어집니다",
+        # 새로 추가된 패턴들
+        "포인트가 지급됩니다",
+        "카드가 사용됩니다", 
+        "결제가 완료되었습니다",
+        "서비스가 취소됩니다",
+        "시스템이 연결됩니다",
+        "정보가 등록됩니다",
+        "문제가 해결되어있습니다",
+        "고객이 이해했고 추가 문의는 없었습니다"
+    ]
+    
+    for text in verb_form_tests:
+        converted = ResponsePostprocessor.convert_to_noun_form(text)
+        print(f"원본: '{text}'")
+        print(f"변환: '{converted}'")
+        print("---")
+    
+    print("\n=== 통합 후처리 테스트 (동사형 포함) ===")
+    verb_response = {
+        "summary": "고객이 바우처 카드 사용법을 문의했고 상담원이 상세히 안내했습니다",
+        "keyword": "바우처, 카드, 사용법, 문의, 안내",
+        "paragraphs": [
+            {
+                "summary": "바우처 카드 사용 절차에 대한 문의를 접수했습니다",
+                "keyword": "바우처, 카드, 절차, 문의",
+                "sentiment": "보통"
+            },
+            {
+                "summary": "상담원이 단계별로 상세하게 설명했습니다",
+                "keyword": "상담, 설명, 단계별",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "고객이 이해했고 추가 문의는 없었습니다", 
+                "keyword": "이해, 추가문의",
+                "sentiment": "약한긍정"
+            }
+        ]
+    }
+    
+    print("동사형 포함 원본:")
+    print(json.dumps(verb_response, ensure_ascii=False, indent=2))
+    
+    print("\n명사형 변환 후:")
+    processed_verb = ResponsePostprocessor.process_response(verb_response)
+    print(json.dumps(processed_verb, ensure_ascii=False, indent=2)) 

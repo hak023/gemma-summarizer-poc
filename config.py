@@ -27,11 +27,11 @@ def get_optimal_threads():
 DEFAULT_CONFIG = {
     # 모델 설정
     #Gemma3-1b 설정일경우
-    #'MODEL_PATH': 'models/gemma-3-1b-it-Q8_0.gguf',
+    'MODEL_PATH': 'models/gemma-3-1b-it-Q8_0.gguf',
     #Gemma3-4b 설정일경우
     #'MODEL_PATH': 'models/gemma-3-4b-it-q4_0.gguf',
     #믿음2.0 Q4_K_M 설정일경우
-    'MODEL_PATH': 'models/Midm-2.0-Mini-Instruct-Q4_K_M.gguf',
+    #'MODEL_PATH': 'models/Midm-2.0-Mini-Instruct-Q4_K_M.gguf',
     'MODEL_CONTEXT_SIZE': 8192,
     
     # 요약 설정

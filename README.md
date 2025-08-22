@@ -18,6 +18,7 @@ Gemma 3-1B 8Q 모델을 사용하여 통화 내용을 요약하는 프로그램�
 - ✅ **자동 재처리 시스템**: 긴 요약 결과에 대한 자동 재질의 및 압축
 - ✅ **요청-응답 시간 측정**: IPC 클라이언트에서 성능 모니터링
 - ✅ **CPU 사용량 제한**: 설정 가능한 CPU 사용량 제한 (기본 50%)
+- ✅ **JSON 복구 시스템**: 잘린 JSON, 깨진 JSON 자동 복구 및 마크다운 추출
 
 ## 시스템 아키텍처
 
@@ -214,6 +215,7 @@ gemma_summarizer_new/
 ├── gemma_summarizer.py          # AI 요약 처리 모듈
 ├── preprocessor.py              # STT 결과 전처리 모듈
 ├── postprocessor.py             # 응답 후처리 모듈
+├── json_repair.py               # JSON 복구 및 수정 모듈
 ├── llm_utils.py                 # LLM 관련 유틸리티
 ├── ipc_queue_manager.py         # IPC 관리자
 ├── config.py                    # 설정 관리
@@ -271,6 +273,12 @@ gemma_summarizer_new/
 - **형식 통일**: paragraphs 내 keyword 필드 형식 통일
 - **기본값 설정**: 누락된 필드에 대한 기본값 제공
 
+### json_repair.py
+- **JSON 복구**: 잘린 JSON, 깨진 JSON 자동 복구
+- **마크다운 JSON 추출**: 마크다운 코드 블록에서 JSON 추출
+- **고급 복구 시스템**: 다단계 JSON 구문 오류 수정
+- **데이터 추출**: 유효한 데이터만 추출하여 최소 구조 생성
+
 ### llm_utils.py
 - **LLM 유틸리티**: 대화 내용 보정, 텍스트 처리 등
 - **공통 함수**: 여러 모듈에서 사용하는 공통 기능
@@ -297,6 +305,8 @@ gemma_summarizer_new/
 - 자동 Fallback 메커니즘으로 개별 필드 추출
 - 정규식을 이용한 안정적인 파싱
 - 기본값 설정으로 응답 무결성 보장
+- JSON 복구 모듈로 잘린 JSON 자동 복구
+- 마크다운 코드 블록에서 JSON 추출
 
 ## 라이선스
 
@@ -307,6 +317,13 @@ gemma_summarizer_new/
 버그 리포트나 기능 제안은 GitHub Issues를 통해 제출해주세요.
 
 ## 변경 이력
+
+### v1.5.0 (2025-01-27)
+- ✅ **JSON 복구 시스템**: 잘린 JSON, 깨진 JSON 자동 복구 기능 (json_repair.py)
+- ✅ **마크다운 JSON 추출**: 마크다운 코드 블록에서 JSON 추출 및 처리
+- ✅ **고급 JSON 복구**: 다단계 JSON 구문 오류 수정 및 데이터 추출
+- ✅ **부분 JSON 완성**: 불완전한 JSON을 유효한 구조로 자동 완성
+- ✅ **강화된 오류 처리**: sentiment 값 띄어쓰기 수정 등 세밀한 오류 수정
 
 ### v1.4.0 (2025-01-27)
 - ✅ **자동 재처리 시스템**: 긴 요약 결과에 대한 자동 재질의 및 압축 기능

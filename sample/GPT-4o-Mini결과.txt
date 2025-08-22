@@ -7,7 +7,25 @@
     "response": {
         "result": "0",
         "failReason": "",
-        "summary": "포인트 지급 및 사용처 안내"
+        "summary": "포인트 지급 및 사용처 안내",
+        "keyword": "포인트, 사용처, 강좌",
+        "paragraphs": [
+            {
+                "summary": "35만 포인트가 지급되었으며 즉시 사용 가능",
+                "keyword": "포인트, 지급",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "부산 기장에서 사용할 수 있는 기관 3곳 안내",
+                "keyword": "사용처,기장",
+                "sentiment": "약한긍정"
+            },
+            {
+                "summary": "기관명과 대표 강좌를 문자로 발송하기로 함",
+                "keyword": "강좌, 문자",
+                "sentiment": "약한긍정"
+            }
+        ]
     }
 }
 

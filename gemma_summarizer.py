@@ -12,6 +12,11 @@ from logger import log_gemma_query, log_gemma_response
 from preprocessor import STTPreprocessor
 from postprocessor import ResponsePostprocessor
 from llm_utils import correct_conversation_with_gemma
+from json_repair import (
+    extract_json_from_markdown,
+    process_and_repair_json,
+    extract_valid_data_from_broken_json
+)
 
 # 전역 모델 인스턴스 (싱글톤 패턴)
 _llm_instance = None
@@ -33,6 +38,7 @@ def resource_path(relative_path):
     except Exception as e:
         print(f"리소스 경로 오류: {e}")
         return relative_path
+
 
 def get_llm_instance():
     """전역 모델 인스턴스를 반환 (싱글톤 패턴)"""
@@ -107,6 +113,7 @@ def get_llm_instance():
                     os.environ['OPENBLAS_NUM_THREADS'] = str(max_threads)
                     os.environ['VECLIB_MAXIMUM_THREADS'] = str(max_threads)
                     os.environ['NUMEXPR_NUM_THREADS'] = str(max_threads)
+                    
                     print(f"환경변수 스레드 제한 설정: {max_threads}")
 
                     _llm_instance = Llama(
@@ -157,19 +164,16 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
         # 프롬프트를 요점 중심으로 변경 (간결한 요약) - 강제성 강화
         prompt = (
             f"당신은 대화 내용을 분석하고 지정된 JSON 형식으로 요약하는 전문가입니다.\n"
+            f"오타나 유사어는 문맥에 맞게 적절하게 수정 후 요약해야 하며 가상정보나 추정정보 없이 반드시 '대화내용' 범위에서만 요약을 수행해야 한다."
             f"아래 [분석 규칙]을 참고하여, [원본 통화 내용]을 분석하고 완벽한 JSON을 생성하세요.\n\n"
             f"--- [분석 규칙] ---\n"
-            f"- 종합요약문(summary) : 반드시 간결한 구조의 단일 문장으로 구성하고 20자 이내의 '명사형'으로 종결해야 한다.\n"
-            f"- 주제별 요약문(subSummary) :  반드시 주제 내 구체적인 핵심 정보를 최대한 포함하여 문장을 구성하고 '명사형'으로 종결해야 하며,\n"
-            f"  가급적 30자 이내, 최대 50자까지만 출력되도록 엄격하게 글자수 제한을 준수해야 한다. (한글, 띄어쓰기 포함)\n"
-            f"- 종합키워드(keyword) / 주제별키워드(subKeyword) :  '가입자', 'user', '게스트', 'guest', '고객', '인사', '감사' 문구는 출력에서 제외해라.\n"
-            f"- 종합키워드(keyword) / 주제별키워드(subKeyword) : 중요도 순으로 최대 3개까지만 노출하고, 두 단어 이내의 명사로 구성된 복합명사로 출력해야 한다. (콤마로 구분)\n"
-            f"- 주제별 감정상태(Sentiment) : '게스트'나 '음성메모 발신자'의 발화 내용을 기준으로 분석해\n"
-            f"  \"강한긍정\", \"약한긍정\", \"약한부정\", \"강한부정\", \"보통\" 중 가장 압도적인 감정으로 선택하고 '부정'은 가중치를 높이고 '보통'은 가중치 낮춰서 출력해라.\n"
-            f"- 모든 출력문은 한글로 결과를 생성해야 한다.\n"
-            f"- 오타나 유사어는 문맥에 맞게 적절하게 수정 후 요약해야 하며 가상정보나 추정정보 없이 반드시 '입력문' 범위에서만 요약을 수행해야 한다.\n"
-            f"- \"가입자\"가 매장 점주인 경우, 매장 상호명 대신 \"매장\"이라고 출력해야 한다.\n"
-            f"- 인사나 감사 등 형식적인 내용의 주제문단은 출력에서 제외해야 한다.\n"
+            f"summary: 통화의 핵심 내용을 25자 이내의 주어를 제외한 매우 짧은 한 문장으로 요약하세요. 문장의 끝은 '명사형' 으로 끝내야 합니다.\n"
+            f"keyword: 가장 중요한 키워드를 3개 추출하여 쉼표로 구분하세요.\n"
+            f"paragraphs: 통화 내용을 반드시 2-3개의 논리적 단위로 나누어 각각 분석하세요.\n"
+            f"  - 각 paragraph는 반드시 다음 필드를 포함해야 합니다:\n"
+            f"    * summary: 해당 부분의 핵심 내용을 25자 이내로 요약\n"
+            f"    * keyword: 해당 부분의 주요 키워드 3개를 쉼표로 구분\n"
+            f"    * sentiment: 감정을 '강한긍정', '약한긍정', '보통', '약한부정', '강한부정' 중에서 선택\n\n"
             f"--- [응답 형식] ---\n"
             f"반드시 이 형식으로만 응답하세요:\n"
             f"```json\n"
@@ -210,11 +214,12 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
             max_tokens = config.get('FAST_MODE_MAX_TOKENS', 300)
             print(f"빠른 모드 활성화: 최대 토큰 수 {max_tokens}")
         else:
-            max_tokens = 600  # paragraphs 생성을 위해 토큰 수 증가
+            max_tokens = 800  # paragraphs 생성을 위해 토큰 수 증가
         
         print(f"모델 추론 시작 (타임아웃: {model_timeout}초)")
         
         # 1B 8Q 모델에 맞는 파라미터 조정 (일관성 강화)
+        print(f"설정된 max_tokens: {max_tokens}")
         output = llm(
             prompt,
             max_tokens=max_tokens,
@@ -236,140 +241,112 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
         # 응답 처리 개선
         if hasattr(output, 'choices') and output.choices:
             result = output.choices[0].text.strip()
+            # 토큰 제한으로 잘렸는지 확인
+            choice = output.choices[0]
+            if hasattr(choice, 'finish_reason'):
+                finish_reason = choice.finish_reason
+                print(f"생성 종료 이유: {finish_reason}")
+                if finish_reason == 'length':
+                    print(f"⚠️  토큰 제한({max_tokens})으로 응답이 잘렸습니다!")
         elif isinstance(output, dict) and 'choices' in output:
             result = output['choices'][0]['text'].strip()
+            # 토큰 제한으로 잘렸는지 확인 (dict 형태)
+            choice = output['choices'][0]
+            if 'finish_reason' in choice:
+                finish_reason = choice['finish_reason']
+                print(f"생성 종료 이유: {finish_reason}")
+                if finish_reason == 'length':
+                    print(f"⚠️  토큰 제한({max_tokens})으로 응답이 잘렸습니다!")
         else:
             result = str(output).strip()
 
+        # 응답 길이 정보 출력
+        print(f"생성된 응답 길이: {len(result)}자")
+        
+        # 토큰 제한으로 잘린 경우 재시도 로직
+        was_truncated = False
+        if hasattr(output, 'choices') and output.choices:
+            choice = output.choices[0]
+            if hasattr(choice, 'finish_reason') and choice.finish_reason == 'length':
+                was_truncated = True
+        elif isinstance(output, dict) and 'choices' in output:
+            choice = output['choices'][0]
+            if choice.get('finish_reason') == 'length':
+                was_truncated = True
+        
+        # JSON이 완전하지 않은 경우도 체크
+        if not was_truncated and result:
+            # JSON 블록이 있는지 확인
+            if '```json' in result:
+                json_block = result[result.find('```json'):]
+                # JSON이 제대로 닫히지 않은 경우
+                if json_block.count('{') != json_block.count('}'):
+                    print("⚠️  JSON 중괄호가 맞지 않아 잘린 것으로 판단됩니다.")
+                    was_truncated = True
+        
+        # 잘린 경우 한 번 더 시도 (토큰 수 증가)
+        if was_truncated and max_tokens < 1200:
+            retry_max_tokens = max_tokens * 2
+            print(f"🔄 토큰 제한으로 잘린 응답 재시도 (max_tokens: {max_tokens} → {retry_max_tokens})")
+            
+            retry_output = llm(
+                prompt,
+                max_tokens=retry_max_tokens,
+                temperature=0.3,
+                min_p=0.1,
+                top_p=0.8,
+                top_k=20,
+                repeat_penalty=1.05,
+                echo=False
+            )
+            
+            # 재시도 결과 처리
+            if hasattr(retry_output, 'choices') and retry_output.choices:
+                retry_result = retry_output.choices[0].text.strip()
+                print(f"재시도 응답 길이: {len(retry_result)}자")
+                
+                # 재시도가 더 나은 결과를 생성했는지 확인
+                if len(retry_result) > len(result) and '```json' in retry_result:
+                    print("✅ 재시도 성공 - 더 완전한 응답 획득")
+                    result = retry_result
+                    output = retry_output
+            elif isinstance(retry_output, dict) and 'choices' in retry_output:
+                retry_result = retry_output['choices'][0]['text'].strip()
+                print(f"재시도 응답 길이: {len(retry_result)}자")
+                
+                if len(retry_result) > len(result) and '```json' in retry_result:
+                    print("✅ 재시도 성공 - 더 완전한 응답 획득")
+                    result = retry_result
+                    output = retry_output
+        
         # 원본 응답을 항상 명확히 출력
         print(f"[원본 응답]:\n{result}\n---")
         log_gemma_response(result, "gemma_summarizer")
 
-        # 마크다운 코드 블록에서 JSON만 파싱
-        # 디버깅 출력 최적화 (빠른 모드에서는 간소화)
-        if not enable_fast_mode:
-            print(f"=== 원본 응답 디버깅 ===")
-            print(f"원본 응답 길이: {len(result)}")
-            print(f"원본 응답 전체:\n{result}")
-            print(f"=== 원본 응답 끝 ===")
-        else:
-            print(f"빠른 모드: 원본 응답 길이 {len(result)}자")
+
         
-        # ```json 형식을 유연하게 찾기 (중첩된 중괄호 처리 개선)
-        # 첫 번째 {와 마지막 } 사이의 모든 내용을 추출하는 방식으로 변경
-        json_start = result.find('```json')
-        if json_start != -1:
-            # ```json 이후의 첫 번째 { 찾기
-            brace_start = result.find('{', json_start)
-            if brace_start != -1:
-                # 중괄호 카운팅으로 완전한 JSON 추출
-                brace_count = 0
-                json_end = brace_start
-                for i in range(brace_start, len(result)):
-                    if result[i] == '{':
-                        brace_count += 1
-                    elif result[i] == '}':
-                        brace_count -= 1
-                        if brace_count == 0:
-                            json_end = i + 1
-                            break
-                
-                json_str = result[brace_start:json_end]
-                print("```json 마크다운 코드 블록에서 JSON 발견 (중괄호 카운팅)")
-            else:
-                print("```json 블록에서 { 를 찾을 수 없습니다.")
-                return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
-        else:
-            # ```json이 없으면 일반 ``` 블록에서 JSON 찾기
-            json_start = result.find('```')
-            if json_start != -1:
-                # ``` 이후의 첫 번째 { 찾기
-                brace_start = result.find('{', json_start)
-                if brace_start != -1:
-                    # 중괄호 카운팅으로 완전한 JSON 추출
-                    brace_count = 0
-                    json_end = brace_start
-                    for i in range(brace_start, len(result)):
-                        if result[i] == '{':
-                            brace_count += 1
-                        elif result[i] == '}':
-                            brace_count -= 1
-                            if brace_count == 0:
-                                json_end = i + 1
-                                break
-                    
-                    json_str = result[brace_start:json_end]
-                    print("일반 마크다운 코드 블록에서 JSON 발견 (중괄호 카운팅)")
-                else:
-                    print("일반 ``` 블록에서 { 를 찾을 수 없습니다.")
-                    return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
-            else:
-                # 마크다운 블록이 없으면 fallback
-                print("모든 패턴으로 ```json 블록을 찾을 수 없습니다.")
-                return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
-
-        # 2. JSON 파싱 (마크다운 블록에서 추출한 JSON만 처리)
+        # JSON 추출 및 처리 (json_repair 모듈 사용)
+        json_str = extract_json_from_markdown(result)
+        
+        if json_str is None:
+            # JSON 추출 실패 시 원본에서 데이터 추출
+            print("JSON 추출 실패 - 원본 데이터 추출 시도")
+            extracted_data = extract_valid_data_from_broken_json(result)
+            processed_result = ResponsePostprocessor.process_response(extracted_data)
+            return json.dumps(processed_result, ensure_ascii=False, indent=2)
+        
+        # JSON 처리 및 복구
+        final_json = process_and_repair_json(json_str)
+        
+        # 최종 후처리
         try:
-            # JSON 정리 및 garbage data 제거
-            cleaned_json = json_str.strip()
-            
-            # 1단계: trailing comma 제거
-            cleaned_json = re.sub(r',\s*([}\]])', r'\1', cleaned_json)
-            
-            # 2단계: JSON 객체의 끝을 찾아서 이후 내용 제거
-            # 가장 마지막의 } 또는 }] 패턴을 찾아서 그 이후 내용 제거
-            json_end_patterns = [
-                r'(\{[^{}]*\}(?:\s*,\s*\{[^{}]*\})*\s*\})\s*$',  # 단일 객체
-                r'(\{[^{}]*"paragraphs"\s*:\s*\[[^\]]*\]\s*[^{}]*\})\s*$',  # paragraphs 포함
-                r'(\{[^{}]*\})\s*$',  # 기본 객체
-            ]
-            
-            json_extracted = None
-            for pattern in json_end_patterns:
-                match = re.search(pattern, cleaned_json, re.DOTALL)
-                if match:
-                    json_extracted = match.group(1)
-                    print(f"JSON 패턴 매칭 성공: {pattern[:50]}...")
-                    break
-            
-            if json_extracted:
-                cleaned_json = json_extracted
-                print(f"Garbage data 제거 후 JSON 길이: {len(cleaned_json)}")
-            else:
-                print("JSON 패턴 매칭 실패, 원본 사용")
-            
-            # 3단계: 추가 정리
-            # 불필요한 공백 제거
-            cleaned_json = re.sub(r'\s+', ' ', cleaned_json)
-            # 마지막 쉼표 제거
-            cleaned_json = re.sub(r',\s*([}\]])', r'\1', cleaned_json)
-            
-            parsed_result = json.loads(cleaned_json)
-            print("JSON 파싱 성공")
-            
-        except json.JSONDecodeError as e:
-            print(f"JSON 파싱 실패: {e}")
-            print(f"문제 JSON: {cleaned_json[:200]}...")
-            
-            # 추가 복구 시도: 중괄호 밖의 내용 제거
-            try:
-                # 첫 번째 {와 마지막 } 사이만 추출
-                brace_match = re.search(r'(\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\})', cleaned_json, re.DOTALL)
-                if brace_match:
-                    cleaned_json = brace_match.group(1)
-                    print(f"중괄호 기반 복구 시도: {len(cleaned_json)}자")
-                    parsed_result = json.loads(cleaned_json)
-                    print("JSON 파싱 복구 성공")
-                else:
-                    raise Exception("중괄호 패턴을 찾을 수 없습니다")
-            except Exception as recovery_error:
-                print(f"복구 시도 실패: {recovery_error}")
-                # 마크다운 블록에서 추출한 JSON이 유효하지 않으면 오류 반환
-                return json.dumps({"summary": "올바른 JSON 형식을 찾을 수 없습니다.", "keyword": "", "paragraphs": []}, ensure_ascii=False)
-
-        # 마크다운 블록에서 추출한 JSON을 후처리하여 반환
-        processed_result = ResponsePostprocessor.process_response(parsed_result)
-        return json.dumps(processed_result, ensure_ascii=False, indent=2)
+            parsed_result = json.loads(final_json)
+            processed_result = ResponsePostprocessor.process_response(parsed_result)
+            return json.dumps(processed_result, ensure_ascii=False, indent=2)
+        except json.JSONDecodeError:
+            # 최종 실패 시 빈 구조 반환
+            processed_result = ResponsePostprocessor.process_response({"summary": "", "keyword": "", "paragraphs": []})
+            return json.dumps(processed_result, ensure_ascii=False, indent=2)
             
     except Exception as e:
         error_msg = f"요약 생성 중 오류 발생: {str(e)}\n{traceback.format_exc()}"
