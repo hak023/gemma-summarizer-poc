@@ -48,13 +48,17 @@ pip install -r requirements.txt
 ```
 
 ### 3. 모델 다운로드
-Gemma 3-1B 8Q 모델을 `models/` 디렉토리에 다운로드:
+지원되는 모델 중 하나를 `models/` 디렉토리에 다운로드:
 ```bash
 # models 디렉토리 생성
 mkdir models
 
-# Gemma 3-1B 8Q 모델 다운로드 (Hugging Face에서)
-# gemma-3-1b-it-Q8_0.gguf 파일을 models/ 디렉토리에 저장
+# 현재 기본 모델: Midm-2.0-Mini (권장)
+# Midm-2.0-Mini-Instruct-Q4_K_M.gguf 파일을 models/ 디렉토리에 저장
+
+# 또는 Gemma 모델들 (Hugging Face에서)
+# gemma-3-1b-it-Q8_0.gguf
+# gemma-3-4b-it-q4_0.gguf
 ```
 
 ## 환경 설정
@@ -93,38 +97,129 @@ $env:THREADS = "4"
 python gemma_summarizer_multi.py
 ```
 
-#### 단일 슬롯 서버
-```bash
-python gemma_summarizer_fixed.py
-```
-
 ### 클라이언트 테스트
 
-#### 멀티슬롯 테스트
-```bash
-python ipc_client_multi_test.py
-```
-
-#### 단일 슬롯 테스트
+#### 단일 요청 테스트
 ```bash
 python ipc_client_test.py
+```
+- **테스트 파일**: `sample/sample_request_17.json` (공사 진척 상황과 청소 비용 협의)
+- **처리 시간**: 약 25-35초
+- **용도**: 단일 요청의 정상 동작 확인
+
+#### 다중 요청 테스트 (성능 검증)
+```bash
+python ipc_client_test.py multi
+```
+- **테스트 파일**: `sample/sample_request_1.json` ~ `sample/sample_request_17.json` (17개 파일)
+- **처리 시간**: 각각 25-35초 (총 7-10분)
+- **용도**: 멀티슬롯 성능 및 안정성 검증
+- **결과**: `logs/` 디렉터리에 각 테스트 결과가 `1.txt`, `2.txt`, ... `17.txt`로 저장
+
+### 테스트 JSON 샘플 파일 설명
+
+#### sample_request_1.json - 평생교육원 포인트 문의
+```json
+{
+    "cmd": "SummaryReq",
+    "reqNo": "20250623085851B6100",
+    "sttResultList": [
+        {
+            "transcript": "네 부산지판 가족과 평생교육진흥원입니다",
+            "recType": 4,
+            "startTime": 0
+        },
+        {
+            "transcript": "예 예 안녕하세요 제가 이번에 평생그 옥수강 신사권이",
+            "recType": 2,
+            "startTime": 3200
+        }
+        // ... 더 많은 대화 내용
+    ]
+}
+```
+- **대화 주제**: 평생교육원 포인트 지급 확인 및 사용처 문의
+- **화자 구분**: recType 4(상담원), recType 2(고객)
+- **대화 길이**: 약 152초 (2분 32초)
+
+#### sample_request_17.json - 공사 현장 진척 상황
+```json
+{
+    "cmd": "SummaryReq", 
+    "reqNo": "20250624104300A4064",
+    "sttResultList": [
+        {
+            "transcript": "예 예 여보세요",
+            "recType": 4,
+            "startTime": 800
+        },
+        {
+            "transcript": "아 네 과장님 여기 회장님 연결하라고 하셔서요",
+            "recType": 2,
+            "startTime": 1700
+        }
+        // ... 더 많은 대화 내용
+    ]
+}
+```
+- **대화 주제**: 지하 1층 공사 진척 상황과 청소 업체 선정 논의
+- **화자 구분**: recType 4(직원), recType 2(회장)
+- **대화 길이**: 약 314초 (5분 14초)
+
+#### 테스트 결과 예시
+```json
+{
+  "summary": "공사 진척 상황과 청소 비용 협의",
+  "keyword": "공사, 청소, 비용",
+  "paragraphs": [
+    {
+      "summary": "지하 1층 공사가 입구 쪽에 엘이디등 설치 완료됨",
+      "keyword": "엘이디, 공사, 입구",
+      "sentiment": "강한긍정"
+    },
+    {
+      "summary": "청소 비용이 아파트 기준으로 평수에 따라 계산됨",
+      "keyword": "청소, 비용, 아파트", 
+      "sentiment": "보통"
+    }
+  ]
+}
 ```
 
 ## 설정 옵션
 
+### 모델 설정
 | 환경 변수 | 기본값 | 설명 |
 |-----------|--------|------|
-| MODEL_PATH | models/gemma-3-1b-it-Q8_0.gguf | 모델 파일 경로 |
-| MODEL_CONTEXT_SIZE | 2048 | 모델 컨텍스트 크기 |
-| DEFAULT_MAX_TOKENS | 100 | 기본 최대 토큰 수 |
+| MODEL_PATH | models/Midm-2.0-Mini-Instruct-Q4_K_M.gguf | 현재 사용 중인 모델 파일 경로 |
+| MODEL_CONTEXT_SIZE | 8192 | 모델 컨텍스트 크기 |
+| DEFAULT_MAX_TOKENS | 500 | 기본 최대 토큰 수 |
 | DEFAULT_TEMPERATURE | 0.7 | 생성 온도 |
-| OUTPUT_FILE | gemma_summary.txt | 출력 파일명 |
-| THREADS | 4 | 사용할 스레드 수 |
+
+### 성능 설정  
+| 환경 변수 | 기본값 | 설명 |
+|-----------|--------|------|
 | ENABLE_GPU | false | GPU 사용 여부 |
+| CPU_LIMIT_PERCENT | 20 | CPU 사용량 제한 (%) |
+
+### IPC 설정
+| 환경 변수 | 기본값 | 설명 |
+|-----------|--------|------|
 | IPC_SLOT_COUNT | 5 | IPC 슬롯 개수 |
-| IPC_SLOT_SIZE | 32768 | 슬롯당 크기 (bytes) |
-| CPU_LIMIT_PERCENT | 50 | CPU 사용량 제한 (%) |
-| MAX_CPU_THREADS | None | 강제 스레드 수 설정 |
+| IPC_SLOT_SIZE | 262144 | 슬롯당 크기 (256KB) |
+| IPC_REQUEST_TIMEOUT | 300.0 | 요청 타임아웃 (초) |
+| IPC_POLLING_INTERVAL | 0.5 | 폴링 간격 (초) |
+
+### 기타 설정
+| 환경 변수 | 기본값 | 설명 |
+|-----------|--------|------|
+| OUTPUT_FILE | gemma_summary.txt | 출력 파일명 |
+| LOG_LEVEL | INFO | 로그 레벨 |
+
+### 지원 모델
+- **Midm-2.0-Mini** (현재 기본): `models/Midm-2.0-Mini-Instruct-Q4_K_M.gguf`
+- **Gemma-3-1B**: `models/gemma-3-1b-it-Q8_0.gguf` (주석 처리됨)
+- **Gemma-3-4B**: `models/gemma-3-4b-it-q4_0.gguf` (주석 처리됨)
 
 ## IPC (Inter-Process Communication) 기능
 
@@ -205,7 +300,7 @@ Gemma 모델은 1B 8Q 모델에 최적화된 구조화된 JSON 형식으로 응�
 - [재질의 필요] 태그 중복 표시 방지
 
 ### CPU 사용량 제한
-- 설정 가능한 CPU 사용량 제한 (기본 50%)
+- 설정 가능한 CPU 사용량 제한 (기본 20%)
 - 환경 변수로 동적 조정 가능
 - 멀티슬롯 환경에서 안정적인 성능 보장
 
@@ -222,8 +317,7 @@ gemma_summarizer_new/
 ├── ipc_queue_manager.py         # IPC 관리자
 ├── config.py                    # 설정 관리
 ├── logger.py                    # 로깅 시스템
-├── ipc_client_multi_test.py     # 멀티슬롯 테스트
-├── ipc_client_test.py           # 단일 슬롯 테스트
+├── ipc_client_test.py           # 단일/다중 요청 테스트
 ├── kill_previous_processes.py   # 프로세스 정리
 ├── requirements.txt             # 의존성 목록
 ├── README.md                    # 프로젝트 문서
