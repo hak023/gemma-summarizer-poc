@@ -341,9 +341,24 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
         # 최종 후처리
         try:
             parsed_result = json.loads(final_json)
+            print(f"🔍 후처리 전 parsed_result: {parsed_result}")
             processed_result = ResponsePostprocessor.process_response(parsed_result)
+            print(f"🔍 후처리 후 processed_result: {processed_result}")
             return json.dumps(processed_result, ensure_ascii=False, indent=2)
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
+            # JSON 파싱 실패 시 상세 로그 출력
+            print(f"❌ summarize_with_gemma JSON 파싱 실패: {str(e)}")
+            print(f"📄 실패한 JSON 전체 내용 (길이: {len(final_json)} 문자):")
+            print("="*80)
+            print(final_json)
+            print("="*80)
+            print(f"🔍 오류 위치: 줄 {e.lineno}, 컬럼 {e.colno}, 문자 {e.pos}")
+            if e.pos < len(final_json):
+                start = max(0, e.pos - 50)
+                end = min(len(final_json), e.pos + 50)
+                print(f"🎯 오류 주변 내용: '{final_json[start:end]}'")
+                print(f"🎯 오류 문자: '{final_json[e.pos] if e.pos < len(final_json) else 'EOF'}'")
+            
             # 최종 실패 시 빈 구조 반환
             processed_result = ResponsePostprocessor.process_response({"summary": "", "keyword": "", "paragraphs": []})
             return json.dumps(processed_result, ensure_ascii=False, indent=2)
@@ -394,10 +409,26 @@ def process_request(data: dict) -> dict:
         try:
             # summarize_with_gemma 함수에서 이미 1차 후처리를 완료했으므로,
             # 여기서는 json 파싱만 수행하여 재질의 필요 여부를 확인합니다.
-            processed_response = json.loads(summary)
+            try:
+                processed_response = json.loads(summary)
+            except json.JSONDecodeError as e:
+                print(f"❌ process_request JSON 파싱 실패: {str(e)}")
+                print(f"📄 실패한 JSON 전체 내용 (길이: {len(summary)} 문자):")
+                print("="*80)
+                print(summary)
+                print("="*80)
+                print(f"🔍 오류 위치: 줄 {e.lineno}, 컬럼 {e.colno}, 문자 {e.pos}")
+                if e.pos < len(summary):
+                    start = max(0, e.pos - 50)
+                    end = min(len(summary), e.pos + 50)
+                    print(f"🎯 오류 주변 내용: '{summary[start:end]}'")
+                    print(f"🎯 오류 문자: '{summary[e.pos] if e.pos < len(summary) else 'EOF'}'")
+                raise
             
             # ResponsePostprocessor로 최종 후처리 수행
+            print(f"🔍 process_request 후처리 전: {processed_response}")
             processed_response = ResponsePostprocessor.process_response(processed_response)
+            print(f"🔍 process_request 후처리 후: {processed_response}")
             
             processed_summary = processed_response.get('summary', '')
             
@@ -447,10 +478,21 @@ def process_request(data: dict) -> dict:
                 print(f"재질의 후 sentiment: {processed_response.get('sentiment', '없음')}")
                 print(f"재질의 후 processed_response 타입: {type(processed_response)}")
                 print(f"재질의 후 processed_response 키: {list(processed_response.keys())}")
-                
-            # 최종 결과를 JSON으로 직렬화
+
+                # 재질의 후처리 수행 (단, [재질의 필요] 태그는 다시 붙이지 않음)
+                print(f"🔍 process_request 재질의 후처리 전: {processed_response}")
+                # 재질의 후에는 convert_to_noun_form만 적용하고 [재질의 필요] 태그는 붙이지 않음
+                if 'summary' in processed_response:
+                    original_summary = processed_response['summary']
+                    # convert_to_noun_form만 적용 (길이 체크 없이)
+                    processed_summary = ResponsePostprocessor.convert_to_noun_form(original_summary)
+                    processed_response['summary'] = processed_summary
+                    print(f"🔍 재질의 후 명사형 변환: '{original_summary}' → '{processed_summary}'")
+                print(f"🔍 process_request 재질의 후처리 후: {processed_response}")
+
+            # 최종 결과를 딕셔너리로 사용
             # processed_response는 이미 올바른 구조를 가지고 있으므로 그대로 사용
-            summary = json.dumps(processed_response, ensure_ascii=False)
+            summary = processed_response
                 
         except json.JSONDecodeError:
             print("원본 요약 JSON 파싱 실패 - 원본 사용")

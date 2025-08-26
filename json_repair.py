@@ -592,6 +592,15 @@ def process_and_repair_json(json_str: str) -> str:
         str: 처리된 유효한 JSON 문자열
     """
     try:
+        # 먼저 JSON이 이미 파싱 가능한지 체크
+        try:
+            json.loads(json_str)
+            print("JSON이 이미 유효함 - 수정 로직 건너뛰기")
+            return json_str
+        except json.JSONDecodeError:
+            print(f"JSON 복구 처리 시작 - 입력 길이: {len(json_str)}")
+            pass  # 수정 로직 계속 진행
+        
         # JSON 정리 및 garbage data 제거
         cleaned_json = json_str.strip()
         

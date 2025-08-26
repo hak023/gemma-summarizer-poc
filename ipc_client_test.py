@@ -74,7 +74,7 @@ def kill_previous_processes():
     except Exception as e:
         print(f"프로세스 종료 중 오류: {e}")
 
-def load_sample_request(file_path: str = "sample/sample_request_15.json") -> dict:
+def load_sample_request(file_path: str = "sample/sample_request_17.json") -> dict:
     """샘플 요청 JSON 파일 로드"""
     try:
         if not os.path.exists(file_path):
@@ -133,15 +133,17 @@ def wait_for_response(slot_id: int, ipc_manager: IPCMultiSlotManager, timeout=RE
     print(f"응답 타임아웃 (슬롯: {slot_id})")
     return None, None
 
-def parse_summary_response(summary_str: str) -> dict:
+def parse_summary_response(summary_data) -> dict:
     """요약 응답 JSON 파싱 - 새로운 응답 구조에 맞게 수정"""
     try:
-        if isinstance(summary_str, str):
-            response_data = json.loads(summary_str)
-        elif isinstance(summary_str, dict):
-            response_data = summary_str
+        if isinstance(summary_data, dict):
+            # 이미 딕셔너리인 경우
+            response_data = summary_data
+        elif isinstance(summary_data, str):
+            # JSON 문자열인 경우 파싱
+            response_data = json.loads(summary_data)
         else:
-            return {"summary": str(summary_str), "keyword": "", "paragraphs": []}
+            return {"summary": str(summary_data), "keyword": "", "paragraphs": []}
         
         # 새로운 응답 구조에 맞게 필드 매핑
         # 새로운 구조: summary, keyword, paragraphs
@@ -154,7 +156,7 @@ def parse_summary_response(summary_str: str) -> dict:
         return new_response
     except json.JSONDecodeError as e:
         print(f"JSON 파싱 오류: {e}")
-        return {"summary": summary_str, "keyword": "", "paragraphs": [], "error": "JSON 파싱 실패"}
+        return {"summary": str(summary_data), "keyword": "", "paragraphs": [], "error": "JSON 파싱 실패"}
 
 def display_raw_json_response(response_data: dict):
     """IPC로부터 수신받은 JSON 원문을 보기 좋게 출력"""
@@ -164,17 +166,25 @@ def display_raw_json_response(response_data: dict):
     
     try:
         # response 필드에서 summary 추출
-        summary_str = response_data.get('response', {}).get('summary', '')
-        if summary_str:
-            # JSON 파싱 시도
-            try:
-                summary_json = json.loads(summary_str)
-                # 보기 좋게 포맷팅
-                formatted_json = json.dumps(summary_json, ensure_ascii=False, indent=2)
+        summary_data = response_data.get('response', {}).get('summary', '')
+        if summary_data:
+            # summary가 이미 딕셔너리인지 확인
+            if isinstance(summary_data, dict):
+                # 딕셔너리인 경우 바로 포맷팅
+                formatted_json = json.dumps(summary_data, ensure_ascii=False, indent=2)
                 print(formatted_json)
-            except json.JSONDecodeError:
-                # JSON이 아닌 경우 그대로 출력
-                print(summary_str)
+            elif isinstance(summary_data, str):
+                # JSON 문자열인 경우 파싱 후 포맷팅
+                try:
+                    summary_json = json.loads(summary_data)
+                    formatted_json = json.dumps(summary_json, ensure_ascii=False, indent=2)
+                    print(formatted_json)
+                except json.JSONDecodeError:
+                    # JSON이 아닌 경우 그대로 출력
+                    print(summary_data)
+            else:
+                # 기타 타입인 경우 문자열로 출력
+                print(str(summary_data))
         else:
             print("❌ summary 필드가 없습니다.")
             

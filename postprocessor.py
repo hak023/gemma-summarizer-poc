@@ -83,6 +83,7 @@ class ResponsePostprocessor:
             (r'(.+?)검토했습니다\.?$', r'\1검토'),
             (r'(.+?)승인했습니다\.?$', r'\1승인'),
             (r'(.+?)신청했습니다\.?$', r'\1신청'),
+            (r'(.+?)논의했습니다\.?$', r'\1논의'),
             
             # 수동형 → 명사 변환
             (r'(.+?)안내됩니다\.?$', r'\1안내'),
@@ -109,6 +110,8 @@ class ResponsePostprocessor:
             (r'(.+?)보였습니다\.?$', r'\1'),
             (r'(.+?)나타났습니다\.?$', r'\1'),
             (r'(.+?)포함됩니다\.?$', r'\1'),
+            (r'(.+?)가능합니다\.?$', r'\1가능'),
+            (r'(.+?)합니다\.?$', r'\1'),
             (r'(.+?)입니다\.?$', r'\1'),
             (r'(.+?)없었습니다\.?$', r'\1 없음'),
             (r'(.+?)있었습니다\.?$', r'\1 있음'),
@@ -194,10 +197,15 @@ class ResponsePostprocessor:
         cleaned = re.sub(r'\s+', ' ', value.strip())
         
         # 동사형을 명사형으로 변환
+        original_cleaned = cleaned
         cleaned = ResponsePostprocessor.convert_to_noun_form(cleaned)
+        if original_cleaned != cleaned:
+            print(f"📝 convert_to_noun_form 적용: '{original_cleaned}' → '{cleaned}'")
+        else:
+            print(f"📝 convert_to_noun_form 변경 없음: '{cleaned}'")
         
-        # 60 byte 초과 시 재질의 필요 표시
-        if len(cleaned.encode('utf-8')) > 80:
+        # 120 byte 초과 시 재질의 필요 표시 (한글 기준 약 40자)
+        if len(cleaned.encode('utf-8')) > 120:
             return f"[재질의 필요] {cleaned}"
         
         return cleaned
@@ -284,7 +292,12 @@ class ResponsePostprocessor:
                     sentences = [cleaned_summary]
                 best_sentence = ResponsePostprocessor.select_best_sentence(sentences)
                 # 동사형을 명사형으로 변환
+                original_sentence = best_sentence
                 best_sentence = ResponsePostprocessor.convert_to_noun_form(best_sentence)
+                if original_sentence != best_sentence:
+                    print(f"📝 paragraph convert_to_noun_form 적용: '{original_sentence}' → '{best_sentence}'")
+                else:
+                    print(f"📝 paragraph convert_to_noun_form 변경 없음: '{best_sentence}'")
                 processed_para['summary'] = best_sentence
             else:
                 processed_para['summary'] = "문단 요약 없음"
