@@ -167,9 +167,9 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
             f"반드시 아래 형식에 맞춰 JSON으로 응답하세요.\n\n"
             #f"아래 [분석 규칙]을 참고하여, [원본 통화 내용]을 분석하고 완벽한 JSON을 생성하세요.\n\n"
             f"--- [분석 규칙] ---\n"
-            f"1. summary: 통화의 핵심 내용을 25자 이내의 주어를 제외한 짧은 한 문장으로 요약하세요.\n"
-            f"2. keyword: 가장 중요한 키워드 3개를 쉼표로 구분\n"
-            f"3. paragraphs: 통화 내용을 2-3개 단위로 분석 (반드시 포함)\n"
+            f"summary: 통화의 핵심 내용을 25자 이내의 주어를 제외한 매우 짧은 한 문장으로 요약하세요. 문장의 끝은 '명사형' 으로 끝내야 합니다.\n"
+            f"keyword: 가장 중요한 키워드를 3개 추출하여 쉼표로 구분하세요.\n"
+            f"paragraphs: 통화 내용을 반드시 2-3개의 논리적 단위로 나누어 각각 분석하세요.\n"
             f"  - 각 paragraph는 반드시 다음 필드를 포함해야 합니다:\n"
             f"    * summary: 해당 부분의 핵심 내용을 25자 이내로 요약\n"
             f"    * keyword: 해당 부분의 주요 키워드 3개를 쉼표로 구분\n"
@@ -178,7 +178,7 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
             f"반드시 이 형식으로만 응답하세요:\n"
             f"```json\n"
             f'{{\n'
-            f'"summary": "",\n'
+            f'"summary": "통화 핵심 요약",\n'
             f'"keyword": "",\n'
             f'"paragraphs": [\n'
             f'{{\n'
@@ -207,14 +207,27 @@ def summarize_with_gemma(text: str, max_tokens: int = None) -> str:
         # 성능 최적화 설정 적용
         config = get_config()
         model_timeout = config.get('MODEL_TIMEOUT', 180.0)
-        enable_fast_mode = config.get('ENABLE_FAST_MODE', False)
         
-        # 빠른 모드 설정
-        if enable_fast_mode:
-            max_tokens = config.get('FAST_MODE_MAX_TOKENS', 300)
-            print(f"빠른 모드 활성화: 최대 토큰 수 {max_tokens}")
-        else:
-            max_tokens = 800  # paragraphs 생성을 위해 토큰 수 증가
+        # 토큰 수 설정 (Context Window 고려하여 동적 계산)
+        config = get_config()
+        context_size = config['MODEL_CONTEXT_SIZE']
+        
+        # 프롬프트 토큰 수 추정 (실제 토큰화는 비용이 크므로 추정)
+        # 완성된 prompt 길이를 직접 사용 (한글 1글자 ≈ 0.8토큰)
+        estimated_prompt_tokens = len(prompt) * 0.8  # 한글 토큰 비율 적용 (실제 데이터 기반)
+        available_tokens = context_size - estimated_prompt_tokens - 100  # 100토큰 여유
+        
+        # max_tokens를 사용 가능한 토큰 수로 제한 (최소값 보장)
+        max_tokens = max(500, min(4000, available_tokens))  # 최소 500, 최대 4000토큰
+        
+        # 프롬프트가 너무 길어서 Context Window 초과하는 경우 처리
+        if available_tokens < 500:
+            print(f"⚠️ 프롬프트가 Context Window를 초과합니다!")
+            print(f"Context: {context_size}, 프롬프트: {estimated_prompt_tokens}")
+            print(f"텍스트를 줄이거나 Context Window를 늘려야 합니다.")
+            max_tokens = 500  # 최소 응답 보장
+        
+        print(f"추정 프롬프트 토큰: {estimated_prompt_tokens}, 사용 가능 토큰: {available_tokens}, 설정된 max_tokens: {max_tokens}")
         
         print(f"모델 추론 시작 (타임아웃: {model_timeout}초)")
         
@@ -434,10 +447,16 @@ def process_request(data: dict) -> dict:
             
             # 재질의 필요 여부 확인
             if processed_summary.startswith('[재질의 필요]'):
-                print(f"재질의 필요 감지: {processed_summary}")
-                print(f"재질의 전 processed_response: {json.dumps(processed_response, ensure_ascii=False, indent=2)}")
-                print(f"재질의 전 keyword: {processed_response.get('keyword', '없음')}")
-                print(f"재질의 전 sentiment: {processed_response.get('sentiment', '없음')}")
+                # 재질의 발생 로그 기록
+                original_length = len(processed_summary.replace('[재질의 필요] ', ''))
+                
+                # 로그 파일에 재질의 발생 기록
+                log_gemma_query(f"🔄 재질의 필요 감지: {processed_summary}", "requery_detection")
+                log_gemma_query(f"📏 원본 요약 길이: {original_length}바이트 (120바이트 초과)", "requery_detection")
+                log_gemma_query(f"📝 재질의 이유: 요약이 너무 길어서 압축 재질의 필요", "requery_detection")
+                log_gemma_query(f"재질의 전 processed_response: {json.dumps(processed_response, ensure_ascii=False, indent=2)}", "requery_detection")
+                log_gemma_query(f"재질의 전 keyword: {processed_response.get('keyword', '없음')}", "requery_detection")
+                log_gemma_query(f"재질의 전 sentiment: {processed_response.get('sentiment', '없음')}", "requery_detection")
                 
                 # 재질의용 프롬프트 생성 (이미 처리된 summary를 재질의)
                 # [재질의 필요] 문구 제거
@@ -452,43 +471,74 @@ def process_request(data: dict) -> dict:
                 )
                 
                 # 재질의 수행
+                start_time = time.time()
+                log_gemma_query(f"🔄 재질의 시작...", "requery_start")
+                
                 config = get_config()
                 llm = get_llm_instance()
+                
+                # 재질의용 max_tokens 설정 (기본값 사용)
+                requery_max_tokens = config.get('DEFAULT_MAX_TOKENS', 500)
+                
+                # 재질의 시작 로그
+                log_gemma_query(requery_prompt, "requery_prompt")
+                
                 requery_response = llm(
                     requery_prompt,
-                    max_tokens=100,
-                    temperature=0.3,
-                    stop=["\n\n", "```"]
+                    max_tokens=requery_max_tokens,
+                    temperature=0.3,  # 매우 낮은 temperature로 일관성 극대화
+                    min_p=0.1,  # 더 엄격한 최소 확률
+                    top_p=0.8,  # 더 낮은 top_p로 일관성 향상
+                    top_k=20,  # 더 좁은 토큰 선택 범위
+                    repeat_penalty=1.05,  # 반복 방지 강화
+                    echo=False
                 )
                 
+                end_time = time.time()
+                requery_time = end_time - start_time
+                
                 requery_summary = requery_response['choices'][0]['text'].strip()
-                print(f"재질의 결과: {requery_summary}")
+                requery_length = len(requery_summary)
+                
+                # 재질의 완료 로그
+                log_gemma_response(f"✅ 재질의 완료 (소요시간: {requery_time:.2f}초)", "requery_result")
+                log_gemma_response(f"📏 재질의 결과 길이: {requery_length}바이트", "requery_result")
+                log_gemma_response(f"📝 재질의 결과: {requery_summary}", "requery_result")
+                log_gemma_response(f"🔄 압축률: {original_length}바이트 → {requery_length}바이트 ({((original_length-requery_length)/original_length*100):.1f}% 단축)", "requery_result")
                 
                 # 재질의 결과를 processed_response의 summary에 직접 설정
                 # 기존 processed_response 구조는 유지하고 summary만 업데이트
-                print(f"재질의 전 processed_response 타입: {type(processed_response)}")
-                print(f"재질의 전 processed_response 키: {list(processed_response.keys())}")
-                print(f"재질의 전 processed_response 전체: {json.dumps(processed_response, ensure_ascii=False, indent=2)}")
+                # 재질의 전후 상태 로그
+                log_gemma_response(f"재질의 전 processed_response 타입: {type(processed_response)}", "requery_processing")
+                log_gemma_response(f"재질의 전 processed_response 키: {list(processed_response.keys())}", "requery_processing")
+                log_gemma_response(f"재질의 전 processed_response 전체: {json.dumps(processed_response, ensure_ascii=False, indent=2)}", "requery_processing")
                 
                 # summary만 업데이트
                 processed_response['summary'] = requery_summary
                 
-                print(f"재질의 후 processed_response: {json.dumps(processed_response, ensure_ascii=False, indent=2)}")
-                print(f"재질의 후 keyword: {processed_response.get('keyword', '없음')}")
-                print(f"재질의 후 sentiment: {processed_response.get('sentiment', '없음')}")
-                print(f"재질의 후 processed_response 타입: {type(processed_response)}")
-                print(f"재질의 후 processed_response 키: {list(processed_response.keys())}")
+                log_gemma_response(f"재질의 후 processed_response: {json.dumps(processed_response, ensure_ascii=False, indent=2)}", "requery_processing")
+                log_gemma_response(f"재질의 후 keyword: {processed_response.get('keyword', '없음')}", "requery_processing")
+                log_gemma_response(f"재질의 후 sentiment: {processed_response.get('sentiment', '없음')}", "requery_processing")
+                log_gemma_response(f"재질의 후 processed_response 타입: {type(processed_response)}", "requery_processing")
+                log_gemma_response(f"재질의 후 processed_response 키: {list(processed_response.keys())}", "requery_processing")
 
                 # 재질의 후처리 수행 (단, [재질의 필요] 태그는 다시 붙이지 않음)
-                print(f"🔍 process_request 재질의 후처리 전: {processed_response}")
+                log_gemma_response(f"🔍 process_request 재질의 후처리 전: {processed_response}", "requery_postprocess")
+                
                 # 재질의 후에는 convert_to_noun_form만 적용하고 [재질의 필요] 태그는 붙이지 않음
                 if 'summary' in processed_response:
-                    original_summary = processed_response['summary']
+                    original_summary_before_noun = processed_response['summary']
                     # convert_to_noun_form만 적용 (길이 체크 없이)
-                    processed_summary = ResponsePostprocessor.convert_to_noun_form(original_summary)
+                    processed_summary = ResponsePostprocessor.convert_to_noun_form(original_summary_before_noun)
                     processed_response['summary'] = processed_summary
-                    print(f"🔍 재질의 후 명사형 변환: '{original_summary}' → '{processed_summary}'")
-                print(f"🔍 process_request 재질의 후처리 후: {processed_response}")
+                    log_gemma_response(f"🔍 재질의 후 명사형 변환: '{original_summary_before_noun}' → '{processed_summary}'", "requery_postprocess")
+                
+                final_length = len(processed_response.get('summary', ''))
+                log_gemma_response(f"🔍 process_request 재질의 후처리 후: {processed_response}", "requery_postprocess")
+                log_gemma_response(f"🎯 재질의 전체 과정 완료: 최종 요약 길이 {final_length}바이트", "requery_complete")
+                
+                # 재질의 전체 과정 완료 로그
+                log_gemma_response(f"[재질의 프로세스 완료] 최종 요약: {processed_response.get('summary', '')}, 최종 길이: {final_length}바이트", "requery_process_complete")
 
             # 최종 결과를 딕셔너리로 사용
             # processed_response는 이미 올바른 구조를 가지고 있으므로 그대로 사용

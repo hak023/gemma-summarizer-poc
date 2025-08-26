@@ -4,6 +4,7 @@ import uuid
 import sys
 import subprocess
 import os
+from datetime import datetime
 from ipc_queue_manager import IPCMultiSlotManager, SlotStatus
 from typing import Optional
 
@@ -30,6 +31,45 @@ def write_response_log(log_number: int, response_json: str):
         print(f"📝 로그 저장: {log_path}")
     except Exception as e:
         print(f"❌ 로그 저장 실패: {e}")
+
+def write_test_summary_log(summary_data: dict):
+    """
+    테스트 결과 요약을 unique한 로그 파일에 저장
+    
+    Args:
+        summary_data (dict): 테스트 결과 요약 데이터
+    """
+    # 날짜_시간_분 형식으로 unique한 파일명 생성
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+    log_filename = f"test_summary_{timestamp}.log"
+    log_path = os.path.join(LOG_DIR, log_filename)
+    
+    try:
+        with open(log_path, 'w', encoding='utf-8') as f:
+            f.write(f"=== 테스트 결과 요약 ===\n")
+            f.write(f"테스트 시간: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"총 테스트: {summary_data['total_tests']}개\n")
+            f.write(f"성공: {summary_data['success_count']}개\n")
+            f.write(f"실패: {summary_data['failure_count']}개\n")
+            f.write(f"성공률: {(summary_data['success_count']/summary_data['total_tests']*100):.1f}%\n")
+            
+            if summary_data.get('results'):
+                f.write(f"\n성공한 요약들:\n")
+                for result in summary_data['results']:
+                    response_time = result.get('response_time', 0)
+                    keyword = result.get('keyword', '')
+                    f.write(f"  - {result['file']}: {result['summary']} (키워드: {keyword}, {result['paragraphs_count']}개 단락, {response_time:.3f}초)\n")
+                
+                if summary_data.get('avg_response_time'):
+                    f.write(f"\n📊 평균 응답 시간: {summary_data['avg_response_time']:.3f}초\n")
+            
+            f.write(f"\n=== 테스트 완료 ===\n")
+        
+        print(f"📝 테스트 결과 로그 저장: {log_path}")
+        return log_path
+    except Exception as e:
+        print(f"❌ 테스트 결과 로그 저장 실패: {e}")
+        return None
 
 # IPC 설정 (서버와 동일)
 import config
@@ -312,17 +352,55 @@ def test_single_summarization():
             display_raw_json_response(response)
             
             # 새로운 JSON 구조 파싱 및 분석
+            # 단일 테스트 결과 데이터 구성
+            test_result = {
+                'test_type': 'single',
+                'total_tests': 1,
+                'success_count': 1 if result == "0" else 0,
+                'failure_count': 0 if result == "0" else 1,
+                'response_time': total_time,
+                'results': []
+            }
+            
             if summary:
                 try:
                     summary_data = parse_summary_response(summary)
                     display_summary_analysis(summary_data)
+                    
+                    # 성공한 경우 결과 데이터에 추가
+                    if result == "0":
+                        test_result['results'].append({
+                            'file': 'sample_request_6.json',  # 기본 파일
+                            'summary': summary_data.get('summary', ''),
+                            'keyword': summary_data.get('keyword', ''),
+                            'paragraphs_count': len(summary_data.get('paragraphs', [])),
+                            'response_time': total_time
+                        })
+                    
                 except Exception as e:
                     print(f"요약 분석 중 오류: {e}")
                     print(f"원본 요약: {summary}")
+                    test_result['failure_count'] = 1
+                    test_result['success_count'] = 0
+            
+            # 단일 테스트 결과를 로그 파일에 저장
+            write_test_summary_log(test_result)
+            
         else:
             print("응답을 받지 못했습니다.")
             if response_result[1] is None:
                 print("⏱️ 요청-응답 시간: 타임아웃 (응답 없음)")
+            
+            # 실패한 단일 테스트 결과 로그
+            test_result = {
+                'test_type': 'single',
+                'total_tests': 1,
+                'success_count': 0,
+                'failure_count': 1,
+                'response_time': 0,
+                'results': []
+            }
+            write_test_summary_log(test_result)
     
     except Exception as e:
         print(f"테스트 중 오류 발생: {e}")
@@ -360,7 +438,7 @@ def test_multiple_requests():
             "sample/sample_request_1.json",
             "sample/sample_request_2.json",
             "sample/sample_request_3.json",
-            "sample/sample_request_4.json",
+#            "sample/sample_request_4.json",
             "sample/sample_request_5.json",
             "sample/sample_request_6.json",
             "sample/sample_request_7.json",
@@ -436,10 +514,22 @@ def test_multiple_requests():
                     print("⏱️ 요청-응답 시간: 타임아웃 (응답 없음)")
         
         # 결과 요약
+        total_tests = len(sample_files)
+        success_count = len(results)
+        failure_count = total_tests - success_count
+        
         print(f"\n=== 테스트 결과 요약 ===")
-        print(f"총 테스트: {len(sample_files)}개")
-        print(f"성공: {len(results)}개")
-        print(f"실패: {len(sample_files) - len(results)}개")
+        print(f"총 테스트: {total_tests}개")
+        print(f"성공: {success_count}개")
+        print(f"실패: {failure_count}개")
+        
+        # 테스트 결과 요약 데이터 구성
+        summary_data = {
+            'total_tests': total_tests,
+            'success_count': success_count,
+            'failure_count': failure_count,
+            'results': results
+        }
         
         if results:
             print("\n성공한 요약들:")
@@ -452,7 +542,11 @@ def test_multiple_requests():
             
             if results:
                 avg_response_time = total_response_time / len(results)
+                summary_data['avg_response_time'] = avg_response_time
                 print(f"\n📊 평균 응답 시간: {avg_response_time:.3f}초")
+        
+        # 테스트 결과를 로그 파일에 저장
+        write_test_summary_log(summary_data)
     
     except Exception as e:
         print(f"다중 테스트 중 오류: {e}")

@@ -27,8 +27,6 @@ $env:IPC_LOCK_TIMEOUT = "10.0"
 $env:MODEL_TIMEOUT = "180.0"
 
 # 성능 최적화 설정
-$env:ENABLE_FAST_MODE = "false"  # true로 변경하면 빠른 모드 활성화
-$env:FAST_MODE_MAX_TOKENS = "300"
 
 # 파일 경로 설정
 $env:WORKSPACE_DIR = Get-Location

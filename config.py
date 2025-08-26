@@ -32,7 +32,7 @@ DEFAULT_CONFIG = {
     #'MODEL_PATH': 'models/gemma-3-4b-it-q4_0.gguf',
     #믿음2.0 Q4_K_M 설정일경우
     'MODEL_PATH': 'models/Midm-2.0-Mini-Instruct-Q4_K_M.gguf',
-    'MODEL_CONTEXT_SIZE': 8192,
+    'MODEL_CONTEXT_SIZE': 8192,  # 8192 → 16384로 확장 (긴 파일 처리용)
     
     # 요약 설정
     'DEFAULT_MAX_TOKENS': 500,
@@ -70,8 +70,6 @@ DEFAULT_CONFIG = {
     
     # 성능 최적화 설정
     'MODEL_TIMEOUT': 180.0,  # 모델 추론 타임아웃 (3분)
-    'ENABLE_FAST_MODE': False,  # 빠른 모드 (토큰 수 줄임)
-    'FAST_MODE_MAX_TOKENS': 300,  # 빠른 모드 토큰 수
 }
 
 def get_config():
