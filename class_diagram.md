@@ -21,16 +21,12 @@ classDiagram
     }
 
     class ResponsePostprocessor {
-        +process_call_purpose(value: str) str
         +process_summary(value: str) str
-        +process_summary_no_limit(value: str) str
         +process_keywords(value: str) str
-        +process_main_content(value: str) str
-        +process_emotion(value: str) str
-        +process_caller_info(value: str) str
-        +process_action_after_call(value: str) str
+        +process_paragraphs(paragraphs: List[Dict]) List[Dict]
         +process_response(response_data: Dict[str, Any]) Dict[str, Any]
-        +process_response_to_json(response_data: Dict[str, Any]) str
+        +convert_to_noun_form(text: str) str
+        +apply_requery_logic(summary: str) str
     }
 
     class IPCMultiSlotManager {
@@ -93,6 +89,12 @@ classDiagram
         +correct_conversation_with_gemma(text: str) str
     }
 
+    class JSONRepair {
+        +extract_json_from_markdown(content: str) str
+        +process_and_repair_json(json_str: str) str
+        +extract_valid_data_from_broken_json(broken_json: str) str
+    }
+
     class QueueManager {
         -request_queue: Queue
         -response_queue: Queue
@@ -110,6 +112,7 @@ classDiagram
     GemmaSummarizer --> Config : uses
     GemmaSummarizer --> Logger : uses
     GemmaSummarizer --> LLMUtils : uses
+    GemmaSummarizer --> JSONRepair : uses
 
     IPCMultiSlotManager --> IPCSlot : contains
     IPCMultiSlotManager --> SlotStatus : uses
@@ -192,37 +195,34 @@ classDiagram
     class ResponsePostprocessor {
         <<utility>>
         
-        +process_call_purpose(value: str) str
         +process_summary(value: str) str
-        +process_summary_no_limit(value: str) str
         +process_keywords(value: str) str
-        +process_main_content(value: str) str
-        +process_emotion(value: str) str
-        +process_caller_info(value: str) str
-        +process_action_after_call(value: str) str
+        +process_paragraphs(paragraphs: List[Dict]) List[Dict]
         +process_response(response_data: Dict[str, Any]) Dict[str, Any]
-        +process_response_to_json(response_data: Dict[str, Any]) str
+        +convert_to_noun_form(text: str) str
+        +apply_requery_logic(summary: str) str
         
         -_filter_example_content(value: str, patterns: List[str]) bool
         -_truncate_text(text: str, max_length: int) str
         -_clean_text(text: str) str
-        -_validate_emotion(emotion: str) str
+        -_validate_sentiment(sentiment: str) str
+        -_check_requery_needed(summary: str) bool
     }
 
     class SummaryResponse {
         +summary: str
-        +summary_no_limit: str
         +keyword: str
-        +call_purpose: str
-        +my_main_content: str
-        +caller_main_content: str
-        +my_emotion: str
-        +caller_emotion: str
-        +caller_info: str
-        +my_action_after_call: str
+        +paragraphs: List[Paragraph]
+    }
+
+    class Paragraph {
+        +summary: str
+        +keyword: str
+        +sentiment: str
     }
 
     ResponsePostprocessor --> SummaryResponse : processes
+    SummaryResponse --> Paragraph : contains
 ```
 
 ### 4. IPC 시스템 클래스들
@@ -421,8 +421,8 @@ classDiagram
 
 ### 3. ResponsePostprocessor (유틸리티 클래스)
 - **역할**: 응답 후처리 및 필터링
-- **주요 기능**: 필드별 처리, 예시 내용 필터링, 길이 제한
-- **특징**: 10개 필드별 전용 처리 로직
+- **주요 기능**: 3개 필드 처리 (summary, keyword, paragraphs), 동사→명사 변환, 재질의 로직
+- **특징**: JSON 복구 시스템과 연동, 120byte 초과 시 재질의 적용
 
 ### 4. IPCMultiSlotManager (IPC 관리자)
 - **역할**: 멀티슬롯 IPC 시스템 관리
@@ -448,5 +448,10 @@ classDiagram
 - **역할**: LLM 관련 공통 기능
 - **주요 기능**: 대화 내용 보정, 텍스트 처리
 - **특징**: 재사용 가능한 유틸리티 함수들
+
+### 9. JSONRepair (JSON 복구 시스템)
+- **역할**: JSON 파싱 오류 처리 및 복구
+- **주요 기능**: 마크다운에서 JSON 추출, 잘린 JSON 복구, 구문 오류 수정
+- **특징**: 다단계 복구 로직, aggressive 복구 모드 지원
 
 이 클래스 다이어그램을 통해 통화 요약 시스템의 전체적인 구조와 각 클래스 간의 관계를 명확하게 이해할 수 있습니다. 

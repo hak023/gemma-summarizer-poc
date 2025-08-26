@@ -33,7 +33,7 @@ sequenceDiagram
     Gemma->>Gemma: 모델 인스턴스 확인 (싱글톤)
     alt 모델이 로드되지 않은 경우
         Gemma->>Gemma: Llama 모델 초기화
-        Gemma->>Gemma: 모델 로딩 (gemma-3-1b-it-Q8_0.gguf)
+        Gemma->>Gemma: 모델 로딩 (Midm-2.0-Mini-Instruct-Q4_K_M.gguf)
     end
     Gemma->>Gemma: 프롬프트 생성 (Few-shot 기법)
     Gemma->>Gemma: 모델 호출 (llama_cpp)
@@ -43,16 +43,14 @@ sequenceDiagram
     
     Note over Postprocessor: 5. 후처리 단계
     IPC->>Postprocessor: 후처리 요청
-    Postprocessor->>Postprocessor: summary 필드 처리 (20자 제한)
-    Postprocessor->>Postprocessor: summary_no_limit 필드 처리
-    Postprocessor->>Postprocessor: keyword 필드 처리 (5개 제한)
-    Postprocessor->>Postprocessor: call_purpose 필드 처리 (20자 제한)
-    Postprocessor->>Postprocessor: my_main_content 필드 처리
-    Postprocessor->>Postprocessor: caller_main_content 필드 처리
-    Postprocessor->>Postprocessor: my_emotion 필드 처리
-    Postprocessor->>Postprocessor: caller_emotion 필드 처리
-    Postprocessor->>Postprocessor: caller_info 필드 처리
-    Postprocessor->>Postprocessor: my_action_after_call 필드 처리
+    Postprocessor->>Postprocessor: summary 필드 처리 (길이 제한)
+    Postprocessor->>Postprocessor: keyword 필드 처리 (형식 통일)
+    Postprocessor->>Postprocessor: paragraphs 필드 처리
+    Postprocessor->>Postprocessor: 각 paragraph의 summary 처리
+    Postprocessor->>Postprocessor: 각 paragraph의 keyword 처리
+    Postprocessor->>Postprocessor: 각 paragraph의 sentiment 처리
+    Postprocessor->>Postprocessor: 재질의 로직 적용 (120byte 초과 시)
+    Postprocessor->>Postprocessor: 동사 어미를 명사형으로 변환
     Postprocessor->>Postprocessor: 예시 내용 필터링
     Postprocessor->>IPC: 후처리된 JSON 반환
     
@@ -210,58 +208,29 @@ sequenceDiagram
 
     Note over IPC,Fields: 응답 후처리 과정
     IPC->>Postprocessor: 원본 JSON 응답 후처리 요청
-    Note right of IPC: {summary, summary_no_limit, keyword, ...}
+    Note right of IPC: {summary, keyword, paragraphs}
 
     Note over Postprocessor: 필드별 순차 처리
     Postprocessor->>Fields: summary 필드 처리
-    Fields->>Fields: 20자 제한 적용
+    Fields->>Fields: 재질의 로직 (120byte 초과 시 [재질의 필요] 태그)
+    Fields->>Fields: 동사 어미를 명사형으로 변환
     Fields->>Fields: 예시 내용 필터링
-    Fields->>Fields: 문장 정리
     Fields->>Postprocessor: 처리된 summary
-
-    Postprocessor->>Fields: summary_no_limit 필드 처리
-    Fields->>Fields: 예시 내용 필터링 강화
-    Fields->>Fields: 공백 정리
-    Fields->>Postprocessor: 처리된 summary_no_limit
 
     Postprocessor->>Fields: keyword 필드 처리
     Fields->>Fields: 쉼표로 분리
     Fields->>Fields: 중복 제거
-    Fields->>Fields: 5개로 제한
+    Fields->>Fields: 형식 통일
     Fields->>Postprocessor: 처리된 keyword
 
-    Postprocessor->>Fields: call_purpose 필드 처리
-    Fields->>Fields: 20자 제한 적용
-    Fields->>Fields: 단어 단위 자르기
-    Fields->>Postprocessor: 처리된 call_purpose
-
-    Postprocessor->>Fields: my_main_content 필드 처리
-    Fields->>Fields: 예시 내용 필터링
-    Fields->>Fields: 텍스트 정리
-    Fields->>Postprocessor: 처리된 my_main_content
-
-    Postprocessor->>Fields: caller_main_content 필드 처리
-    Fields->>Fields: 예시 내용 필터링
-    Fields->>Fields: 텍스트 정리
-    Fields->>Postprocessor: 처리된 caller_main_content
-
-    Postprocessor->>Fields: my_emotion 필드 처리
-    Fields->>Fields: 감정 값 검증
-    Fields->>Fields: 기본값 설정
-    Fields->>Postprocessor: 처리된 my_emotion
-
-    Postprocessor->>Fields: caller_emotion 필드 처리
-    Fields->>Fields: 감정 값 검증
-    Fields->>Fields: 기본값 설정
-    Fields->>Postprocessor: 처리된 caller_emotion
-
-    Postprocessor->>Fields: caller_info 필드 처리
-    Fields->>Fields: 빈 문자열 처리
-    Fields->>Postprocessor: 처리된 caller_info
-
-    Postprocessor->>Fields: my_action_after_call 필드 처리
-    Fields->>Fields: "없음" 기본값 설정
-    Fields->>Postprocessor: 처리된 my_action_after_call
+    Postprocessor->>Fields: paragraphs 필드 처리
+    Fields->>Fields: 각 paragraph 순회
+    loop 각 paragraph 처리
+        Fields->>Fields: paragraph.summary 처리 (동사→명사 변환)
+        Fields->>Fields: paragraph.keyword 처리 (형식 통일)
+        Fields->>Fields: paragraph.sentiment 처리 (값 검증)
+    end
+    Fields->>Postprocessor: 처리된 paragraphs
 
     Postprocessor->>IPC: 최종 후처리된 JSON 반환
     Note right of Postprocessor: 모든 필드가 검증되고 정리된 JSON
@@ -290,8 +259,8 @@ sequenceDiagram
 - **중복 제거**: 다양한 중복 제거 로직
 
 ### 5. 상세 후처리 시퀀스 다이어그램
-- **10개 필드 처리**: 각 필드별 전용 처리 로직
+- **3개 필드 처리**: summary, keyword, paragraphs 필드별 전용 처리 로직
 - **순차 처리**: 필드별 순서대로 처리
-- **검증 및 정리**: 길이 제한, 예시 내용 필터링, 기본값 설정
+- **검증 및 정리**: 재질의 로직, 동사→명사 변환, 감정값 검증, 형식 통일
 
 이 시퀀스 다이어그램들을 통해 통화 요약 시스템의 전체적인 데이터 흐름과 각 컴포넌트 간의 상호작용을 명확하게 이해할 수 있습니다. 

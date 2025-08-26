@@ -132,16 +132,20 @@ sequenceDiagram
 
 ```json
 {
-  "summary": "20자 이내 핵심 요약",
-  "summary_no_limit": "상세한 통화 내용 요약",
-  "keyword": "키워드1, 키워드2, 키워드3, 키워드4, 키워드5",
-  "call_purpose": "20자 이내 통화 목적",
-  "my_main_content": "나의 주요 발언 내용",
-  "caller_main_content": "상대방 주요 발언 내용",
-  "my_emotion": "보통/만족/불만/화남/신남/우려",
-  "caller_emotion": "보통/만족/불만/화남/신남/우려",
-  "caller_info": "상대방 신상 정보",
-  "my_action_after_call": "통화 후 할 일"
+  "summary": "통화 핵심 요약",
+  "keyword": "키워드1, 키워드2, 키워드3",
+  "paragraphs": [
+    {
+      "summary": "첫 번째 문단 요약",
+      "keyword": "키워드1, 키워드2",
+      "sentiment": "강한긍정/약한긍정/보통/약한부정/강한부정"
+    },
+    {
+      "summary": "두 번째 문단 요약",
+      "keyword": "키워드3, 키워드4",
+      "sentiment": "보통"
+    }
+  ]
 }
 ```
 
