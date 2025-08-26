@@ -74,7 +74,7 @@ def kill_previous_processes():
     except Exception as e:
         print(f"프로세스 종료 중 오류: {e}")
 
-def load_sample_request(file_path: str = "sample/sample_request_17.json") -> dict:
+def load_sample_request(file_path: str = "sample/sample_request_6.json") -> dict:
     """샘플 요청 JSON 파일 로드"""
     try:
         if not os.path.exists(file_path):
