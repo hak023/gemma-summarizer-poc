@@ -1,11 +1,11 @@
-# Gemma Summarizer
+# 믿음2.0 Summarizer
 
-Gemma 3-1B 8Q 모델을 사용하여 통화 내용을 요약하는 프로그램입니다. IPC(Inter-Process Communication)를 통해 멀티슬롯 요청 처리를 지원하며, STT(Speech-to-Text) 결과를 전처리하고 구조화된 JSON 응답을 생성합니다. 1B 8Q 모델에 최적화된 프롬프트와 파라미터를 사용하여 안정적인 성능을 제공합니다.
+믿음2.0 모델을 사용하여 통화 내용을 요약하는 프로그램입니다. IPC(Inter-Process Communication)를 통해 멀티슬롯 요청 처리를 지원하며, STT(Speech-to-Text) 결과를 전처리하고 구조화된 JSON 응답을 생성합니다. 믿음2.0 모델에 최적화된 프롬프트와 파라미터를 사용하여 안정적인 성능을 제공합니다.
 
 ## 주요 기능
 
-- ✅ **AI 기반 텍스트 요약**: Gemma 3-1B 8Q 모델 사용
-- ✅ **1B 8Q 모델 최적화**: 간단한 프롬프트와 최적화된 파라미터
+- ✅ **AI 기반 텍스트 요약**: 믿음2.0 모델 사용
+- ✅ **믿음2.0 모델 최적화**: 간단한 프롬프트와 최적화된 파라미터
 - ✅ **멀티슬롯 IPC**: 동시 다중 요청 처리
 - ✅ **싱글톤 모델 로딩**: 성능 최적화
 - ✅ **UTF-8 디코딩 오류 방지**: 안정적인 데이터 처리
@@ -30,7 +30,7 @@ Gemma 3-1B 8Q 모델을 사용하여 통화 내용을 요약하는 프로그램�
 
 ### 처리 단계
 1. **전처리 단계**: STT 결과 파싱 → 화자 구분 → 중복 제거 → 텍스트 정리
-2. **Gemma 모델 요약**: 프롬프트 생성 → 모델 호출 → JSON 파싱 → 필드 검증
+2. **믿음2.0 모델 요약**: 프롬프트 생성 → 모델 호출 → JSON 파싱 → 필드 검증
 3. **후처리 단계**: 필드별 후처리 → 예시 내용 필터링 → 길이 제한 적용 → 기본값 설정
 4. **재처리 단계**: 긴 요약 결과 감지 → 자동 재질의 → 압축된 요약 생성
 
@@ -56,7 +56,7 @@ mkdir models
 # 현재 기본 모델: Midm-2.0-Mini (권장)
 # Midm-2.0-Mini-Instruct-Q4_K_M.gguf 파일을 models/ 디렉토리에 저장
 
-# 또는 Gemma 모델들 (Hugging Face에서)
+# 또는 Gemma 모델들 (Hugging Face에서 - 지원 중단)
 # gemma-3-1b-it-Q8_0.gguf
 # gemma-3-4b-it-q4_0.gguf
 ```
@@ -79,7 +79,7 @@ python gemma_summarizer_multi.py
 
 ### 방법 2: 직접 환경 변수 설정
 ```powershell
-$env:MODEL_PATH = "models/gemma-3-1b-it-Q8_0.gguf"
+$env:MODEL_PATH = "models/Midm-2.0-Mini-Instruct-Q4_K_M.gguf"
 $env:MODEL_CONTEXT_SIZE = "2048"
 $env:DEFAULT_MAX_TOKENS = "100"
 $env:THREADS = "4"
@@ -213,13 +213,13 @@ python ipc_client_test.py multi
 ### 기타 설정
 | 환경 변수 | 기본값 | 설명 |
 |-----------|--------|------|
-| OUTPUT_FILE | gemma_summary.txt | 출력 파일명 |
+| OUTPUT_FILE | mideum_summary.txt | 출력 파일명 |
 | LOG_LEVEL | INFO | 로그 레벨 |
 
 ### 지원 모델
 - **Midm-2.0-Mini** (현재 기본): `models/Midm-2.0-Mini-Instruct-Q4_K_M.gguf`
-- **Gemma-3-1B**: `models/gemma-3-1b-it-Q8_0.gguf` (주석 처리됨)
-- **Gemma-3-4B**: `models/gemma-3-4b-it-q4_0.gguf` (주석 처리됨)
+- **Gemma-3-1B**: `models/gemma-3-1b-it-Q8_0.gguf` (지원 중단)
+- **Gemma-3-4B**: `models/gemma-3-4b-it-q4_0.gguf` (지원 중단)
 
 ## IPC (Inter-Process Communication) 기능
 
@@ -255,8 +255,8 @@ python ipc_client_test.py multi
 }
 ```
 
-#### Gemma 모델 응답 형식 (JSON)
-Gemma 모델은 1B 8Q 모델에 최적화된 구조화된 JSON 형식으로 응답합니다:
+#### 믿음2.0 모델 응답 형식 (JSON)
+믿음2.0 모델은 최적화된 구조화된 JSON 형식으로 응답합니다:
 ```json
 {
     "summary": "통화 핵심 요약",
@@ -339,20 +339,20 @@ gemma_summarizer_new/
 ├── set_env.ps1                  # PowerShell 환경 설정
 ├── set_env.bat                  # Command Prompt 환경 설정
 ├── models/                      # 모델 파일 디렉토리
-│   └── gemma-3-1b-it-Q8_0.gguf  # Gemma 모델 (별도 다운로드)
+│   └── Midm-2.0-Mini-Instruct-Q4_K_M.gguf  # 믿음2.0 모델 (별도 다운로드)
 ├── sample/                      # 샘플 요청 데이터
 │   ├── sample_request_1.json
 │   ├── sample_request_2.json
 │   └── ... (17개 샘플 파일)
 └── logs/                        # 로그 파일 디렉토리
-    └── gemma_summarizer_YYYYMMDD.txt
+    └── mideum_summarizer_YYYYMMDD.txt
 ```
 
 ## 주요 모듈 설명
 
 ### gemma_summarizer.py
 - **싱글톤 모델 관리**: 전역 모델 인스턴스 관리
-- **1B 8Q 최적화**: 간단하고 명확한 프롬프트 생성
+- **믿음2.0 최적화**: 간단하고 명확한 프롬프트 생성
 - **JSON 파싱**: 다양한 형태의 JSON 응답을 안정적으로 파싱
 - **필드 검증**: 필수 필드 확인 및 기본값 설정
 - **자동 재처리**: 긴 요약 결과에 대한 자동 재질의 및 압축
@@ -437,8 +437,8 @@ gemma_summarizer_new/
 - ✅ **로깅 개선**: CPU 제한 설정 및 재처리 과정 상세 로깅
 
 ### v1.3.0 (2025-07-25)
-- ✅ **1B 8Q 모델 최적화**: 간단한 프롬프트와 최적화된 파라미터 적용
-- ✅ **모델 파라미터 조정**: temperature, max_tokens 등 1B 8Q 모델에 맞게 최적화
+- ✅ **믿음2.0 모델 최적화**: 간단한 프롬프트와 최적화된 파라미터 적용
+- ✅ **모델 파라미터 조정**: temperature, max_tokens 등 믿음2.0 모델에 맞게 최적화
 - ✅ **postprocessor.py 개선**: 불필요한 필드 제거 및 타입 안전성 강화
 - ✅ **형식 통일**: paragraphs 내 keyword 필드 형식 통일 (리스트 → 쉼표 구분 문자열)
 - ✅ **오류 처리 개선**: 더 안전한 예외 처리 및 기본값 제공
@@ -456,7 +456,7 @@ gemma_summarizer_new/
 - ✅ **샘플 데이터 확장**: 17개의 다양한 테스트 케이스 추가
 
 ### v1.1.0 (2025-07-15)
-- ✅ Gemma 모델 JSON 응답 형식 적용
+- ✅ 믿음2.0 모델 JSON 응답 형식 적용
 - ✅ 요약 결과를 "summary" 키로 표준화
 - ✅ 연동규격 업데이트 (transactionid, sequenceno 기반)
 - ✅ JSON 파싱 오류 처리 강화

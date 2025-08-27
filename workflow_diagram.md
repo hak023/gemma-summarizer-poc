@@ -5,7 +5,7 @@
 ```mermaid
 graph TB
     A[STT 결과 데이터] --> B[전처리 단계]
-    B --> C[Gemma 모델 요약]
+    B --> C[믿음2.0 모델 요약]
     C --> D[후처리 단계]
     D --> E[최종 JSON 응답]
     
@@ -16,7 +16,7 @@ graph TB
         B4 --> B5[대화 형태 변환]
     end
     
-    subgraph "Gemma 모델 요약 (gemma_summarizer.py)"
+    subgraph "믿음2.0 모델 요약 (gemma_summarizer.py)"
         C1[프롬프트 생성] --> C2[모델 호출]
         C2 --> C3[JSON 파싱]
         C3 --> C4[필드 검증]
@@ -48,7 +48,7 @@ flowchart TD
     LoadModel -->|모델 있음| CreatePrompt[프롬프트 생성]
     InitModel --> CreatePrompt
     
-    CreatePrompt --> CallGemma[Gemma 모델 호출]
+    CreatePrompt --> CallGemma[믿음2.0 모델 호출]
     CallGemma --> ParseJSON[JSON 응답 파싱]
     ParseJSON --> ValidateFields{필드 검증}
     
@@ -81,7 +81,7 @@ sequenceDiagram
     participant Client as 클라이언트
     participant API as API 서버
     participant Preprocessor as 전처리기
-    participant Gemma as Gemma 모델
+    participant Gemma as 믿음2.0 모델
     participant Postprocessor as 후처리기
     
     Client->>API: STT 결과 데이터 전송
@@ -116,7 +116,7 @@ sequenceDiagram
 - **중복 제거**: 연속된 동일 발화, 짧은 반복 발화 제거
 - **텍스트 정리**: 특수문자, 불필요한 공백 제거
 
-### 2. Gemma 요약기 (gemma_summarizer.py)
+### 2. 믿음2.0 요약기 (gemma_summarizer.py)
 - **모델 관리**: 싱글톤 패턴으로 Llama 모델 인스턴스 관리
 - **프롬프트 생성**: Few-shot 기법을 이용한 구조화된 프롬프트
 - **JSON 파싱**: 다양한 형태의 JSON 응답을 안정적으로 파싱

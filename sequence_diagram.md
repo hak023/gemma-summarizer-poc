@@ -7,7 +7,7 @@ sequenceDiagram
     participant Client as 클라이언트
     participant IPC as IPC 서버
     participant Preprocessor as 전처리기
-    participant Gemma as Gemma 모델
+    participant Gemma as 믿음2.0 모델
     participant Postprocessor as 후처리기
     participant Logger as 로거
 
@@ -28,7 +28,7 @@ sequenceDiagram
     Preprocessor->>Preprocessor: 대화 형태 변환
     Preprocessor->>IPC: 전처리된 대화 텍스트 반환
     
-    Note over Gemma: 4. Gemma 모델 요약
+    Note over Gemma: 4. 믿음2.0 모델 요약
     IPC->>Gemma: 요약 요청
     Gemma->>Gemma: 모델 인스턴스 확인 (싱글톤)
     alt 모델이 로드되지 않은 경우
@@ -72,7 +72,7 @@ sequenceDiagram
     participant Slot1 as 슬롯 1
     participant Slot2 as 슬롯 2
     participant Slot3 as 슬롯 3
-    participant Gemma as Gemma 모델
+    participant Gemma as 믿음2.0 모델
 
     Note over Client1,Gemma: 동시 요청 처리
     Client1->>IPC: 요청 1 전송
@@ -108,7 +108,7 @@ sequenceDiagram
 sequenceDiagram
     participant Client as 클라이언트
     participant IPC as IPC 서버
-    participant Gemma as Gemma 모델
+    participant Gemma as 믿음2.0 모델
     participant Postprocessor as 후처리기
 
     Note over Client,Postprocessor: 정상 처리 경로
@@ -239,7 +239,7 @@ sequenceDiagram
 ## 시퀀스 다이어그램 설명
 
 ### 1. 전체 시스템 시퀀스 다이어그램
-- **6단계 처리**: 요청 시작 → IPC 서버 처리 → 전처리 → Gemma 모델 → 후처리 → 응답 생성
+- **6단계 처리**: 요청 시작 → IPC 서버 처리 → 전처리 → 믿음2.0 모델 → 후처리 → 응답 생성
 - **각 컴포넌트의 역할**: 명확한 책임 분리와 데이터 흐름
 - **로깅 시스템**: 요청/응답 로그 기록
 
