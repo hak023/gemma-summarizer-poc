@@ -381,9 +381,9 @@ classDiagram
         +receive_response() Dict[str, Any]
     }
 
-    %% SLM Agent 프로그램 컴포넌트들
+    %% SLM Agent 컴포넌트들
     class IPCMultiSlotManager {
-        <<SLM Agent 프로그램>>
+        <<SLM Agent>>
         +write_request(data: Dict[str, Any]) int
         +read_request() tuple[int, Dict[str, Any]]
         +write_response(slot_id: int, data: Dict[str, Any]) bool
@@ -391,18 +391,18 @@ classDiagram
     }
 
     class GemmaSummarizer {
-        <<SLM Agent 프로그램>>
+        <<SLM Agent>>
         +process_request(data: dict) dict
         +summarize_with_gemma(text: str) str
     }
 
     class STTPreprocessor {
-        <<SLM Agent 프로그램>>
+        <<SLM Agent>>
         +preprocess_stt_result(data: Dict[str, Any]) str
     }
 
     class ResponsePostprocessor {
-        <<SLM Agent 프로그램>>
+        <<SLM Agent>>
         +process_response(response_data: Dict[str, Any]) Dict[str, Any]
     }
 
@@ -419,9 +419,9 @@ classDiagram
 ### 시스템 구성 요소 구분
 - **외부 프로그램**: `<<외부 프로그램>>` 스테레오타입으로 표시
   - Client: 요약 요청을 보내는 외부 애플리케이션
-- **SLM Agent 프로그램**: `<<SLM Agent 프로그램>>` 스테레오타입으로 표시
+- **SLM Agent**: `<<SLM Agent>>` 스테레오타입으로 표시
   - IPCMultiSlotManager, GemmaSummarizer, STTPreprocessor, ResponsePostprocessor
-  - SLM Agent 프로그램 내의 모든 컴포넌트들
+  - SLM Agent 내의 모든 컴포넌트들
 
 ### 1. GemmaSummarizer (싱글톤 패턴)
 - **역할**: 전체 요약 시스템의 핵심 클래스
