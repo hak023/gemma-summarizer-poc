@@ -6,7 +6,7 @@
 sequenceDiagram
     participant Client as 클라이언트<br/>(외부 프로그램)
     
-    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+    box rgb(200, 220, 255) 믿음2.0 요약 프로그램 (내부)
         participant IPC as IPC 서버
         participant Preprocessor as 전처리기
         participant Gemma as 믿음2.0 모델
@@ -72,7 +72,7 @@ sequenceDiagram
     participant Client2 as 클라이언트 2<br/>(외부 프로그램)
     participant Client3 as 클라이언트 3<br/>(외부 프로그램)
     
-    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+    box rgb(200, 220, 255) 믿음2.0 요약 프로그램 (내부)
         participant IPC as 멀티슬롯 IPC 서버
         participant Slot1 as 슬롯 1
         participant Slot2 as 슬롯 2
@@ -114,7 +114,7 @@ sequenceDiagram
 sequenceDiagram
     participant Client as 클라이언트<br/>(외부 프로그램)
     
-    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+    box rgb(200, 220, 255) 믿음2.0 요약 프로그램 (내부)
         participant IPC as IPC 서버
         participant Gemma as 믿음2.0 모델
         participant Postprocessor as 후처리기
@@ -171,7 +171,7 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+    box rgb(200, 220, 255) 믿음2.0 요약 프로그램 (내부)
         participant IPC as IPC 서버
         participant Preprocessor as 전처리기
         participant STTData as STT 데이터
@@ -213,7 +213,7 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+    box rgb(200, 220, 255) 믿음2.0 요약 프로그램 (내부)
         participant IPC as IPC 서버
         participant Postprocessor as 후처리기
         participant Fields as 필드별 처리기

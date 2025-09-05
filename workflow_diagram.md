@@ -78,11 +78,14 @@ flowchart TD
 
 ```mermaid
 sequenceDiagram
-    participant Client as 클라이언트
-    participant API as API 서버
-    participant Preprocessor as 전처리기
-    participant Gemma as 믿음2.0 모델
-    participant Postprocessor as 후처리기
+    participant Client as 클라이언트<br/>(외부 프로그램)
+    
+    box rgb(200, 220, 255) 믿음2.0 요약 프로그램 (내부)
+        participant API as API 서버
+        participant Preprocessor as 전처리기
+        participant Gemma as 믿음2.0 모델
+        participant Postprocessor as 후처리기
+    end
     
     Client->>API: STT 결과 데이터 전송
     API->>Preprocessor: 데이터 전처리 요청
