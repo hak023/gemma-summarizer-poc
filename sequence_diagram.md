@@ -4,12 +4,15 @@
 
 ```mermaid
 sequenceDiagram
-    participant Client as 클라이언트
-    participant IPC as IPC 서버
-    participant Preprocessor as 전처리기
-    participant Gemma as 믿음2.0 모델
-    participant Postprocessor as 후처리기
-    participant Logger as 로거
+    participant Client as 클라이언트<br/>(외부 프로그램)
+    
+    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+        participant IPC as IPC 서버
+        participant Preprocessor as 전처리기
+        participant Gemma as 믿음2.0 모델
+        participant Postprocessor as 후처리기
+        participant Logger as 로거
+    end
 
     Note over Client,Logger: 1. 요청 시작
     Client->>IPC: STT 결과 데이터 전송
@@ -65,14 +68,17 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    participant Client1 as 클라이언트 1
-    participant Client2 as 클라이언트 2
-    participant Client3 as 클라이언트 3
-    participant IPC as 멀티슬롯 IPC 서버
-    participant Slot1 as 슬롯 1
-    participant Slot2 as 슬롯 2
-    participant Slot3 as 슬롯 3
-    participant Gemma as 믿음2.0 모델
+    participant Client1 as 클라이언트 1<br/>(외부 프로그램)
+    participant Client2 as 클라이언트 2<br/>(외부 프로그램)
+    participant Client3 as 클라이언트 3<br/>(외부 프로그램)
+    
+    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+        participant IPC as 멀티슬롯 IPC 서버
+        participant Slot1 as 슬롯 1
+        participant Slot2 as 슬롯 2
+        participant Slot3 as 슬롯 3
+        participant Gemma as 믿음2.0 모델
+    end
 
     Note over Client1,Gemma: 동시 요청 처리
     Client1->>IPC: 요청 1 전송
@@ -106,10 +112,13 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    participant Client as 클라이언트
-    participant IPC as IPC 서버
-    participant Gemma as 믿음2.0 모델
-    participant Postprocessor as 후처리기
+    participant Client as 클라이언트<br/>(외부 프로그램)
+    
+    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+        participant IPC as IPC 서버
+        participant Gemma as 믿음2.0 모델
+        participant Postprocessor as 후처리기
+    end
 
     Note over Client,Postprocessor: 정상 처리 경로
     Client->>IPC: 요청 전송
@@ -162,9 +171,11 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    participant IPC as IPC 서버
-    participant Preprocessor as 전처리기
-    participant STTData as STT 데이터
+    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+        participant IPC as IPC 서버
+        participant Preprocessor as 전처리기
+        participant STTData as STT 데이터
+    end
 
     Note over IPC,STTData: STT 결과 전처리 과정
     IPC->>Preprocessor: STT 데이터 전처리 요청
@@ -202,9 +213,11 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    participant IPC as IPC 서버
-    participant Postprocessor as 후처리기
-    participant Fields as 필드별 처리기
+    box rgba(200, 220, 255, 0.3) 믿음2.0 요약 프로그램 (내부)
+        participant IPC as IPC 서버
+        participant Postprocessor as 후처리기
+        participant Fields as 필드별 처리기
+    end
 
     Note over IPC,Fields: 응답 후처리 과정
     IPC->>Postprocessor: 원본 JSON 응답 후처리 요청
@@ -238,10 +251,17 @@ sequenceDiagram
 
 ## 시퀀스 다이어그램 설명
 
+### 시스템 구성 요소 구분
+- **외부 프로그램**: 클라이언트 - 요약 요청을 보내는 외부 애플리케이션
+- **내부 프로그램**: 믿음2.0 요약 프로그램 내의 모든 컴포넌트들
+  - IPC 서버, 전처리기, 믿음2.0 모델, 후처리기, 로거
+  - 파란색 박스로 그룹화되어 내부 프로그램임을 명시
+
 ### 1. 전체 시스템 시퀀스 다이어그램
 - **6단계 처리**: 요청 시작 → IPC 서버 처리 → 전처리 → 믿음2.0 모델 → 후처리 → 응답 생성
 - **각 컴포넌트의 역할**: 명확한 책임 분리와 데이터 흐름
 - **로깅 시스템**: 요청/응답 로그 기록
+- **시스템 경계**: 외부 클라이언트와 내부 프로그램 컴포넌트 명확 구분
 
 ### 2. 멀티슬롯 IPC 시퀀스 다이어그램
 - **동시 처리**: 여러 클라이언트의 요청을 동시에 처리

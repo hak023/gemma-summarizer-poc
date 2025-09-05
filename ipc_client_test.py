@@ -438,7 +438,7 @@ def test_multiple_requests():
             "sample/sample_request_1.json",
             "sample/sample_request_2.json",
             "sample/sample_request_3.json",
-#            "sample/sample_request_4.json",
+            "sample/sample_request_4.json",
             "sample/sample_request_5.json",
             "sample/sample_request_6.json",
             "sample/sample_request_7.json",
