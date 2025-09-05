@@ -79,36 +79,31 @@ flowchart TD
 ```mermaid
 sequenceDiagram
     participant Client as 클라이언트<br/>(외부 프로그램)
-    
-    participant API as API 서버
-    participant Preprocessor as 전처리기
-    participant Gemma as 믿음2.0 모델
-    participant Postprocessor as 후처리기
+    participant API as API 서버<br/>(SLM Agent 프로그램)
+    participant Preprocessor as 전처리기<br/>(SLM Agent 프로그램)
+    participant Gemma as 믿음2.0 모델<br/>(SLM Agent 프로그램)
+    participant Postprocessor as 후처리기<br/>(SLM Agent 프로그램)
     
     Client->>API: STT 결과 데이터 전송
+    API->>Preprocessor: 데이터 전처리 요청
     
-    rect rgb(240, 245, 255)
-        Note over API,Postprocessor: 믿음2.0 요약 프로그램 (내부)
-        API->>Preprocessor: 데이터 전처리 요청
-        
-        Preprocessor->>Preprocessor: STT 결과 파싱
-        Preprocessor->>Preprocessor: 화자 구분 (recType)
-        Preprocessor->>Preprocessor: 중복 제거
-        Preprocessor->>Preprocessor: 텍스트 정리
-        Preprocessor->>API: 전처리된 대화 텍스트 반환
-        
-        API->>Gemma: 요약 요청
-        Gemma->>Gemma: 프롬프트 생성
-        Gemma->>Gemma: 모델 호출 (llama_cpp)
-        Gemma->>Gemma: JSON 응답 파싱
-        Gemma->>API: 원본 JSON 응답 반환
-        
-        API->>Postprocessor: 후처리 요청
-        Postprocessor->>Postprocessor: 필드별 후처리
-        Postprocessor->>Postprocessor: 예시 내용 필터링
-        Postprocessor->>Postprocessor: 길이 제한 적용
-        Postprocessor->>API: 후처리된 JSON 반환
-    end
+    Preprocessor->>Preprocessor: STT 결과 파싱
+    Preprocessor->>Preprocessor: 화자 구분 (recType)
+    Preprocessor->>Preprocessor: 중복 제거
+    Preprocessor->>Preprocessor: 텍스트 정리
+    Preprocessor->>API: 전처리된 대화 텍스트 반환
+    
+    API->>Gemma: 요약 요청
+    Gemma->>Gemma: 프롬프트 생성
+    Gemma->>Gemma: 모델 호출 (llama_cpp)
+    Gemma->>Gemma: JSON 응답 파싱
+    Gemma->>API: 원본 JSON 응답 반환
+    
+    API->>Postprocessor: 후처리 요청
+    Postprocessor->>Postprocessor: 필드별 후처리
+    Postprocessor->>Postprocessor: 예시 내용 필터링
+    Postprocessor->>Postprocessor: 길이 제한 적용
+    Postprocessor->>API: 후처리된 JSON 반환
     
     API->>Client: 최종 응답 반환
 ```
