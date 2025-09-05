@@ -5,11 +5,12 @@
 ```mermaid
 sequenceDiagram
     participant Client as 클라이언트
-    participant IPC as IPC 서버
-    participant Preprocessor as 전처리기
-    participant Gemma as 믿음2.0 모델
-    participant Postprocessor as 후처리기
-    participant Logger as 로거
+    rect rgb(240, 245, 255)
+        participant IPC as IPC 서버
+        participant Preprocessor as 전처리기
+        participant Gemma as 믿음2.0 모델
+        participant Postprocessor as 후처리기
+        participant Logger as 로거
 
     Note over Client,Logger: 1. 요청 시작
     Client->>IPC: STT 결과 데이터 전송
