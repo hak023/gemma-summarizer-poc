@@ -23,8 +23,69 @@
 
 ## 시스템 아키텍처
 
-### 데이터 흐름
-![데이터 흐름](데이터%20흐름.png)
+### 전체 시스템 시퀀스 다이어그램
+
+```mermaid
+sequenceDiagram
+    participant Client as 클라이언트
+    participant IPC as IPC 서버
+    participant Preprocessor as 전처리기
+    participant Gemma as 믿음2.0 모델
+    participant Postprocessor as 후처리기
+    participant Logger as 로거
+
+    Note over Client,Logger: 1. 요청 시작
+    Client->>IPC: STT 결과 데이터 전송
+    Note right of Client: {transactionid, sequenceno, text}
+    
+    rect rgb(240, 245, 255)
+        Note over IPC,Logger: SLM Agent
+        Note over IPC: 2. IPC 서버 처리
+        IPC->>IPC: 요청 데이터 검증
+        IPC->>Logger: 요청 로그 기록
+        
+        Note over Preprocessor: 3. 전처리 단계
+        IPC->>Preprocessor: STT 데이터 전처리 요청
+        Preprocessor->>Preprocessor: STT 결과 파싱 (sttResultList)
+        Preprocessor->>Preprocessor: 화자 구분 (recType: 4=나, 2=상대방)
+        Preprocessor->>Preprocessor: 중복 발화 제거
+        Preprocessor->>Preprocessor: 텍스트 정리 (특수문자, 공백)
+        Preprocessor->>Preprocessor: 대화 형태 변환
+        Preprocessor->>IPC: 전처리된 대화 텍스트 반환
+        
+        Note over Gemma: 4. 믿음2.0 모델 요약
+        IPC->>Gemma: 요약 요청
+        Gemma->>Gemma: 모델 인스턴스 확인 (싱글톤)
+        alt 모델이 로드되지 않은 경우
+            Gemma->>Gemma: Llama 모델 초기화
+            Gemma->>Gemma: 모델 로딩 (Midm-2.0-Mini-Instruct-Q4_K_M.gguf)
+        end
+        Gemma->>Gemma: 프롬프트 생성 (Few-shot 기법)
+        Gemma->>Gemma: 모델 호출 (llama_cpp)
+        Gemma->>Gemma: JSON 응답 파싱
+        Gemma->>Gemma: 필드 검증 및 기본값 설정
+        Gemma->>IPC: 원본 JSON 응답 반환
+        
+        Note over Postprocessor: 5. 후처리 단계
+        IPC->>Postprocessor: 후처리 요청
+        Postprocessor->>Postprocessor: summary 필드 처리 (길이 제한)
+        Postprocessor->>Postprocessor: keyword 필드 처리 (형식 통일)
+        Postprocessor->>Postprocessor: paragraphs 필드 처리
+        Postprocessor->>Postprocessor: 각 paragraph의 summary 처리
+        Postprocessor->>Postprocessor: 각 paragraph의 keyword 처리
+        Postprocessor->>Postprocessor: 각 paragraph의 sentiment 처리
+        Postprocessor->>Postprocessor: 재질의 로직 적용 (120byte 초과 시)
+        Postprocessor->>Postprocessor: 동사 어미를 명사형으로 변환
+        Postprocessor->>Postprocessor: 예시 내용 필터링
+        Postprocessor->>IPC: 후처리된 JSON 반환
+        
+        Note over IPC: 6. 응답 생성
+        IPC->>IPC: 최종 응답 데이터 구성
+        IPC->>Logger: 응답 로그 기록
+    end
+    IPC->>Client: 최종 응답 반환
+    Note right of IPC: {transactionid, sequenceno, returncode, response}
+```
 
 전체 시스템의 워크플로우와 데이터 흐름은 [워크플로우 다이어그램](workflow_diagram.md), [시퀀스 다이어그램](sequence_diagram.md), [클래스 다이어그램](class_diagram.md)을 참조하세요.
 
